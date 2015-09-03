@@ -15,6 +15,8 @@
 		70951FA21B989F15006B1228 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70951FA11B989F15006B1228 /* Images.xcassets */; };
 		70951FA51B989F15006B1228 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70951FA31B989F15006B1228 /* LaunchScreen.xib */; };
 		70951FB11B989F15006B1228 /* toaster_objcTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 70951FB01B989F15006B1228 /* toaster_objcTests.m */; };
+		70951FBB1B98A009006B1228 /* Constants.h in Sources */ = {isa = PBXBuildFile; fileRef = 70951FBA1B98A009006B1228 /* Constants.h */; };
+		70D005631B98A882006E746F /* PostsShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D005621B98A882006E746F /* PostsShowViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +45,9 @@
 		70951FAA1B989F15006B1228 /* toaster-objcTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "toaster-objcTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		70951FAF1B989F15006B1228 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		70951FB01B989F15006B1228 /* toaster_objcTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = toaster_objcTests.m; sourceTree = "<group>"; };
+		70951FBA1B98A009006B1228 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		70D005611B98A882006E746F /* PostsShowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostsShowViewController.h; sourceTree = "<group>"; };
+		70D005621B98A882006E746F /* PostsShowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostsShowViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,16 +89,19 @@
 		70951F901B989F15006B1228 /* toaster-objc */ = {
 			isa = PBXGroup;
 			children = (
+				70951F9E1B989F15006B1228 /* Main.storyboard */,
 				70951F951B989F15006B1228 /* AppDelegate.h */,
 				70951F961B989F15006B1228 /* AppDelegate.m */,
 				70951F981B989F15006B1228 /* FirstViewController.h */,
 				70951F991B989F15006B1228 /* FirstViewController.m */,
+				70D005611B98A882006E746F /* PostsShowViewController.h */,
+				70D005621B98A882006E746F /* PostsShowViewController.m */,
 				70951F9B1B989F15006B1228 /* SecondViewController.h */,
 				70951F9C1B989F15006B1228 /* SecondViewController.m */,
-				70951F9E1B989F15006B1228 /* Main.storyboard */,
 				70951FA11B989F15006B1228 /* Images.xcassets */,
 				70951FA31B989F15006B1228 /* LaunchScreen.xib */,
 				70951F911B989F15006B1228 /* Supporting Files */,
+				70951FBA1B98A009006B1228 /* Constants.h */,
 			);
 			path = "toaster-objc";
 			sourceTree = "<group>";
@@ -224,6 +232,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70951FBB1B98A009006B1228 /* Constants.h in Sources */,
+				70D005631B98A882006E746F /* PostsShowViewController.m in Sources */,
 				70951F9D1B989F15006B1228 /* SecondViewController.m in Sources */,
 				70951F971B989F15006B1228 /* AppDelegate.m in Sources */,
 				70951F9A1B989F15006B1228 /* FirstViewController.m in Sources */,
@@ -422,6 +432,7 @@
 				70951FB61B989F15006B1228 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		70951FB71B989F15006B1228 /* Build configuration list for PBXNativeTarget "toaster-objcTests" */ = {
 			isa = XCConfigurationList;
@@ -430,6 +441,7 @@
 				70951FB91B989F15006B1228 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
