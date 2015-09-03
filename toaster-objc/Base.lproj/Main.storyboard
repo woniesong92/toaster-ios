@@ -53,24 +53,9 @@
                     <view key="view" contentMode="scaleToFill" id="3J5-lL-T47">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Blx-6k-TV3">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Blx-6k-TV3" firstAttribute="leading" secondItem="3J5-lL-T47" secondAttribute="leading" id="UuK-nQ-lIW"/>
-                            <constraint firstAttribute="trailing" secondItem="Blx-6k-TV3" secondAttribute="trailing" id="ghH-uY-vB3"/>
-                            <constraint firstItem="Blx-6k-TV3" firstAttribute="top" secondItem="3J5-lL-T47" secondAttribute="top" id="hE7-Pn-Ydz"/>
-                            <constraint firstAttribute="bottom" secondItem="Blx-6k-TV3" secondAttribute="bottom" id="isG-yo-1Vx"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Toast" id="GPi-bY-lSs"/>
-                    <connections>
-                        <outlet property="viewContainer" destination="Blx-6k-TV3" id="Ptz-dN-jiH"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WBa-LR-aeK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

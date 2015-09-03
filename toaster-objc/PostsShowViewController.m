@@ -22,12 +22,48 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-//    [self.viewContainer addSubview: appDelegate.singleWebView];
+//    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+////    [self.viewContainer addSubview: appDelegate.singleWebView];
+////    
+////    CGRect screenRect = [[UIScreen mainScreen] bounds];
+////    UIWebView *tmpWebView = appDelegate.singleWebView;
+////    tmpWebView.frame = screenRect;
+////    
+////    [self.view addSubview:tmpWebView];
+////
+//    UIWebView *webView = appDelegate.singleWebView;
+//    webView.frame = [self view].frame;
+//    webView.delegate = self;
+//    [[self view] addSubview:webView];
     
-    [self.view addSubview:appDelegate.singleWebView];
+//    
+//    UIWebView *tmp = [[UIWebView alloc] initWithFrame:[self view].frame];
+//    tmp.delegate = self;
+//    [[self view] addSubview:tmp];
+//    
+//    NSURL *url = [NSURL URLWithString:@"http://google.com"];
+//    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
+//    [tmp loadRequest:urlRequest];
+    
     
     NSLog(@"PostsSHowVIew will Appear, is Webview ready?");
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    //    [self.viewContainer addSubview: appDelegate.singleWebView];
+    //
+    //    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    //    UIWebView *tmpWebView = appDelegate.singleWebView;
+    //    tmpWebView.frame = screenRect;
+    //
+    //    [self.view addSubview:tmpWebView];
+    //
+    UIWebView *webView = appDelegate.singleWebView;
+    webView.frame = [self view].frame;
+    webView.delegate = self;
+    [[self view] addSubview:webView];
 }
 
 - (void)didReceiveMemoryWarning {
