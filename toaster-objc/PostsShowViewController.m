@@ -10,11 +10,8 @@
 #import "FirstViewController.h"
 #import "AppDelegate.h"
 #import "WebViewManager.h"
-//#import "Constants.h"
 
 @implementation PostsShowViewController
-
-WebViewManager *webViewManager;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -25,15 +22,9 @@ WebViewManager *webViewManager;
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
-    webViewManager = [WebViewManager getUniqueWebViewManager:self];
-    [self.view addSubview: webViewManager.webView];
-    webViewManager.webView.delegate = self;
-    
-//    [webViewManager loadUrlWithString:BASE_URL];
-    
-//    self.webView.delegate = self;
-//    [self.view addSubview:self.webView];
+    _webViewManager = [WebViewManager getUniqueWebViewManager:self];
+    _webViewManager.webView.delegate = self;
+    [self.view addSubview: _webViewManager.webView];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -52,9 +43,11 @@ WebViewManager *webViewManager;
     if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound) {
         // Navigation button was pressed. Do some stuff
         NSLog(@"navigation pressed");
-
+        [_webViewManager.webView goBack];
     }
     [super viewWillDisappear:animated];
+    NSLog(@"removing from PostsShow");
+    [_webViewManager removeWebViewFromContainer];
 }
 
 @end

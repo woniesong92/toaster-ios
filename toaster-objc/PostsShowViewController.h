@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WebViewManager.h"
 
-@interface PostsShowViewController : UIViewController <UIWebViewDelegate>
+@interface PostsShowViewController : UIViewController <UIWebViewDelegate> {
+    WebViewManager *_webViewManager;
+}
 
 @property (strong, nonatomic) UIWebView *webView;
 

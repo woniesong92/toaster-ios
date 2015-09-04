@@ -13,11 +13,7 @@
 @property (strong, nonatomic) UIWebView *webView;
 
 + (id)getUniqueWebViewManager: (UIViewController *)container;
-
 - (void)loadUrlWithString: (NSString *)urlString;
-
-- (UIWebView *) acquireWebView: (id)container;
-
 - (void) removeWebViewFromContainer;
 
 @end

@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WebViewManager.h"
 
-@interface FirstViewController : UIViewController <UIWebViewDelegate>
+@interface FirstViewController : UIViewController <UIWebViewDelegate> {
+    WebViewManager *_webViewManager;
+}
 
 @property (strong, nonatomic) UIWebView *webView;
 

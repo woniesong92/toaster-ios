@@ -16,7 +16,6 @@
 		70951FA21B989F15006B1228 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70951FA11B989F15006B1228 /* Images.xcassets */; };
 		70951FA51B989F15006B1228 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70951FA31B989F15006B1228 /* LaunchScreen.xib */; };
 		70951FB11B989F15006B1228 /* toaster_objcTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 70951FB01B989F15006B1228 /* toaster_objcTests.m */; };
-		70951FBB1B98A009006B1228 /* Constants.h in Sources */ = {isa = PBXBuildFile; fileRef = 70951FBA1B98A009006B1228 /* Constants.h */; };
 		70D005631B98A882006E746F /* PostsShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D005621B98A882006E746F /* PostsShowViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -186,6 +185,7 @@
 				TargetAttributes = {
 					70951F8D1B989F15006B1228 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = T2N24XE45W;
 					};
 					70951FA91B989F15006B1228 = {
 						CreatedOnToolsVersion = 6.4;
@@ -238,7 +238,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				700272331B99C62D00C292A5 /* WebViewManager.m in Sources */,
-				70951FBB1B98A009006B1228 /* Constants.h in Sources */,
 				70D005631B98A882006E746F /* PostsShowViewController.m in Sources */,
 				70951F9D1B989F15006B1228 /* SecondViewController.m in Sources */,
 				70951F971B989F15006B1228 /* AppDelegate.m in Sources */,
@@ -369,9 +368,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "toaster-objc/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -379,9 +381,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "toaster-objc/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

@@ -10,30 +10,43 @@
 #import "PostsShowViewController.h"
 #import "Constants.h"
 #import "AppDelegate.h"
-#import "WebViewManager.h"
 
 @interface FirstViewController ()
-
 @end
 
 @implementation FirstViewController
 
-WebViewManager *webViewManager;
-
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSLog(@"ViewDIdLoad");
+    self.automaticallyAdjustsScrollViewInsets = NO;
     
-    webViewManager = [WebViewManager getUniqueWebViewManager:self];
-    [self.view addSubview: webViewManager.webView];
-    [webViewManager loadUrlWithString:BASE_URL];
+    _webViewManager = [WebViewManager getUniqueWebViewManager:self];
+    _webViewManager.webView.delegate = self;
+    [self.view addSubview: _webViewManager.webView];
+    //    _webViewManager.webView.frame.origin.y = 64;
     
-//    
+    UIEdgeInsets insets = UIEdgeInsetsMake(self.topLayoutGuide.length,
+                                           0.0,
+                                           self.bottomLayoutGuide.length,
+                                           0.0);
+    
+    _webViewManager.webView.scrollView.contentInset = insets;
+    
+    [_webViewManager loadUrlWithString:BASE_URL];
+    
+    
+//    _webViewManager = [WebViewManager getUniqueWebViewManager:self];
+//    _webViewManager.webView.delegate = self;
+//    [self.view addSubview: _webViewManager.webView];
+//    [_webViewManager loadUrlWithString:BASE_URL];
+    
 //    NSURL *url = [NSURL URLWithString:BASE_URL];
 //    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
 //    [tmp loadRequest:urlRequest];
     
-//    [webViewManager acquireWebView:self];
-//    [webViewManager loadUrlWithString:BASE_URL];
+//    [_webViewManager acquireWebView:self];
+//    [_webViewManager loadUrlWithString:BASE_URL];
     
 //    self.webView = [[UIWebView alloc] initWithFrame:self.view.frame];
 //    self.webView.delegate = self;
@@ -45,6 +58,36 @@ WebViewManager *webViewManager;
 
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    NSLog(@"ViewWillAppear");
+    
+    _webViewManager = [WebViewManager getUniqueWebViewManager:self];
+    _webViewManager.webView.delegate = self;
+    [self.view addSubview: _webViewManager.webView];
+//    _webViewManager.webView.frame.origin.y = 64;
+    
+//    UIEdgeInsets insets = UIEdgeInsetsMake(self.topLayoutGuide.length,
+//                                           0.0,
+//                                           self.bottomLayoutGuide.length,
+//                                           0.0);
+//    
+//    _webViewManager.webView.scrollView.contentInset = insets;
+    
+//    [_webViewManager loadUrlWithString:BASE_URL];
+    
+//
+//    CGRect tmp = _webViewManager.webView.frame;
+//    tmp.origin.y = 64.0;
+//    tmp.size.height = _webViewManager.webView.frame.size.height - 64.0;
+//    tmp.size.height -= 64.0;
+//    _webViewManager.webView.frame = tmp;
+    
+
+    
+//    [_webViewManager.webVIew.goBack];
+}
+
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
 }
@@ -52,7 +95,7 @@ WebViewManager *webViewManager;
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear: animated];
     NSLog(@"removing from firstVC");
-    [webViewManager removeWebViewFromContainer];
+    [_webViewManager removeWebViewFromContainer];
 }
 
 - (void)didReceiveMemoryWarning {
