@@ -20,17 +20,7 @@
     [super viewDidLoad];
     NSLog(@"ViewDidLoad");
     self.automaticallyAdjustsScrollViewInsets = NO;
-    
-//    _webViewManager = [WebViewManager getUniqueWebViewManager:self];
-//    _webViewManager.webView.delegate = self;
-//    [self.view addSubview: _webViewManager.webView];
-//    [_webViewManager loadUrlWithString:BASE_URL];
 }
-
-//- (UIRectEdge)edgesForExtendedLayout
-//{
-//    return [super edgesForExtendedLayout] ^ UIRectEdgeBottom;
-//}
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -39,8 +29,6 @@
     _webViewManager = [WebViewManager getUniqueWebViewManager:self];
     _webViewManager.webView.delegate = self;
     [self.view addSubview: _webViewManager.webView];
-
-//    self.edgesForExtendedLayout = UIRectEdgeNone;
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
