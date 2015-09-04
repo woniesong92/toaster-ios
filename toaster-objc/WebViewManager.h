@@ -11,6 +11,7 @@
 @interface WebViewManager : NSObject
 
 @property (strong, nonatomic) UIWebView *webView;
+@property BOOL didLoadUrl;
 
 + (id)getUniqueWebViewManager: (UIViewController *)container;
 - (void)loadUrlWithString: (NSString *)urlString;

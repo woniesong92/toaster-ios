@@ -7,6 +7,7 @@
 //
 
 #import "WebViewManager.h"
+#import "Constants.h"
 
 @implementation WebViewManager
 
@@ -16,6 +17,20 @@
         if (uniqueWebView == nil) {
             uniqueWebView = [[self alloc] init];
             uniqueWebView.webView = [[UIWebView alloc] initWithFrame:container.view.frame];
+            uniqueWebView.didLoadUrl = false;
+            
+            // Resize WebView appropriately
+            CGRect resizedFrame = uniqueWebView.webView.frame;
+            CGFloat tabBarHeight = [[container tabBarController] tabBar].frame.size.height;
+            CGFloat navBarHeight = [[container navigationController] navigationBar].frame.size.height;
+            CGFloat statusBarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
+            resizedFrame.origin.y = navBarHeight + statusBarHeight;
+            resizedFrame.size.height = container.view.frame.size.height - (tabBarHeight + navBarHeight + statusBarHeight);
+            uniqueWebView.webView.frame = resizedFrame;
+            
+            // Load website. This is the only time that
+            // loadURL should be used because ours is a single page app
+            [uniqueWebView loadUrlWithString:BASE_URL];
         }
     }
     return uniqueWebView;
@@ -25,6 +40,7 @@
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
     [self.webView loadRequest:urlRequest];
+    self.didLoadUrl = true;
 }
 
 - (UIWebView *) acquireWebView: (id)container {
