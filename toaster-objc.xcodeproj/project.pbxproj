@@ -10,8 +10,8 @@
 		700272331B99C62D00C292A5 /* WebViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 700272321B99C62D00C292A5 /* WebViewManager.m */; };
 		70951F941B989F15006B1228 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 70951F931B989F15006B1228 /* main.m */; };
 		70951F971B989F15006B1228 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 70951F961B989F15006B1228 /* AppDelegate.m */; };
-		70951F9A1B989F15006B1228 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70951F991B989F15006B1228 /* FirstViewController.m */; };
-		70951F9D1B989F15006B1228 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70951F9C1B989F15006B1228 /* SecondViewController.m */; };
+		70951F9A1B989F15006B1228 /* RecentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70951F991B989F15006B1228 /* RecentViewController.m */; };
+		70951F9D1B989F15006B1228 /* TrendingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70951F9C1B989F15006B1228 /* TrendingViewController.m */; };
 		70951FA01B989F15006B1228 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70951F9E1B989F15006B1228 /* Main.storyboard */; };
 		70951FA21B989F15006B1228 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70951FA11B989F15006B1228 /* Images.xcassets */; };
 		70951FA51B989F15006B1228 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70951FA31B989F15006B1228 /* LaunchScreen.xib */; };
@@ -37,10 +37,10 @@
 		70951F931B989F15006B1228 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		70951F951B989F15006B1228 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		70951F961B989F15006B1228 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		70951F981B989F15006B1228 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		70951F991B989F15006B1228 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		70951F9B1B989F15006B1228 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		70951F9C1B989F15006B1228 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		70951F981B989F15006B1228 /* RecentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecentViewController.h; sourceTree = "<group>"; };
+		70951F991B989F15006B1228 /* RecentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecentViewController.m; sourceTree = "<group>"; };
+		70951F9B1B989F15006B1228 /* TrendingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrendingViewController.h; sourceTree = "<group>"; };
+		70951F9C1B989F15006B1228 /* TrendingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrendingViewController.m; sourceTree = "<group>"; };
 		70951F9F1B989F15006B1228 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		70951FA11B989F15006B1228 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		70951FA41B989F15006B1228 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -95,12 +95,12 @@
 				70951FBA1B98A009006B1228 /* Constants.h */,
 				70951F951B989F15006B1228 /* AppDelegate.h */,
 				70951F961B989F15006B1228 /* AppDelegate.m */,
-				70951F981B989F15006B1228 /* FirstViewController.h */,
-				70951F991B989F15006B1228 /* FirstViewController.m */,
+				70951F981B989F15006B1228 /* RecentViewController.h */,
+				70951F991B989F15006B1228 /* RecentViewController.m */,
 				70D005611B98A882006E746F /* PostsShowViewController.h */,
 				70D005621B98A882006E746F /* PostsShowViewController.m */,
-				70951F9B1B989F15006B1228 /* SecondViewController.h */,
-				70951F9C1B989F15006B1228 /* SecondViewController.m */,
+				70951F9B1B989F15006B1228 /* TrendingViewController.h */,
+				70951F9C1B989F15006B1228 /* TrendingViewController.m */,
 				700272311B99C62D00C292A5 /* WebViewManager.h */,
 				700272321B99C62D00C292A5 /* WebViewManager.m */,
 				70951FA11B989F15006B1228 /* Images.xcassets */,
@@ -239,9 +239,9 @@
 			files = (
 				700272331B99C62D00C292A5 /* WebViewManager.m in Sources */,
 				70D005631B98A882006E746F /* PostsShowViewController.m in Sources */,
-				70951F9D1B989F15006B1228 /* SecondViewController.m in Sources */,
+				70951F9D1B989F15006B1228 /* TrendingViewController.m in Sources */,
 				70951F971B989F15006B1228 /* AppDelegate.m in Sources */,
-				70951F9A1B989F15006B1228 /* FirstViewController.m in Sources */,
+				70951F9A1B989F15006B1228 /* RecentViewController.m in Sources */,
 				70951F941B989F15006B1228 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

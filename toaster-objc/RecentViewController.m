@@ -1,20 +1,20 @@
 //
-//  FirstViewController.m
+//  RecentViewController.m
 //  toaster-objc
 //
 //  Created by Howon Song on 9/3/15.
 //  Copyright (c) 2015 honeyjamstudio. All rights reserved.
 //
 
-#import "FirstViewController.h"
+#import "RecentViewController.h"
 #import "PostsShowViewController.h"
 #import "Constants.h"
 #import "AppDelegate.h"
 
-@interface FirstViewController ()
+@interface RecentViewController ()
 @end
 
-@implementation FirstViewController
+@implementation RecentViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -56,15 +56,15 @@
     return true;
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if( [segue.identifier isEqualToString:@"postsShowSegue"]) {
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+//{
+//    if( [segue.identifier isEqualToString:@"postsShowSegue"]) {
 //        PostsShowViewController *postsShowVC = (PostsShowViewController *)segue.destinationViewController;
 //        postsShowVC.webView = self.webView;
 //        [self.webView removeFromSuperview];
 //        self.webView = nil;
 //        self.webView.delegate = nil;
-    }
-}
+//    }
+//}
 
 @end

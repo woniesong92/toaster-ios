@@ -1,5 +1,5 @@
 //
-//  FirstViewController.h
+//  TrendingViewController.h
 //  toaster-objc
 //
 //  Created by Howon Song on 9/3/15.
@@ -9,11 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "WebViewManager.h"
 
-@interface FirstViewController : UIViewController <UIWebViewDelegate> {
+@interface TrendingViewController : UIViewController <UIWebViewDelegate> {
     WebViewManager *_webViewManager;
 }
-
-@property (strong, nonatomic) UIWebView *webView;
 
 
 @end
