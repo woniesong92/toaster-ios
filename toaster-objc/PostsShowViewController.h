@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "WebViewManager.h"
 
-@interface PostsShowViewController : UIViewController <UIWebViewDelegate> {
+@interface PostsShowViewController : UIViewController <UIWebViewDelegate, WKNavigationDelegate, WKUIDelegate> {
     WebViewManager *_webViewManager;
 }
 

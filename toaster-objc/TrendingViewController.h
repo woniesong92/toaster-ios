@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "WebViewManager.h"
 
-@interface TrendingViewController : UIViewController <UIWebViewDelegate> {
+@interface TrendingViewController : UIViewController <UIWebViewDelegate, WKNavigationDelegate, WKUIDelegate> {
     WebViewManager *_webViewManager;
 }
 

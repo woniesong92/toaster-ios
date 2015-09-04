@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		700272331B99C62D00C292A5 /* WebViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 700272321B99C62D00C292A5 /* WebViewManager.m */; };
+		700272391B9A36B900C292A5 /* UIWebView+FLUIWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 700272381B9A36B900C292A5 /* UIWebView+FLUIWebView.m */; };
+		7002723C1B9A36EE00C292A5 /* WKWebView+FLWKWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7002723B1B9A36EE00C292A5 /* WKWebView+FLWKWebView.m */; };
 		70951F941B989F15006B1228 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 70951F931B989F15006B1228 /* main.m */; };
 		70951F971B989F15006B1228 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 70951F961B989F15006B1228 /* AppDelegate.m */; };
 		70951F9A1B989F15006B1228 /* RecentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70951F991B989F15006B1228 /* RecentViewController.m */; };
@@ -32,6 +34,11 @@
 /* Begin PBXFileReference section */
 		700272311B99C62D00C292A5 /* WebViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewManager.h; sourceTree = "<group>"; };
 		700272321B99C62D00C292A5 /* WebViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewManager.m; sourceTree = "<group>"; };
+		700272361B9A361900C292A5 /* FLWebViewProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLWebViewProvider.h; sourceTree = "<group>"; };
+		700272371B9A36B900C292A5 /* UIWebView+FLUIWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+FLUIWebView.h"; sourceTree = "<group>"; };
+		700272381B9A36B900C292A5 /* UIWebView+FLUIWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+FLUIWebView.m"; sourceTree = "<group>"; };
+		7002723A1B9A36EE00C292A5 /* WKWebView+FLWKWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WKWebView+FLWKWebView.h"; sourceTree = "<group>"; };
+		7002723B1B9A36EE00C292A5 /* WKWebView+FLWKWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WKWebView+FLWKWebView.m"; sourceTree = "<group>"; };
 		70951F8E1B989F15006B1228 /* toaster-objc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "toaster-objc.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		70951F921B989F15006B1228 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		70951F931B989F15006B1228 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -70,6 +77,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7002723D1B9A372B00C292A5 /* FLWebView */ = {
+			isa = PBXGroup;
+			children = (
+				7002723A1B9A36EE00C292A5 /* WKWebView+FLWKWebView.h */,
+				7002723B1B9A36EE00C292A5 /* WKWebView+FLWKWebView.m */,
+				700272371B9A36B900C292A5 /* UIWebView+FLUIWebView.h */,
+				700272381B9A36B900C292A5 /* UIWebView+FLUIWebView.m */,
+				700272361B9A361900C292A5 /* FLWebViewProvider.h */,
+			);
+			name = FLWebView;
+			sourceTree = "<group>";
+		};
 		70951F851B989F15006B1228 = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +124,7 @@
 				700272321B99C62D00C292A5 /* WebViewManager.m */,
 				70951FA11B989F15006B1228 /* Images.xcassets */,
 				70951FA31B989F15006B1228 /* LaunchScreen.xib */,
+				7002723D1B9A372B00C292A5 /* FLWebView */,
 				70951F911B989F15006B1228 /* Supporting Files */,
 			);
 			path = "toaster-objc";
@@ -238,9 +258,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				700272331B99C62D00C292A5 /* WebViewManager.m in Sources */,
+				700272391B9A36B900C292A5 /* UIWebView+FLUIWebView.m in Sources */,
 				70D005631B98A882006E746F /* PostsShowViewController.m in Sources */,
 				70951F9D1B989F15006B1228 /* TrendingViewController.m in Sources */,
 				70951F971B989F15006B1228 /* AppDelegate.m in Sources */,
+				7002723C1B9A36EE00C292A5 /* WKWebView+FLWKWebView.m in Sources */,
 				70951F9A1B989F15006B1228 /* RecentViewController.m in Sources */,
 				70951F941B989F15006B1228 /* main.m in Sources */,
 			);

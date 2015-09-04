@@ -25,7 +25,10 @@
     _webViewManager = [WebViewManager getUniqueWebViewManager:self];
     
     [_webViewManager removeWebViewFromContainer];
-    _webViewManager.webView.delegate = self;
+    
+    // Setting delegate for WKWebView
+    [[_webViewManager webView] setDelegateViews: self];
+//    _webViewManager.webView.delegate = self;
     [self.view addSubview: _webViewManager.webView];
 }
 
@@ -39,6 +42,7 @@
 
 - (void) viewWillDisappear:(BOOL)animated {
     if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound) {
+        
         // "Back" button was pressed from Navigation bar
         // We have to make webview go back one page
 //        NSLog(@"will call goback");
@@ -54,8 +58,9 @@
 - (void)willMoveToParentViewController:(UIViewController *)parent{
     if (parent == nil){
         NSLog(@"do whatever you want here");
-        [_webViewManager.webView goBack];
-//        [_webViewManager useRouterWithPath:RECENT];
+//        [_webViewManager.webView goBack];
+//        [_webViewManager webView go]
+        [_webViewManager useRouterWithPath:RECENT];
     }
 }
 

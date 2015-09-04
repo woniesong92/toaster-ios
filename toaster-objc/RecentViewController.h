@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "WebViewManager.h"
+#import "FLWebViewProvider.h"
 
-@interface RecentViewController : UIViewController <UIWebViewDelegate> {
+@interface RecentViewController : UIViewController <UIWebViewDelegate, WKNavigationDelegate, WKUIDelegate> {
     WebViewManager *_webViewManager;
 }
 

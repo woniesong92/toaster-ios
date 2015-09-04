@@ -30,7 +30,11 @@
 //    NSLog(@"trending ViewWillAppear");
     [_webViewManager removeWebViewFromContainer];
     _webViewManager = [WebViewManager getUniqueWebViewManager:self];
-    _webViewManager.webView.delegate = self;
+    
+    // Setting delegate for WKWebView
+    [[_webViewManager webView] setDelegateViews: self];
+//    _webViewManager.webView.delegate = self;
+    
     [self.view addSubview: _webViewManager.webView];
     
     if (![_webViewManager.getCurrentTab isEqualToString:TRENDING]) {

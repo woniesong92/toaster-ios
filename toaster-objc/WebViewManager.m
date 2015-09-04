@@ -8,9 +8,19 @@
 
 #import "WebViewManager.h"
 #import "Constants.h"
+#import "UIWebView+FLUIWebView.h"
+#import "WKWebView+FLWKWebView.h"
 
 @implementation WebViewManager {
     NSString *currentTab;
+}
+
++ (BOOL)isWKWebViewAvailable {
+    if (NSClassFromString(@"WKWebView")) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 + (id)getUniqueWebViewManager: (UIViewController *)container {
@@ -18,7 +28,12 @@
     @synchronized(self) {
         if (uniqueWebView == nil) {
             uniqueWebView = [[self alloc] init];
-            uniqueWebView.webView = [[UIWebView alloc] initWithFrame:container.view.frame];
+            
+            if ([self isWKWebViewAvailable]) {
+                uniqueWebView.webView = [[WKWebView alloc] initWithFrame:container.view.frame];
+            } else {
+                uniqueWebView.webView = [[UIWebView alloc] initWithFrame:container.view.frame];
+            }
             
             // Resize WebView appropriately
             CGRect resizedFrame = uniqueWebView.webView.frame;
@@ -55,11 +70,12 @@
 - (void)useRouterWithPath: (NSString *)pathString {
     NSString *js = [NSString stringWithFormat:@"%@%@%@", @"Router.go(\"", pathString, @"\")"];
     [self setCurrentTab:pathString];
-    [self.webView stringByEvaluatingJavaScriptFromString:js];
+//    [self.webView stringByEvaluatingJavaScriptFromString:js];
+    [[self webView] evaluateJavaScript:js completionHandler:nil];
 }
 
 - (void)removeWebViewFromContainer {
-    self.webView.delegate = nil;
+//    self.webView.delegate = nil;
     [self.webView removeFromSuperview];
 }
 

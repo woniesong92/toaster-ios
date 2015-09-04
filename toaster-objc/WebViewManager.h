@@ -7,10 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <WebKit/WebKit.h>
+#import "FLWebViewProvider.h"
+#import "UIWebView+FLUIWebView.h"
+#import "WKWebView+FLWKWebView.h"
 
 @interface WebViewManager : NSObject
 
-@property (strong, nonatomic) UIWebView *webView;
+//@property (strong, nonatomic) UIWebView *webView;
+@property (nonatomic) UIView <FLWebViewProvider> *webView;
 
 + (id)getUniqueWebViewManager: (UIViewController *)container;
 - (void)loadUrlWithString: (NSString *)urlString;
@@ -21,5 +26,7 @@
 // because the user wants to go to a different tab
 - (void)setCurrentTab: (NSString *)currentTab;
 - (NSString *)getCurrentTab;
+
++ (BOOL)isWKWebViewAvailable;
 
 @end
