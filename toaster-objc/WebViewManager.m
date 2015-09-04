@@ -9,7 +9,9 @@
 #import "WebViewManager.h"
 #import "Constants.h"
 
-@implementation WebViewManager
+@implementation WebViewManager {
+    NSString *currentTab;
+}
 
 + (id)getUniqueWebViewManager: (UIViewController *)container {
     static WebViewManager *uniqueWebView = nil;
@@ -17,7 +19,6 @@
         if (uniqueWebView == nil) {
             uniqueWebView = [[self alloc] init];
             uniqueWebView.webView = [[UIWebView alloc] initWithFrame:container.view.frame];
-            uniqueWebView.didLoadUrl = false;
             
             // Resize WebView appropriately
             CGRect resizedFrame = uniqueWebView.webView.frame;
@@ -30,7 +31,10 @@
             
             // Load website. This is the only time that
             // loadURL should be used because ours is a single page app
+            // For tab navigtaion, do it with useRouterWithPath so we can avoid
+            // full page refresh
             [uniqueWebView loadUrlWithString:BASE_URL];
+            [uniqueWebView setCurrentTab:RECENT];
         }
     }
     return uniqueWebView;
@@ -40,18 +44,31 @@
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
     [self.webView loadRequest:urlRequest];
-    self.didLoadUrl = true;
 }
 
-- (UIWebView *) acquireWebView: (id)container {
-    UIWebView *webView = self.webView;
-    webView.delegate = container;
-    return webView;
+//- (UIWebView *) acquireWebView: (id)container {
+//    UIWebView *webView = self.webView;
+//    webView.delegate = container;
+//    return webView;
+//}
+
+- (void)useRouterWithPath: (NSString *)pathString {
+    NSString *js = [NSString stringWithFormat:@"%@%@%@", @"Router.go(\"", pathString, @"\")"];
+    [self setCurrentTab:pathString];
+    [self.webView stringByEvaluatingJavaScriptFromString:js];
 }
 
-- (void) removeWebViewFromContainer {
+- (void)removeWebViewFromContainer {
     self.webView.delegate = nil;
     [self.webView removeFromSuperview];
+}
+
+- (void)setCurrentTab:(NSString *)tabName {
+    currentTab = tabName;
+}
+
+- (NSString *)getCurrentTab {
+    return currentTab;
 }
 
 @end

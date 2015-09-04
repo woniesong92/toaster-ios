@@ -8,21 +8,23 @@
 
 #import "PostsShowViewController.h"
 #import "RecentViewController.h"
-#import "AppDelegate.h"
+#import "Constants.h"
 #import "WebViewManager.h"
 
 @implementation PostsShowViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // This makes the UIWebView full size
     self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    NSLog(@"PostsShowViewWillAppear");
     _webViewManager = [WebViewManager getUniqueWebViewManager:self];
+    
+    [_webViewManager removeWebViewFromContainer];
     _webViewManager.webView.delegate = self;
     [self.view addSubview: _webViewManager.webView];
 }
@@ -35,19 +37,26 @@
     [super didReceiveMemoryWarning];
 }
 
-- (void)viewDidLayoutSubviews {
-    [super viewDidLayoutSubviews];
+- (void) viewWillDisappear:(BOOL)animated {
+    if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound) {
+        // "Back" button was pressed from Navigation bar
+        // We have to make webview go back one page
+//        NSLog(@"will call goback");
+//        [_webViewManager useRouterWithPath:RECENT];
+//        [_webViewManager.webView goBack];
+    }
+
+    // Show Recent view next time we come back from a different tab
+//    [self.navigationController popToRootViewControllerAnimated:NO];
+    [super viewWillDisappear:animated];
 }
 
--(void) viewWillDisappear:(BOOL)animated {
-    if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound) {
-        // Navigation button was pressed. Do some stuff
-        NSLog(@"navigation pressed");
+- (void)willMoveToParentViewController:(UIViewController *)parent{
+    if (parent == nil){
+        NSLog(@"do whatever you want here");
         [_webViewManager.webView goBack];
+//        [_webViewManager useRouterWithPath:RECENT];
     }
-    [super viewWillDisappear:animated];
-    NSLog(@"removing from PostsShow");
-    [_webViewManager removeWebViewFromContainer];
 }
 
 @end

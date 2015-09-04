@@ -24,11 +24,15 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    NSLog(@"ViewWillAppear");
-    
+    NSLog(@"RecentViewWillAppear");
+    [_webViewManager removeWebViewFromContainer];
     _webViewManager = [WebViewManager getUniqueWebViewManager:self];
     _webViewManager.webView.delegate = self;
     [self.view addSubview: _webViewManager.webView];
+    
+    if (![[_webViewManager getCurrentTab] isEqual:RECENT]) {
+        [_webViewManager useRouterWithPath:RECENT];
+    }
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -37,8 +41,6 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear: animated];
-    NSLog(@"removing from firstVC");
-    [_webViewManager removeWebViewFromContainer];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -11,10 +11,15 @@
 @interface WebViewManager : NSObject
 
 @property (strong, nonatomic) UIWebView *webView;
-@property BOOL didLoadUrl;
 
 + (id)getUniqueWebViewManager: (UIViewController *)container;
 - (void)loadUrlWithString: (NSString *)urlString;
-- (void) removeWebViewFromContainer;
+- (void)removeWebViewFromContainer;
+- (void)useRouterWithPath: (NSString *)pathString;
+
+// currentTab is used to see if we should perform `Router.go()`
+// because the user wants to go to a different tab
+- (void)setCurrentTab: (NSString *)currentTab;
+- (NSString *)getCurrentTab;
 
 @end
