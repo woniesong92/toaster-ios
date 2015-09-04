@@ -6,7 +6,6 @@
 //  Copyright (c) 2015 honeyjamstudio. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
 @interface WebViewManager : NSObject
@@ -19,6 +18,6 @@
 
 - (UIWebView *) acquireWebView: (id)container;
 
-- (void) removeWebViewFromContainer: (id)container;
+- (void) removeWebViewFromContainer;
 
 @end

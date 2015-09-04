@@ -33,7 +33,7 @@
     return webView;
 }
 
-- (void) removeWebViewFromContainer: (id)container {
+- (void) removeWebViewFromContainer {
     self.webView.delegate = nil;
     [self.webView removeFromSuperview];
 }

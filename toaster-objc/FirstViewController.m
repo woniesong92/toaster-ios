@@ -10,6 +10,7 @@
 #import "PostsShowViewController.h"
 #import "Constants.h"
 #import "AppDelegate.h"
+#import "WebViewManager.h"
 
 @interface FirstViewController ()
 
@@ -17,15 +18,31 @@
 
 @implementation FirstViewController
 
+WebViewManager *webViewManager;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.webView = [[UIWebView alloc] initWithFrame:self.view.frame];
-    self.webView.delegate = self;
-    [self.view addSubview: self.webView];
-    NSURL *url = [NSURL URLWithString:BASE_URL];
-    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
-    [self.webView loadRequest:urlRequest];
+    
+    webViewManager = [WebViewManager getUniqueWebViewManager:self];
+    [self.view addSubview: webViewManager.webView];
+    [webViewManager loadUrlWithString:BASE_URL];
+    
+//    
+//    NSURL *url = [NSURL URLWithString:BASE_URL];
+//    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
+//    [tmp loadRequest:urlRequest];
+    
+//    [webViewManager acquireWebView:self];
+//    [webViewManager loadUrlWithString:BASE_URL];
+    
+//    self.webView = [[UIWebView alloc] initWithFrame:self.view.frame];
+//    self.webView.delegate = self;
+//    [self.view addSubview: self.webView];
+//    NSURL *url = [NSURL URLWithString:BASE_URL];
+//    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
+//    [self.webView loadRequest:urlRequest];
+    
+
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -34,6 +51,8 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear: animated];
+    NSLog(@"removing from firstVC");
+    [webViewManager removeWebViewFromContainer];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -54,11 +73,11 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if( [segue.identifier isEqualToString:@"postsShowSegue"]) {
-        PostsShowViewController *postsShowVC = (PostsShowViewController *)segue.destinationViewController;
-        postsShowVC.webView = self.webView;
-        [self.webView removeFromSuperview];
-        self.webView = nil;
-        self.webView.delegate = nil;
+//        PostsShowViewController *postsShowVC = (PostsShowViewController *)segue.destinationViewController;
+//        postsShowVC.webView = self.webView;
+//        [self.webView removeFromSuperview];
+//        self.webView = nil;
+//        self.webView.delegate = nil;
     }
 }
 

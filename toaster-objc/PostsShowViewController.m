@@ -9,9 +9,12 @@
 #import "PostsShowViewController.h"
 #import "FirstViewController.h"
 #import "AppDelegate.h"
+#import "WebViewManager.h"
 //#import "Constants.h"
 
 @implementation PostsShowViewController
+
+WebViewManager *webViewManager;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -22,8 +25,15 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.webView.delegate = self;
-    [self.view addSubview:self.webView];
+    
+    webViewManager = [WebViewManager getUniqueWebViewManager:self];
+    [self.view addSubview: webViewManager.webView];
+    webViewManager.webView.delegate = self;
+    
+//    [webViewManager loadUrlWithString:BASE_URL];
+    
+//    self.webView.delegate = self;
+//    [self.view addSubview:self.webView];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

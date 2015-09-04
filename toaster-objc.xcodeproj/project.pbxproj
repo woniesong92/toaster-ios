@@ -102,11 +102,11 @@
 				70D005621B98A882006E746F /* PostsShowViewController.m */,
 				70951F9B1B989F15006B1228 /* SecondViewController.h */,
 				70951F9C1B989F15006B1228 /* SecondViewController.m */,
+				700272311B99C62D00C292A5 /* WebViewManager.h */,
+				700272321B99C62D00C292A5 /* WebViewManager.m */,
 				70951FA11B989F15006B1228 /* Images.xcassets */,
 				70951FA31B989F15006B1228 /* LaunchScreen.xib */,
 				70951F911B989F15006B1228 /* Supporting Files */,
-				700272311B99C62D00C292A5 /* WebViewManager.h */,
-				700272321B99C62D00C292A5 /* WebViewManager.m */,
 			);
 			path = "toaster-objc";
 			sourceTree = "<group>";
