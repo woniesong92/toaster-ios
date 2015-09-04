@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		700272331B99C62D00C292A5 /* WebViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 700272321B99C62D00C292A5 /* WebViewManager.m */; };
 		70951F941B989F15006B1228 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 70951F931B989F15006B1228 /* main.m */; };
 		70951F971B989F15006B1228 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 70951F961B989F15006B1228 /* AppDelegate.m */; };
 		70951F9A1B989F15006B1228 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70951F991B989F15006B1228 /* FirstViewController.m */; };
@@ -30,6 +31,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		700272311B99C62D00C292A5 /* WebViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewManager.h; sourceTree = "<group>"; };
+		700272321B99C62D00C292A5 /* WebViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewManager.m; sourceTree = "<group>"; };
 		70951F8E1B989F15006B1228 /* toaster-objc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "toaster-objc.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		70951F921B989F15006B1228 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		70951F931B989F15006B1228 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -90,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				70951F9E1B989F15006B1228 /* Main.storyboard */,
+				70951FBA1B98A009006B1228 /* Constants.h */,
 				70951F951B989F15006B1228 /* AppDelegate.h */,
 				70951F961B989F15006B1228 /* AppDelegate.m */,
 				70951F981B989F15006B1228 /* FirstViewController.h */,
@@ -101,7 +105,8 @@
 				70951FA11B989F15006B1228 /* Images.xcassets */,
 				70951FA31B989F15006B1228 /* LaunchScreen.xib */,
 				70951F911B989F15006B1228 /* Supporting Files */,
-				70951FBA1B98A009006B1228 /* Constants.h */,
+				700272311B99C62D00C292A5 /* WebViewManager.h */,
+				700272321B99C62D00C292A5 /* WebViewManager.m */,
 			);
 			path = "toaster-objc";
 			sourceTree = "<group>";
@@ -232,6 +237,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				700272331B99C62D00C292A5 /* WebViewManager.m in Sources */,
 				70951FBB1B98A009006B1228 /* Constants.h in Sources */,
 				70D005631B98A882006E746F /* PostsShowViewController.m in Sources */,
 				70951F9D1B989F15006B1228 /* SecondViewController.m in Sources */,

@@ -7,6 +7,7 @@
 //
 
 #import "PostsShowViewController.h"
+#import "FirstViewController.h"
 #import "AppDelegate.h"
 //#import "Constants.h"
 
@@ -14,30 +15,37 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"PostsSHow View did load");
-    UIWebView *webView = self.webView;
-    webView.delegate = self;
-    [self.view addSubview:self.webView];
+    
+    // This makes the UIWebView full size
+    self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-//    UIWebView *webView = self.webView;
-//    webView.delegate = self;
-//    [self.view addSubview:self.webView];
+    self.webView.delegate = self;
+    [self.view addSubview:self.webView];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-//    UIWebView *webView = self.webView;
-//    webView.delegate = self;
-//    [self.view addSubview:self.webView];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
-// HOW TO PERFORM AN ACTION RIGHT BEFORE GOING BACK TO PREVIOUS PAGE?
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+}
+
+-(void) viewWillDisappear:(BOOL)animated {
+    if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound) {
+        // Navigation button was pressed. Do some stuff
+        NSLog(@"navigation pressed");
+
+    }
+    [super viewWillDisappear:animated];
+}
 
 @end
+
