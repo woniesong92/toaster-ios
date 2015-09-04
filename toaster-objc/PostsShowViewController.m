@@ -15,60 +15,29 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSLog(@"PostsSHow View did load");
-    
-    // Do any additional setup after loading the view, typically from a nib.
+    UIWebView *webView = self.webView;
+    webView.delegate = self;
+    [self.view addSubview:self.webView];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
-//    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-////    [self.viewContainer addSubview: appDelegate.singleWebView];
-////    
-////    CGRect screenRect = [[UIScreen mainScreen] bounds];
-////    UIWebView *tmpWebView = appDelegate.singleWebView;
-////    tmpWebView.frame = screenRect;
-////    
-////    [self.view addSubview:tmpWebView];
-////
-//    UIWebView *webView = appDelegate.singleWebView;
-//    webView.frame = [self view].frame;
+//    UIWebView *webView = self.webView;
 //    webView.delegate = self;
-//    [[self view] addSubview:webView];
-    
-//    
-//    UIWebView *tmp = [[UIWebView alloc] initWithFrame:[self view].frame];
-//    tmp.delegate = self;
-//    [[self view] addSubview:tmp];
-//    
-//    NSURL *url = [NSURL URLWithString:@"http://google.com"];
-//    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
-//    [tmp loadRequest:urlRequest];
-    
-    
-    NSLog(@"PostsSHowVIew will Appear, is Webview ready?");
+//    [self.view addSubview:self.webView];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    //    [self.viewContainer addSubview: appDelegate.singleWebView];
-    //
-    //    CGRect screenRect = [[UIScreen mainScreen] bounds];
-    //    UIWebView *tmpWebView = appDelegate.singleWebView;
-    //    tmpWebView.frame = screenRect;
-    //
-    //    [self.view addSubview:tmpWebView];
-    //
-    UIWebView *webView = appDelegate.singleWebView;
-    webView.frame = [self view].frame;
-    webView.delegate = self;
-    [[self view] addSubview:webView];
+//    UIWebView *webView = self.webView;
+//    webView.delegate = self;
+//    [self.view addSubview:self.webView];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
+
+// HOW TO PERFORM AN ACTION RIGHT BEFORE GOING BACK TO PREVIOUS PAGE?
 
 @end

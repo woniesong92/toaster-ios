@@ -12,7 +12,7 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
-@property (strong, nonatomic) UIWebView *singleWebView;
+//@property (strong, nonatomic) UIWebView *singleWebView;
 
 @end
 

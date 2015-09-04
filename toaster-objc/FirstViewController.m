@@ -17,11 +17,12 @@
 
 @implementation FirstViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-//
+    self.webView = [[UIWebView alloc] initWithFrame:self.view.frame];
     self.webView.delegate = self;
-    
+    [self.view addSubview: self.webView];
     NSURL *url = [NSURL URLWithString:BASE_URL];
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
     [self.webView loadRequest:urlRequest];
@@ -33,15 +34,6 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear: animated];
-    NSLog(@"Removing webview from the first VC");
-    
-    [self.webView removeFromSuperview];
-    self.webView.delegate = nil;
-    
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    appDelegate.singleWebView = self.webView;
-    
-    self.webView = nil;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -62,9 +54,11 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if( [segue.identifier isEqualToString:@"postsShowSegue"]) {
-//        PostsShowViewController *postsShowVC = (PostsShowViewController *)segue.destinationViewController;
-//        NSLog(@"going to give current view's webview to the destination");
-//        [postsShowVC.viewContainer addSubview: self.webView];
+        PostsShowViewController *postsShowVC = (PostsShowViewController *)segue.destinationViewController;
+        postsShowVC.webView = self.webView;
+        [self.webView removeFromSuperview];
+        self.webView = nil;
+        self.webView.delegate = nil;
     }
 }
 

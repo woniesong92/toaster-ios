@@ -10,6 +10,6 @@
 
 @interface PostsShowViewController : UIViewController <UIWebViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UIView *viewContainer;
+@property (strong, nonatomic) UIWebView *webView;
 
 @end
