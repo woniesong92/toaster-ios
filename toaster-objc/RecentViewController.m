@@ -85,9 +85,9 @@
     }
     
     if ([segue.identifier isEqualToString:@"newPostSegue"]) {
-        NewPostController *newPostVC = (NewPostController *)segue.destinationViewController;
+        UINavigationController *newPostNavVC = (UINavigationController *)segue.destinationViewController;
+        NewPostController *newPostVC = (NewPostController *) [newPostNavVC.viewControllers objectAtIndex:0];
         self.screenImage = [_webViewManager screencapture:self];
-        
         newPostVC.parentScreenImage = self.screenImage;
         return;
     }

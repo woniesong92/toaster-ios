@@ -255,6 +255,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Jsa-vq-zKM">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hWH-us-I3y" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Lai-rn-CoX" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="NPO-ae-fRf">
@@ -271,7 +272,6 @@
                         <segue destination="4El-qh-klo" kind="relationship" relationship="rootViewController" id="E48-d6-8FH"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hWH-us-I3y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2194" y="-1059"/>
         </scene>
@@ -281,6 +281,6 @@
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ILI-o6-F0n"/>
+        <segue reference="rtv-bc-fAZ"/>
     </inferredMetricsTieBreakers>
 </document>
