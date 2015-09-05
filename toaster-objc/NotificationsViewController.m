@@ -79,6 +79,15 @@
         return false;
     }
     
+    if ([[URL absoluteString] isEqualToString:@"toasterapp://loadingEnd"]) {
+        if (self.screenImage) {
+            NSLog(@"Replace image with real webview");
+            [_webViewManager replaceImageWithWebView:self];
+            self.screenImage = nil;
+        }
+        return false;
+    }
+    
     return true;
 }
 
