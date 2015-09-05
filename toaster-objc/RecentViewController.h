@@ -15,6 +15,7 @@
 }
 
 @property (strong, nonatomic) UIWebView *webView;
+@property (strong, nonatomic) UIImage *screenImage;
 
 //@property (weak, nonatomic) IBOutlet UIBarButtonItem *newPostBUtton;
 

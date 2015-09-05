@@ -21,13 +21,14 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    NSLog(@"PostsShowViewWillAppear");
     _webViewManager = [WebViewManager getUniqueWebViewManager:self];
     [_webViewManager removeWebViewFromContainer];
     
     // Setting delegate for WKWebView
     [[_webViewManager webView] setDelegateViews: self];
     [self.view addSubview: _webViewManager.webView];
+    
+//    [_webViewManager replaceWebViewWithImage:self :self.parentScreenImage];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -39,21 +40,24 @@
 }
 
 - (void) viewWillDisappear:(BOOL)animated {
-    if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound) {
-        
-        // "Back" button was pressed from Navigation bar
-        // We have to make webview go back one page
-//        NSLog(@"will call goback");
-//        [_webViewManager useRouterWithPath:RECENT];
-//        [_webViewManager.webView goBack];
-    }
+
+    [_webViewManager replaceWebViewWithImage:self :self.parentScreenImage];
 
     [super viewWillDisappear:animated];
 }
 
+
+- (void) viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+
+    [_webViewManager replaceImageWithWebView:self];
+}
+
 - (void)willMoveToParentViewController:(UIViewController *)parent{
+    
     if (parent == nil){
         // Decide where to go back to
+        
         NSString *currentTab = [_webViewManager getCurrentTab];
         if ([currentTab isEqualToString:RECENT]) {
             [_webViewManager useRouterWithPath:RECENT];

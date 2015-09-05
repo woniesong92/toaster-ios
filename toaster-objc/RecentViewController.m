@@ -18,12 +18,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"ViewDidLoad");
     self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    
     [super viewWillAppear:animated];
+    
     [_webViewManager removeWebViewFromContainer];
     _webViewManager = [WebViewManager getUniqueWebViewManager:self];
     
@@ -32,12 +33,18 @@
     
     // Add webView as subView
     [self.view addSubview: _webViewManager.webView];
+    
+    if (self.screenImage) {
+        NSLog(@"replacing webview with image");
+        [_webViewManager replaceWebViewWithImage:self :self.screenImage];
+    }
 
     // Just in case we are still showing the "postsShow" view when
     // the user comes back from another tab
     if (![[_webViewManager getCurrentTab] isEqual:RECENT]) {
         [_webViewManager useRouterWithPath:RECENT];
     }
+    
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -46,6 +53,9 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear: animated];
+    
+    // take a screenshot and store it
+//    self.screenImage = ;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -63,16 +73,18 @@
 //    return true;
 //}
 
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-//{
-//    if( [segue.identifier isEqualToString:@"postsShowSegue"]) {
-//        PostsShowViewController *postsShowVC = (PostsShowViewController *)segue.destinationViewController;
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if( [segue.identifier isEqualToString:@"postsShowSegue"]) {
+        PostsShowViewController *postsShowVC = (PostsShowViewController *)segue.destinationViewController;
+        self.screenImage = [_webViewManager screencapture:self];
+        postsShowVC.parentScreenImage = self.screenImage;
 //        postsShowVC.webView = self.webView;
 //        [self.webView removeFromSuperview];
 //        self.webView = nil;
 //        self.webView.delegate = nil;
-//    }
-//}
+    }
+}
 
 #pragma mark - Shared Delegate Methods
 
@@ -88,6 +100,21 @@
     
     if ([[URL absoluteString] isEqualToString:@"toasterapp://postsShow"]) {
         [self performSegueWithIdentifier:@"postsShowSegue" sender:self];
+        return false;
+    }
+    
+    if ([[URL absoluteString] isEqualToString:@"toasterapp://loadingStart"]) {
+//        NSLog(@"loading started for Meteor"); 
+        return false;
+    }
+    
+    if ([[URL absoluteString] isEqualToString:@"toasterapp://loadingEnd"]) {
+        if (self.screenImage) {
+            NSLog(@"Replace image with real webview");
+            [_webViewManager replaceImageWithWebView:self];
+            self.screenImage = nil;
+        }
+
         return false;
     }
 

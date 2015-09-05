@@ -29,4 +29,9 @@
 
 + (BOOL)isWKWebViewAvailable;
 
+//- (void)replaceWebViewWithImage:(UIViewController *)containerVC;
+- (void)replaceWebViewWithImage:(UIViewController *)containerVC :(UIImage *)image;
+- (void)replaceImageWithWebView:(UIViewController *)containerVC;
+- (UIImage *)screencapture:(UIViewController *)viewController;
+
 @end

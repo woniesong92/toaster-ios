@@ -87,4 +87,39 @@
     return currentTab;
 }
 
+- (UIImage *)screencapture:(UIViewController *)viewController {
+    UIGraphicsBeginImageContextWithOptions(viewController.view.bounds.size, NO, [UIScreen mainScreen].scale);
+    [viewController.view drawViewHierarchyInRect:viewController.view.bounds afterScreenUpdates:YES];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+//    [[UIColor blackColor] setFill];
+//    CGRect rect = viewController.view.bounds;
+//    [image drawInRect:rect];
+//    NSLog(@"image captured");
+    return image;
+}
+
+- (void)replaceWebViewWithImage:(UIViewController *)containerVC :(UIImage *)image {
+//    UIImage *image = [self _screencapture:containerVC];
+    
+    UIView *imageContainer = [[UIView alloc] initWithFrame:[containerVC view].frame];
+    [imageContainer setTag:IMAGE_CONTAINER_TAG];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+    imageView.frame = imageContainer.bounds;
+    
+    image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    [imageView setTintColor:[UIColor redColor]];
+    
+    [imageContainer addSubview:imageView];
+    [[containerVC view] addSubview:imageContainer];
+}
+
+- (void)replaceImageWithWebView:(UIViewController *)containerVC {
+    UIView *imageContainer = [[containerVC view] viewWithTag:IMAGE_CONTAINER_TAG];
+    if (imageContainer != nil) {
+        [imageContainer removeFromSuperview];
+    }
+}
+
 @end
