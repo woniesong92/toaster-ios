@@ -117,6 +117,7 @@
     }
     
     if ([[URL absoluteString] isEqualToString:@"toasterapp://loadingEnd"]) {
+//        NSLog(@"Am I called?");
         if (self.screenImage) {
             NSLog(@"Replace image with real webview");
             [_webViewManager replaceImageWithWebView:self];
