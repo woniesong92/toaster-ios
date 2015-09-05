@@ -1,50 +1,50 @@
 //
-//  TrendingViewController.m
+//  ProfileViewController.m
 //  toaster-objc
 //
-//  Created by Howon Song on 9/3/15.
+//  Created by Howon Song on 9/4/15.
 //  Copyright (c) 2015 honeyjamstudio. All rights reserved.
 //
 
-#import "TrendingViewController.h"
+#import "ProfileViewController.h"
 #import "Constants.h"
 
-@interface TrendingViewController ()
+@interface ProfileViewController ()
 
 @end
 
-@implementation TrendingViewController
+@implementation ProfileViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.automaticallyAdjustsScrollViewInsets = NO;
-//    NSLog(@"trending view loaded");
+    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-//    NSLog(@"trending ViewWillAppear");
+
     [_webViewManager removeWebViewFromContainer];
     _webViewManager = [WebViewManager getUniqueWebViewManager:self];
     
     // Setting delegate for WKWebView
     [[_webViewManager webView] setDelegateViews: self];
-//    _webViewManager.webView.delegate = self;
     
     [self.view addSubview: _webViewManager.webView];
     
-    if (![_webViewManager.getCurrentTab isEqualToString:TRENDING]) {
-        [_webViewManager useRouterWithPath:TRENDING];
+    if (![_webViewManager.getCurrentTab isEqualToString:PROFILE]) {
+        [_webViewManager useRouterWithPath:PROFILE];
     }
 }
 
+
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear: animated];
-//    [_webViewManager removeWebViewFromContainer];
 }
+
 
 @end

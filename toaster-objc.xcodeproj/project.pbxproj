@@ -10,6 +10,8 @@
 		700272331B99C62D00C292A5 /* WebViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 700272321B99C62D00C292A5 /* WebViewManager.m */; };
 		700272391B9A36B900C292A5 /* UIWebView+FLUIWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 700272381B9A36B900C292A5 /* UIWebView+FLUIWebView.m */; };
 		7002723C1B9A36EE00C292A5 /* WKWebView+FLWKWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7002723B1B9A36EE00C292A5 /* WKWebView+FLWKWebView.m */; };
+		700272451B9A69C400C292A5 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 700272441B9A69C400C292A5 /* ProfileViewController.m */; };
+		700272481B9A6A6D00C292A5 /* NotificationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 700272471B9A6A6D00C292A5 /* NotificationsViewController.m */; };
 		70951F941B989F15006B1228 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 70951F931B989F15006B1228 /* main.m */; };
 		70951F971B989F15006B1228 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 70951F961B989F15006B1228 /* AppDelegate.m */; };
 		70951F9A1B989F15006B1228 /* RecentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70951F991B989F15006B1228 /* RecentViewController.m */; };
@@ -39,6 +41,10 @@
 		700272381B9A36B900C292A5 /* UIWebView+FLUIWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+FLUIWebView.m"; sourceTree = "<group>"; };
 		7002723A1B9A36EE00C292A5 /* WKWebView+FLWKWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WKWebView+FLWKWebView.h"; sourceTree = "<group>"; };
 		7002723B1B9A36EE00C292A5 /* WKWebView+FLWKWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WKWebView+FLWKWebView.m"; sourceTree = "<group>"; };
+		700272431B9A69C400C292A5 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileViewController.h; path = ../ProfileViewController.h; sourceTree = "<group>"; };
+		700272441B9A69C400C292A5 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileViewController.m; path = ../ProfileViewController.m; sourceTree = "<group>"; };
+		700272461B9A6A6D00C292A5 /* NotificationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationsViewController.h; sourceTree = "<group>"; };
+		700272471B9A6A6D00C292A5 /* NotificationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationsViewController.m; sourceTree = "<group>"; };
 		70951F8E1B989F15006B1228 /* toaster-objc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "toaster-objc.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		70951F921B989F15006B1228 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		70951F931B989F15006B1228 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -120,6 +126,10 @@
 				70D005621B98A882006E746F /* PostsShowViewController.m */,
 				70951F9B1B989F15006B1228 /* TrendingViewController.h */,
 				70951F9C1B989F15006B1228 /* TrendingViewController.m */,
+				700272461B9A6A6D00C292A5 /* NotificationsViewController.h */,
+				700272471B9A6A6D00C292A5 /* NotificationsViewController.m */,
+				700272431B9A69C400C292A5 /* ProfileViewController.h */,
+				700272441B9A69C400C292A5 /* ProfileViewController.m */,
 				700272311B99C62D00C292A5 /* WebViewManager.h */,
 				700272321B99C62D00C292A5 /* WebViewManager.m */,
 				70951FA11B989F15006B1228 /* Images.xcassets */,
@@ -258,9 +268,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				700272331B99C62D00C292A5 /* WebViewManager.m in Sources */,
+				700272451B9A69C400C292A5 /* ProfileViewController.m in Sources */,
 				700272391B9A36B900C292A5 /* UIWebView+FLUIWebView.m in Sources */,
 				70D005631B98A882006E746F /* PostsShowViewController.m in Sources */,
 				70951F9D1B989F15006B1228 /* TrendingViewController.m in Sources */,
+				700272481B9A6A6D00C292A5 /* NotificationsViewController.m in Sources */,
 				70951F971B989F15006B1228 /* AppDelegate.m in Sources */,
 				7002723C1B9A36EE00C292A5 /* WKWebView+FLWKWebView.m in Sources */,
 				70951F9A1B989F15006B1228 /* RecentViewController.m in Sources */,
