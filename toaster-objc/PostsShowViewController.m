@@ -23,12 +23,10 @@
     
     NSLog(@"PostsShowViewWillAppear");
     _webViewManager = [WebViewManager getUniqueWebViewManager:self];
-    
     [_webViewManager removeWebViewFromContainer];
     
     // Setting delegate for WKWebView
     [[_webViewManager webView] setDelegateViews: self];
-//    _webViewManager.webView.delegate = self;
     [self.view addSubview: _webViewManager.webView];
 }
 
@@ -50,16 +48,12 @@
 //        [_webViewManager.webView goBack];
     }
 
-    // Show Recent view next time we come back from a different tab
-//    [self.navigationController popToRootViewControllerAnimated:NO];
     [super viewWillDisappear:animated];
 }
 
 - (void)willMoveToParentViewController:(UIViewController *)parent{
     if (parent == nil){
         NSLog(@"do whatever you want here");
-//        [_webViewManager.webView goBack];
-//        [_webViewManager webView go]
         [_webViewManager useRouterWithPath:RECENT];
     }
 }

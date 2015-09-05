@@ -16,6 +16,9 @@
 
 @property (strong, nonatomic) UIWebView *webView;
 
+//@property (weak, nonatomic) IBOutlet UIBarButtonItem *newPostBUtton;
+
+//- (IBAction)newPostAction:(id)sender;
 
 @end
 

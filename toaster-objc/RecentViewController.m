@@ -24,17 +24,17 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    NSLog(@"RecentViewWillAppear");
     [_webViewManager removeWebViewFromContainer];
     _webViewManager = [WebViewManager getUniqueWebViewManager:self];
     
     // Setting delegate for WKWebView
     [[_webViewManager webView] setDelegateViews: self];
-//    _webViewManager.webView.delegate = self;
     
     // Add webView as subView
     [self.view addSubview: _webViewManager.webView];
-    
+
+    // Just in case we are still showing the "postsShow" view when
+    // the user comes back from another tab
     if (![[_webViewManager getCurrentTab] isEqual:RECENT]) {
         [_webViewManager useRouterWithPath:RECENT];
     }
@@ -90,6 +90,7 @@
         [self performSegueWithIdentifier:@"postsShowSegue" sender:self];
         return false;
     }
+
     return true;
 }
 
@@ -215,4 +216,6 @@
 //    [self finishLoadOrNavigation: [webView request]];
 }
 
+- (IBAction)newPostAction:(id)sender {
+}
 @end
