@@ -7,6 +7,7 @@
 //
 
 #import "TrendingViewController.h"
+#import "PostsShowViewController.h"
 #import "Constants.h"
 
 @interface TrendingViewController ()
@@ -36,6 +37,12 @@
     
     [self.view addSubview: _webViewManager.webView];
     
+    // Replace webView with screenImage to make the user believe
+    // that the webview is loaded already
+    if (self.screenImage) {
+        [_webViewManager replaceWebViewWithImage:self :self.screenImage];
+    }
+    
     if (![_webViewManager.getCurrentTab isEqualToString:TRENDING]) {
         [_webViewManager useRouterWithPath:TRENDING];
     }
@@ -44,6 +51,15 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear: animated];
 //    [_webViewManager removeWebViewFromContainer];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if( [segue.identifier isEqualToString:@"postsShowSegue2"]) {
+        PostsShowViewController *postsShowVC = (PostsShowViewController *)segue.destinationViewController;
+        self.screenImage = [_webViewManager screencapture:self];
+        postsShowVC.parentScreenImage = self.screenImage;
+    }
 }
 
 #pragma mark - Shared Delegate Methods
@@ -60,6 +76,15 @@
     
     if ([[URL absoluteString] isEqualToString:@"toasterapp://postsShow"]) {
         [self performSegueWithIdentifier:@"postsShowSegue2" sender:self];
+        return false;
+    }
+    
+    if ([[URL absoluteString] isEqualToString:@"toasterapp://loadingEnd"]) {
+        if (self.screenImage) {
+            NSLog(@"Replace image with real webview");
+            [_webViewManager replaceImageWithWebView:self];
+            self.screenImage = nil;
+        }
         return false;
     }
     

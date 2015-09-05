@@ -46,6 +46,18 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (void) viewWillDisappear:(BOOL)animated {
+    [_webViewManager replaceWebViewWithImage:self :self.parentScreenImage];
+    [super viewWillDisappear:animated];
+}
+
+
+- (void) viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    
+    [_webViewManager replaceImageWithWebView:self];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

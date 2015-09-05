@@ -7,6 +7,7 @@
 //
 
 #import "NotificationsViewController.h"
+#import "PostsShowViewController.h"
 #import "Constants.h"
 
 @interface NotificationsViewController ()
@@ -36,6 +37,12 @@
     [[_webViewManager webView] setDelegateViews: self];
     
     [self.view addSubview: _webViewManager.webView];
+   
+    // Replace webView with screenImage to make the user believe
+    // that the webview is loaded already
+    if (self.screenImage) {
+        [_webViewManager replaceWebViewWithImage:self :self.screenImage];
+    }
     
     if (![_webViewManager.getCurrentTab isEqualToString:NOTIFICATIONS]) {
         [_webViewManager useRouterWithPath:NOTIFICATIONS];
@@ -44,6 +51,15 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear: animated];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if( [segue.identifier isEqualToString:@"postsShowSegue3"]) {
+        PostsShowViewController *postsShowVC = (PostsShowViewController *)segue.destinationViewController;
+        self.screenImage = [_webViewManager screencapture:self];
+        postsShowVC.parentScreenImage = self.screenImage;
+    }
 }
 
 #pragma mark - Shared Delegate Methods

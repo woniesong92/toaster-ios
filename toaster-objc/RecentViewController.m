@@ -8,6 +8,7 @@
 
 #import "RecentViewController.h"
 #import "PostsShowViewController.h"
+#import "NewPostController.h"
 #import "Constants.h"
 #import "AppDelegate.h"
 
@@ -34,8 +35,9 @@
     // Add webView as subView
     [self.view addSubview: _webViewManager.webView];
     
+    // Replace webView with screenImage to make the user believe
+    // that the webview is loaded already
     if (self.screenImage) {
-        NSLog(@"replacing webview with image");
         [_webViewManager replaceWebViewWithImage:self :self.screenImage];
     }
 
@@ -79,11 +81,17 @@
         PostsShowViewController *postsShowVC = (PostsShowViewController *)segue.destinationViewController;
         self.screenImage = [_webViewManager screencapture:self];
         postsShowVC.parentScreenImage = self.screenImage;
-//        postsShowVC.webView = self.webView;
-//        [self.webView removeFromSuperview];
-//        self.webView = nil;
-//        self.webView.delegate = nil;
+        return;
     }
+    
+    if ([segue.identifier isEqualToString:@"newPostSegue"]) {
+        NewPostController *newPostVC = (NewPostController *)segue.destinationViewController;
+        self.screenImage = [_webViewManager screencapture:self];
+        
+        newPostVC.parentScreenImage = self.screenImage;
+        return;
+    }
+
 }
 
 #pragma mark - Shared Delegate Methods
@@ -114,7 +122,6 @@
             [_webViewManager replaceImageWithWebView:self];
             self.screenImage = nil;
         }
-
         return false;
     }
 

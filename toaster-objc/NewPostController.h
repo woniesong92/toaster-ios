@@ -13,4 +13,6 @@
     WebViewManager *_webViewManager;
 }
 
+@property (strong, nonatomic) UIImage *parentScreenImage;
+
 @end

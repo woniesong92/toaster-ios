@@ -26,9 +26,8 @@
     
     // Setting delegate for WKWebView
     [[_webViewManager webView] setDelegateViews: self];
+
     [self.view addSubview: _webViewManager.webView];
-    
-//    [_webViewManager replaceWebViewWithImage:self :self.parentScreenImage];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
