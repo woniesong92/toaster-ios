@@ -90,6 +90,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Trending" image="second" id="cPa-gy-q4n"/>
                     <navigationItem key="navigationItem" title="Trending" id="ckU-aL-ANX"/>
+                    <connections>
+                        <segue destination="i0U-vc-kr9" kind="show" identifier="postsShowSegue2" id="J8F-Ew-rBO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
@@ -146,6 +149,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ahy-wd-QL3">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" red="1" green="0.27450980390000002" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -174,6 +178,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Notifications" image="second" id="iYI-7x-uxp"/>
                     <navigationItem key="navigationItem" title="Notifications" id="Jub-sh-1YE"/>
+                    <connections>
+                        <segue destination="i0U-vc-kr9" kind="show" identifier="postsShowSegue3" id="ILI-o6-F0n"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GQN-CG-X5R" sceneMemberID="firstResponder"/>
             </objects>
@@ -187,6 +194,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tlz-WL-zWN">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" red="1" green="0.27450980390000002" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -215,29 +223,13 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="second" id="DI5-Qq-n8M"/>
                     <navigationItem key="navigationItem" title="Profile" id="MxY-EV-Bxa"/>
+                    <connections>
+                        <segue destination="i0U-vc-kr9" kind="show" identifier="postsShowSegue4" id="zn7-ej-g5b"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yMB-GE-20u" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1468" y="1758"/>
-        </scene>
-        <!--Toast-->
-        <scene sceneID="UXk-mi-g1d">
-            <objects>
-                <viewController id="X1N-Z8-1Yi" customClass="PostsShowViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="duC-Gd-dGC"/>
-                        <viewControllerLayoutGuide type="bottom" id="MVc-N5-epb"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="tT8-wV-2ka">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Toast" id="Toa-Zq-0JN"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Edk-wd-z5E" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2194" y="352"/>
         </scene>
         <!--Make a toast-->
         <scene sceneID="PNc-se-iDT">
@@ -288,4 +280,7 @@
         <image name="first" width="30" height="30"/>
         <image name="second" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="ILI-o6-F0n"/>
+    </inferredMetricsTieBreakers>
 </document>

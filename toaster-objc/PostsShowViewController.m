@@ -53,8 +53,20 @@
 
 - (void)willMoveToParentViewController:(UIViewController *)parent{
     if (parent == nil){
-        NSLog(@"do whatever you want here");
-        [_webViewManager useRouterWithPath:RECENT];
+        // Decide where to go back to
+        NSString *currentTab = [_webViewManager getCurrentTab];
+        if ([currentTab isEqualToString:RECENT]) {
+            [_webViewManager useRouterWithPath:RECENT];
+        } else if ([currentTab isEqualToString:TRENDING]) {
+            [_webViewManager useRouterWithPath:TRENDING];
+        } else if ([currentTab isEqualToString:NOTIFICATIONS]) {
+            [_webViewManager useRouterWithPath:NOTIFICATIONS];
+        } else if ([currentTab isEqualToString:PROFILE]) {
+            [_webViewManager useRouterWithPath:PROFILE];
+        } else {
+            NSLog(@"ERR: unspecified currentTab");
+        }
+
     }
 }
 
