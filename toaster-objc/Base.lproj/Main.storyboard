@@ -96,7 +96,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Trending" id="cPa-gy-q4n"/>
-                    <navigationItem key="navigationItem" title="Trending" id="ckU-aL-ANX"/>
+                    <navigationItem key="navigationItem" title="Trending" id="ckU-aL-ANX">
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="7mJ-wh-hQD">
+                            <connections>
+                                <segue destination="Lai-rn-CoX" kind="presentation" id="CIo-z8-cEL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="i0U-vc-kr9" kind="show" identifier="postsShowSegue2" id="J8F-Ew-rBO"/>
                     </connections>
@@ -352,7 +358,8 @@
         <image name="trending-selected" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="zn7-ej-g5b"/>
+        <segue reference="J8F-Ew-rBO"/>
+        <segue reference="CIo-z8-cEL"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.27450980390000002" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
