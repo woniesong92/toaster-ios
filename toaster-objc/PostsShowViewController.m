@@ -9,7 +9,6 @@
 #import "PostsShowViewController.h"
 #import "RecentViewController.h"
 #import "Constants.h"
-#import "WebViewManager.h"
 
 @implementation PostsShowViewController
 

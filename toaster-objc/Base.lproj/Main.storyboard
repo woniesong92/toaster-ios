@@ -250,7 +250,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" id="DI5-Qq-n8M"/>
-                    <navigationItem key="navigationItem" title="Profile" id="MxY-EV-Bxa"/>
+                    <navigationItem key="navigationItem" title="Profile" id="MxY-EV-Bxa">
+                        <barButtonItem key="rightBarButtonItem" image="settings" style="plain" id="AlQ-7d-hD4">
+                            <connections>
+                                <segue destination="lWy-nl-f3d" kind="show" id="1z0-ox-nls"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="i0U-vc-kr9" kind="show" identifier="postsShowSegue4" id="zn7-ej-g5b"/>
                     </connections>
@@ -258,6 +264,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yMB-GE-20u" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1468" y="1758"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="Zgo-xc-GpV">
+            <objects>
+                <viewController id="lWy-nl-f3d" customClass="SettingsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="o1a-QZ-pL3"/>
+                        <viewControllerLayoutGuide type="bottom" id="5aA-Ey-tzJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Xxh-x8-nvh">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Settings" id="kt2-KR-a7U"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WVm-4e-MXV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2181" y="1758"/>
         </scene>
         <!--Make a toast-->
         <scene sceneID="PNc-se-iDT">
@@ -322,11 +347,12 @@
         <image name="profile-selected" width="32" height="32"/>
         <image name="recent" width="32" height="32"/>
         <image name="recent-selected" width="32" height="32"/>
+        <image name="settings" width="32" height="32"/>
         <image name="trending" width="32" height="32"/>
         <image name="trending-selected" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ILI-o6-F0n"/>
+        <segue reference="zn7-ej-g5b"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.27450980390000002" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

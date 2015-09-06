@@ -8,6 +8,7 @@
 
 #import "ProfileViewController.h"
 #import "PostsShowViewController.h"
+#import "SettingsViewController.h"
 #import "Constants.h"
 
 @interface ProfileViewController ()
@@ -64,6 +65,13 @@
         self.screenImage = [_webViewManager screencapture:self];
         postsShowVC.parentScreenImage = self.screenImage;
     }
+    
+//    if ([segue.identifier isEqualToString:@"settingsSegue"]) {
+//        UINavigationController *settingsNavVC = (UINavigationController *)segue.destinationViewController;
+//        SettingsViewController *settingsVC = (SettingsViewController *) [settingsNavVC.viewControllers objectAtIndex:0];
+//        self.screenImage = [_webViewManager screencapture:self];
+//        return;
+//    }
 }
 
 #pragma mark - Shared Delegate Methods

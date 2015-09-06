@@ -94,7 +94,6 @@
         newPostVC.parentScreenImage = self.screenImage;
         return;
     }
-
 }
 
 #pragma mark - Shared Delegate Methods
