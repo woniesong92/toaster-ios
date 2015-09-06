@@ -19,7 +19,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Recent" image="first" id="acW-dT-cKf"/>
                     <navigationItem key="navigationItem" title="Recent" id="rbd-ly-eGL">
-                        <barButtonItem key="rightBarButtonItem" title="+" id="FcV-hp-enh">
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="FcV-hp-enh">
                             <connections>
                                 <action selector="newPostAction:" destination="9pv-A4-QxB" id="wVD-gc-27a"/>
                                 <segue destination="Lai-rn-CoX" kind="presentation" id="RJN-st-73y"/>
