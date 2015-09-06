@@ -12,7 +12,7 @@
 #import "UIWebView+FLUIWebView.h"
 #import "WKWebView+FLWKWebView.h"
 
-@interface WebViewManager : NSObject
+@interface WebViewManager : NSObject <UIWebViewDelegate, WKNavigationDelegate, WKUIDelegate>
 
 //@property (strong, nonatomic) UIWebView *webView;
 @property (nonatomic) UIView <FLWebViewProvider> *webView;

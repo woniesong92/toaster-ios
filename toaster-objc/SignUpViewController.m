@@ -7,6 +7,9 @@
 //
 
 #import "SignUpViewController.h"
+#import "RecentViewController.h"
+#import "Constants.h"
+#import "AppDelegate.h"
 
 @interface SignUpViewController ()
 
@@ -16,7 +19,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,5 +28,32 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [_webViewManager removeWebViewFromContainer];
+    _webViewManager = [WebViewManager getUniqueWebViewManager:self];
+    
+    // Setting delegate for WKWebView
+    [[_webViewManager webView] setDelegateViews: self];
+    
+    // Add webView as subView
+    [self.view addSubview: _webViewManager.webView];
+    
+    [_webViewManager useRouterWithPath:SIGN_UP];
+}
+
+- (void) webView: (WKWebView *) webView decidePolicyForNavigationAction: (WKNavigationAction *) navigationAction decisionHandler: (void (^)(WKNavigationActionPolicy)) decisionHandler
+{
+    decisionHandler([self shouldStartDecidePolicy: [navigationAction request]]);
+}
+
+
+- (BOOL) shouldStartDecidePolicy: (NSURLRequest *) request
+{
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    return false;
+}
 
 @end

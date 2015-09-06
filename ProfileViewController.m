@@ -105,6 +105,20 @@
         return false;
     }
     
+    if ([[URL absoluteString] isEqualToString:@"toasterapp://notLoggedIn"]) {
+        NSLog(@"Send the user to login page");
+        
+        //        [_loadingManager stopLoadingIndicator];
+        //        if (self.screenImage) {
+        //            [_webViewManager replaceImageWithWebView:self];
+        //            self.screenImage = nil;
+        //        }
+        
+        NSLog(@"Availalbe VCS: %@", [[self navigationController] viewControllers]);
+        
+        return false;
+    }
+    
     return true;
 }
 

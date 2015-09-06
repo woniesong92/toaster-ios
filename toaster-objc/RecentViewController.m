@@ -8,6 +8,7 @@
 
 #import "RecentViewController.h"
 #import "PostsShowViewController.h"
+#import "SignUpViewController.h"
 #import "NewPostController.h"
 #import "Constants.h"
 #import "AppDelegate.h"
@@ -49,7 +50,10 @@
         [_webViewManager useRouterWithPath:RECENT];
     }
     
+    
     [_loadingManager startLoadingIndicator:self];
+    
+    NSLog(@"view will appear");
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -117,7 +121,7 @@
     }
     
     if ([[URL absoluteString] isEqualToString:@"toasterapp://loadingStart"]) {
-//        NSLog(@"loading started for Meteor"); 
+        NSLog(@"loading started for Meteor");
         return false;
     }
     
@@ -128,6 +132,14 @@
             [_webViewManager replaceImageWithWebView:self];
             self.screenImage = nil;
         }
+        return false;
+    }
+    
+    if ([[URL absoluteString] isEqualToString:@"toasterapp://notLoggedIn"]) {
+        NSLog(@"Send the user to login page");
+        
+        SignUpViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"SignUpNavVC"];
+        [self presentViewController:vc animated:YES completion:nil];
         
         return false;
     }

@@ -61,5 +61,20 @@
     }
 }
 
+- (BOOL) webView: (UIWebView *) webView shouldStartLoadWithRequest: (NSURLRequest *) request navigationType: (UIWebViewNavigationType) navigationType
+{
+    return [self shouldStartDecidePolicy: request];
+}
+
+- (BOOL) shouldStartDecidePolicy: (NSURLRequest *) request
+{
+    NSURL *URL = [request URL];
+    
+    if ([[URL absoluteString] isEqualToString:@"toasterapp://notLoggedIn"]) {
+        NSLog(@"Send the user to login page");
+        return false;
+    }
+    return true;
+}
 
 @end

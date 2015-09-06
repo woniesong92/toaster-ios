@@ -114,7 +114,7 @@
         <!--Sign Up-->
         <scene sceneID="aEe-ms-HUx">
             <objects>
-                <viewController id="wgb-Tf-AS4" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpVC" id="wgb-Tf-AS4" customClass="SignUpViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vj1-2x-YkB"/>
                         <viewControllerLayoutGuide type="bottom" id="c1B-VL-Fsz"/>
@@ -367,7 +367,7 @@
         <!--Navigation Controller-->
         <scene sceneID="hC6-y3-t0Y">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="faC-Ap-wUx" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="SignUpNavVC" automaticallyAdjustsScrollViewInsets="NO" id="faC-Ap-wUx" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="YLe-gD-AWb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
