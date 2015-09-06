@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Recent" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Recent" image="recent" selectedImage="recentSelected" id="acW-dT-cKf"/>
                     <navigationItem key="navigationItem" title="Recent" id="rbd-ly-eGL">
                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="FcV-hp-enh">
                             <connections>
@@ -57,7 +57,7 @@
         <scene sceneID="m7m-NA-Afy">
             <objects>
                 <navigationController id="Oaj-H6-AMn" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Recent" image="first" id="oVD-j5-L79"/>
+                    <tabBarItem key="tabBarItem" title="Recent" image="recent" selectedImage="recentSelected" id="oVD-j5-L79"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="6os-ib-JD8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -123,7 +123,7 @@
         <scene sceneID="Azd-rU-2tQ">
             <objects>
                 <navigationController id="t5H-Gc-7B1" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Trending" image="first" id="icY-qD-gnC"/>
+                    <tabBarItem key="tabBarItem" title="Trending" image="trending" selectedImage="trendingSelected" id="icY-qD-gnC"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Q2o-gg-wcp">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -145,7 +145,7 @@
         <scene sceneID="q9H-Dr-myG">
             <objects>
                 <navigationController id="CZJ-oL-ufF" userLabel="Notifications" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Notifications" image="first" id="GIF-Nq-Fub"/>
+                    <tabBarItem key="tabBarItem" title="Notifications" image="notifications" id="GIF-Nq-Fub"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ahy-wd-QL3">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -190,7 +190,7 @@
         <scene sceneID="Bx9-6S-IvK">
             <objects>
                 <navigationController id="9tC-GH-RY5" userLabel="Profile" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" image="first" id="oeG-lC-ZRb"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="profile" selectedImage="profileSelected" id="oeG-lC-ZRb"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tlz-WL-zWN">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -288,8 +288,14 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
+        <image name="notifications" width="32" height="32"/>
+        <image name="profile" width="32" height="32"/>
+        <image name="profileSelected" width="32" height="32"/>
+        <image name="recent" width="32" height="32"/>
+        <image name="recentSelected" width="32" height="32"/>
         <image name="second" width="30" height="30"/>
+        <image name="trending" width="32" height="32"/>
+        <image name="trendingSelected" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="rtv-bc-fAZ"/>
