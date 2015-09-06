@@ -24,6 +24,7 @@
 		70951FB11B989F15006B1228 /* toaster_objcTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 70951FB01B989F15006B1228 /* toaster_objcTests.m */; };
 		70D005631B98A882006E746F /* PostsShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D005621B98A882006E746F /* PostsShowViewController.m */; };
 		70E3415F1B9C9DB200046067 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E3415E1B9C9DB200046067 /* SettingsViewController.m */; };
+		70E341621B9CA6C200046067 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E341611B9CA6C200046067 /* SignUpViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,8 @@
 		70D005621B98A882006E746F /* PostsShowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostsShowViewController.m; sourceTree = "<group>"; };
 		70E3415D1B9C9DB200046067 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		70E3415E1B9C9DB200046067 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		70E341601B9CA6C200046067 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
+		70E341611B9CA6C200046067 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +134,8 @@
 				70951FBA1B98A009006B1228 /* Constants.h */,
 				70951F951B989F15006B1228 /* AppDelegate.h */,
 				70951F961B989F15006B1228 /* AppDelegate.m */,
+				70E341601B9CA6C200046067 /* SignUpViewController.h */,
+				70E341611B9CA6C200046067 /* SignUpViewController.m */,
 				70951F981B989F15006B1228 /* RecentViewController.h */,
 				70951F991B989F15006B1228 /* RecentViewController.m */,
 				70D005611B98A882006E746F /* PostsShowViewController.h */,
@@ -294,6 +299,7 @@
 				7002723C1B9A36EE00C292A5 /* WKWebView+FLWKWebView.m in Sources */,
 				70951F9A1B989F15006B1228 /* RecentViewController.m in Sources */,
 				70951F941B989F15006B1228 /* main.m in Sources */,
+				70E341621B9CA6C200046067 /* SignUpViewController.m in Sources */,
 				70E3415F1B9C9DB200046067 /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

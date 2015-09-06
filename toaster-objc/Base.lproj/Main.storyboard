@@ -32,7 +32,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1468" y="-340"/>
+            <point key="canvasLocation" x="2280" y="-340"/>
         </scene>
         <!--Toast-->
         <scene sceneID="v67-vp-6CQ">
@@ -51,7 +51,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WBa-LR-aeK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2194" y="-340"/>
+            <point key="canvasLocation" x="3006" y="-340"/>
         </scene>
         <!--Recent-->
         <scene sceneID="m7m-NA-Afy">
@@ -80,7 +80,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lf9-Ff-0fT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="744" y="-340"/>
+            <point key="canvasLocation" x="1556" y="-340"/>
         </scene>
         <!--Trending-->
         <scene sceneID="wg7-f3-ORb">
@@ -109,7 +109,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1468" y="352"/>
+            <point key="canvasLocation" x="2280" y="352"/>
+        </scene>
+        <!--Sign Up-->
+        <scene sceneID="aEe-ms-HUx">
+            <objects>
+                <viewController id="wgb-Tf-AS4" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vj1-2x-YkB"/>
+                        <viewControllerLayoutGuide type="bottom" id="c1B-VL-Fsz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Q8Z-Tp-oMg">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Sign Up" id="sfD-U0-VzT"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uVI-Oy-ELz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="54" y="0.0"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -130,7 +149,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="0.0"/>
+            <point key="canvasLocation" x="812" y="0.0"/>
         </scene>
         <!--Trending-->
         <scene sceneID="Azd-rU-2tQ">
@@ -159,7 +178,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EKh-nu-evs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="744" y="352"/>
+            <point key="canvasLocation" x="1556" y="352"/>
         </scene>
         <!--Notifications-->
         <scene sceneID="q9H-Dr-myG">
@@ -344,6 +363,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hWH-us-I3y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2194" y="-1059"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="hC6-y3-t0Y">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="faC-Ap-wUx" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YLe-gD-AWb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="wgb-Tf-AS4" kind="relationship" relationship="rootViewController" id="xEi-UT-CXk"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4d2-qq-NbW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-758" y="0.0"/>
         </scene>
     </scenes>
     <resources>
