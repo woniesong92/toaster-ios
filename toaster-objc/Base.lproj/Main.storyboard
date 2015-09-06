@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Recent" image="recent" selectedImage="recentSelected" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Recent" image="recent" id="acW-dT-cKf"/>
                     <navigationItem key="navigationItem" title="Recent" id="rbd-ly-eGL">
                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="FcV-hp-enh">
                             <connections>
@@ -57,7 +57,11 @@
         <scene sceneID="m7m-NA-Afy">
             <objects>
                 <navigationController id="Oaj-H6-AMn" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Recent" image="recent" selectedImage="recentSelected" id="oVD-j5-L79"/>
+                    <tabBarItem key="tabBarItem" title="Recent" image="recent" id="oVD-j5-L79">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="recent-selected"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="6os-ib-JD8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -88,7 +92,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Trending" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Trending" id="cPa-gy-q4n"/>
                     <navigationItem key="navigationItem" title="Trending" id="ckU-aL-ANX"/>
                     <connections>
                         <segue destination="i0U-vc-kr9" kind="show" identifier="postsShowSegue2" id="J8F-Ew-rBO"/>
@@ -123,7 +127,11 @@
         <scene sceneID="Azd-rU-2tQ">
             <objects>
                 <navigationController id="t5H-Gc-7B1" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Trending" image="trending" selectedImage="trendingSelected" id="icY-qD-gnC"/>
+                    <tabBarItem key="tabBarItem" title="Trending" image="trending" id="icY-qD-gnC">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="trending-selected"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Q2o-gg-wcp">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -145,7 +153,11 @@
         <scene sceneID="q9H-Dr-myG">
             <objects>
                 <navigationController id="CZJ-oL-ufF" userLabel="Notifications" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Notifications" image="notifications" id="GIF-Nq-Fub"/>
+                    <tabBarItem key="tabBarItem" title="Notifications" image="notifications" id="GIF-Nq-Fub">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="notifications-selected"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ahy-wd-QL3">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -176,7 +188,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Notifications" image="second" id="iYI-7x-uxp"/>
+                    <tabBarItem key="tabBarItem" title="Notifications" id="iYI-7x-uxp"/>
                     <navigationItem key="navigationItem" title="Notifications" id="Jub-sh-1YE"/>
                     <connections>
                         <segue destination="i0U-vc-kr9" kind="show" identifier="postsShowSegue3" id="ILI-o6-F0n"/>
@@ -190,7 +202,11 @@
         <scene sceneID="Bx9-6S-IvK">
             <objects>
                 <navigationController id="9tC-GH-RY5" userLabel="Profile" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" image="profile" selectedImage="profileSelected" id="oeG-lC-ZRb"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="profile" id="oeG-lC-ZRb">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="profile-selected"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tlz-WL-zWN">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -221,7 +237,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" image="second" id="DI5-Qq-n8M"/>
+                    <tabBarItem key="tabBarItem" title="Profile" id="DI5-Qq-n8M"/>
                     <navigationItem key="navigationItem" title="Profile" id="MxY-EV-Bxa"/>
                     <connections>
                         <segue destination="i0U-vc-kr9" kind="show" identifier="postsShowSegue4" id="zn7-ej-g5b"/>
@@ -266,7 +282,6 @@
         <!--Navigation Controller-->
         <scene sceneID="Jsa-vq-zKM">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hWH-us-I3y" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Lai-rn-CoX" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="NPO-ae-fRf">
@@ -283,21 +298,23 @@
                         <segue destination="4El-qh-klo" kind="relationship" relationship="rootViewController" id="E48-d6-8FH"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hWH-us-I3y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2194" y="-1059"/>
         </scene>
     </scenes>
     <resources>
         <image name="notifications" width="32" height="32"/>
+        <image name="notifications-selected" width="32" height="32"/>
         <image name="profile" width="32" height="32"/>
-        <image name="profileSelected" width="32" height="32"/>
+        <image name="profile-selected" width="32" height="32"/>
         <image name="recent" width="32" height="32"/>
-        <image name="recentSelected" width="32" height="32"/>
-        <image name="second" width="30" height="30"/>
+        <image name="recent-selected" width="32" height="32"/>
         <image name="trending" width="32" height="32"/>
-        <image name="trendingSelected" width="32" height="32"/>
+        <image name="trending-selected" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="rtv-bc-fAZ"/>
+        <segue reference="ILI-o6-F0n"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" red="1" green="0.27450980390000002" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
