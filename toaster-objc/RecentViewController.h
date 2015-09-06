@@ -9,17 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "WebViewManager.h"
 #import "FLWebViewProvider.h"
+#import "LoadingManager.h"
 
 @interface RecentViewController : UIViewController <UIWebViewDelegate, WKNavigationDelegate, WKUIDelegate> {
     WebViewManager *_webViewManager;
+    LoadingManager *_loadingManager;
 }
 
 @property (strong, nonatomic) UIWebView *webView;
 @property (strong, nonatomic) UIImage *screenImage;
-
-//@property (weak, nonatomic) IBOutlet UIBarButtonItem *newPostBUtton;
-
-//- (IBAction)newPostAction:(id)sender;
 
 @end
 

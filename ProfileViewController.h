@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "WebViewManager.h"
+#import "LoadingManager.h"
 
 @interface ProfileViewController : UIViewController <UIWebViewDelegate, WKNavigationDelegate, WKUIDelegate> {
     WebViewManager *_webViewManager;
+    LoadingManager *_loadingManager;
 }
 
 @property (strong, nonatomic) UIImage *screenImage;

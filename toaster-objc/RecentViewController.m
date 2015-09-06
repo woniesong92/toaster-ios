@@ -20,6 +20,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
+    
+    _loadingManager = [LoadingManager getLoadingManager:self];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -47,6 +49,11 @@
         [_webViewManager useRouterWithPath:RECENT];
     }
     
+    [_loadingManager startLoadingIndicator:self];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -55,14 +62,10 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear: animated];
-    
-    // take a screenshot and store it
-//    self.screenImage = ;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 //- (BOOL)webView:(UIWebView*)webView shouldStartLoadWithRequest:(NSURLRequest*)request navigationType:(UIWebViewNavigationType)navigationType {
@@ -106,6 +109,9 @@
     
     NSURL *URL = [request URL];
     
+    NSLog([URL absoluteString]);
+    
+    
     if ([[URL absoluteString] isEqualToString:@"toasterapp://postsShow"]) {
         [self performSegueWithIdentifier:@"postsShowSegue" sender:self];
         return false;
@@ -117,12 +123,13 @@
     }
     
     if ([[URL absoluteString] isEqualToString:@"toasterapp://loadingEnd"]) {
-//        NSLog(@"Am I called?");
+        [_loadingManager stopLoadingIndicator];
+        NSLog(@"stop loading indicater");
         if (self.screenImage) {
-            NSLog(@"Replace image with real webview");
             [_webViewManager replaceImageWithWebView:self];
             self.screenImage = nil;
         }
+        
         return false;
     }
 

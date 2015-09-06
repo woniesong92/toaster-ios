@@ -19,7 +19,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
-    // Do any additional setup after loading the view.
+
+    _loadingManager = [LoadingManager getLoadingManager:self];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,6 +48,8 @@
     if (![_webViewManager.getCurrentTab isEqualToString:NOTIFICATIONS]) {
         [_webViewManager useRouterWithPath:NOTIFICATIONS];
     }
+    
+    [_loadingManager startLoadingIndicator:self];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -85,6 +88,8 @@
             [_webViewManager replaceImageWithWebView:self];
             self.screenImage = nil;
         }
+        
+        [_loadingManager stopLoadingIndicator];
         return false;
     }
     

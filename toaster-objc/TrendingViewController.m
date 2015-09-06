@@ -19,7 +19,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
-//    NSLog(@"trending view loaded");
+
+    _loadingManager = [LoadingManager getLoadingManager:self];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,6 +47,8 @@
     if (![_webViewManager.getCurrentTab isEqualToString:TRENDING]) {
         [_webViewManager useRouterWithPath:TRENDING];
     }
+    
+    [_loadingManager startLoadingIndicator:self];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -85,6 +88,8 @@
             [_webViewManager replaceImageWithWebView:self];
             self.screenImage = nil;
         }
+        
+        [_loadingManager stopLoadingIndicator];
         return false;
     }
     

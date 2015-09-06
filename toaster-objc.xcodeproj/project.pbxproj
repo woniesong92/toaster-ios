@@ -13,6 +13,7 @@
 		700272451B9A69C400C292A5 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 700272441B9A69C400C292A5 /* ProfileViewController.m */; };
 		700272481B9A6A6D00C292A5 /* NotificationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 700272471B9A6A6D00C292A5 /* NotificationsViewController.m */; };
 		7002724B1B9B173F00C292A5 /* NewPostController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7002724A1B9B173F00C292A5 /* NewPostController.m */; };
+		7002724E1B9BD23200C292A5 /* LoadingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7002724D1B9BD23200C292A5 /* LoadingManager.m */; };
 		70951F941B989F15006B1228 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 70951F931B989F15006B1228 /* main.m */; };
 		70951F971B989F15006B1228 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 70951F961B989F15006B1228 /* AppDelegate.m */; };
 		70951F9A1B989F15006B1228 /* RecentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70951F991B989F15006B1228 /* RecentViewController.m */; };
@@ -48,6 +49,8 @@
 		700272471B9A6A6D00C292A5 /* NotificationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationsViewController.m; sourceTree = "<group>"; };
 		700272491B9B173F00C292A5 /* NewPostController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewPostController.h; sourceTree = "<group>"; };
 		7002724A1B9B173F00C292A5 /* NewPostController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewPostController.m; sourceTree = "<group>"; };
+		7002724C1B9BD23200C292A5 /* LoadingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingManager.h; sourceTree = "<group>"; };
+		7002724D1B9BD23200C292A5 /* LoadingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingManager.m; sourceTree = "<group>"; };
 		70951F8E1B989F15006B1228 /* toaster-objc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "toaster-objc.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		70951F921B989F15006B1228 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		70951F931B989F15006B1228 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -120,6 +123,8 @@
 			isa = PBXGroup;
 			children = (
 				70951F9E1B989F15006B1228 /* Main.storyboard */,
+				7002724C1B9BD23200C292A5 /* LoadingManager.h */,
+				7002724D1B9BD23200C292A5 /* LoadingManager.m */,
 				70951FBA1B98A009006B1228 /* Constants.h */,
 				70951F951B989F15006B1228 /* AppDelegate.h */,
 				70951F961B989F15006B1228 /* AppDelegate.m */,
@@ -280,6 +285,7 @@
 				700272481B9A6A6D00C292A5 /* NotificationsViewController.m in Sources */,
 				7002724B1B9B173F00C292A5 /* NewPostController.m in Sources */,
 				70951F971B989F15006B1228 /* AppDelegate.m in Sources */,
+				7002724E1B9BD23200C292A5 /* LoadingManager.m in Sources */,
 				7002723C1B9A36EE00C292A5 /* WKWebView+FLWKWebView.m in Sources */,
 				70951F9A1B989F15006B1228 /* RecentViewController.m in Sources */,
 				70951F941B989F15006B1228 /* main.m in Sources */,

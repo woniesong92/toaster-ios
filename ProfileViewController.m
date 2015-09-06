@@ -20,6 +20,8 @@
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
     // Do any additional setup after loading the view.
+    
+    _loadingManager = [LoadingManager getLoadingManager:self];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,6 +48,8 @@
     if (![_webViewManager.getCurrentTab isEqualToString:PROFILE]) {
         [_webViewManager useRouterWithPath:PROFILE];
     }
+    
+    [_loadingManager startLoadingIndicator:self];
 }
 
 
@@ -85,6 +89,9 @@
             [_webViewManager replaceImageWithWebView:self];
             self.screenImage = nil;
         }
+        
+        [_loadingManager stopLoadingIndicator];
+        
         return false;
     }
     
