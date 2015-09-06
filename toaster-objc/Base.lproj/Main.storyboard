@@ -245,7 +245,18 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Make a toast" id="3A1-CJ-kCv"/>
+                    <navigationItem key="navigationItem" title="Make a toast" id="3A1-CJ-kCv">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="yba-lM-Kb2">
+                            <connections>
+                                <action selector="cancelButtonPressed:" destination="4El-qh-klo" id="yu1-Mn-Hhv"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="BOP-e8-mEu">
+                            <connections>
+                                <action selector="doneButtonPressed:" destination="4El-qh-klo" id="G1z-kN-R4s"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gQB-bx-rLx" userLabel="First Responder" sceneMemberID="firstResponder"/>
