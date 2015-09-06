@@ -60,18 +60,20 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if( [segue.identifier isEqualToString:@"postsShowSegue4"]) {
+    if([segue.identifier isEqualToString:@"postsShowSegue4"]) {
         PostsShowViewController *postsShowVC = (PostsShowViewController *)segue.destinationViewController;
         self.screenImage = [_webViewManager screencapture:self];
         postsShowVC.parentScreenImage = self.screenImage;
+        return;
     }
     
-//    if ([segue.identifier isEqualToString:@"settingsSegue"]) {
-//        UINavigationController *settingsNavVC = (UINavigationController *)segue.destinationViewController;
-//        SettingsViewController *settingsVC = (SettingsViewController *) [settingsNavVC.viewControllers objectAtIndex:0];
-//        self.screenImage = [_webViewManager screencapture:self];
-//        return;
-//    }
+    if([segue.identifier isEqualToString:@"settingsSegue"]) {
+        SettingsViewController *settingsVC = (SettingsViewController *)segue.destinationViewController;
+        self.screenImage = [_webViewManager screencapture:self];
+        settingsVC.parentScreenImage = self.screenImage;
+        return;
+    }
+
 }
 
 #pragma mark - Shared Delegate Methods

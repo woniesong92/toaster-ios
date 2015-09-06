@@ -93,15 +93,16 @@
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
-//    [[UIColor blackColor] setFill];
-//    CGRect rect = viewController.view.bounds;
-//    [image drawInRect:rect];
-//    NSLog(@"image captured");
     return image;
 }
 
 - (void)replaceWebViewWithImage:(UIViewController *)containerVC :(UIImage *)image {
 //    UIImage *image = [self _screencapture:containerVC];
+    
+    if (image == nil) {
+        NSLog(@"can't replace webview with image: image is null");
+        return;
+    }
     
     UIView *imageContainer = [[UIView alloc] initWithFrame:[containerVC view].frame];
     [imageContainer setTag:IMAGE_CONTAINER_TAG];

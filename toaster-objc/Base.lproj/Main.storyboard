@@ -253,7 +253,7 @@
                     <navigationItem key="navigationItem" title="Profile" id="MxY-EV-Bxa">
                         <barButtonItem key="rightBarButtonItem" image="settings" style="plain" id="AlQ-7d-hD4">
                             <connections>
-                                <segue destination="lWy-nl-f3d" kind="show" id="1z0-ox-nls"/>
+                                <segue destination="lWy-nl-f3d" kind="show" identifier="settingsSegue" id="1z0-ox-nls"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

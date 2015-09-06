@@ -36,14 +36,25 @@
     [super viewWillAppear:animated];
 }
 
+- (void) viewWillDisappear:(BOOL)animated {
+    // Overshadow my webview with an image just before the transition
+    [_webViewManager replaceWebViewWithImage:self :self.parentScreenImage];
+    [super viewWillDisappear:animated];
+}
+
+- (void) viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    
+    // I get rid of the temporary screenshot that was overshadowing my webview
+    [_webViewManager replaceImageWithWebView:self];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
 - (void)willMoveToParentViewController:(UIViewController *)parent{
-    NSLog(@"parent? %@", parent);
-    
     if (parent == nil){
         NSLog(@"go back to profile");
         [_webViewManager useRouterWithPath:PROFILE];

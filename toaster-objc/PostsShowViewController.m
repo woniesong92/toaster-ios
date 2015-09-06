@@ -34,16 +34,16 @@
 }
 
 - (void) viewWillDisappear:(BOOL)animated {
-
+    // Overshadow my webview with an image just before the transition
     [_webViewManager replaceWebViewWithImage:self :self.parentScreenImage];
-
     [super viewWillDisappear:animated];
 }
 
 
 - (void) viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
-
+    
+    // I get rid of the temporary screenshot that was overshadowing my webview
     [_webViewManager replaceImageWithWebView:self];
 }
 
