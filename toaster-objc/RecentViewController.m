@@ -46,9 +46,9 @@
 
     // Just in case we are still showing the "postsShow" view when
     // the user comes back from another tab
-    if (![[_webViewManager getCurrentTab] isEqual:RECENT]) {
-        [_webViewManager useRouterWithPath:RECENT];
-    }
+//    if (![[_webViewManager getCurrentTab] isEqual:RECENT]) {
+//        [_webViewManager useRouterWithPath:RECENT];
+//    }
     
     
     [_loadingManager startLoadingIndicator:self];
