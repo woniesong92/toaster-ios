@@ -4,6 +4,8 @@
 #define TRENDING_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/trending"]
 #define NEW_POST_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/newPost"]
 #define SETTINGS_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/settings"]
+#define SIGNUP_SCHEME @"toasterapp://signUp"
+#define SIGNIN_SCHEME @"toasterapp://signIn"
 #define RECENT @"recent"
 #define SIGN_UP @"signUp"
 #define LOGIN @"signIn"

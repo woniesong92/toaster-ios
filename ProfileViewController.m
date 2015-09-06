@@ -9,6 +9,7 @@
 #import "ProfileViewController.h"
 #import "PostsShowViewController.h"
 #import "SettingsViewController.h"
+#import "SignUpViewController.h"
 #import "Constants.h"
 
 @interface ProfileViewController ()
@@ -105,17 +106,10 @@
         return false;
     }
     
-    if ([[URL absoluteString] isEqualToString:@"toasterapp://notLoggedIn"]) {
-        NSLog(@"Send the user to login page");
-        
-        //        [_loadingManager stopLoadingIndicator];
-        //        if (self.screenImage) {
-        //            [_webViewManager replaceImageWithWebView:self];
-        //            self.screenImage = nil;
-        //        }
-        
-        NSLog(@"Availalbe VCS: %@", [[self navigationController] viewControllers]);
-        
+    // FIXME: CODE IS REPEATED.
+    if ([[URL absoluteString] isEqualToString:SIGNUP_SCHEME]) {
+        SignUpViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"SignUpNavVC"];
+        [self presentViewController:vc animated:YES completion:nil];
         return false;
     }
     

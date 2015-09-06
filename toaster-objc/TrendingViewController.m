@@ -9,6 +9,7 @@
 #import "TrendingViewController.h"
 #import "PostsShowViewController.h"
 #import "Constants.h"
+#import "SignUpViewController.h"
 
 @interface TrendingViewController ()
 
@@ -90,6 +91,13 @@
         }
         
         [_loadingManager stopLoadingIndicator];
+        return false;
+    }
+    
+    // FIXME: CODE IS REPEATED.
+    if ([[URL absoluteString] isEqualToString:SIGNUP_SCHEME]) {
+        SignUpViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"SignUpNavVC"];
+        [self presentViewController:vc animated:YES completion:nil];
         return false;
     }
     

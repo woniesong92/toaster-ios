@@ -44,14 +44,30 @@
     [_webViewManager useRouterWithPath:SIGN_UP];
 }
 
+- (BOOL) webView: (UIWebView *) webView shouldStartLoadWithRequest: (NSURLRequest *) request navigationType: (UIWebViewNavigationType) navigationType
+{
+    return [self shouldStartDecidePolicy: request];
+}
+
 - (void) webView: (WKWebView *) webView decidePolicyForNavigationAction: (WKNavigationAction *) navigationAction decisionHandler: (void (^)(WKNavigationActionPolicy)) decisionHandler
 {
     decisionHandler([self shouldStartDecidePolicy: [navigationAction request]]);
 }
 
-
 - (BOOL) shouldStartDecidePolicy: (NSURLRequest *) request
 {
+    NSURL *URL = [request URL];
+    
+    if ([[URL absoluteString] isEqualToString:SIGNIN_SCHEME]) {
+        self.navigationItem.title = @"Login";
+        return true;
+    }
+    
+    if ([[URL absoluteString] isEqualToString:SIGNUP_SCHEME]) {
+        self.navigationItem.title = @"Sign up";
+        return true;
+    }
+    
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
     return false;
 }

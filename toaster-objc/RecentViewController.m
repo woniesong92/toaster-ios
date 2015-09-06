@@ -112,9 +112,6 @@
     
     NSURL *URL = [request URL];
     
-    NSLog([URL absoluteString]);
-    
-    
     if ([[URL absoluteString] isEqualToString:@"toasterapp://postsShow"]) {
         [self performSegueWithIdentifier:@"postsShowSegue" sender:self];
         return false;
@@ -135,12 +132,10 @@
         return false;
     }
     
-    if ([[URL absoluteString] isEqualToString:@"toasterapp://notLoggedIn"]) {
-        NSLog(@"Send the user to login page");
-        
+    // FIXME: CODE IS REPEATED.
+    if ([[URL absoluteString] isEqualToString:SIGNUP_SCHEME]) {
         SignUpViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"SignUpNavVC"];
         [self presentViewController:vc animated:YES completion:nil];
-        
         return false;
     }
 

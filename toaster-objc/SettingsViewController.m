@@ -9,6 +9,7 @@
 #import "SettingsViewController.h"
 #import "Constants.h"
 #import "WebViewManager.h"
+#import "SignUpViewController.h"
 
 @interface SettingsViewController ()
 
@@ -39,12 +40,17 @@
 - (void) viewWillDisappear:(BOOL)animated {
     // Overshadow my webview with an image just before the transition
     [_webViewManager replaceWebViewWithImage:self :self.parentScreenImage];
+    
+    [[self navigationController] popViewControllerAnimated:NO];
+    
+//    [[self navigationController] popToRootViewControllerAnimated:NO];
+    
     [super viewWillDisappear:animated];
 }
 
 - (void) viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
-    
+
     // I get rid of the temporary screenshot that was overshadowing my webview
     [_webViewManager replaceImageWithWebView:self];
 }
@@ -56,7 +62,6 @@
 
 - (void)willMoveToParentViewController:(UIViewController *)parent{
     if (parent == nil){
-        NSLog(@"go back to profile");
         [_webViewManager useRouterWithPath:PROFILE];
     }
 }
@@ -66,12 +71,19 @@
     return [self shouldStartDecidePolicy: request];
 }
 
+- (void) webView: (WKWebView *) webView decidePolicyForNavigationAction: (WKNavigationAction *) navigationAction decisionHandler: (void (^)(WKNavigationActionPolicy)) decisionHandler
+{
+    decisionHandler([self shouldStartDecidePolicy: [navigationAction request]]);
+}
+
 - (BOOL) shouldStartDecidePolicy: (NSURLRequest *) request
 {
     NSURL *URL = [request URL];
     
-    if ([[URL absoluteString] isEqualToString:@"toasterapp://notLoggedIn"]) {
-        NSLog(@"Send the user to login page");
+    // FIXME: CODE IS REPEATED.
+    if ([[URL absoluteString] isEqualToString:SIGNUP_SCHEME]) {
+        SignUpViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"SignUpNavVC"];
+        [self presentViewController:vc animated:YES completion:nil];
         return false;
     }
     return true;

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "WebViewManager.h"
 #import "LoadingManager.h"
+#import "SignUpViewController.h"
 
 @interface NotificationsViewController : UIViewController <UIWebViewDelegate, WKNavigationDelegate, WKUIDelegate> {
     WebViewManager *_webViewManager;
