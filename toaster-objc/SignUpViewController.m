@@ -57,19 +57,36 @@
 - (BOOL) shouldStartDecidePolicy: (NSURLRequest *) request
 {
     NSURL *URL = [request URL];
+    NSString *urlString =[URL absoluteString];
     
-    if ([[URL absoluteString] isEqualToString:SIGNIN_SCHEME]) {
-        self.navigationItem.title = @"Login";
-        return true;
+    NSLog([NSString stringWithFormat:@"%@ -- %@", @"SIGNUP", urlString]);
+    
+    if ([urlString isEqualToString:LOGGEDIN_SCHEME]) {
+        NSLog(@"setting tab selected index");
+        
+        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        
+        [appDelegate.tabBarController setSelectedIndex:RECENT_TAB_INDEX];
+        
+//        
+//        [self.tabBarController.delegate tabBarController:self.tabBarController didSelectViewController:[self.tabBarController.viewControllers objectAtIndex:RECENT_TAB_INDEX]];
+//        
+        
+        [_webViewManager useRouterWithPath:RECENT];
+        
+        [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+        return false;
     }
     
-    if ([[URL absoluteString] isEqualToString:SIGNUP_SCHEME]) {
+    if ([urlString isEqualToString:SIGNIN_SCHEME]) {
+        self.navigationItem.title = @"Login";
+        return true;
+    } else if ([urlString isEqualToString:SIGNUP_SCHEME]) {
         self.navigationItem.title = @"Sign up";
         return true;
     }
     
-    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
-    return false;
+    return true;
 }
 
 @end

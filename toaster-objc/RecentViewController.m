@@ -94,12 +94,12 @@
     
     NSLog([NSString stringWithFormat:@"%@ -- %@", RECENT, urlString]);
     
-    if ([urlString isEqualToString:@"toasterapp://postsShow"]) {
+    if ([urlString isEqualToString:POSTS_SHOW_SCHEME]) {
         [self performSegueWithIdentifier:@"postsShowSegue" sender:self];
         return false;
     }
     
-    if ([urlString isEqualToString:@"toasterapp://loadingEnd"]) {
+    if ([urlString isEqualToString:LOADING_END]) {
         [_loadingManager stopLoadingIndicator];
         [_webViewManager replaceImageWithWebView:self];
         return false;

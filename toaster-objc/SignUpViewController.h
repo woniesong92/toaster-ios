@@ -14,4 +14,7 @@
     WebViewManager *_webViewManager;
     LoadingManager *_loadingManager;
 }
+
+@property (strong, nonatomic) UITabBarController *tabBarCtr;
+
 @end
