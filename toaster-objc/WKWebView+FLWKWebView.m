@@ -98,10 +98,9 @@
     });
 }
 
-- (UIScrollView *) getScrollView
-{
-    return [self scrollView];
-    
-}
+//- (UIScrollView *) scrollView {
+//    
+//    return self.scrollView;
+//}
 
 @end

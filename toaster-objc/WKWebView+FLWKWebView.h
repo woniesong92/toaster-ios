@@ -19,4 +19,6 @@
  */
 - (void) setDelegateViews: (id <WKNavigationDelegate, WKUIDelegate>) delegateView;
 
+//- (UIScrollView *) scrollView;
+
 @end

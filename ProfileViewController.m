@@ -49,6 +49,9 @@
         [_webViewManager useRouterWithPath:PROFILE];
     }
     
+    // scrollToTop
+    [_webViewManager.webView evaluateJavaScript:@"$('.overflow-scroll').scrollTop(0,0)" completionHandler:nil];
+    
     [_loadingManager startLoadingIndicator:self];
 }
 

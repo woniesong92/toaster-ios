@@ -36,6 +36,12 @@
     
     [_loadingManager startLoadingIndicator:self];
     
+    UIScrollView *scrollView = _webViewManager.webView.scrollView;
+    [scrollView setScrollEnabled:NO];
+    scrollView.bounces = NO;
+    
+//    NSLog(@"look for scrollView.. %@", scrollView);
+    
 //    if ([WebViewManager isWKWebViewAvailable]) {
 //        WKWebView *webView = (WKWebView *) _webViewManager.webView;
 //        webView.scrollView.scrollEnabled = NO;

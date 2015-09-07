@@ -46,8 +46,9 @@
     }
     
     // scrollToTop
-    CGPoint top = CGPointMake(0, 0); // can also use CGPointZero here
+    [_webViewManager.webView evaluateJavaScript:@"$('.overflow-scroll').scrollTop(0,0)" completionHandler:nil];
 
+    // show loading wheel
     [_loadingManager startLoadingIndicator:self];
 }
 
@@ -69,16 +70,16 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if( [segue.identifier isEqualToString:@"postsShowSegue"]) {
-        PostsShowViewController *postsShowVC = (PostsShowViewController *)segue.destinationViewController;
-        return;
-    }
-    
-    if ([segue.identifier isEqualToString:@"newPostSegue"]) {
-        UINavigationController *newPostNavVC = (UINavigationController *)segue.destinationViewController;
-        NewPostController *newPostVC = (NewPostController *) [newPostNavVC.viewControllers objectAtIndex:0];
-        return;
-    }
+//    if( [segue.identifier isEqualToString:@"postsShowSegue"]) {
+//        PostsShowViewController *postsShowVC = (PostsShowViewController *)segue.destinationViewController;
+//        return;
+//    }
+//    
+//    if ([segue.identifier isEqualToString:@"newPostSegue"]) {
+//        UINavigationController *newPostNavVC = (UINavigationController *)segue.destinationViewController;
+//        NewPostController *newPostVC = (NewPostController *) [newPostNavVC.viewControllers objectAtIndex:0];
+//        return;
+//    }
 }
 
 #pragma mark - Shared Delegate Methods

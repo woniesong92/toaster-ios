@@ -19,4 +19,6 @@
  */
 - (void) setDelegateViews: (id <UIWebViewDelegate>) delegateView;
 
+//- (UIScrollView *) scrollView;
+
 @end
