@@ -14,6 +14,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    NSLog(@"postsShow is the delegate");
+    
     self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
@@ -27,6 +30,17 @@
     [[_webViewManager webView] setDelegateViews: self];
 
     [self.view addSubview: _webViewManager.webView];
+    
+//    if ([WebViewManager isWKWebViewAvailable]) {
+//        WKWebView *webView = (WKWebView *) _webViewManager.webView;
+//        webView.scrollView.scrollEnabled = NO;
+//        NSLog(@"webView scrolled %d", webView.scrollView.scrollEnabled);
+//    } else {
+//        UIWebView *webView = (UIWebView *) _webViewManager.webView;
+//        webView.scrollView.scrollEnabled = NO;
+//        NSLog(@"webView scrolled %d", webView.scrollView.scrollEnabled);
+//    }
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,11 +50,13 @@
 - (void) viewWillDisappear:(BOOL)animated {
     // Overshadow my webview with an image just before the transition
     [_webViewManager replaceWebViewWithImage:self :self.parentScreenImage];
+    
     [super viewWillDisappear:animated];
 }
 
 
 - (void) viewDidDisappear:(BOOL)animated {
+    // I don't want to be a tabbar delegate anymore
     [super viewDidDisappear:animated];
     
     // I get rid of the temporary screenshot that was overshadowing my webview

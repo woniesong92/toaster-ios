@@ -25,6 +25,7 @@
 		70D005631B98A882006E746F /* PostsShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D005621B98A882006E746F /* PostsShowViewController.m */; };
 		70E3415F1B9C9DB200046067 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E3415E1B9C9DB200046067 /* SettingsViewController.m */; };
 		70E341621B9CA6C200046067 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E341611B9CA6C200046067 /* SignUpViewController.m */; };
+		70E341651B9DE2F400046067 /* CustomTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E341641B9DE2F400046067 /* CustomTabBarViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,8 @@
 		70E3415E1B9C9DB200046067 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		70E341601B9CA6C200046067 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		70E341611B9CA6C200046067 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
+		70E341631B9DE2F400046067 /* CustomTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTabBarViewController.h; sourceTree = "<group>"; };
+		70E341641B9DE2F400046067 /* CustomTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTabBarViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,9 +132,11 @@
 			isa = PBXGroup;
 			children = (
 				70951F9E1B989F15006B1228 /* Main.storyboard */,
+				70951FBA1B98A009006B1228 /* Constants.h */,
 				7002724C1B9BD23200C292A5 /* LoadingManager.h */,
 				7002724D1B9BD23200C292A5 /* LoadingManager.m */,
-				70951FBA1B98A009006B1228 /* Constants.h */,
+				70E341631B9DE2F400046067 /* CustomTabBarViewController.h */,
+				70E341641B9DE2F400046067 /* CustomTabBarViewController.m */,
 				70951F951B989F15006B1228 /* AppDelegate.h */,
 				70951F961B989F15006B1228 /* AppDelegate.m */,
 				70E341601B9CA6C200046067 /* SignUpViewController.h */,
@@ -297,6 +302,7 @@
 				70951F971B989F15006B1228 /* AppDelegate.m in Sources */,
 				7002724E1B9BD23200C292A5 /* LoadingManager.m in Sources */,
 				7002723C1B9A36EE00C292A5 /* WKWebView+FLWKWebView.m in Sources */,
+				70E341651B9DE2F400046067 /* CustomTabBarViewController.m in Sources */,
 				70951F9A1B989F15006B1228 /* RecentViewController.m in Sources */,
 				70951F941B989F15006B1228 /* main.m in Sources */,
 				70E341621B9CA6C200046067 /* SignUpViewController.m in Sources */,

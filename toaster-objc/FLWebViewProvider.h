@@ -53,4 +53,6 @@
  */
 - (void) evaluateJavaScript: (NSString *) javaScriptString completionHandler: (void (^)(id, NSError *)) completionHandler;
 
+- (UIScrollView *) getScrollView;
+
 @end

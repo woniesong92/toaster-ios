@@ -32,11 +32,20 @@
 };
 
 - (void)startLoadingIndicator: (UIViewController *) container {
+    return;
+    
+    // if it was attached to some other view and never ended
+    if (self.loadingView.superview) {
+        [self.loadingView removeFromSuperview];
+    }
+    
     [container.view addSubview: self.loadingView];
     [self.loadingView startAnimating];
 }
 
 - (void)stopLoadingIndicator {
+    return;
+    
     [self.loadingView stopAnimating];
     [self.loadingView removeFromSuperview];
 }

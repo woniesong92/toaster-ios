@@ -98,4 +98,10 @@
     });
 }
 
+- (UIScrollView *) getScrollView
+{
+    return [self scrollView];
+    
+}
+
 @end

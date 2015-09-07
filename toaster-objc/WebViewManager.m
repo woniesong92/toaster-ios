@@ -61,16 +61,9 @@
     [self.webView loadRequest:urlRequest];
 }
 
-//- (UIWebView *) acquireWebView: (id)container {
-//    UIWebView *webView = self.webView;
-//    webView.delegate = container;
-//    return webView;
-//}
-
 - (void)useRouterWithPath: (NSString *)pathString {
     NSString *js = [NSString stringWithFormat:@"%@%@%@", @"Router.go(\"", pathString, @"\")"];
     [self setCurrentTab:pathString];
-//    [self.webView stringByEvaluatingJavaScriptFromString:js];
     [[self webView] evaluateJavaScript:js completionHandler:nil];
 }
 

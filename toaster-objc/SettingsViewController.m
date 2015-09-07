@@ -41,10 +41,6 @@
     // Overshadow my webview with an image just before the transition
     [_webViewManager replaceWebViewWithImage:self :self.parentScreenImage];
     
-    [[self navigationController] popViewControllerAnimated:NO];
-    
-//    [[self navigationController] popToRootViewControllerAnimated:NO];
-    
     [super viewWillDisappear:animated];
 }
 

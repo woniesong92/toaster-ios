@@ -76,15 +76,17 @@
     // Return YES if it should, NO if not.
     
     NSURL *URL = [request URL];
+    NSString *urlString =[URL absoluteString];
     
-    if ([[URL absoluteString] isEqualToString:@"toasterapp://postsShow"]) {
+    NSLog([NSString stringWithFormat:@"%@ -- %@", NOTIFICATIONS, urlString]);
+    
+    if ([urlString isEqualToString:@"toasterapp://postsShow"]) {
         [self performSegueWithIdentifier:@"postsShowSegue3" sender:self];
         return false;
     }
     
-    if ([[URL absoluteString] isEqualToString:@"toasterapp://loadingEnd"]) {
+    if ([urlString isEqualToString:@"toasterapp://loadingEnd"]) {
         if (self.screenImage) {
-            NSLog(@"Replace image with real webview");
             [_webViewManager replaceImageWithWebView:self];
             self.screenImage = nil;
         }

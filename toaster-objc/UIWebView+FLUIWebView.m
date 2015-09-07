@@ -61,4 +61,10 @@
     self.scalesPageToFit = setPages;
 }
 
+- (UIScrollView *) getScrollView
+{
+    return [self scrollView];
+//    return self.scrollView;
+}
+
 @end

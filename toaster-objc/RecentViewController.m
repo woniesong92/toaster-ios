@@ -43,17 +43,12 @@
     if (self.screenImage) {
         [_webViewManager replaceWebViewWithImage:self :self.screenImage];
     }
-
-    // Just in case we are still showing the "postsShow" view when
-    // the user comes back from another tab
-//    if (![[_webViewManager getCurrentTab] isEqual:RECENT]) {
-//        [_webViewManager useRouterWithPath:RECENT];
-//    }
     
+    if (![[_webViewManager getCurrentTab] isEqual:RECENT]) {
+        [_webViewManager useRouterWithPath:RECENT];
+    }
     
     [_loadingManager startLoadingIndicator:self];
-    
-    NSLog(@"view will appear");
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -72,21 +67,13 @@
     [super didReceiveMemoryWarning];
 }
 
-//- (BOOL)webView:(UIWebView*)webView shouldStartLoadWithRequest:(NSURLRequest*)request navigationType:(UIWebViewNavigationType)navigationType {
-//    NSURL *URL = [request URL];
-//
-//    if ([[URL absoluteString] isEqualToString:@"toasterapp://postsShow"]) {
-//        [self performSegueWithIdentifier:@"postsShowSegue" sender:self];
-//        return false;
-//    }
-//    return true;
-//}
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if( [segue.identifier isEqualToString:@"postsShowSegue"]) {
         PostsShowViewController *postsShowVC = (PostsShowViewController *)segue.destinationViewController;
         self.screenImage = [_webViewManager screencapture:self];
+
+        // FIXME: change this to a white blank page
         postsShowVC.parentScreenImage = self.screenImage;
         return;
     }
@@ -95,6 +82,8 @@
         UINavigationController *newPostNavVC = (UINavigationController *)segue.destinationViewController;
         NewPostController *newPostVC = (NewPostController *) [newPostNavVC.viewControllers objectAtIndex:0];
         self.screenImage = [_webViewManager screencapture:self];
+        
+        // FIXME: change this to a white blank page
         newPostVC.parentScreenImage = self.screenImage;
         return;
     }
@@ -112,19 +101,17 @@
     
     NSURL *URL = [request URL];
     
-    if ([[URL absoluteString] isEqualToString:@"toasterapp://postsShow"]) {
+    NSString *urlString = [URL absoluteString];
+    
+    NSLog([NSString stringWithFormat:@"%@ -- %@", RECENT, urlString]);
+    
+    if ([urlString isEqualToString:@"toasterapp://postsShow"]) {
         [self performSegueWithIdentifier:@"postsShowSegue" sender:self];
         return false;
     }
     
-    if ([[URL absoluteString] isEqualToString:@"toasterapp://loadingStart"]) {
-        NSLog(@"loading started for Meteor");
-        return false;
-    }
-    
-    if ([[URL absoluteString] isEqualToString:@"toasterapp://loadingEnd"]) {
+    if ([urlString isEqualToString:@"toasterapp://loadingEnd"]) {
         [_loadingManager stopLoadingIndicator];
-        NSLog(@"stop loading indicater");
         if (self.screenImage) {
             [_webViewManager replaceImageWithWebView:self];
             self.screenImage = nil;

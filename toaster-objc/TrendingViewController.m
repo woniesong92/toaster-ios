@@ -78,12 +78,17 @@
     
     NSURL *URL = [request URL];
     
-    if ([[URL absoluteString] isEqualToString:@"toasterapp://postsShow"]) {
+    NSString *urlString = [URL absoluteString];
+    
+    NSLog([NSString stringWithFormat:@"%@ -- %@", TRENDING, urlString]);
+    
+    
+    if ([urlString isEqualToString:@"toasterapp://postsShow"]) {
         [self performSegueWithIdentifier:@"postsShowSegue2" sender:self];
         return false;
     }
     
-    if ([[URL absoluteString] isEqualToString:@"toasterapp://loadingEnd"]) {
+    if ([urlString isEqualToString:@"toasterapp://loadingEnd"]) {
         if (self.screenImage) {
             NSLog(@"Replace image with real webview");
             [_webViewManager replaceImageWithWebView:self];
