@@ -1,4 +1,4 @@
-#define BASE_URL @"http://192.168.0.104:3000"
+#define BASE_URL @"http://192.168.1.115:3000"
 //#define BASE_URL @"http://104.131.158.80"
 //#define BASE_URL @"http://10.148.9.251:3000"
 #define TRENDING_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/trending"]

@@ -41,9 +41,7 @@
     
     // Replace webView with screenImage to make the user believe
     // that the webview is loaded already
-    if (self.screenImage) {
-        [_webViewManager replaceWebViewWithImage:self :self.screenImage];
-    }
+    [_webViewManager replaceWebViewWithImage:self :[_webViewManager getWhiteImage]];
     
     if (![_webViewManager.getCurrentTab isEqualToString:TRENDING]) {
         [_webViewManager useRouterWithPath:TRENDING];
@@ -60,9 +58,11 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if( [segue.identifier isEqualToString:@"postsShowSegue2"]) {
-        PostsShowViewController *postsShowVC = (PostsShowViewController *)segue.destinationViewController;
-        self.screenImage = [_webViewManager screencapture:self];
-        postsShowVC.parentScreenImage = self.screenImage;
+//        PostsShowViewController *postsShowVC = (PostsShowViewController *)segue.destinationViewController;
+//        self.screenImage = [_webViewManager screencapture:self];
+//        
+//        self.screenImage = [_webViewManager getWhiteImage];
+//        postsShowVC.parentScreenImage = self.screenImage;
     }
 }
 
@@ -89,12 +89,7 @@
     }
     
     if ([urlString isEqualToString:@"toasterapp://loadingEnd"]) {
-        if (self.screenImage) {
-            NSLog(@"Replace image with real webview");
-            [_webViewManager replaceImageWithWebView:self];
-            self.screenImage = nil;
-        }
-        
+        [_webViewManager replaceImageWithWebView:self];
         [_loadingManager stopLoadingIndicator];
         return false;
     }

@@ -55,6 +55,7 @@
     return uniqueWebView;
 }
 
+
 - (void)loadUrlWithString: (NSString *)urlString {
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
@@ -87,6 +88,24 @@
     UIGraphicsEndImageContext();
     
     return image;
+}
+
+- (UIImage *)imageWithColor:(UIColor *)color {
+    CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    CGContextFillRect(context, rect);
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return image;
+}
+
+- (UIImage *)getWhiteImage {
+    return [self imageWithColor:[UIColor whiteColor]];
 }
 
 - (void)replaceWebViewWithImage:(UIViewController *)containerVC :(UIImage *)image {

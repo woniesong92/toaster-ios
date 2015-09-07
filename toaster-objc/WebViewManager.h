@@ -34,4 +34,6 @@
 - (void)replaceImageWithWebView:(UIViewController *)containerVC;
 - (UIImage *)screencapture:(UIViewController *)viewController;
 
+- (UIImage *)getWhiteImage;
+
 @end

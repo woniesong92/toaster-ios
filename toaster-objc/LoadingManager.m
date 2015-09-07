@@ -32,7 +32,7 @@
 };
 
 - (void)startLoadingIndicator: (UIViewController *) container {
-    return;
+//    return;
     
     // if it was attached to some other view and never ended
     if (self.loadingView.superview) {
@@ -44,7 +44,7 @@
 }
 
 - (void)stopLoadingIndicator {
-    return;
+//    return;
     
     [self.loadingView stopAnimating];
     [self.loadingView removeFromSuperview];

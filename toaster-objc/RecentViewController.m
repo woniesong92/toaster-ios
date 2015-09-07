@@ -38,11 +38,8 @@
     // Add webView as subView
     [self.view addSubview: _webViewManager.webView];
     
-    // Replace webView with screenImage to make the user believe
-    // that the webview is loaded already
-    if (self.screenImage) {
-        [_webViewManager replaceWebViewWithImage:self :self.screenImage];
-    }
+    // Replace webView with a blank image
+    [_webViewManager replaceWebViewWithImage:self :[_webViewManager getWhiteImage]];
     
     if (![[_webViewManager getCurrentTab] isEqual:RECENT]) {
         [_webViewManager useRouterWithPath:RECENT];
@@ -71,20 +68,12 @@
 {
     if( [segue.identifier isEqualToString:@"postsShowSegue"]) {
         PostsShowViewController *postsShowVC = (PostsShowViewController *)segue.destinationViewController;
-        self.screenImage = [_webViewManager screencapture:self];
-
-        // FIXME: change this to a white blank page
-        postsShowVC.parentScreenImage = self.screenImage;
         return;
     }
     
     if ([segue.identifier isEqualToString:@"newPostSegue"]) {
         UINavigationController *newPostNavVC = (UINavigationController *)segue.destinationViewController;
         NewPostController *newPostVC = (NewPostController *) [newPostNavVC.viewControllers objectAtIndex:0];
-        self.screenImage = [_webViewManager screencapture:self];
-        
-        // FIXME: change this to a white blank page
-        newPostVC.parentScreenImage = self.screenImage;
         return;
     }
 }
@@ -112,10 +101,7 @@
     
     if ([urlString isEqualToString:@"toasterapp://loadingEnd"]) {
         [_loadingManager stopLoadingIndicator];
-        if (self.screenImage) {
-            [_webViewManager replaceImageWithWebView:self];
-            self.screenImage = nil;
-        }
+        [_webViewManager replaceImageWithWebView:self];
         return false;
     }
     

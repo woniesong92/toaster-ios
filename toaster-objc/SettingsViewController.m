@@ -39,7 +39,7 @@
 
 - (void) viewWillDisappear:(BOOL)animated {
     // Overshadow my webview with an image just before the transition
-    [_webViewManager replaceWebViewWithImage:self :self.parentScreenImage];
+    [_webViewManager replaceWebViewWithImage:self :[_webViewManager getWhiteImage]];
     
     [super viewWillDisappear:animated];
 }
