@@ -45,6 +45,9 @@
         [_webViewManager useRouterWithPath:RECENT];
     }
     
+    // scrollToTop
+    CGPoint top = CGPointMake(0, 0); // can also use CGPointZero here
+
     [_loadingManager startLoadingIndicator:self];
 }
 
