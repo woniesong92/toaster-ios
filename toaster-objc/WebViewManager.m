@@ -105,7 +105,10 @@
 }
 
 - (UIImage *)getWhiteImage {
-    return [self imageWithColor:[UIColor whiteColor]];
+    // DEBUGGING PURPOSE
+//    return [self imageWithColor:[UIColor whiteColor]];
+    
+    return [self imageWithColor:[UIColor redColor]];
 }
 
 - (void)replaceWebViewWithImage:(UIViewController *)containerVC :(UIImage *)image {
@@ -129,9 +132,13 @@
 }
 
 - (void)replaceImageWithWebView:(UIViewController *)containerVC {
-    UIView *imageContainer = [[containerVC view] viewWithTag:IMAGE_CONTAINER_TAG];
-    if (imageContainer != nil) {
-        [imageContainer removeFromSuperview];
+    // because we can end up with more than one image subview (tabs being changed very fast)
+    // we must iterate through all subviews
+    for (UIView *subview in [containerVC view].subviews)
+    {
+        if (subview.tag == IMAGE_CONTAINER_TAG) {
+            [subview removeFromSuperview];
+        }
     }
 }
 
