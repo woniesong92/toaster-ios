@@ -73,11 +73,7 @@
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if (_shouldPreventScrolling) {
-        [_webViewManager.webView.scrollView setContentOffset:_scrollViewOrigin];
-//        NSString *js = @"Template.postsShow.MoveDownToLastComment();";
-//        [[_webViewManager webView] evaluateJavaScript:js completionHandler:nil];
-    }
+    [_webViewManager.webView.scrollView setContentOffset:_scrollViewOrigin];
 }
 
 - (void)didReceiveMemoryWarning {
