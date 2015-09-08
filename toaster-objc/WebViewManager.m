@@ -105,10 +105,10 @@
 }
 
 - (UIImage *)getWhiteImage {
-    // DEBUGGING PURPOSE
-//    return [self imageWithColor:[UIColor whiteColor]];
+    return [self imageWithColor:[UIColor whiteColor]];
     
-    return [self imageWithColor:[UIColor redColor]];
+    // DEBUGGING PURPOSE
+//    return [self imageWithColor:[UIColor redColor]];
 }
 
 - (void)replaceWebViewWithImage:(UIViewController *)containerVC :(UIImage *)image {
