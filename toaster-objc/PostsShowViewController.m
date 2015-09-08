@@ -37,21 +37,47 @@
     [_loadingManager startLoadingIndicator:self];
     
     UIScrollView *scrollView = _webViewManager.webView.scrollView;
-    [scrollView setScrollEnabled:NO];
-    scrollView.bounces = NO;
+    scrollView.delegate = self;
+    _keyboardHeight = 0;
+    _shouldPreventScrolling = NO;
     
-//    NSLog(@"look for scrollView.. %@", scrollView);
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
     
-//    if ([WebViewManager isWKWebViewAvailable]) {
-//        WKWebView *webView = (WKWebView *) _webViewManager.webView;
-//        webView.scrollView.scrollEnabled = NO;
-//        NSLog(@"webView scrolled %d", webView.scrollView.scrollEnabled);
-//    } else {
-//        UIWebView *webView = (UIWebView *) _webViewManager.webView;
-//        webView.scrollView.scrollEnabled = NO;
-//        NSLog(@"webView scrolled %d", webView.scrollView.scrollEnabled);
-//    }
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+}
 
+- (void)keyboardWillShow: (NSNotification *)notification {
+    if (_keyboardHeight == 0) {
+        NSDictionary* keyboardInfo = [notification userInfo];
+        NSValue* keyboardFrameBegin = [keyboardInfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
+        CGRect keyboardFrameBeginRect = [keyboardFrameBegin CGRectValue];
+        _keyboardHeight = keyboardFrameBeginRect.size.height;
+        _scrollViewOrigin = _webViewManager.webView.scrollView.contentOffset;
+    }
+
+    _shouldPreventScrolling = YES;
+    NSString *js = [NSString stringWithFormat:@"Template.postsShow.MoveUpCommentInput(%f);", _keyboardHeight];
+    [[_webViewManager webView] evaluateJavaScript:js completionHandler:nil];
+}
+
+- (void)keyboardWillHide: (NSNotification *)notification {
+    NSString *js = @"Template.postsShow.MoveDownCommentInput();";
+    [[_webViewManager webView] evaluateJavaScript:js completionHandler:nil];
+    _shouldPreventScrolling = NO;
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (_shouldPreventScrolling) {
+        [_webViewManager.webView.scrollView setContentOffset:_scrollViewOrigin];
+//        NSString *js = @"Template.postsShow.MoveDownToLastComment();";
+//        [[_webViewManager webView] evaluateJavaScript:js completionHandler:nil];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -62,6 +88,9 @@
     // Overshadow my webview with an image just before the transition
     UIImage *whiteImage = [_webViewManager getWhiteImage];
     [_webViewManager replaceWebViewWithImage:self :whiteImage];
+    
+    _webViewManager.webView.scrollView.delegate = nil;
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     
     [super viewWillDisappear:animated];
 }

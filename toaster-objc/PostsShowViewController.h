@@ -10,9 +10,12 @@
 #import "WebViewManager.h"
 #import "LoadingManager.h"
 
-@interface PostsShowViewController : UIViewController <UIWebViewDelegate, WKNavigationDelegate, WKUIDelegate> {
+@interface PostsShowViewController : UIViewController <UIWebViewDelegate, WKNavigationDelegate, WKUIDelegate, UIScrollViewDelegate> {
     WebViewManager *_webViewManager;
     LoadingManager *_loadingManager;
+    CGPoint _scrollViewOrigin;
+    CGFloat _keyboardHeight;
+    BOOL _shouldPreventScrolling;
 }
 
 @property (strong, nonatomic) UIImage *parentScreenImage;
