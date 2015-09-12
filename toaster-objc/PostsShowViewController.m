@@ -50,6 +50,14 @@
                                              selector:@selector(keyboardWillHide:)
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardDidShow:)
+                                                 name:UIKeyboardDidShowNotification
+                                               object:nil];
+    
+    // hide accesorybar
+//    [_webViewManager removeInputAccessoryView:_webViewManager.webView];
 }
 
 - (void)keyboardWillShow: (NSNotification *)notification {
@@ -70,6 +78,10 @@
     NSString *js = @"Template.postsShow.MoveDownCommentInput();";
     [[_webViewManager webView] evaluateJavaScript:js completionHandler:nil];
     _shouldPreventScrolling = NO;
+}
+
+- (void)keyboardDidShow: (NSNotification *)notification {
+    [_webViewManager removeInputAccessoryView:_webViewManager.webView];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {

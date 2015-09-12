@@ -35,5 +35,6 @@
 - (UIImage *)screencapture:(UIViewController *)viewController;
 
 - (UIImage *)getWhiteImage;
+- (void)removeInputAccessoryView:(UIView <FLWebViewProvider> *)webview;
 
 @end
