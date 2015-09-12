@@ -81,7 +81,7 @@
 		708D2D0C1BA3B3E800CF17F9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		708D2D0E1BA3B3EF00CF17F9 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		708D2D101BA3B3F800CF17F9 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		70951F8E1B989F15006B1228 /* toaster-objc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "toaster-objc.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		70951F8E1B989F15006B1228 /* toaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = toaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70951F921B989F15006B1228 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		70951F931B989F15006B1228 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		70951F951B989F15006B1228 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -93,7 +93,7 @@
 		70951F9F1B989F15006B1228 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		70951FA11B989F15006B1228 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		70951FA41B989F15006B1228 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		70951FAA1B989F15006B1228 /* toaster-objcTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "toaster-objcTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		70951FAA1B989F15006B1228 /* toasterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = toasterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		70951FAF1B989F15006B1228 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		70951FB01B989F15006B1228 /* toaster_objcTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = toaster_objcTests.m; sourceTree = "<group>"; };
 		70951FBA1B98A009006B1228 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
@@ -173,8 +173,8 @@
 		70951F8F1B989F15006B1228 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				70951F8E1B989F15006B1228 /* toaster-objc.app */,
-				70951FAA1B989F15006B1228 /* toaster-objcTests.xctest */,
+				70951F8E1B989F15006B1228 /* toaster.app */,
+				70951FAA1B989F15006B1228 /* toasterTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -247,9 +247,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		70951F8D1B989F15006B1228 /* toaster-objc */ = {
+		70951F8D1B989F15006B1228 /* toaster */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 70951FB41B989F15006B1228 /* Build configuration list for PBXNativeTarget "toaster-objc" */;
+			buildConfigurationList = 70951FB41B989F15006B1228 /* Build configuration list for PBXNativeTarget "toaster" */;
 			buildPhases = (
 				70951F8A1B989F15006B1228 /* Sources */,
 				70951F8B1B989F15006B1228 /* Frameworks */,
@@ -259,14 +259,14 @@
 			);
 			dependencies = (
 			);
-			name = "toaster-objc";
+			name = toaster;
 			productName = "toaster-objc";
-			productReference = 70951F8E1B989F15006B1228 /* toaster-objc.app */;
+			productReference = 70951F8E1B989F15006B1228 /* toaster.app */;
 			productType = "com.apple.product-type.application";
 		};
-		70951FA91B989F15006B1228 /* toaster-objcTests */ = {
+		70951FA91B989F15006B1228 /* toasterTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 70951FB71B989F15006B1228 /* Build configuration list for PBXNativeTarget "toaster-objcTests" */;
+			buildConfigurationList = 70951FB71B989F15006B1228 /* Build configuration list for PBXNativeTarget "toasterTests" */;
 			buildPhases = (
 				70951FA61B989F15006B1228 /* Sources */,
 				70951FA71B989F15006B1228 /* Frameworks */,
@@ -277,9 +277,9 @@
 			dependencies = (
 				70951FAC1B989F15006B1228 /* PBXTargetDependency */,
 			);
-			name = "toaster-objcTests";
+			name = toasterTests;
 			productName = "toaster-objcTests";
-			productReference = 70951FAA1B989F15006B1228 /* toaster-objcTests.xctest */;
+			productReference = 70951FAA1B989F15006B1228 /* toasterTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -302,7 +302,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 70951F891B989F15006B1228 /* Build configuration list for PBXProject "toaster-objc" */;
+			buildConfigurationList = 70951F891B989F15006B1228 /* Build configuration list for PBXProject "toaster" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -315,8 +315,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				70951F8D1B989F15006B1228 /* toaster-objc */,
-				70951FA91B989F15006B1228 /* toaster-objcTests */,
+				70951F8D1B989F15006B1228 /* toaster */,
+				70951FA91B989F15006B1228 /* toasterTests */,
 			);
 		};
 /* End PBXProject section */
@@ -378,7 +378,7 @@
 /* Begin PBXTargetDependency section */
 		70951FAC1B989F15006B1228 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 70951F8D1B989F15006B1228 /* toaster-objc */;
+			target = 70951F8D1B989F15006B1228 /* toaster */;
 			targetProxy = 70951FAB1B989F15006B1228 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -499,7 +499,7 @@
 				);
 				INFOPLIST_FILE = "toaster-objc/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = toaster;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -516,7 +516,7 @@
 				);
 				INFOPLIST_FILE = "toaster-objc/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = toaster;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
@@ -537,7 +537,7 @@
 				);
 				INFOPLIST_FILE = "toaster-objcTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = toasterTests;
 				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/toaster-objc.app/toaster-objc";
 			};
@@ -555,7 +555,7 @@
 				);
 				INFOPLIST_FILE = "toaster-objcTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = toasterTests;
 				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/toaster-objc.app/toaster-objc";
 			};
@@ -564,7 +564,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		70951F891B989F15006B1228 /* Build configuration list for PBXProject "toaster-objc" */ = {
+		70951F891B989F15006B1228 /* Build configuration list for PBXProject "toaster" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				70951FB21B989F15006B1228 /* Debug */,
@@ -573,7 +573,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		70951FB41B989F15006B1228 /* Build configuration list for PBXNativeTarget "toaster-objc" */ = {
+		70951FB41B989F15006B1228 /* Build configuration list for PBXNativeTarget "toaster" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				70951FB51B989F15006B1228 /* Debug */,
@@ -582,7 +582,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		70951FB71B989F15006B1228 /* Build configuration list for PBXNativeTarget "toaster-objcTests" */ = {
+		70951FB71B989F15006B1228 /* Build configuration list for PBXNativeTarget "toasterTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				70951FB81B989F15006B1228 /* Debug */,

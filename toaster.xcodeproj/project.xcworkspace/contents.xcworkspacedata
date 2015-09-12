@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:toaster-objc.xcodeproj">
+      location = "self:/Users/songhowon/Documents/workspace/toaster-objc/toaster.xcodeproj">
    </FileRef>
 </Workspace>
