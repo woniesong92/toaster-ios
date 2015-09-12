@@ -61,16 +61,23 @@
     
     NSLog([NSString stringWithFormat:@"%@ -- %@", @"SIGNUP", urlString]);
     
-    if ([urlString isEqualToString:LOGGEDIN_SCHEME]) {
-        NSLog(@"setting tab selected index");
+//    if ([urlString isEqualToString:LOGGEDIN_SCHEME]) {
+    if ([urlString containsString:LOGGEDIN_SCHEME]) {
         
         AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
         
+        
+        NSString *installationId = appDelegate.pushInstallationId;
+        NSString *js = [NSString stringWithFormat:@"Meteor.call(\"registerUserIdToParse\", \"%@\")", installationId];
+        
+        NSLog(@"call: %@", js);
+        
+        
+        [[_webViewManager webView] evaluateJavaScript:js completionHandler:nil];
+        
+        
         [appDelegate.tabBarController setSelectedIndex:RECENT_TAB_INDEX];
         
-//        
-//        [self.tabBarController.delegate tabBarController:self.tabBarController didSelectViewController:[self.tabBarController.viewControllers objectAtIndex:RECENT_TAB_INDEX]];
-//        
         
         [_webViewManager useRouterWithPath:RECENT];
         
