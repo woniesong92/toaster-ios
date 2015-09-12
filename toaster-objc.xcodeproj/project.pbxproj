@@ -15,6 +15,18 @@
 		7002724B1B9B173F00C292A5 /* NewPostController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7002724A1B9B173F00C292A5 /* NewPostController.m */; };
 		7002724E1B9BD23200C292A5 /* LoadingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7002724D1B9BD23200C292A5 /* LoadingManager.m */; };
 		70803EAA1B9EAB6F00ABC33F /* _CustomKeyboardBarHider.m in Sources */ = {isa = PBXBuildFile; fileRef = 70803EA91B9EAB6F00ABC33F /* _CustomKeyboardBarHider.m */; };
+		708D2CFB1BA3B30100CF17F9 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708D2CFA1BA3B30100CF17F9 /* Parse.framework */; };
+		708D2CFD1BA3B36A00CF17F9 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708D2CFC1BA3B36A00CF17F9 /* Bolts.framework */; };
+		708D2CFF1BA3B3B200CF17F9 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708D2CFE1BA3B3B200CF17F9 /* AudioToolbox.framework */; };
+		708D2D011BA3B3B800CF17F9 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708D2D001BA3B3B800CF17F9 /* CFNetwork.framework */; };
+		708D2D031BA3B3BF00CF17F9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708D2D021BA3B3BF00CF17F9 /* CoreGraphics.framework */; };
+		708D2D051BA3B3C500CF17F9 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708D2D041BA3B3C500CF17F9 /* CoreLocation.framework */; };
+		708D2D071BA3B3CB00CF17F9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708D2D061BA3B3CB00CF17F9 /* QuartzCore.framework */; };
+		708D2D091BA3B3D000CF17F9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708D2D081BA3B3D000CF17F9 /* Security.framework */; };
+		708D2D0B1BA3B3D500CF17F9 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708D2D0A1BA3B3D500CF17F9 /* StoreKit.framework */; };
+		708D2D0D1BA3B3E800CF17F9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708D2D0C1BA3B3E800CF17F9 /* SystemConfiguration.framework */; };
+		708D2D0F1BA3B3EF00CF17F9 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 708D2D0E1BA3B3EF00CF17F9 /* libz.dylib */; };
+		708D2D111BA3B3F800CF17F9 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 708D2D101BA3B3F800CF17F9 /* libsqlite3.dylib */; };
 		70951F941B989F15006B1228 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 70951F931B989F15006B1228 /* main.m */; };
 		70951F971B989F15006B1228 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 70951F961B989F15006B1228 /* AppDelegate.m */; };
 		70951F9A1B989F15006B1228 /* RecentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70951F991B989F15006B1228 /* RecentViewController.m */; };
@@ -57,6 +69,18 @@
 		7002724D1B9BD23200C292A5 /* LoadingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingManager.m; sourceTree = "<group>"; };
 		70803EA81B9EAB6F00ABC33F /* _CustomKeyboardBarHider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _CustomKeyboardBarHider.h; sourceTree = "<group>"; };
 		70803EA91B9EAB6F00ABC33F /* _CustomKeyboardBarHider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _CustomKeyboardBarHider.m; sourceTree = "<group>"; };
+		708D2CFA1BA3B30100CF17F9 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		708D2CFC1BA3B36A00CF17F9 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		708D2CFE1BA3B3B200CF17F9 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		708D2D001BA3B3B800CF17F9 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		708D2D021BA3B3BF00CF17F9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		708D2D041BA3B3C500CF17F9 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		708D2D061BA3B3CB00CF17F9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		708D2D081BA3B3D000CF17F9 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		708D2D0A1BA3B3D500CF17F9 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		708D2D0C1BA3B3E800CF17F9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		708D2D0E1BA3B3EF00CF17F9 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		708D2D101BA3B3F800CF17F9 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		70951F8E1B989F15006B1228 /* toaster-objc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "toaster-objc.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		70951F921B989F15006B1228 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		70951F931B989F15006B1228 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -88,6 +112,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				708D2D111BA3B3F800CF17F9 /* libsqlite3.dylib in Frameworks */,
+				708D2D0F1BA3B3EF00CF17F9 /* libz.dylib in Frameworks */,
+				708D2D0D1BA3B3E800CF17F9 /* SystemConfiguration.framework in Frameworks */,
+				708D2D0B1BA3B3D500CF17F9 /* StoreKit.framework in Frameworks */,
+				708D2D091BA3B3D000CF17F9 /* Security.framework in Frameworks */,
+				708D2D071BA3B3CB00CF17F9 /* QuartzCore.framework in Frameworks */,
+				708D2D051BA3B3C500CF17F9 /* CoreLocation.framework in Frameworks */,
+				708D2D031BA3B3BF00CF17F9 /* CoreGraphics.framework in Frameworks */,
+				708D2D011BA3B3B800CF17F9 /* CFNetwork.framework in Frameworks */,
+				708D2CFF1BA3B3B200CF17F9 /* AudioToolbox.framework in Frameworks */,
+				708D2CFB1BA3B30100CF17F9 /* Parse.framework in Frameworks */,
+				708D2CFD1BA3B36A00CF17F9 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,6 +152,18 @@
 		70951F851B989F15006B1228 = {
 			isa = PBXGroup;
 			children = (
+				708D2D101BA3B3F800CF17F9 /* libsqlite3.dylib */,
+				708D2D0E1BA3B3EF00CF17F9 /* libz.dylib */,
+				708D2D0C1BA3B3E800CF17F9 /* SystemConfiguration.framework */,
+				708D2D0A1BA3B3D500CF17F9 /* StoreKit.framework */,
+				708D2D081BA3B3D000CF17F9 /* Security.framework */,
+				708D2D061BA3B3CB00CF17F9 /* QuartzCore.framework */,
+				708D2D041BA3B3C500CF17F9 /* CoreLocation.framework */,
+				708D2D021BA3B3BF00CF17F9 /* CoreGraphics.framework */,
+				708D2D001BA3B3B800CF17F9 /* CFNetwork.framework */,
+				708D2CFE1BA3B3B200CF17F9 /* AudioToolbox.framework */,
+				708D2CFC1BA3B36A00CF17F9 /* Bolts.framework */,
+				708D2CFA1BA3B30100CF17F9 /* Parse.framework */,
 				70951F901B989F15006B1228 /* toaster-objc */,
 				70951FAD1B989F15006B1228 /* toaster-objcTests */,
 				70951F8F1B989F15006B1228 /* Products */,
@@ -249,6 +297,7 @@
 					};
 					70951FA91B989F15006B1228 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = T2N24XE45W;
 						TestTargetID = 70951F8D1B989F15006B1228;
 					};
 				};
@@ -371,7 +420,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Howon Song (T2N24XE45W)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Howon Song (T2N24XE45W)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -393,6 +443,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "db9b05ee-a0e0-4a50-875d-ab9325c524ed";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -414,7 +465,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Howon Song (T2N24XE45W)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Howon Song (T2N24XE45W)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -429,6 +481,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "db9b05ee-a0e0-4a50-875d-ab9325c524ed";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -440,6 +493,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "toaster-objc/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -453,6 +510,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "toaster-objc/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -464,6 +525,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -475,6 +538,7 @@
 				INFOPLIST_FILE = "toaster-objcTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/toaster-objc.app/toaster-objc";
 			};
 			name = Debug;
@@ -483,6 +547,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -490,6 +556,7 @@
 				INFOPLIST_FILE = "toaster-objcTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/toaster-objc.app/toaster-objc";
 			};
 			name = Release;
