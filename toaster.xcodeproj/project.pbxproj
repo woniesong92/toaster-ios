@@ -183,6 +183,8 @@
 			isa = PBXGroup;
 			children = (
 				70951F9E1B989F15006B1228 /* Main.storyboard */,
+				70951F951B989F15006B1228 /* AppDelegate.h */,
+				70951F961B989F15006B1228 /* AppDelegate.m */,
 				70951FBA1B98A009006B1228 /* Constants.h */,
 				7002724C1B9BD23200C292A5 /* LoadingManager.h */,
 				7002724D1B9BD23200C292A5 /* LoadingManager.m */,
@@ -190,8 +192,6 @@
 				70E341641B9DE2F400046067 /* CustomTabBarViewController.m */,
 				70803EA81B9EAB6F00ABC33F /* _CustomKeyboardBarHider.h */,
 				70803EA91B9EAB6F00ABC33F /* _CustomKeyboardBarHider.m */,
-				70951F951B989F15006B1228 /* AppDelegate.h */,
-				70951F961B989F15006B1228 /* AppDelegate.m */,
 				70E341601B9CA6C200046067 /* SignUpViewController.h */,
 				70E341611B9CA6C200046067 /* SignUpViewController.m */,
 				70951F981B989F15006B1228 /* RecentViewController.h */,

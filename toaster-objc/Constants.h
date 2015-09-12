@@ -19,5 +19,3 @@
 #define RECENT_TAB_INDEX 0
 #define LOADING_START @"toasterapp://loadingStart"
 #define LOADING_END @"toasterapp://loadingEnd"
-
-

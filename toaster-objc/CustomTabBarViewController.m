@@ -15,6 +15,7 @@
 
 @implementation CustomTabBarViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -22,7 +23,19 @@
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     self.delegate = appDelegate;
     appDelegate.tabBarController = self;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(myNotificationReceived:) name:@"pushNotification" object:nil];
 }
+
+- (void) myNotificationReceived:(NSNotification *) notification
+{
+
+    NSNumber *count = [notification.userInfo objectForKey:@"numUnreadNotis"];
+    NSString *badgeCount = [NSString stringWithFormat:@"%@", count];
+    
+    [[self.tabBar.items objectAtIndex:2] setBadgeValue:badgeCount];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
