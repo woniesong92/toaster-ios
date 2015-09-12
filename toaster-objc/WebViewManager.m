@@ -54,6 +54,10 @@
             // For tab navigtaion, do it with useRouterWithPath so we can avoid
             // full page refresh
             [uniqueWebView loadUrlWithString:BASE_URL];
+            
+            NSLog(@"webview first loaded a url");
+            // should I setBadgeCount here?
+            
             [uniqueWebView setCurrentTab:RECENT];
         }
     }

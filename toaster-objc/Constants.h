@@ -8,13 +8,14 @@
 #define SIGNIN_SCHEME @"toasterapp://signIn"
 #define LOGGEDIN_SCHEME @"toasterapp://loggedIn"
 #define POSTS_SHOW_SCHEME @"toasterapp://postsShow"
+#define DDP_CONNECTION_SCHEME @"toasterapp://DDPconnected"
 #define RECENT @"recent"
 #define SIGN_UP @"signUp"
 #define LOGIN @"signIn"
 #define TRENDING @"trending"
 #define NOTIFICATIONS @"notifications"
 #define PROFILE @"profile"
-
+#define NOTIFICATION_TAB_INDEX 2
 #define IMAGE_CONTAINER_TAG 1000
 #define RECENT_TAB_INDEX 0
 #define LOADING_START @"toasterapp://loadingStart"

@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
+#import "Constants.h"
 
 @interface AppDelegate ()
 
@@ -65,10 +66,13 @@
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
+//    NSLog(@"app will entre foreground");
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
+    // Should I update the badge count here?
+    
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 
@@ -76,7 +80,13 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+// AppDelegate is the delegate for TabBarController for a reason. Don't move this code to elsewhere
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController{
+    
+    NSUInteger tabIndex = [tabBarController.viewControllers indexOfObject:viewController];
+    if (tabIndex == NOTIFICATION_TAB_INDEX) {
+        [[tabBarController.tabBar.items objectAtIndex:NOTIFICATION_TAB_INDEX] setBadgeValue:0];
+    }
 
     if ([viewController isKindOfClass:[UINavigationController class]]) {
         UINavigationController *navigation = (UINavigationController*) viewController;

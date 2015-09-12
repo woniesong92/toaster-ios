@@ -109,6 +109,14 @@
         return false;
     }
     
+    if ([urlString containsString:@"toasterapp://badge?count="]) {
+        NSRange rng = [urlString rangeOfString:@"badge?count="];
+        
+        NSString *badgeCount = [urlString substringFromIndex:(rng.location+rng.length)];
+        [[self.tabBarController.tabBar.items objectAtIndex:NOTIFICATION_TAB_INDEX] setBadgeValue:badgeCount];
+        return false;
+    }
+    
     // FIXME: CODE IS REPEATED.
     if ([[URL absoluteString] isEqualToString:SIGNUP_SCHEME]) {
         SignUpViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"SignUpNavVC"];

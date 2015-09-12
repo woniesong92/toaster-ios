@@ -8,6 +8,7 @@
 
 #import "CustomTabBarViewController.h"
 #import "AppDelegate.h"
+#import "Constants.h"
 
 @interface CustomTabBarViewController ()
 
@@ -33,7 +34,7 @@
     NSNumber *count = [notification.userInfo objectForKey:@"numUnreadNotis"];
     NSString *badgeCount = [NSString stringWithFormat:@"%@", count];
     
-    [[self.tabBar.items objectAtIndex:2] setBadgeValue:badgeCount];
+    [[self.tabBar.items objectAtIndex:NOTIFICATION_TAB_INDEX] setBadgeValue:badgeCount];
 }
 
 
