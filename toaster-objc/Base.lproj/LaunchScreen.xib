@@ -10,17 +10,23 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LaunchImage" translatesAutoresizingMaskIntoConstraints="NO" id="dgO-JW-ajR">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iphone6Splash" translatesAutoresizingMaskIntoConstraints="NO" id="RFm-tg-QhP">
                     <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="RFm-tg-QhP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="78V-Gf-oV2"/>
+                <constraint firstAttribute="trailing" secondItem="RFm-tg-QhP" secondAttribute="trailing" id="8Yr-hB-DN1"/>
+                <constraint firstAttribute="bottom" secondItem="RFm-tg-QhP" secondAttribute="bottom" id="HgY-gK-O4D"/>
+                <constraint firstItem="RFm-tg-QhP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="MCs-So-ON1"/>
+            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="548" y="455"/>
         </view>
     </objects>
     <resources>
-        <image name="LaunchImage" width="32" height="32"/>
+        <image name="iphone6Splash" width="750" height="1334"/>
     </resources>
 </document>
