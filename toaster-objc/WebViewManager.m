@@ -11,7 +11,6 @@
 #import "UIWebView+FLUIWebView.h"
 #import "WKWebView+FLWKWebView.h"
 #import "objc/runtime.h"
-#import "_CustomKeyboardBarHider.h"
 
 @implementation WebViewManager {
     NSString *currentTab;
@@ -45,9 +44,7 @@
             resizedFrame.origin.y = navBarHeight + statusBarHeight;
             resizedFrame.size.height = container.view.frame.size.height - (tabBarHeight + navBarHeight + statusBarHeight);
             uniqueWebView.webView.frame = resizedFrame;
-            
-            // Hide keyboard accessory bar
-            [uniqueWebView removeInputAccessoryView:uniqueWebView.webView];
+
             
             // Load website. This is the only time that
             // loadURL should be used because ours is a single page app

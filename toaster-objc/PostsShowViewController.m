@@ -66,7 +66,7 @@
         _keyboardHeight = keyboardFrameBeginRect.size.height;
         _scrollViewOrigin = _webViewManager.webView.scrollView.contentOffset;
     }
-
+    
     _shouldPreventScrolling = YES;
     NSString *js = [NSString stringWithFormat:@"Template.postsShow.MoveUpCommentInput(%f);", _keyboardHeight];
     [[_webViewManager webView] evaluateJavaScript:js completionHandler:nil];
