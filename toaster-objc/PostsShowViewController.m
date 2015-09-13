@@ -56,8 +56,6 @@
                                                  name:UIKeyboardDidShowNotification
                                                object:nil];
     
-    // hide accesorybar
-//    [_webViewManager removeInputAccessoryView:_webViewManager.webView];
 }
 
 - (void)keyboardWillShow: (NSNotification *)notification {
@@ -81,7 +79,6 @@
 }
 
 - (void)keyboardDidShow: (NSNotification *)notification {
-    [_webViewManager removeInputAccessoryView:_webViewManager.webView];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {

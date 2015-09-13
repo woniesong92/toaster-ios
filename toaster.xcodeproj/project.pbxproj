@@ -14,7 +14,6 @@
 		700272481B9A6A6D00C292A5 /* NotificationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 700272471B9A6A6D00C292A5 /* NotificationsViewController.m */; };
 		7002724B1B9B173F00C292A5 /* NewPostController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7002724A1B9B173F00C292A5 /* NewPostController.m */; };
 		7002724E1B9BD23200C292A5 /* LoadingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7002724D1B9BD23200C292A5 /* LoadingManager.m */; };
-		70803EAA1B9EAB6F00ABC33F /* _CustomKeyboardBarHider.m in Sources */ = {isa = PBXBuildFile; fileRef = 70803EA91B9EAB6F00ABC33F /* _CustomKeyboardBarHider.m */; };
 		708D2CFB1BA3B30100CF17F9 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708D2CFA1BA3B30100CF17F9 /* Parse.framework */; };
 		708D2CFD1BA3B36A00CF17F9 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708D2CFC1BA3B36A00CF17F9 /* Bolts.framework */; };
 		708D2CFF1BA3B3B200CF17F9 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708D2CFE1BA3B3B200CF17F9 /* AudioToolbox.framework */; };
@@ -67,8 +66,6 @@
 		7002724A1B9B173F00C292A5 /* NewPostController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewPostController.m; sourceTree = "<group>"; };
 		7002724C1B9BD23200C292A5 /* LoadingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingManager.h; sourceTree = "<group>"; };
 		7002724D1B9BD23200C292A5 /* LoadingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingManager.m; sourceTree = "<group>"; };
-		70803EA81B9EAB6F00ABC33F /* _CustomKeyboardBarHider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _CustomKeyboardBarHider.h; sourceTree = "<group>"; };
-		70803EA91B9EAB6F00ABC33F /* _CustomKeyboardBarHider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _CustomKeyboardBarHider.m; sourceTree = "<group>"; };
 		708D2CFA1BA3B30100CF17F9 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		708D2CFC1BA3B36A00CF17F9 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		708D2CFE1BA3B3B200CF17F9 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -190,8 +187,6 @@
 				7002724D1B9BD23200C292A5 /* LoadingManager.m */,
 				70E341631B9DE2F400046067 /* CustomTabBarViewController.h */,
 				70E341641B9DE2F400046067 /* CustomTabBarViewController.m */,
-				70803EA81B9EAB6F00ABC33F /* _CustomKeyboardBarHider.h */,
-				70803EA91B9EAB6F00ABC33F /* _CustomKeyboardBarHider.m */,
 				70E341601B9CA6C200046067 /* SignUpViewController.h */,
 				70E341611B9CA6C200046067 /* SignUpViewController.m */,
 				70951F981B989F15006B1228 /* RecentViewController.h */,
@@ -346,7 +341,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				70803EAA1B9EAB6F00ABC33F /* _CustomKeyboardBarHider.m in Sources */,
 				700272331B99C62D00C292A5 /* WebViewManager.m in Sources */,
 				700272451B9A69C400C292A5 /* ProfileViewController.m in Sources */,
 				700272391B9A36B900C292A5 /* UIWebView+FLUIWebView.m in Sources */,

@@ -151,36 +151,4 @@
     }
 }
 
-- (void)removeInputAccessoryView:(UIView <FLWebViewProvider> *)webview
-{
-    NSLog(@"just removed accesory bar");
-    
-    UIView* subview;
-    
-    for (UIView* view in webview.scrollView.subviews) {
-        NSLog(@"description: %@", [view.class description]);
-        if([[view.class description] hasPrefix:@"UIWeb"])
-            subview = view;
-    }
-    
-//    NSLog(@"subviews: %@", webview.scrollView.subviews);
-    if (subview == nil) return;
-    
-    NSString* name = [NSString stringWithFormat:@"%@_CustomKeyboardBarHider", subview.class.superclass];
-    Class newClass = NSClassFromString(name);
-    
-    if (newClass == nil)
-    {
-        newClass = objc_allocateClassPair(subview.class, [name cStringUsingEncoding:NSASCIIStringEncoding], 0);
-        if(!newClass) return;
-        
-        Method method = class_getInstanceMethod([_CustomKeyboardBarHider class], @selector(inputAccessoryView));
-        class_addMethod(newClass, @selector(inputAccessoryView), method_getImplementation(method), method_getTypeEncoding(method));
-        
-        objc_registerClassPair(newClass);
-    }
-    
-    object_setClass(subview, newClass);
-}
-
 @end
