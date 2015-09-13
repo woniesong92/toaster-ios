@@ -1,6 +1,6 @@
-#define BASE_URL @"http://192.168.0.103:3000"
+//#define BASE_URL @"http://192.168.0.103:3000"
 //#define BASE_URL @"http://104.131.158.80"
-//#define BASE_URL @"http://10.148.9.251:3000"
+#define BASE_URL @"http://192.168.1.118:3000"
 #define TRENDING_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/trending"]
 #define NEW_POST_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/newPost"]
 #define SETTINGS_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/settings"]
@@ -8,7 +8,6 @@
 #define SIGNIN_SCHEME @"toasterapp://signIn"
 #define LOGGEDIN_SCHEME @"toasterapp://loggedIn"
 #define POSTS_SHOW_SCHEME @"toasterapp://postsShow"
-#define DDP_CONNECTION_SCHEME @"toasterapp://DDPconnected"
 #define RECENT @"recent"
 #define SIGN_UP @"signUp"
 #define LOGIN @"signIn"

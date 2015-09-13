@@ -26,7 +26,7 @@
     
     // Setting delegate for WKWebView
     [[_webViewManager webView] setDelegateViews: self];
-    
+
     [self.view addSubview: _webViewManager.webView];
     
     [_webViewManager useRouterWithPath:NEW_POST_URL];
@@ -45,16 +45,13 @@
 
 - (void) viewWillDisappear:(BOOL)animated {
     // Overshadow my webview with an image just before the transition
-    UIImage *whiteImage = [_webViewManager getWhiteImage];
-    [_webViewManager replaceWebViewWithImage:self :whiteImage];
+    [_webViewManager replaceWebViewWithImage:self :[_webViewManager getWhiteImage]];
     [super viewWillDisappear:NO];
 }
 
-
 - (void) viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    
     [_webViewManager replaceImageWithWebView:self];
+    [super viewDidDisappear:animated];
 }
 
 - (void)didReceiveMemoryWarning {

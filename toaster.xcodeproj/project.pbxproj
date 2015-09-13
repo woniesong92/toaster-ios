@@ -15,6 +15,7 @@
 		7002724B1B9B173F00C292A5 /* NewPostController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7002724A1B9B173F00C292A5 /* NewPostController.m */; };
 		7002724E1B9BD23200C292A5 /* LoadingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7002724D1B9BD23200C292A5 /* LoadingManager.m */; };
 		701278211BA537EF00A4D6FA /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 701278201BA537EF00A4D6FA /* WebKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		701278231BA53B5A00A4D6FA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 701278221BA53B5A00A4D6FA /* Images.xcassets */; };
 		708D2CFB1BA3B30100CF17F9 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708D2CFA1BA3B30100CF17F9 /* Parse.framework */; };
 		708D2CFD1BA3B36A00CF17F9 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708D2CFC1BA3B36A00CF17F9 /* Bolts.framework */; };
 		708D2CFF1BA3B3B200CF17F9 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708D2CFE1BA3B3B200CF17F9 /* AudioToolbox.framework */; };
@@ -68,6 +69,7 @@
 		7002724C1B9BD23200C292A5 /* LoadingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingManager.h; sourceTree = "<group>"; };
 		7002724D1B9BD23200C292A5 /* LoadingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingManager.m; sourceTree = "<group>"; };
 		701278201BA537EF00A4D6FA /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		701278221BA53B5A00A4D6FA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = toaster/Images.xcassets; sourceTree = "<group>"; };
 		708D2CFA1BA3B30100CF17F9 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		708D2CFC1BA3B36A00CF17F9 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		708D2CFE1BA3B3B200CF17F9 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -152,6 +154,7 @@
 		70951F851B989F15006B1228 = {
 			isa = PBXGroup;
 			children = (
+				701278221BA53B5A00A4D6FA /* Images.xcassets */,
 				701278201BA537EF00A4D6FA /* WebKit.framework */,
 				708D2D101BA3B3F800CF17F9 /* libsqlite3.dylib */,
 				708D2D0E1BA3B3EF00CF17F9 /* libz.dylib */,
@@ -326,6 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				70951FA01B989F15006B1228 /* Main.storyboard in Resources */,
+				701278231BA53B5A00A4D6FA /* Images.xcassets in Resources */,
 				70951FA51B989F15006B1228 /* LaunchScreen.xib in Resources */,
 				70951FA21B989F15006B1228 /* Images.xcassets in Resources */,
 			);
@@ -489,6 +493,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Howon Song (6YZ4356U5A)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Howon Song (6YZ4356U5A)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -507,6 +512,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Howon Song (6YZ4356U5A)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Howon Song (6YZ4356U5A)";
 				FRAMEWORK_SEARCH_PATHS = (

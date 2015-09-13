@@ -85,7 +85,6 @@
     
     NSLog([NSString stringWithFormat:@"%@ -- %@", TRENDING, urlString]);
     
-    
     if ([urlString isEqualToString:@"toasterapp://postsShow"]) {
         [self performSegueWithIdentifier:@"postsShowSegue2" sender:self];
         return false;
@@ -94,6 +93,11 @@
     if ([urlString isEqualToString:@"toasterapp://loadingEnd"]) {
         [_webViewManager replaceImageWithWebView:self];
         [_loadingManager stopLoadingIndicator];
+        return false;
+    }
+    
+    if ([urlString isEqualToString:@"toasterapp://recent"]) {
+        [[self tabBarController] setSelectedIndex:RECENT_TAB_INDEX];
         return false;
     }
     
