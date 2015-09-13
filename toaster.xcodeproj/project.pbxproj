@@ -14,6 +14,7 @@
 		700272481B9A6A6D00C292A5 /* NotificationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 700272471B9A6A6D00C292A5 /* NotificationsViewController.m */; };
 		7002724B1B9B173F00C292A5 /* NewPostController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7002724A1B9B173F00C292A5 /* NewPostController.m */; };
 		7002724E1B9BD23200C292A5 /* LoadingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7002724D1B9BD23200C292A5 /* LoadingManager.m */; };
+		701278211BA537EF00A4D6FA /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 701278201BA537EF00A4D6FA /* WebKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		708D2CFB1BA3B30100CF17F9 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708D2CFA1BA3B30100CF17F9 /* Parse.framework */; };
 		708D2CFD1BA3B36A00CF17F9 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708D2CFC1BA3B36A00CF17F9 /* Bolts.framework */; };
 		708D2CFF1BA3B3B200CF17F9 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708D2CFE1BA3B3B200CF17F9 /* AudioToolbox.framework */; };
@@ -66,6 +67,7 @@
 		7002724A1B9B173F00C292A5 /* NewPostController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewPostController.m; sourceTree = "<group>"; };
 		7002724C1B9BD23200C292A5 /* LoadingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingManager.h; sourceTree = "<group>"; };
 		7002724D1B9BD23200C292A5 /* LoadingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingManager.m; sourceTree = "<group>"; };
+		701278201BA537EF00A4D6FA /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		708D2CFA1BA3B30100CF17F9 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		708D2CFC1BA3B36A00CF17F9 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		708D2CFE1BA3B3B200CF17F9 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -109,6 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				701278211BA537EF00A4D6FA /* WebKit.framework in Frameworks */,
 				708D2D111BA3B3F800CF17F9 /* libsqlite3.dylib in Frameworks */,
 				708D2D0F1BA3B3EF00CF17F9 /* libz.dylib in Frameworks */,
 				708D2D0D1BA3B3E800CF17F9 /* SystemConfiguration.framework in Frameworks */,
@@ -149,6 +152,7 @@
 		70951F851B989F15006B1228 = {
 			isa = PBXGroup;
 			children = (
+				701278201BA537EF00A4D6FA /* WebKit.framework */,
 				708D2D101BA3B3F800CF17F9 /* libsqlite3.dylib */,
 				708D2D0E1BA3B3EF00CF17F9 /* libz.dylib */,
 				708D2D0C1BA3B3E800CF17F9 /* SystemConfiguration.framework */,
@@ -492,6 +496,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "toaster-objc/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = toaster;
 				PROVISIONING_PROFILE = "608d59dc-2b4a-42ff-9e2c-bde3b1388318";
@@ -509,6 +514,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "toaster-objc/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = toaster;
 				PROVISIONING_PROFILE = "608d59dc-2b4a-42ff-9e2c-bde3b1388318";
