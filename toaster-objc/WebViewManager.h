@@ -21,6 +21,7 @@
 - (void)loadUrlWithString: (NSString *)urlString;
 - (void)removeWebViewFromContainer;
 - (void)useRouterWithPath: (NSString *)pathString;
+- (void)routerGo: (NSString *)pathString;
 
 // currentTab is used to see if we should perform `Router.go()`
 // because the user wants to go to a different tab

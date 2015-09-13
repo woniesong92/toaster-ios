@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
@@ -304,6 +305,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="kt2-KR-a7U"/>
+                    <connections>
+                        <segue destination="ERe-NC-ADR" kind="show" identifier="AboutSegue" id="KuN-pF-POH"/>
+                        <segue destination="ZVj-Lr-plj" kind="show" identifier="TermsOfServiceSegue" id="RTj-ce-CNF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WVm-4e-MXV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -385,6 +390,44 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4d2-qq-NbW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3012" y="-1853"/>
+        </scene>
+        <!--About-->
+        <scene sceneID="ftJ-kj-rA4">
+            <objects>
+                <viewController title="About" id="ERe-NC-ADR" customClass="AboutViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VK1-O5-h53"/>
+                        <viewControllerLayoutGuide type="bottom" id="rOj-jd-wiN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qEY-Ip-gHb">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="About" id="9ZF-9q-SqZ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f2i-i5-ulK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3697" y="1822"/>
+        </scene>
+        <!--TermsOfService-->
+        <scene sceneID="fsH-yO-Yhe">
+            <objects>
+                <viewController title="TermsOfService" id="ZVj-Lr-plj" customClass="TermsOfServiceViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yn1-Kd-PCX"/>
+                        <viewControllerLayoutGuide type="bottom" id="g2j-UL-tqM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9za-hA-guH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Terms of Service" id="tFu-K8-UlV"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j9T-ny-BrR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3697" y="2532"/>
         </scene>
     </scenes>
     <resources>

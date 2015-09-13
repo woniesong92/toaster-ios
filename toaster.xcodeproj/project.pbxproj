@@ -16,6 +16,8 @@
 		7002724E1B9BD23200C292A5 /* LoadingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7002724D1B9BD23200C292A5 /* LoadingManager.m */; };
 		701278211BA537EF00A4D6FA /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 701278201BA537EF00A4D6FA /* WebKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		701278231BA53B5A00A4D6FA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 701278221BA53B5A00A4D6FA /* Images.xcassets */; };
+		701278261BA6120800A4D6FA /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 701278251BA6120800A4D6FA /* AboutViewController.m */; };
+		701278291BA6121600A4D6FA /* TermsOfServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 701278281BA6121600A4D6FA /* TermsOfServiceViewController.m */; };
 		708D2CFB1BA3B30100CF17F9 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708D2CFA1BA3B30100CF17F9 /* Parse.framework */; };
 		708D2CFD1BA3B36A00CF17F9 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708D2CFC1BA3B36A00CF17F9 /* Bolts.framework */; };
 		708D2CFF1BA3B3B200CF17F9 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708D2CFE1BA3B3B200CF17F9 /* AudioToolbox.framework */; };
@@ -70,6 +72,10 @@
 		7002724D1B9BD23200C292A5 /* LoadingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingManager.m; sourceTree = "<group>"; };
 		701278201BA537EF00A4D6FA /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		701278221BA53B5A00A4D6FA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = toaster/Images.xcassets; sourceTree = "<group>"; };
+		701278241BA6120800A4D6FA /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		701278251BA6120800A4D6FA /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		701278271BA6121600A4D6FA /* TermsOfServiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TermsOfServiceViewController.h; sourceTree = "<group>"; };
+		701278281BA6121600A4D6FA /* TermsOfServiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TermsOfServiceViewController.m; sourceTree = "<group>"; };
 		708D2CFA1BA3B30100CF17F9 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		708D2CFC1BA3B36A00CF17F9 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		708D2CFE1BA3B3B200CF17F9 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -210,6 +216,10 @@
 				700272441B9A69C400C292A5 /* ProfileViewController.m */,
 				70E3415D1B9C9DB200046067 /* SettingsViewController.h */,
 				70E3415E1B9C9DB200046067 /* SettingsViewController.m */,
+				701278241BA6120800A4D6FA /* AboutViewController.h */,
+				701278251BA6120800A4D6FA /* AboutViewController.m */,
+				701278271BA6121600A4D6FA /* TermsOfServiceViewController.h */,
+				701278281BA6121600A4D6FA /* TermsOfServiceViewController.m */,
 				700272311B99C62D00C292A5 /* WebViewManager.h */,
 				700272321B99C62D00C292A5 /* WebViewManager.m */,
 				70951FA11B989F15006B1228 /* Images.xcassets */,
@@ -354,11 +364,13 @@
 				700272391B9A36B900C292A5 /* UIWebView+FLUIWebView.m in Sources */,
 				70D005631B98A882006E746F /* PostsShowViewController.m in Sources */,
 				70951F9D1B989F15006B1228 /* TrendingViewController.m in Sources */,
+				701278291BA6121600A4D6FA /* TermsOfServiceViewController.m in Sources */,
 				700272481B9A6A6D00C292A5 /* NotificationsViewController.m in Sources */,
 				7002724B1B9B173F00C292A5 /* NewPostController.m in Sources */,
 				70951F971B989F15006B1228 /* AppDelegate.m in Sources */,
 				7002724E1B9BD23200C292A5 /* LoadingManager.m in Sources */,
 				7002723C1B9A36EE00C292A5 /* WKWebView+FLWKWebView.m in Sources */,
+				701278261BA6120800A4D6FA /* AboutViewController.m in Sources */,
 				70E341651B9DE2F400046067 /* CustomTabBarViewController.m in Sources */,
 				70951F9A1B989F15006B1228 /* RecentViewController.m in Sources */,
 				70951F941B989F15006B1228 /* main.m in Sources */,

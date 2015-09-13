@@ -74,6 +74,11 @@
     [[self webView] evaluateJavaScript:js completionHandler:nil];
 }
 
+- (void)routerGo: (NSString *)pathString {
+    NSString *js = [NSString stringWithFormat:@"%@%@%@", @"Router.go(\"", pathString, @"\")"];
+    [[self webView] evaluateJavaScript:js completionHandler:nil];
+}
+
 - (void)removeWebViewFromContainer {
 //    self.webView.delegate = nil;
     [self.webView removeFromSuperview];

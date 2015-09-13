@@ -8,7 +8,6 @@
 
 #import "SettingsViewController.h"
 #import "Constants.h"
-#import "WebViewManager.h"
 #import "SignUpViewController.h"
 
 @interface SettingsViewController ()
@@ -21,7 +20,9 @@
     [super viewDidLoad];
     
     self.automaticallyAdjustsScrollViewInsets = NO;
-    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
     [_webViewManager removeWebViewFromContainer];
     _webViewManager = [WebViewManager getUniqueWebViewManager:self];
     
@@ -29,11 +30,8 @@
     [[_webViewManager webView] setDelegateViews: self];
     
     [self.view addSubview: _webViewManager.webView];
+    [_webViewManager routerGo:SETTINGS_URL];
     
-    [_webViewManager useRouterWithPath:SETTINGS_URL];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 }
 
@@ -58,6 +56,7 @@
 
 - (void)willMoveToParentViewController:(UIViewController *)parent{
     if (parent == nil){
+        
         [_webViewManager useRouterWithPath:PROFILE];
     }
 }
@@ -83,6 +82,17 @@
         [self presentViewController:vc animated:YES completion:nil];
         return false;
     }
+    
+    if ([[URL absoluteString] isEqualToString:ABOUT_SCHEME]) {
+        [self performSegueWithIdentifier:@"AboutSegue" sender:self];
+        return false;
+    }
+    
+    if ([[URL absoluteString] isEqualToString:TERMS_SCHEME]) {
+        [self performSegueWithIdentifier:@"TermsOfServiceSegue" sender:self];
+        return false;
+    }
+
     return true;
 }
 
@@ -109,7 +119,6 @@
 {
     // Remove the loading indicator, maybe update the navigation bar's title if you have one.
 }
-
 
 #pragma mark - UIWebView Delegate Methods
 
