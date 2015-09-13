@@ -66,7 +66,6 @@
         
         AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
         
-        
         NSString *installationId = appDelegate.pushInstallationId;
         NSString *js = [NSString stringWithFormat:@"Meteor.call(\"registerUserIdToParse\", \"%@\")", installationId];
         
