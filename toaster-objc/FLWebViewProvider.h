@@ -46,6 +46,8 @@
  */
 - (BOOL) canGoBack;
 
+- (void) goBack;
+
 /*
  * UIWebView has stringByEvaluatingJavaScriptFromString, which is synchronous.
  * WKWebView has evaluateJavaScript, which is asynchronous.
