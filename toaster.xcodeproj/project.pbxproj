@@ -18,6 +18,7 @@
 		701278231BA53B5A00A4D6FA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 701278221BA53B5A00A4D6FA /* Images.xcassets */; };
 		701278261BA6120800A4D6FA /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 701278251BA6120800A4D6FA /* AboutViewController.m */; };
 		701278291BA6121600A4D6FA /* TermsOfServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 701278281BA6121600A4D6FA /* TermsOfServiceViewController.m */; };
+		7012782C1BA655EE00A4D6FA /* NotVerifiedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7012782B1BA655EE00A4D6FA /* NotVerifiedViewController.m */; };
 		708D2CFB1BA3B30100CF17F9 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708D2CFA1BA3B30100CF17F9 /* Parse.framework */; };
 		708D2CFD1BA3B36A00CF17F9 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708D2CFC1BA3B36A00CF17F9 /* Bolts.framework */; };
 		708D2CFF1BA3B3B200CF17F9 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708D2CFE1BA3B3B200CF17F9 /* AudioToolbox.framework */; };
@@ -76,6 +77,8 @@
 		701278251BA6120800A4D6FA /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		701278271BA6121600A4D6FA /* TermsOfServiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TermsOfServiceViewController.h; sourceTree = "<group>"; };
 		701278281BA6121600A4D6FA /* TermsOfServiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TermsOfServiceViewController.m; sourceTree = "<group>"; };
+		7012782A1BA655EE00A4D6FA /* NotVerifiedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotVerifiedViewController.h; sourceTree = "<group>"; };
+		7012782B1BA655EE00A4D6FA /* NotVerifiedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotVerifiedViewController.m; sourceTree = "<group>"; };
 		708D2CFA1BA3B30100CF17F9 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		708D2CFC1BA3B36A00CF17F9 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		708D2CFE1BA3B3B200CF17F9 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -202,6 +205,8 @@
 				70E341641B9DE2F400046067 /* CustomTabBarViewController.m */,
 				70E341601B9CA6C200046067 /* SignUpViewController.h */,
 				70E341611B9CA6C200046067 /* SignUpViewController.m */,
+				7012782A1BA655EE00A4D6FA /* NotVerifiedViewController.h */,
+				7012782B1BA655EE00A4D6FA /* NotVerifiedViewController.m */,
 				70951F981B989F15006B1228 /* RecentViewController.h */,
 				70951F991B989F15006B1228 /* RecentViewController.m */,
 				70D005611B98A882006E746F /* PostsShowViewController.h */,
@@ -361,6 +366,7 @@
 			files = (
 				700272331B99C62D00C292A5 /* WebViewManager.m in Sources */,
 				700272451B9A69C400C292A5 /* ProfileViewController.m in Sources */,
+				7012782C1BA655EE00A4D6FA /* NotVerifiedViewController.m in Sources */,
 				700272391B9A36B900C292A5 /* UIWebView+FLUIWebView.m in Sources */,
 				70D005631B98A882006E746F /* PostsShowViewController.m in Sources */,
 				70951F9D1B989F15006B1228 /* TrendingViewController.m in Sources */,

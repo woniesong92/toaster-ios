@@ -41,7 +41,7 @@
     // Add webView as subView
     [self.view addSubview: _webViewManager.webView];
     
-    [_webViewManager useRouterWithPath:SIGN_UP];
+    [_webViewManager routerGo:SIGN_UP];
 }
 
 - (BOOL) webView: (UIWebView *) webView shouldStartLoadWithRequest: (NSURLRequest *) request navigationType: (UIWebViewNavigationType) navigationType
@@ -61,16 +61,12 @@
     
     NSLog([NSString stringWithFormat:@"%@ -- %@", @"SIGNUP", urlString]);
     
-//    if ([urlString isEqualToString:LOGGEDIN_SCHEME]) {
     if ([urlString containsString:LOGGEDIN_SCHEME]) {
         
         AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
         
         NSString *installationId = appDelegate.pushInstallationId;
         NSString *js = [NSString stringWithFormat:@"Meteor.call(\"registerUserIdToParse\", \"%@\")", installationId];
-        
-        NSLog(@"call: %@", js);
-        
         
         [[_webViewManager webView] evaluateJavaScript:js completionHandler:nil];
         
@@ -87,10 +83,17 @@
     if ([urlString isEqualToString:SIGNIN_SCHEME]) {
         self.navigationItem.title = @"Login";
         return true;
-    } else if ([urlString isEqualToString:SIGNUP_SCHEME]) {
+    }
+    
+    if ([urlString isEqualToString:SIGNUP_SCHEME]) {
         self.navigationItem.title = @"Sign up";
         return true;
     }
+    
+//    if ([urlString isEqualToString:NOT_VERIFIED_SCHEME]) {
+//        self.navigationItem.title = @"Verification";
+//        return true;
+//    }
     
     return true;
 }

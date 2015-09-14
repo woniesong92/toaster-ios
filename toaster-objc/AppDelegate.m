@@ -92,4 +92,15 @@
     }
 }
 
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    NSString *verfyingString = @"com.honeyjam.toaster://verified";
+    
+    
+    if ([[url absoluteString] isEqualToString:verfyingString]) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"emailVerified" object:nil];
+    }
+    
+    return YES;
+}
+
 @end

@@ -12,6 +12,7 @@
 #import "NewPostController.h"
 #import "Constants.h"
 #import "AppDelegate.h"
+#import "NotVerifiedViewController.h"
 
 @interface RecentViewController ()
 @end
@@ -123,6 +124,15 @@
         [self presentViewController:vc animated:YES completion:nil];
         return false;
     }
+    
+    // FIXME: CODE IS REPEATED.
+    if ([[URL absoluteString] isEqualToString:NOT_VERIFIED_SCHEME]) {
+        NotVerifiedViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"NotVerifiedNavVC"];
+        [self presentViewController:vc animated:YES completion:nil];
+        return false;
+    }
+    
+    //[self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 
     return true;
 }
