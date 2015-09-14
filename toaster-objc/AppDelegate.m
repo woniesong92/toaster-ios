@@ -25,6 +25,9 @@
     [Parse setApplicationId:@"nGWY63hAKCyyMHS41xmjNiL4mCIqsJ0TBGWAG4vy"
                   clientKey:@"w1ps0nxnPNfpJvIGnw52wCl5Og5eOLgiwiuXHn6i"];
     
+    // Track opening app
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
     // Register for Push Notitications
     UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
                                                     UIUserNotificationTypeBadge |
@@ -48,8 +51,6 @@
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-
-    NSLog(@"New notification! %@", userInfo);
     [[NSNotificationCenter defaultCenter] postNotificationName:@"pushNotification" object:nil userInfo:userInfo];
     
 //    [PFPush handlePush:userInfo];
