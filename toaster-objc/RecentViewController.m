@@ -131,8 +131,7 @@
         [self presentViewController:vc animated:YES completion:nil];
         return false;
     }
-    
-    //[self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+
 
     return true;
 }

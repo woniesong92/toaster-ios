@@ -21,6 +21,13 @@
     [super viewDidLoad];
     
     self.automaticallyAdjustsScrollViewInsets = NO;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(isVerified:) name:@"emailVerified" object:nil];
+}
+
+- (void)isVerified:(NSNotification *)notification {
+    [_webViewManager routerGo:RECENT];
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -73,10 +80,16 @@
         
         [appDelegate.tabBarController setSelectedIndex:RECENT_TAB_INDEX];
         
-        
         [_webViewManager useRouterWithPath:RECENT];
         
-        [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+        
+        
+        if ([urlString containsString:@"verified"]) {
+            [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+        } else {
+            NSLog(@"not verified. Don't close the modal yet?");
+        }
+
         return false;
     }
     
