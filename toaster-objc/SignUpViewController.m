@@ -82,12 +82,9 @@
         
         [_webViewManager useRouterWithPath:RECENT];
         
-        
-        
+        // Only close the modal if the logged in user is an verified user.
         if ([urlString containsString:@"verified"]) {
             [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
-        } else {
-            NSLog(@"not verified. Don't close the modal yet?");
         }
 
         return false;
@@ -103,10 +100,10 @@
         return true;
     }
     
-//    if ([urlString isEqualToString:NOT_VERIFIED_SCHEME]) {
-//        self.navigationItem.title = @"Verification";
-//        return true;
-//    }
+    if ([urlString isEqualToString:NOT_VERIFIED_SCHEME]) {
+        self.navigationItem.title = @"Verification";
+        return true;
+    }
     
     return true;
 }

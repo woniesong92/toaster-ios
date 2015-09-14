@@ -429,47 +429,6 @@
             </objects>
             <point key="canvasLocation" x="3697" y="2532"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Rd7-bU-E1m">
-            <objects>
-                <navigationController storyboardIdentifier="NotVerifiedNavVC" automaticallyAdjustsScrollViewInsets="NO" id="8zE-XT-gXo" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rVe-iu-1io">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="1" green="0.27450980390000002" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="3yt-si-3DC" kind="relationship" relationship="rootViewController" id="hx5-hC-0eT"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Paf-20-RLg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3012" y="-2559"/>
-        </scene>
-        <!--NotVerified-->
-        <scene sceneID="SHA-Yr-kdU">
-            <objects>
-                <viewController storyboardIdentifier="NotVerifiedVC" title="NotVerified" id="3yt-si-3DC" customClass="NotVerifiedViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="8yc-6L-gae"/>
-                        <viewControllerLayoutGuide type="bottom" id="hjZ-OA-ACf"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="eh7-pc-VdR">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Verify Email" id="5hp-sz-XRH"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6ZK-Sz-DXC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3738" y="-2559"/>
-        </scene>
     </scenes>
     <resources>
         <image name="notifications" width="32" height="32"/>
