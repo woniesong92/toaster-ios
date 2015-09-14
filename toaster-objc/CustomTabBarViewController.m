@@ -31,7 +31,7 @@
 - (void) myNotificationReceived:(NSNotification *) notification
 {
 
-    NSNumber *count = [notification.userInfo objectForKey:@"numUnreadNotis"];
+    NSNumber *count = [[notification.userInfo objectForKey:@"aps"] objectForKey:@"badge"];
     NSString *badgeCount = [NSString stringWithFormat:@"%@", count];
     
     [[self.tabBar.items objectAtIndex:NOTIFICATION_TAB_INDEX] setBadgeValue:badgeCount];
