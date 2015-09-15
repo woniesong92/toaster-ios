@@ -77,23 +77,23 @@
 //    NSLog([NSString stringWithFormat:@"%@ -- %@", @"SETTINGS", urlString]);
     
     // FIXME: CODE IS REPEATED.
-    if ([[URL absoluteString] isEqualToString:SIGNUP_SCHEME]) {
+    if ([urlString isEqualToString:SIGNUP_SCHEME]) {
         SignUpViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"SignUpNavVC"];
         [self presentViewController:vc animated:YES completion:nil];
         return false;
     }
     
-    if ([[URL absoluteString] isEqualToString:ABOUT_SCHEME]) {
+    if ([urlString isEqualToString:ABOUT_SCHEME]) {
         [self performSegueWithIdentifier:@"AboutSegue" sender:self];
         return false;
     }
     
-    if ([[URL absoluteString] isEqualToString:TERMS_SCHEME]) {
+    if ([urlString isEqualToString:TERMS_SCHEME]) {
         [self performSegueWithIdentifier:@"TermsOfServiceSegue" sender:self];
         return false;
     }
     
-    if ([[URL absoluteString] isEqualToString:PRIVACY_POLICY_SCHEME]) {
+    if ([urlString isEqualToString:PRIVACY_POLICY_SCHEME]) {
         [self performSegueWithIdentifier:@"PrivacyPolicySegue" sender:self];
         return false;
     }

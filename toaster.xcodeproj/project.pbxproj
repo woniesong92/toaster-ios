@@ -512,8 +512,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Howon Song (6YZ4356U5A)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Howon Song (6YZ4356U5A)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Howon Song (T2N24XE45W)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Howon Song (T2N24XE45W)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -522,7 +522,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = toaster;
-				PROVISIONING_PROFILE = "608d59dc-2b4a-42ff-9e2c-bde3b1388318";
+				PROVISIONING_PROFILE = "eedd1c80-5e76-4542-b5bd-ce60680b2f60";
 			};
 			name = Debug;
 		};
@@ -531,8 +531,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Howon Song (6YZ4356U5A)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Howon Song (6YZ4356U5A)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Howon Song (T2N24XE45W)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Howon Song (T2N24XE45W)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -541,7 +541,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = toaster;
-				PROVISIONING_PROFILE = "608d59dc-2b4a-42ff-9e2c-bde3b1388318";
+				PROVISIONING_PROFILE = "eedd1c80-5e76-4542-b5bd-ce60680b2f60";
 			};
 			name = Release;
 		};

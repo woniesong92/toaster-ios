@@ -275,9 +275,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" id="DI5-Qq-n8M"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="profile" id="DI5-Qq-n8M"/>
                     <navigationItem key="navigationItem" title="Profile" id="MxY-EV-Bxa">
-                        <barButtonItem key="rightBarButtonItem" image="settings" style="plain" id="AlQ-7d-hD4">
+                        <barButtonItem key="rightBarButtonItem" image="settings" style="done" id="AlQ-7d-hD4">
                             <connections>
                                 <segue destination="lWy-nl-f3d" kind="show" identifier="settingsSegue" id="1z0-ox-nls"/>
                             </connections>
@@ -463,7 +463,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="CIo-z8-cEL"/>
-        <segue reference="zn7-ej-g5b"/>
+        <segue reference="J8F-Ew-rBO"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.27450980390000002" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
