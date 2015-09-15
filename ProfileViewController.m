@@ -89,7 +89,7 @@
     NSURL *URL = [request URL];
     NSString *urlString =[URL absoluteString];
     
-    NSLog([NSString stringWithFormat:@"%@ -- %@", PROFILE, urlString]);
+//    NSLog([NSString stringWithFormat:@"%@ -- %@", PROFILE, urlString]);
     
     if ([urlString isEqualToString:@"toasterapp://postsShow"]) {
         [self performSegueWithIdentifier:@"postsShowSegue4" sender:self];

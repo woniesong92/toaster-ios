@@ -96,7 +96,7 @@
     
     NSString *urlString = [URL absoluteString];
     
-    NSLog([NSString stringWithFormat:@"%@ -- %@", RECENT, urlString]);
+//    NSLog([NSString stringWithFormat:@"%@ -- %@", RECENT, urlString]);
     
     if ([urlString isEqualToString:POSTS_SHOW_SCHEME]) {
         [self performSegueWithIdentifier:@"postsShowSegue" sender:self];

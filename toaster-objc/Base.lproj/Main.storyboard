@@ -308,6 +308,7 @@
                     <connections>
                         <segue destination="ERe-NC-ADR" kind="show" identifier="AboutSegue" id="KuN-pF-POH"/>
                         <segue destination="ZVj-Lr-plj" kind="show" identifier="TermsOfServiceSegue" id="RTj-ce-CNF"/>
+                        <segue destination="i9F-1M-Z5c" kind="show" identifier="PrivacyPolicySegue" id="fSI-ux-Cbb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WVm-4e-MXV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -428,6 +429,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j9T-ny-BrR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3697" y="2532"/>
+        </scene>
+        <!--Privacy Policy-->
+        <scene sceneID="6lN-Bp-lrj">
+            <objects>
+                <viewController title="Privacy Policy" id="i9F-1M-Z5c" customClass="PrivacyPolicyViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DMw-0I-BPp"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ncn-TP-7Yj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EEL-pU-IP5">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Privacy Policy" id="yfB-fj-Ibc"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bOD-d0-1rE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3697" y="3242"/>
         </scene>
     </scenes>
     <resources>

@@ -66,7 +66,7 @@
     NSURL *URL = [request URL];
     NSString *urlString =[URL absoluteString];
     
-    NSLog([NSString stringWithFormat:@"%@ -- %@", @"SIGNUP", urlString]);
+//    NSLog([NSString stringWithFormat:@"%@ -- %@", @"SIGNUP", urlString]);
     
     if ([urlString containsString:LOGGEDIN_SCHEME]) {
         

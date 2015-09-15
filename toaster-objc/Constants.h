@@ -14,10 +14,12 @@
 #define LOGIN @"signIn"
 #define TRENDING @"trending"
 #define ABOUT @"about"
+#define PRIVACY @"privacy"
 #define TERMS @"terms"
 #define NOT_VERIFIED @"notVerified"
 #define ABOUT_SCHEME @"toasterapp://about"
 #define TERMS_SCHEME @"toasterapp://termsofservice"
+#define PRIVACY_POLICY_SCHEME @"toasterapp://privacypolicy"
 #define NOTIFICATIONS @"notifications"
 #define PROFILE @"profile"
 #define NOTIFICATION_TAB_INDEX 2

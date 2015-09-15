@@ -74,7 +74,7 @@
     NSURL *URL = [request URL];
     NSString *urlString =[URL absoluteString];
     
-    NSLog([NSString stringWithFormat:@"%@ -- %@", @"SETTINGS", urlString]);
+//    NSLog([NSString stringWithFormat:@"%@ -- %@", @"SETTINGS", urlString]);
     
     // FIXME: CODE IS REPEATED.
     if ([[URL absoluteString] isEqualToString:SIGNUP_SCHEME]) {
@@ -90,6 +90,11 @@
     
     if ([[URL absoluteString] isEqualToString:TERMS_SCHEME]) {
         [self performSegueWithIdentifier:@"TermsOfServiceSegue" sender:self];
+        return false;
+    }
+    
+    if ([[URL absoluteString] isEqualToString:PRIVACY_POLICY_SCHEME]) {
+        [self performSegueWithIdentifier:@"PrivacyPolicySegue" sender:self];
         return false;
     }
 

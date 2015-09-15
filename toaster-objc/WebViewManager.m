@@ -52,7 +52,6 @@
             // full page refresh
             [uniqueWebView loadUrlWithString:BASE_URL];
             
-            NSLog(@"webview first loaded a url");
             // should I setBadgeCount here?
             
             [uniqueWebView setCurrentTab:RECENT];
@@ -126,7 +125,7 @@
 //    UIImage *image = [self _screencapture:containerVC];
     
     if (image == nil) {
-        NSLog(@"can't replace webview with image: image is null");
+//        NSLog(@"can't replace webview with image: image is null");
         return;
     }
     

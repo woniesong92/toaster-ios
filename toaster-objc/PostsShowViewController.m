@@ -129,7 +129,7 @@
     
     NSString *urlString = [URL absoluteString];
     
-    NSLog([NSString stringWithFormat:@"%@ -- %@", @"POSTS-SHOW", urlString]);
+//    NSLog([NSString stringWithFormat:@"%@ -- %@", @"POSTS-SHOW", urlString]);
     
     if ([urlString isEqualToString:@"toasterapp://loadingEnd"]) {
         [_loadingManager stopLoadingIndicator];
