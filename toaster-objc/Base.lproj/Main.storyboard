@@ -162,13 +162,13 @@
                                 <rect key="frame" x="0.0" y="120" width="600" height="40"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password Confirmation" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zaE-SU-zkE">
                                 <rect key="frame" x="0.0" y="168" width="600" height="40"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IA3-xh-Kk6">
                                 <rect key="frame" x="0.0" y="247" width="600" height="40"/>
@@ -176,6 +176,9 @@
                                 <state key="normal" title="Sign Up">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="signUpButtonClicked:" destination="wgb-Tf-AS4" eventType="touchUpInside" id="g5V-iQ-wBI"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="Already have an account?" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mZK-yq-Iu2">
                                 <rect key="frame" x="168" y="295" width="186" height="30"/>
@@ -203,6 +206,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Sign Up" id="sfD-U0-VzT"/>
                     <connections>
+                        <outlet property="emailField" destination="ZaU-Es-qrR" id="TIh-ko-xAp"/>
+                        <outlet property="passwordConfirmField" destination="zaE-SU-zkE" id="lia-jO-AQL"/>
+                        <outlet property="passwordField" destination="aw1-nl-9cg" id="f4j-hv-cGP"/>
                         <segue destination="49e-Tb-3d3" kind="show" identifier="goToTabBarVC" id="BPB-pY-4Fu"/>
                     </connections>
                 </viewController>
@@ -574,7 +580,7 @@
                                 <rect key="frame" x="0.0" y="120" width="600" height="40"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tWy-h8-C30">
                                 <rect key="frame" x="0.0" y="247" width="600" height="40"/>
@@ -582,6 +588,9 @@
                                 <state key="normal" title="Log in">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="loginButtonClicked:" destination="Zab-BU-zrD" eventType="touchUpInside" id="AB4-hX-j3h"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="Did you forget to sign up?" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="doX-Ef-px9">
                                 <rect key="frame" x="168" y="295" width="186" height="30"/>
@@ -608,6 +617,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Log In" id="kaI-sb-IoZ"/>
+                    <connections>
+                        <outlet property="emailField" destination="YvX-Vp-fXv" id="HrV-e4-toa"/>
+                        <outlet property="passwordField" destination="lHy-k1-nLd" id="tKv-po-ns9"/>
+                        <segue destination="49e-Tb-3d3" kind="show" identifier="goToTabBarVC2" id="PCo-u0-9cc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xDh-0L-oWG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -626,6 +640,7 @@
         <image name="trending-selected" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="PCo-u0-9cc"/>
         <segue reference="rtv-bc-fAZ"/>
         <segue reference="RJN-st-73y"/>
     </inferredMetricsTieBreakers>

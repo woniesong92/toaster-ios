@@ -7,6 +7,8 @@
 //
 
 #import "SignInViewController.h"
+#import "AFNetworking.h"
+#import "Constants.h"
 
 @interface SignInViewController ()
 
@@ -29,14 +31,51 @@
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)loginButtonClicked:(id)sender {
+    NSString *email = [self.emailField text];
+    NSString *password = [self.passwordField text];
+    
+    NSLog(@"email: %@, pw: %@", email, password);
+    
+    NSString *emailRegex = @"[A-Z0-9a-z]+([._%+-]{1}[A-Z0-9a-z]+)*@[A-Z0-9a-z]+([.-]{1}[A-Z0-9a-z]+)*(\\.[A-Za-z]{2,4}){0,1}";
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    if (![emailTest evaluateWithObject:email]) {
+        // TODO: show alert that email is invalid
+        NSLog(@"invalid email format");
+        return;
+    }
+    
+    // Make a request to backend server to register id
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSDictionary *params = @{@"email": email,
+                             @"password": password};
+    [manager POST:LOGIN_API_URL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSString *token = responseObject[@"token"];
+        NSString *userId = responseObject[@"id"];
+        NSString *tokenExpires = responseObject[@"tokenExpires"];
+        
+        NSLog(@"JSON: %@", responseObject);
+        
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:token forKey:@"token"];
+        [defaults setObject:userId forKey:@"userId"];
+        [defaults setObject:tokenExpires forKey:@"tokenExpires"];
+        [defaults synchronize];
+        
+        [self performSegueWithIdentifier:@"goToTabBarVC2" sender:self];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        self.emailField = nil;
+        self.passwordField = nil;
+        
+        // TODO: show user this error and clear all the textfields
+        NSLog(@"Error: %@", error);
+    }];
 }
-*/
+
+
+
 
 @end

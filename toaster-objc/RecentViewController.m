@@ -12,7 +12,6 @@
 #import "NewPostController.h"
 #import "Constants.h"
 #import "AppDelegate.h"
-#import "AFNetworking.h"
 
 @interface RecentViewController ()
 @end
@@ -21,6 +20,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+//    FIXME: how do I prevent signUpViewController from showing up?
+//    NSArray *navVCs = [self.navigationController viewControllers];
+//    for (UIViewController *vc in navVCs) {
+//        if ([vc isKindOfClass:[SignUpViewController class]]) {
+//            [vc removeFromParentViewController];
+//        }
+//    }
+    
     self.automaticallyAdjustsScrollViewInsets = NO;
     
 //    _loadingManager = [LoadingManager getLoadingManager:self];

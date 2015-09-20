@@ -1,5 +1,5 @@
-//#define BASE_URL @"http://192.168.0.103:3000"
-#define BASE_URL @"http://104.131.158.80"
+#define BASE_URL @"http://192.168.0.100:3000"
+//#define BASE_URL @"http://104.131.158.80"
 //#define BASE_URL @"http://192.168.1.118:3000"
 #define TRENDING_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/trending"]
 #define NEW_POST_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/newPost"]
@@ -28,5 +28,6 @@
 #define LOADING_START @"toasterapp://loadingStart"
 #define LOADING_END @"toasterapp://loadingEnd"
 
-#define GET_USER_TOKEN [NSString stringWithFormat:@"%@%@", BASE_URL, @"/users/login"]
-#define GET_RECENT_POSTS [NSString stringWithFormat:@"%@%@", BASE_URL, @"/publications/recentPostsAndComments"]
+#define LOGIN_API_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/users/login"]
+#define SIGNUP_API_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/users/register"]
+#define GET_RECENT_POSTS_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/publications/recentPostsAndComments"]
