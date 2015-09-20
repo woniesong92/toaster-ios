@@ -17,6 +17,11 @@
     
     _loadingManager = [LoadingManager getLoadingManager:self];
     self.automaticallyAdjustsScrollViewInsets = NO;
+    
+    NSDictionary *tempDictionary= self.postDetail;
+    [self.postBody setText:[tempDictionary objectForKey:@"body"]];
+    [self.postDate setText:[tempDictionary objectForKey:@"createdAt"]];
+    [self.numVotes setText:[NSString stringWithFormat:@"%@", [tempDictionary objectForKey:@"numLikes"]]];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

@@ -21,5 +21,9 @@
 @property (strong, nonatomic) UIImage *parentScreenImage;
 
 @property (strong, nonatomic) NSDictionary *postDetail;
+@property (weak, nonatomic) IBOutlet UITextView *postBody;
+@property (weak, nonatomic) IBOutlet UILabel *numComments;
+@property (weak, nonatomic) IBOutlet UILabel *postDate;
+@property (weak, nonatomic) IBOutlet UILabel *numVotes;
 
 @end
