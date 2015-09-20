@@ -12,6 +12,7 @@
 #import "NewPostController.h"
 #import "Constants.h"
 #import "AppDelegate.h"
+#import "AFNetworking.h"
 
 @interface RecentViewController ()
 @end
