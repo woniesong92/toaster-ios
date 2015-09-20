@@ -15,10 +15,33 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="l8h-Hu-nv3">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="150" id="l8h-Hu-nv3">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="l8h-Hu-nv3" id="Ub1-N2-uIX">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ezj-QF-VTk">
+                                            <rect key="frame" x="552" y="8" width="40" height="40"/>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bqn-SN-i7q">
+                                            <rect key="frame" x="552" y="101" width="40" height="40"/>
+                                        </imageView>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lbG-l2-iL4">
+                                            <rect key="frame" x="552" y="53" width="40" height="40"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Now" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w15-WD-xu7">
+                                            <rect key="frame" x="8" y="106" width="117" height="30"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Comments" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AYR-OY-bUR">
+                                            <rect key="frame" x="162" y="106" width="126" height="30"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <segue destination="i0U-vc-kr9" kind="show" id="2tB-YS-ZOB"/>
@@ -30,11 +53,12 @@
                             <outlet property="delegate" destination="0j5-Yx-alz" id="7GA-NH-Jr5"/>
                         </connections>
                     </tableView>
+                    <tabBarItem key="tabBarItem" title="Recent" image="recent" id="yh3-yi-d6V"/>
                     <navigationItem key="navigationItem" title="Recent Table" id="WDD-nK-pvF"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hn7-tO-bzQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2280" y="-340"/>
+            <point key="canvasLocation" x="1556" y="-352"/>
         </scene>
         <!--Toast-->
         <scene sceneID="v67-vp-6CQ">
@@ -53,36 +77,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WBa-LR-aeK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3006" y="-340"/>
-        </scene>
-        <!--Recent-->
-        <scene sceneID="m7m-NA-Afy">
-            <objects>
-                <navigationController id="Oaj-H6-AMn" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Recent" image="recent" id="oVD-j5-L79">
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="recent-selected"/>
-                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
-                                <color key="value" red="1" green="0.27450980392156865" blue="0.30980392156862746" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                    </tabBarItem>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6os-ib-JD8">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="barTintColor" red="1" green="0.27450980390000002" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="0j5-Yx-alz" kind="relationship" relationship="rootViewController" id="9yN-GK-KWh"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Lf9-Ff-0fT" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1556" y="-340"/>
+            <point key="canvasLocation" x="2280" y="-352"/>
         </scene>
         <!--Trending-->
         <scene sceneID="wg7-f3-ORb">
@@ -220,7 +215,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="Oaj-H6-AMn" kind="relationship" relationship="viewControllers" id="PI3-pa-53S"/>
+                        <segue destination="0j5-Yx-alz" kind="relationship" relationship="viewControllers" id="z4Z-eS-oi8"/>
                         <segue destination="t5H-Gc-7B1" kind="relationship" relationship="viewControllers" id="34U-Dr-IZk"/>
                         <segue destination="CZJ-oL-ufF" kind="relationship" relationship="viewControllers" id="0o3-jW-p9w"/>
                         <segue destination="9tC-GH-RY5" kind="relationship" relationship="viewControllers" id="GON-nm-0hj"/>
@@ -607,7 +602,6 @@
         <image name="profile" width="32" height="32"/>
         <image name="profile-selected" width="32" height="32"/>
         <image name="recent" width="32" height="32"/>
-        <image name="recent-selected" width="32" height="32"/>
         <image name="settings" width="32" height="32"/>
         <image name="trending" width="32" height="32"/>
         <image name="trending-selected" width="32" height="32"/>
