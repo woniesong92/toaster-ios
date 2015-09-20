@@ -27,3 +27,6 @@
 #define RECENT_TAB_INDEX 0
 #define LOADING_START @"toasterapp://loadingStart"
 #define LOADING_END @"toasterapp://loadingEnd"
+
+#define GET_USER_TOKEN [NSString stringWithFormat:@"%@%@", BASE_URL, @"/users/login"]
+#define GET_RECENT_POSTS [NSString stringWithFormat:@"%@%@", BASE_URL, @"/publications/recentPostsAndComments"]

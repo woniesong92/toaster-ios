@@ -23,34 +23,34 @@
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
     
-    _loadingManager = [LoadingManager getLoadingManager:self];
+//    _loadingManager = [LoadingManager getLoadingManager:self];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     
     [super viewWillAppear:animated];
-    
-    [_webViewManager removeWebViewFromContainer];
-    _webViewManager = [WebViewManager getUniqueWebViewManager:self];
+//    
+//    [_webViewManager removeWebViewFromContainer];
+//    _webViewManager = [WebViewManager getUniqueWebViewManager:self];
     
     // Setting delegate for WKWebView
-    [[_webViewManager webView] setDelegateViews: self];
+//    [[_webViewManager webView] setDelegateViews: self];
     
     // Add webView as subView
-    [self.view addSubview: _webViewManager.webView];
+//    [self.view addSubview: _webViewManager.webView];
     
     // Replace webView with a blank image
-    [_webViewManager replaceWebViewWithImage:self :[_webViewManager getWhiteImage]];
+//    [_webViewManager replaceWebViewWithImage:self :[_webViewManager getWhiteImage]];
     
-    if (![[_webViewManager getCurrentTab] isEqual:RECENT]) {
-        [_webViewManager useRouterWithPath:RECENT];
-    }
+//    if (![[_webViewManager getCurrentTab] isEqual:RECENT]) {
+//        [_webViewManager useRouterWithPath:RECENT];
+//    }
     
     // scrollToTop
-    [_webViewManager.webView evaluateJavaScript:@"$('.overflow-scroll').scrollTop(0,0)" completionHandler:nil];
+//    [_webViewManager.webView evaluateJavaScript:@"$('.overflow-scroll').scrollTop(0,0)" completionHandler:nil];
 
     // show loading wheel
-    [_loadingManager startLoadingIndicator:self];
+//    [_loadingManager startLoadingIndicator:self];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
