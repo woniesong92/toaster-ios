@@ -20,6 +20,9 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="l8h-Hu-nv3" id="Ub1-N2-uIX">
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="i0U-vc-kr9" kind="show" id="2tB-YS-ZOB"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -30,36 +33,6 @@
                     <navigationItem key="navigationItem" title="Recent Table" id="WDD-nK-pvF"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hn7-tO-bzQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2276" y="-1026"/>
-        </scene>
-        <!--Recent-->
-        <scene sceneID="hNz-n2-bh7">
-            <objects>
-                <viewController id="9pv-A4-QxB" customClass="RecentViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
-                        <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Recent" image="recent" id="acW-dT-cKf"/>
-                    <navigationItem key="navigationItem" title="Recent" id="rbd-ly-eGL">
-                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="FcV-hp-enh">
-                            <connections>
-                                <action selector="newPostAction:" destination="9pv-A4-QxB" id="wVD-gc-27a"/>
-                                <segue destination="Lai-rn-CoX" kind="presentation" id="RJN-st-73y"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <segue destination="i0U-vc-kr9" kind="show" identifier="postsShowSegue" id="rtv-bc-fAZ"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2280" y="-340"/>
         </scene>
@@ -641,8 +614,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="PCo-u0-9cc"/>
-        <segue reference="rtv-bc-fAZ"/>
-        <segue reference="RJN-st-73y"/>
+        <segue reference="2tB-YS-ZOB"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.27450980390000002" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

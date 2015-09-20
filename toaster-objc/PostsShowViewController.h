@@ -20,4 +20,6 @@
 
 @property (strong, nonatomic) UIImage *parentScreenImage;
 
+@property (strong, nonatomic) NSDictionary *postDetail;
+
 @end

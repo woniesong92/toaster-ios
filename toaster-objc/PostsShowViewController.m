@@ -22,39 +22,41 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    _webViewManager = [WebViewManager getUniqueWebViewManager:self];
-    [_webViewManager removeWebViewFromContainer];
+    NSLog(@"I am PostsShowVC yay %@", self.postDetail);
     
-    // Setting delegate for WKWebView
-    [[_webViewManager webView] setDelegateViews: self];
-
-    [self.view addSubview: _webViewManager.webView];
-    
-    // Replace webView with a blank image
-    UIImage *whiteImage = [_webViewManager getWhiteImage];
-    [_webViewManager replaceWebViewWithImage:self :whiteImage];
-    
-    [_loadingManager startLoadingIndicator:self];
-    
-    UIScrollView *scrollView = _webViewManager.webView.scrollView;
-    scrollView.delegate = self;
-    _keyboardHeight = 0;
-    _shouldPreventScrolling = NO;
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWillShow:)
-                                                 name:UIKeyboardWillShowNotification
-                                               object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWillHide:)
-                                                 name:UIKeyboardWillHideNotification
-                                               object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardDidShow:)
-                                                 name:UIKeyboardDidShowNotification
-                                               object:nil];
+//    _webViewManager = [WebViewManager getUniqueWebViewManager:self];
+//    [_webViewManager removeWebViewFromContainer];
+//    
+//    // Setting delegate for WKWebView
+//    [[_webViewManager webView] setDelegateViews: self];
+//
+//    [self.view addSubview: _webViewManager.webView];
+//    
+//    // Replace webView with a blank image
+//    UIImage *whiteImage = [_webViewManager getWhiteImage];
+//    [_webViewManager replaceWebViewWithImage:self :whiteImage];
+//    
+//    [_loadingManager startLoadingIndicator:self];
+//    
+//    UIScrollView *scrollView = _webViewManager.webView.scrollView;
+//    scrollView.delegate = self;
+//    _keyboardHeight = 0;
+//    _shouldPreventScrolling = NO;
+//    
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(keyboardWillShow:)
+//                                                 name:UIKeyboardWillShowNotification
+//                                               object:nil];
+//    
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(keyboardWillHide:)
+//                                                 name:UIKeyboardWillHideNotification
+//                                               object:nil];
+//    
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(keyboardDidShow:)
+//                                                 name:UIKeyboardDidShowNotification
+//                                               object:nil];
     
 }
 
