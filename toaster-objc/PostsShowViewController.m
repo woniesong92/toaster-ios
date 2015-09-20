@@ -9,6 +9,7 @@
 #import "PostsShowViewController.h"
 #import "RecentViewController.h"
 #import "Constants.h"
+#import "AFNetworking.h"
 
 @implementation PostsShowViewController
 
@@ -19,9 +20,34 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     NSDictionary *tempDictionary= self.postDetail;
+    NSString *postId = [tempDictionary objectForKey:@"_id"];
     [self.postBody setText:[tempDictionary objectForKey:@"body"]];
     [self.postDate setText:[tempDictionary objectForKey:@"createdAt"]];
     [self.numVotes setText:[NSString stringWithFormat:@"%@", [tempDictionary objectForKey:@"numLikes"]]];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *token = [defaults objectForKey:@"token"];
+    NSString *authorizationToken = [NSString stringWithFormat:@"Bearer %@", token];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    [manager.requestSerializer setValue:authorizationToken forHTTPHeaderField:@"Authorization"];
+    
+//    NSDictionary *params = @{@"postId": postId};
+    NSDictionary *params = @{};
+    NSString *reqURL = [NSString stringWithFormat:@"%@/%@", GET_COMMENTS_FOR_POST_URL, postId];
+    
+    [manager GET:reqURL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"comments for Post: %@", responseObject);
+        self.comments = (NSArray *)responseObject[@"comments"];
+        [self.numComments setText:[NSString stringWithFormat:@"%lu", (unsigned long)[self.comments count]]];
+        
+//        [self.tableView reloadData];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        // TODO: show user this error and clear all the textfields
+        NSLog(@"Error: %@", error);
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
