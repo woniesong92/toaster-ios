@@ -116,11 +116,18 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Recent" image="recent" id="yh3-yi-d6V"/>
-                    <navigationItem key="navigationItem" title="Recent" id="jcW-mv-Q8I"/>
+                    <navigationItem key="navigationItem" title="Recent" id="jcW-mv-Q8I">
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="IXd-IM-uDP">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <segue destination="Lai-rn-CoX" kind="presentation" id="dDm-K0-ZUF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hn7-tO-bzQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2280" y="-352"/>
+            <point key="canvasLocation" x="1556" y="-324"/>
         </scene>
         <!--Toast-->
         <scene sceneID="v67-vp-6CQ">
@@ -297,7 +304,7 @@
                             </tableView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Write a comment" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NLI-RO-ryb">
                                 <rect key="frame" x="8" y="552" width="540" height="40"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.94027413506256907" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="hwP-90-OcB"/>
                                     <constraint firstAttribute="width" constant="540" id="lSr-pg-2p8"/>
@@ -359,7 +366,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WBa-LR-aeK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3004" y="-352"/>
+            <point key="canvasLocation" x="2280" y="-324"/>
         </scene>
         <!--Trending-->
         <scene sceneID="wg7-f3-ORb">
@@ -702,7 +709,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gQB-bx-rLx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4429" y="-352"/>
+            <point key="canvasLocation" x="3827" y="-324"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Jsa-vq-zKM">
@@ -725,7 +732,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hWH-us-I3y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3697" y="-352"/>
+            <point key="canvasLocation" x="2993" y="-324"/>
         </scene>
         <!--SignUpNav-->
         <scene sceneID="hC6-y3-t0Y">
@@ -919,6 +926,7 @@
         <image name="upvote" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="dDm-K0-ZUF"/>
         <segue reference="2tB-YS-ZOB"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.27450980390000002" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
