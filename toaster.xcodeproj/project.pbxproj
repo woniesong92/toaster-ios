@@ -52,6 +52,7 @@
 		70E341621B9CA6C200046067 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E341611B9CA6C200046067 /* SignUpViewController.m */; };
 		70E341651B9DE2F400046067 /* CustomTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E341641B9DE2F400046067 /* CustomTabBarViewController.m */; };
 		70EC5ABE1BAE3F9C0019AA58 /* RecentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70EC5ABD1BAE3F9C0019AA58 /* RecentTableViewController.m */; };
+		70EC5AC11BAE5F7E0019AA58 /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70EC5AC01BAE5F7E0019AA58 /* SignInViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -145,6 +146,8 @@
 		70EC5ABB1BAE3D800019AA58 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		70EC5ABC1BAE3F9C0019AA58 /* RecentTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentTableViewController.h; sourceTree = "<group>"; };
 		70EC5ABD1BAE3F9C0019AA58 /* RecentTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentTableViewController.m; sourceTree = "<group>"; };
+		70EC5ABF1BAE5F7E0019AA58 /* SignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignInViewController.h; sourceTree = "<group>"; };
+		70EC5AC01BAE5F7E0019AA58 /* SignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -261,6 +264,8 @@
 				70E341641B9DE2F400046067 /* CustomTabBarViewController.m */,
 				70E341601B9CA6C200046067 /* SignUpViewController.h */,
 				70E341611B9CA6C200046067 /* SignUpViewController.m */,
+				70EC5ABF1BAE5F7E0019AA58 /* SignInViewController.h */,
+				70EC5AC01BAE5F7E0019AA58 /* SignInViewController.m */,
 				70951F981B989F15006B1228 /* RecentViewController.h */,
 				70951F991B989F15006B1228 /* RecentViewController.m */,
 				70EC5ABC1BAE3F9C0019AA58 /* RecentTableViewController.h */,
@@ -442,6 +447,7 @@
 				7046D2011BAE38EF00A5465F /* AFURLConnectionOperation.m in Sources */,
 				7046D2021BAE38EF00A5465F /* AFURLRequestSerialization.m in Sources */,
 				7046D2041BAE38EF00A5465F /* AFURLSessionManager.m in Sources */,
+				70EC5AC11BAE5F7E0019AA58 /* SignInViewController.m in Sources */,
 				7046D2031BAE38EF00A5465F /* AFURLResponseSerialization.m in Sources */,
 				70E341651B9DE2F400046067 /* CustomTabBarViewController.m in Sources */,
 				70951F9A1B989F15006B1228 /* RecentViewController.m in Sources */,
