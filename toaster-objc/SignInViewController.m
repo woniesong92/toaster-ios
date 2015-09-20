@@ -63,7 +63,7 @@
         [defaults setObject:tokenExpires forKey:@"tokenExpires"];
         [defaults synchronize];
         
-        [self performSegueWithIdentifier:@"goToTabBarVC2" sender:self];
+//        [self performSegueWithIdentifier:@"goToTabBarVC2" sender:self];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         

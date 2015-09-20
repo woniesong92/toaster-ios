@@ -23,21 +23,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSString *token = [defaults objectForKey:@"token"];
-    NSString *userId = [defaults objectForKey:@"userId"];
-    NSString *tokenExpires = [defaults objectForKey:@"tokenExpires"];
-    
-    // check if user is already loggedIn
-    if([defaults objectForKey:@"token"]!=nil &&
-       ![[defaults objectForKey:@"token"] isEqualToString:@""]) {
-
-        // FIXME: check if the token has expired. Then the user has to log in again
-        NSLog(@"user already logged in! %@, %@", token, userId);
-        
-        // Redirected
-        [self performSegueWithIdentifier:@"goToTabBarVC" sender:self];
-    }
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    NSString *token = [defaults objectForKey:@"token"];
+//    NSString *userId = [defaults objectForKey:@"userId"];
+//    NSString *tokenExpires = [defaults objectForKey:@"tokenExpires"];
+//    
+//    // check if user is already loggedIn
+//    if([defaults objectForKey:@"token"]!=nil &&
+//       ![[defaults objectForKey:@"token"] isEqualToString:@""]) {
+//
+//        // FIXME: check if the token has expired. Then the user has to log in again
+//        NSLog(@"user already logged in! %@, %@", token, userId);
+//        
+//        // Redirected
+//        [self performSegueWithIdentifier:@"goToTabBarVC" sender:self];
+//    }
     
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(isVerified:) name:@"emailVerified" object:nil];
@@ -94,7 +94,9 @@
         [defaults setObject:tokenExpires forKey:@"tokenExpires"];
         [defaults synchronize];
         
-        [self performSegueWithIdentifier:@"goToTabBarVC" sender:self];
+//        [self performSegueWithIdentifier:@"goToTabBarVC" sender:self];
+        
+        [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
