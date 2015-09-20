@@ -89,7 +89,7 @@
 		708D2D0C1BA3B3E800CF17F9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		708D2D0E1BA3B3EF00CF17F9 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		708D2D101BA3B3F800CF17F9 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		70951F8E1B989F15006B1228 /* toaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = toaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		70951F8E1B989F15006B1228 /* Toaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Toaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70951F921B989F15006B1228 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		70951F931B989F15006B1228 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		70951F951B989F15006B1228 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -183,7 +183,7 @@
 		70951F8F1B989F15006B1228 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				70951F8E1B989F15006B1228 /* toaster.app */,
+				70951F8E1B989F15006B1228 /* Toaster.app */,
 				70951FAA1B989F15006B1228 /* toasterTests.xctest */,
 			);
 			name = Products;
@@ -275,7 +275,7 @@
 			);
 			name = toaster;
 			productName = "toaster-objc";
-			productReference = 70951F8E1B989F15006B1228 /* toaster.app */;
+			productReference = 70951F8E1B989F15006B1228 /* Toaster.app */;
 			productType = "com.apple.product-type.application";
 		};
 		70951FA91B989F15006B1228 /* toasterTests */ = {
@@ -316,7 +316,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 70951F891B989F15006B1228 /* Build configuration list for PBXProject "toaster" */;
+			buildConfigurationList = 70951F891B989F15006B1228 /* Build configuration list for PBXProject "Toaster" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -456,7 +456,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "db9b05ee-a0e0-4a50-875d-ab9325c524ed";
@@ -495,7 +495,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PROVISIONING_PROFILE = "db9b05ee-a0e0-4a50-875d-ab9325c524ed";
 				SDKROOT = iphoneos;
@@ -508,8 +508,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Howon Song (T2N24XE45W)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Howon Song (T2N24XE45W)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Howon Song (6YZ4356U5A)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Howon Song (6YZ4356U5A)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -517,8 +517,8 @@
 				INFOPLIST_FILE = "toaster-objc/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = toaster;
-				PROVISIONING_PROFILE = "eedd1c80-5e76-4542-b5bd-ce60680b2f60";
+				PRODUCT_NAME = Toaster;
+				PROVISIONING_PROFILE = "608d59dc-2b4a-42ff-9e2c-bde3b1388318";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -528,8 +528,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Howon Song (T2N24XE45W)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Howon Song (T2N24XE45W)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Howon Song (6YZ4356U5A)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Howon Song (6YZ4356U5A)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -537,8 +537,8 @@
 				INFOPLIST_FILE = "toaster-objc/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = toaster;
-				PROVISIONING_PROFILE = "eedd1c80-5e76-4542-b5bd-ce60680b2f60";
+				PRODUCT_NAME = Toaster;
+				PROVISIONING_PROFILE = "608d59dc-2b4a-42ff-9e2c-bde3b1388318";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -586,7 +586,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		70951F891B989F15006B1228 /* Build configuration list for PBXProject "toaster" */ = {
+		70951F891B989F15006B1228 /* Build configuration list for PBXProject "Toaster" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				70951FB21B989F15006B1228 /* Debug */,

@@ -37,4 +37,6 @@
 
 - (UIImage *)getWhiteImage;
 
+- (void)removeInputAccessoryViewFromWKWebView:(WKWebView *)webView;
+
 @end

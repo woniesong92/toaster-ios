@@ -12,8 +12,53 @@
 #import "WKWebView+FLWKWebView.h"
 #import "objc/runtime.h"
 
+@interface _NoInputAccessoryView : NSObject
+
+@end
+
+@implementation _NoInputAccessoryView
+
+- (id)inputAccessoryView {
+    return nil;
+}
+
+@end
+
 @implementation WebViewManager {
     NSString *currentTab;
+}
+
+// This works for WKWebview. Now handle UIWebView case.
+- (void)removeInputAccessoryViewFromWKWebView:(UIView <FLWebViewProvider> *)webView {
+    UIView *targetView;
+    
+    for (UIView *view in webView.scrollView.subviews) {
+        if([[view.class description] hasPrefix:@"WKContent"]) {
+            targetView = view;
+        }
+    }
+    
+    if (!targetView) {
+        return;
+    }
+    
+    NSString *noInputAccessoryViewClassName = [NSString stringWithFormat:@"%@_NoInputAccessoryView", targetView.class.superclass];
+    Class newClass = NSClassFromString(noInputAccessoryViewClassName);
+    
+    if(newClass == nil) {
+        newClass = objc_allocateClassPair(targetView.class, [noInputAccessoryViewClassName cStringUsingEncoding:NSASCIIStringEncoding], 0);
+        if(!newClass) {
+            return;
+        }
+        
+        Method method = class_getInstanceMethod([_NoInputAccessoryView class], @selector(inputAccessoryView));
+        
+        class_addMethod(newClass, @selector(inputAccessoryView), method_getImplementation(method), method_getTypeEncoding(method));
+        
+        objc_registerClassPair(newClass);
+    }
+    
+    object_setClass(targetView, newClass);
 }
 
 + (BOOL)isWKWebViewAvailable {
@@ -23,6 +68,8 @@
         return false;
     }
 }
+
+
 
 + (id)getUniqueWebViewManager: (UIViewController *)container {
     static WebViewManager *uniqueWebView = nil;
@@ -55,6 +102,8 @@
             // should I setBadgeCount here?
             
             [uniqueWebView setCurrentTab:RECENT];
+            
+            [uniqueWebView removeInputAccessoryViewFromWKWebView:uniqueWebView.webView];
         }
     }
     return uniqueWebView;
