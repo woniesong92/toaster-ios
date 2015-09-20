@@ -71,9 +71,22 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *cellId = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
+    
+    // Configure the cell...
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
+    }
+    
     NSDictionary *tempDictionary= [self.posts objectAtIndex:indexPath.row];
-    cell.textLabel.text = [tempDictionary objectForKey:@"body"];
-    cell.detailTextLabel.text = [tempDictionary objectForKey:@"createdAt"];
+    
+    UILabel *numVotes = (UILabel *)[cell viewWithTag:TAG_NUM_VOTES_IN_CELL];
+    UILabel *numComments = (UILabel *)[cell viewWithTag:TAG_NUM_COMMENTS_IN_CELL];
+    UITextView *postBody = (UITextView *)[cell viewWithTag:TAG_POST_BODY_IN_CELL];
+    UILabel *postDate = (UILabel *)[cell viewWithTag:TAG_POST_DATE_IN_CELL];
+    
+    postBody.text = [tempDictionary objectForKey:@"body"];
+    postDate.text = [tempDictionary objectForKey:@"createdAt"];
+
     return cell;
 }
 

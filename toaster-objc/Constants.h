@@ -28,6 +28,15 @@
 #define LOADING_START @"toasterapp://loadingStart"
 #define LOADING_END @"toasterapp://loadingEnd"
 
+//table cell related
+
+#define TAG_POST_BODY_IN_CELL 10
+#define TAG_POST_DATE_IN_CELL 11
+#define TAG_NUM_COMMENTS_IN_CELL 12
+#define TAG_UPVOTE_BTN_IN_CELL 13
+#define TAG_DOWNVOTE_BTN_IN_CELL 14
+#define TAG_NUM_VOTES_IN_CELL 15
+
 #define LOGIN_API_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/users/login"]
 #define SIGNUP_API_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/users/register"]
 #define GET_RECENT_POSTS_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/publications/recentPostsAndComments"]

@@ -13,7 +13,4 @@
 
 @property NSArray *comments;
 @property NSArray *posts;
-
 @end
-
-
