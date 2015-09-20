@@ -19,17 +19,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.automaticallyAdjustsScrollViewInsets = NO;
-    
-    [_webViewManager removeWebViewFromContainer];
-    _webViewManager = [WebViewManager getUniqueWebViewManager:self];
-    
-    // Setting delegate for WKWebView
-    [[_webViewManager webView] setDelegateViews: self];
-
-    [self.view addSubview: _webViewManager.webView];
-    
-    [_webViewManager useRouterWithPath:NEW_POST_URL];
     
 }
 
@@ -38,8 +27,10 @@
 }
 
 - (IBAction)doneButtonPressed:(id)sender {
-    NSString *js = @"Template.newPost.submitNewPost();";
-    [[_webViewManager webView] evaluateJavaScript:js completionHandler:nil];
+    
+    
+//    NSString *js = @"Template.newPost.submitNewPost();";
+//    [[_webViewManager webView] evaluateJavaScript:js completionHandler:nil];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -50,7 +41,6 @@
 }
 
 - (void) viewDidDisappear:(BOOL)animated {
-    [_webViewManager replaceImageWithWebView:self];
     [super viewDidDisappear:animated];
 }
 

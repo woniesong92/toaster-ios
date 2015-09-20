@@ -99,9 +99,11 @@
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-    PostsShowViewController *postsShowController = (PostsShowViewController *)segue.destinationViewController;
-    postsShowController.postDetail = [self.posts objectAtIndex:indexPath.row];
+    if ([segue.identifier isEqualToString:@"postsShowSegue1"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        PostsShowViewController *postsShowController = (PostsShowViewController *)segue.destinationViewController;
+        postsShowController.postDetail = [self.posts objectAtIndex:indexPath.row];
+    }
 }
 
 @end
