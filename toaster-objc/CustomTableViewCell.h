@@ -15,6 +15,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *numVotes;
 @property (weak, nonatomic) IBOutlet UILabel *numComments;
 @property (weak, nonatomic) IBOutlet UILabel *postDate;
-@property (weak, nonatomic) IBOutlet UILabel *postBody;
+@property (weak, nonatomic) IBOutlet UITextView *postBody;
 
 @end
