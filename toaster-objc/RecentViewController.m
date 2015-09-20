@@ -29,6 +29,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     
     [super viewWillAppear:animated];
+    
 //    
 //    [_webViewManager removeWebViewFromContainer];
 //    _webViewManager = [WebViewManager getUniqueWebViewManager:self];
