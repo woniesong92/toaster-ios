@@ -7,16 +7,16 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Recent Table-->
+        <!--Recent-->
         <scene sceneID="KER-hK-HFv">
             <objects>
-                <tableViewController title="Recent Table" id="0j5-Yx-alz" customClass="RecentTableViewController" sceneMemberID="viewController">
+                <tableViewController title="Recent" id="0j5-Yx-alz" customClass="RecentTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" sectionHeaderHeight="22" sectionFooterHeight="22" id="AAD-Ug-CJt">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="center" selectionStyle="default" indentationWidth="10" shouldIndentWhileEditing="NO" reuseIdentifier="Cell" rowHeight="150" id="l8h-Hu-nv3" customClass="CustomTableViewCell">
+                            <tableViewCell contentMode="center" selectionStyle="none" indentationWidth="10" shouldIndentWhileEditing="NO" reuseIdentifier="Cell" rowHeight="150" id="l8h-Hu-nv3" customClass="CustomTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="l8h-Hu-nv3" id="Ub1-N2-uIX">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -116,7 +116,7 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Recent" image="recent" id="yh3-yi-d6V"/>
-                    <navigationItem key="navigationItem" title="Recent Table" id="WDD-nK-pvF"/>
+                    <navigationItem key="navigationItem" title="Recent" id="jcW-mv-Q8I"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hn7-tO-bzQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -166,7 +166,7 @@
                                 <rect key="frame" x="0.0" y="288" width="600" height="262"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommentCell" rowHeight="100" id="Ylb-pu-Qv1" customClass="CommentTableViewCell">
+                                    <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CommentCell" rowHeight="100" id="Ylb-pu-Qv1" customClass="CommentTableViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ylb-pu-Qv1" id="OVw-kz-MVy">
@@ -867,7 +867,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="BPB-pY-4Fu"/>
-        <segue reference="zn7-ej-g5b"/>
+        <segue reference="2tB-YS-ZOB"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.27450980390000002" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

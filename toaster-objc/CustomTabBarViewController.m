@@ -9,6 +9,7 @@
 #import "CustomTabBarViewController.h"
 #import "AppDelegate.h"
 #import "Constants.h"
+#import "SignUpViewController.h"
 
 @interface CustomTabBarViewController ()
 
@@ -24,6 +25,14 @@
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     self.delegate = appDelegate;
     appDelegate.tabBarController = self;
+    
+    
+//    NSArray *navVCs = [self.navigationController viewControllers];
+//    for (UIViewController *vc in navVCs) {
+//        if ([vc isKindOfClass:[SignUpViewController class]]) {
+//            [vc removeFromParentViewController];
+//        }
+//    }
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(myNotificationReceived:) name:@"pushNotification" object:nil];
 }

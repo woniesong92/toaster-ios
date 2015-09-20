@@ -20,14 +20,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-//    FIXME: how do I prevent signUpViewController from showing up?
-//    NSArray *navVCs = [self.navigationController viewControllers];
-//    for (UIViewController *vc in navVCs) {
-//        if ([vc isKindOfClass:[SignUpViewController class]]) {
-//            [vc removeFromParentViewController];
-//        }
-//    }
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     

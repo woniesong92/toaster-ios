@@ -11,6 +11,7 @@
 #import "AFNetworking.h"
 #import "PostsShowViewController.h"
 #import "CustomTableViewCell.h"
+#import "SignUpViewController.h"
 
 @interface RecentTableViewController ()
 
@@ -20,7 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
 //    self.tableView.rowHeight = 150;
 //    self.tableView.estimatedRowHeight = 150;
     
@@ -53,6 +54,11 @@
         NSLog(@"Error: %@", error);
     }];
     
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+
 }
 
 - (void)didReceiveMemoryWarning {
