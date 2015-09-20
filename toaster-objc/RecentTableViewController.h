@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RecentTableViewController : UITableViewController
+@interface RecentTableViewController : UITableViewController <UITableViewDataSource> {
+}
+
+@property NSArray *comments;
+@property NSArray *posts;
 
 @end
+
+

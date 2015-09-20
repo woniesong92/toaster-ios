@@ -36,8 +36,13 @@
 //    NSDictionary *params = @{@"email": email, @"password": password};
     NSDictionary *params = @{};
     [manager GET:GET_RECENT_POSTS_URL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"Posts: %@", responseObject);
-        
+        NSLog(@"RecentPosts: %@", responseObject);
+        self.comments = [[NSArray alloc] initWithArray:responseObject[@"comments"]];
+        self.posts = [[NSArray alloc] initWithArray:responseObject[@"posts"]];
+        NSLog(@"posts: %@", self.posts);
+
+        [self.tableView reloadData];
+
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         // TODO: show user this error and clear all the textfields
         NSLog(@"Error: %@", error);
@@ -53,26 +58,24 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [self.posts count];
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
+    NSString *cellId = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
+    NSDictionary *tempDictionary= [self.posts objectAtIndex:indexPath.row];
+    cell.textLabel.text = [tempDictionary objectForKey:@"body"];
+    cell.detailTextLabel.text = [tempDictionary objectForKey:@"createdAt"];
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.
