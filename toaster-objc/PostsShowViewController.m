@@ -59,6 +59,11 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+
+    self.inlineCommentField.layer.cornerRadius = 6.0;
+    UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 5, 40)];
+    self.inlineCommentField.leftView = paddingView;
+    self.inlineCommentField.leftViewMode = UITextFieldViewModeAlways;
     
 //    _webViewManager = [WebViewManager getUniqueWebViewManager:self];
 //    [_webViewManager removeWebViewFromContainer];
@@ -94,6 +99,10 @@
 //                                                 name:UIKeyboardDidShowNotification
 //                                               object:nil];
     
+}
+
+- (IBAction)commentSubmitPressed:(id)sender {
+    NSLog(@"submit this comment");
 }
 
 #pragma mark - Table view data source

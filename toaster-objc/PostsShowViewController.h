@@ -27,5 +27,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *numVotes;
 @property (strong, nonatomic) NSArray *comments;
 @property (weak, nonatomic) IBOutlet UITableView *commentsTable;
+@property (weak, nonatomic) IBOutlet UITextField *inlineCommentField;
 
 @end
