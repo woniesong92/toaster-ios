@@ -16,5 +16,8 @@
 }
 
 @property (strong, nonatomic) UITabBarController *tabBarCtr;
+@property (weak, nonatomic) IBOutlet UITextField *changeOptionText;
+@property (weak, nonatomic) IBOutlet UIButton *loginSmallButton;
+@property (weak, nonatomic) IBOutlet UIButton *signUpBlockButton;
 
 @end
