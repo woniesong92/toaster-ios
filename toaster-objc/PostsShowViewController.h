@@ -10,7 +10,7 @@
 #import "WebViewManager.h"
 #import "LoadingManager.h"
 
-@interface PostsShowViewController : UIViewController <UIWebViewDelegate, WKNavigationDelegate, WKUIDelegate, UIScrollViewDelegate> {
+@interface PostsShowViewController : UIViewController <UIWebViewDelegate, WKNavigationDelegate, WKUIDelegate, UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate> {
     WebViewManager *_webViewManager;
     LoadingManager *_loadingManager;
     CGPoint _scrollViewOrigin;
@@ -26,5 +26,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *postDate;
 @property (weak, nonatomic) IBOutlet UILabel *numVotes;
 @property (strong, nonatomic) NSArray *comments;
+@property (weak, nonatomic) IBOutlet UITableView *commentsTable;
 
 @end

@@ -10,6 +10,7 @@
 #import "RecentViewController.h"
 #import "Constants.h"
 #import "AFNetworking.h"
+#import "CommentTableViewCell.h"
 
 @implementation PostsShowViewController
 
@@ -25,6 +26,8 @@
     [self.postDate setText:[tempDictionary objectForKey:@"createdAt"]];
     [self.numVotes setText:[NSString stringWithFormat:@"%@", [tempDictionary objectForKey:@"numLikes"]]];
     
+    self.commentsTable.delegate = self;
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *token = [defaults objectForKey:@"token"];
     NSString *authorizationToken = [NSString stringWithFormat:@"Bearer %@", token];
@@ -33,7 +36,7 @@
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     [manager.requestSerializer setValue:authorizationToken forHTTPHeaderField:@"Authorization"];
     
-//    NSDictionary *params = @{@"postId": postId};
+
     NSDictionary *params = @{};
     NSString *reqURL = [NSString stringWithFormat:@"%@/%@", GET_COMMENTS_FOR_POST_URL, postId];
     
@@ -42,7 +45,7 @@
         self.comments = (NSArray *)responseObject[@"comments"];
         [self.numComments setText:[NSString stringWithFormat:@"%lu", (unsigned long)[self.comments count]]];
         
-//        [self.tableView reloadData];
+        [self.commentsTable reloadData];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         // TODO: show user this error and clear all the textfields
@@ -52,8 +55,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
-    NSLog(@"I am PostsShowVC yay %@", self.postDetail);
     
 //    _webViewManager = [WebViewManager getUniqueWebViewManager:self];
 //    [_webViewManager removeWebViewFromContainer];
@@ -90,6 +91,32 @@
 //                                               object:nil];
     
 }
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    // Return the number of rows in the section.
+    return [self.comments count];
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *cellId = @"CommentCell";
+    CommentTableViewCell *cell = (CommentTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
+    NSDictionary *tempDictionary= [self.comments objectAtIndex:indexPath.row];
+    
+    [cell.commentBody setText:[tempDictionary objectForKey:@"body"]];
+    [cell.commentDate setText:[tempDictionary objectForKey:@"createdAt"]];
+    [cell.commentNumVotes setText:[NSString stringWithFormat:@"%@", [tempDictionary objectForKey:@"numLikes"]]];
+    [cell.commentAuthor setText:[tempDictionary objectForKey:@"nameTag"]];
+    
+    return cell;
+}
+
 
 - (void)keyboardWillShow: (NSNotification *)notification {
     if (_keyboardHeight == 0) {
