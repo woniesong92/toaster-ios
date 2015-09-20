@@ -10,6 +10,7 @@
 #import "Constants.h"
 #import "AFNetworking.h"
 #import "PostsShowViewController.h"
+#import "CustomTableViewCell.h"
 
 @interface RecentTableViewController ()
 
@@ -70,22 +71,12 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *cellId = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
-    
-    // Configure the cell...
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
-    }
-    
+    CustomTableViewCell *cell = (CustomTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
     NSDictionary *tempDictionary= [self.posts objectAtIndex:indexPath.row];
     
-    UILabel *numVotes = (UILabel *)[cell viewWithTag:TAG_NUM_VOTES_IN_CELL];
-    UILabel *numComments = (UILabel *)[cell viewWithTag:TAG_NUM_COMMENTS_IN_CELL];
-    UITextView *postBody = (UITextView *)[cell viewWithTag:TAG_POST_BODY_IN_CELL];
-    UILabel *postDate = (UILabel *)[cell viewWithTag:TAG_POST_DATE_IN_CELL];
-    
-    postBody.text = [tempDictionary objectForKey:@"body"];
-    postDate.text = [tempDictionary objectForKey:@"createdAt"];
+    [cell.postBody setText:[tempDictionary objectForKey:@"body"]];
+    [cell.postDate setText:[tempDictionary objectForKey:@"createdAt"]];
+    [cell.numVotes setText:[NSString stringWithFormat:@"%@", [tempDictionary objectForKey:@"numLikes"]]];
 
     return cell;
 }

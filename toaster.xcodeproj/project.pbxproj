@@ -14,6 +14,7 @@
 		700272481B9A6A6D00C292A5 /* NotificationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 700272471B9A6A6D00C292A5 /* NotificationsViewController.m */; };
 		7002724B1B9B173F00C292A5 /* NewPostController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7002724A1B9B173F00C292A5 /* NewPostController.m */; };
 		7002724E1B9BD23200C292A5 /* LoadingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7002724D1B9BD23200C292A5 /* LoadingManager.m */; };
+		7004B9D31BAE902700C4210E /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7004B9D21BAE902700C4210E /* CustomTableViewCell.m */; };
 		701278211BA537EF00A4D6FA /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 701278201BA537EF00A4D6FA /* WebKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		701278261BA6120800A4D6FA /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 701278251BA6120800A4D6FA /* AboutViewController.m */; };
 		701278291BA6121600A4D6FA /* TermsOfServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 701278281BA6121600A4D6FA /* TermsOfServiceViewController.m */; };
@@ -81,6 +82,8 @@
 		7002724A1B9B173F00C292A5 /* NewPostController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewPostController.m; sourceTree = "<group>"; };
 		7002724C1B9BD23200C292A5 /* LoadingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingManager.h; sourceTree = "<group>"; };
 		7002724D1B9BD23200C292A5 /* LoadingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingManager.m; sourceTree = "<group>"; };
+		7004B9D11BAE902700C4210E /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
+		7004B9D21BAE902700C4210E /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
 		701278201BA537EF00A4D6FA /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		701278241BA6120800A4D6FA /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		701278251BA6120800A4D6FA /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
@@ -270,6 +273,8 @@
 				70951F991B989F15006B1228 /* RecentViewController.m */,
 				70EC5ABC1BAE3F9C0019AA58 /* RecentTableViewController.h */,
 				70EC5ABD1BAE3F9C0019AA58 /* RecentTableViewController.m */,
+				7004B9D11BAE902700C4210E /* CustomTableViewCell.h */,
+				7004B9D21BAE902700C4210E /* CustomTableViewCell.m */,
 				70D005611B98A882006E746F /* PostsShowViewController.h */,
 				70D005621B98A882006E746F /* PostsShowViewController.m */,
 				700272491B9B173F00C292A5 /* NewPostController.h */,
@@ -435,6 +440,7 @@
 				7046D1FC1BAE38EF00A5465F /* AFHTTPRequestOperation.m in Sources */,
 				700272391B9A36B900C292A5 /* UIWebView+FLUIWebView.m in Sources */,
 				70D005631B98A882006E746F /* PostsShowViewController.m in Sources */,
+				7004B9D31BAE902700C4210E /* CustomTableViewCell.m in Sources */,
 				70951F9D1B989F15006B1228 /* TrendingViewController.m in Sources */,
 				701278291BA6121600A4D6FA /* TermsOfServiceViewController.m in Sources */,
 				700272481B9A6A6D00C292A5 /* NotificationsViewController.m in Sources */,

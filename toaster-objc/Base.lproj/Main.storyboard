@@ -15,7 +15,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="150" id="l8h-Hu-nv3">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="150" id="l8h-Hu-nv3" customClass="CustomTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="l8h-Hu-nv3" id="Ub1-N2-uIX">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -26,12 +26,6 @@
                                         <imageView userInteractionEnabled="NO" tag="14" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bqn-SN-i7q">
                                             <rect key="frame" x="552" y="101" width="40" height="40"/>
                                         </imageView>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="10" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" text="Replace..." selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ydm-ek-PUb">
-                                            <rect key="frame" x="8" y="8" width="500" height="90"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                        </textView>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="11" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Now" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T1B-oJ-8b1">
                                             <rect key="frame" x="8" y="120" width="36" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -56,9 +50,21 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="10" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gml-wS-tgh">
+                                            <rect key="frame" x="8" y="8" width="522" height="104"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="downvoteButton" destination="Bqn-SN-i7q" id="0mA-mW-fWf"/>
+                                    <outlet property="numComments" destination="g68-KH-Nbt" id="SdJ-dc-Xv3"/>
+                                    <outlet property="numVotes" destination="SXc-LH-wqN" id="4I8-8Q-5PS"/>
+                                    <outlet property="postBody" destination="Gml-wS-tgh" id="Zrl-ri-C5c"/>
+                                    <outlet property="postDate" destination="T1B-oJ-8b1" id="jch-K2-3fq"/>
+                                    <outlet property="upvoteButton" destination="ezj-QF-VTk" id="NvT-Ur-qkN"/>
                                     <segue destination="i0U-vc-kr9" kind="show" id="2tB-YS-ZOB"/>
                                 </connections>
                             </tableViewCell>
