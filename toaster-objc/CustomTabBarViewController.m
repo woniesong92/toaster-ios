@@ -26,8 +26,6 @@
     appDelegate.tabBarController = self;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(myNotificationReceived:) name:@"pushNotification" object:nil];
-    
-    
 }
 
 - (void) myNotificationReceived:(NSNotification *) notification

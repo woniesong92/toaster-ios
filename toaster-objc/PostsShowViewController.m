@@ -17,6 +17,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // Why do I need to set them manually? wtf?
+//    self.commentsTable.rowHeight = 100;
+//    self.commentsTable.estimatedRowHeight = 100;
+    
     _loadingManager = [LoadingManager getLoadingManager:self];
     self.automaticallyAdjustsScrollViewInsets = NO;
     
