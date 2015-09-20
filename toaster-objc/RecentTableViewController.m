@@ -20,6 +20,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    // Why do I need to set them manually? wtf?
+    self.tableView.rowHeight = 150;
+    self.tableView.estimatedRowHeight = 150;
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
