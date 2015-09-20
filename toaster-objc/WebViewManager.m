@@ -100,10 +100,6 @@
             [uniqueWebView loadUrlWithString:BASE_URL];
             
             // should I setBadgeCount here?
-            
-            [uniqueWebView setCurrentTab:RECENT];
-            
-            [uniqueWebView removeInputAccessoryViewFromWKWebView:uniqueWebView.webView];
         }
     }
     return uniqueWebView;

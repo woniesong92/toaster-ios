@@ -696,7 +696,24 @@
                     <view key="view" contentMode="scaleToFill" id="Ebk-ZM-k5L">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="irE-so-4Zz">
+                                <rect key="frame" x="0.0" y="64" width="600" height="300"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="4El-qh-klo" id="dfG-kH-EX2"/>
+                                </connections>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="irE-so-4Zz" secondAttribute="trailing" id="6o4-Ot-V3A"/>
+                            <constraint firstItem="irE-so-4Zz" firstAttribute="leading" secondItem="Ebk-ZM-k5L" secondAttribute="leading" id="7Ce-Jm-KNy"/>
+                            <constraint firstItem="irE-so-4Zz" firstAttribute="top" secondItem="dzS-oh-ilH" secondAttribute="bottom" id="mYg-xn-8cc"/>
+                            <constraint firstItem="kz8-03-GLH" firstAttribute="top" secondItem="irE-so-4Zz" secondAttribute="bottom" constant="192" id="ooe-n7-nBb"/>
+                        </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Make a toast" id="3A1-CJ-kCv">
@@ -712,10 +729,13 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="postInputField" destination="irE-so-4Zz" id="5wZ-47-b4W"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gQB-bx-rLx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4551" y="-346"/>
+            <point key="canvasLocation" x="4499" y="-382"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Jsa-vq-zKM">
@@ -738,7 +758,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hWH-us-I3y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3717" y="-346"/>
+            <point key="canvasLocation" x="3779" y="-382"/>
         </scene>
         <!--SignUpNav-->
         <scene sceneID="hC6-y3-t0Y">
@@ -897,7 +917,7 @@
                 <navigationController title="Recent Nav" id="lJ5-gI-H5F" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Recent" image="recent" id="hLk-qc-noF">
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="trending-selected"/>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="recent-selected"/>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
                                 <color key="value" red="1" green="0.27450980390000002" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </userDefinedRuntimeAttribute>
@@ -928,6 +948,7 @@
         <image name="profile" width="32" height="32"/>
         <image name="profile-selected" width="32" height="32"/>
         <image name="recent" width="32" height="32"/>
+        <image name="recent-selected" width="32" height="32"/>
         <image name="settings" width="32" height="32"/>
         <image name="trending" width="32" height="32"/>
         <image name="trending-selected" width="32" height="32"/>

@@ -18,8 +18,24 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.automaticallyAdjustsScrollViewInsets = NO;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self.postInputField becomeFirstResponder];
+    CGFloat frameWidth = self.postInputField.frame.size.width;
+    textViewPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, frameWidth, 200)];
+    textViewPlaceholder.text = @"You are anonymous... ;)";
+    textViewPlaceholder.textColor = [UIColor lightGrayColor];
+//    textViewPlaceholder.textAlignment = NSTextAlignmentLeft;
+    [self.view addSubview:textViewPlaceholder];
+//    [self.postInputField addSubview:textViewPlaceholder];
     
-    
+    [super viewWillAppear:animated];
+}
+
+- (void)textViewDidChange:(UITextView *)textView {
+    [textViewPlaceholder removeFromSuperview];
 }
 
 - (IBAction)cancelButtonPressed:(id)sender {
@@ -28,15 +44,15 @@
 
 - (IBAction)doneButtonPressed:(id)sender {
     
-    
 //    NSString *js = @"Template.newPost.submitNewPost();";
 //    [[_webViewManager webView] evaluateJavaScript:js completionHandler:nil];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void) viewWillDisappear:(BOOL)animated {
-    // Overshadow my webview with an image just before the transition
-    [_webViewManager replaceWebViewWithImage:self :[_webViewManager getWhiteImage]];
+//    Dismiss the keyboard when modal is closed
+    [self.view endEditing:YES];
+    
     [super viewWillDisappear:NO];
 }
 

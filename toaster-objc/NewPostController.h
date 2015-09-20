@@ -11,8 +11,10 @@
 
 @interface NewPostController : UIViewController {
     WebViewManager *_webViewManager;
+    UILabel *textViewPlaceholder;
 }
 
 @property (strong, nonatomic) UIImage *parentScreenImage;
+@property (weak, nonatomic) IBOutlet UITextView *postInputField;
 
 @end
