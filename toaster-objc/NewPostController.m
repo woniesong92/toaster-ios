@@ -23,18 +23,22 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [self.postInputField becomeFirstResponder];
+    
     CGFloat frameWidth = self.postInputField.frame.size.width;
-    textViewPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, frameWidth, 200)];
-    textViewPlaceholder.text = @"You are anonymous... ;)";
+    textViewPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(0, 64, frameWidth, 200)];
+    textViewPlaceholder.text = POST_PLACEHOLDER;
     textViewPlaceholder.textColor = [UIColor lightGrayColor];
-//    textViewPlaceholder.textAlignment = NSTextAlignmentLeft;
     [self.view addSubview:textViewPlaceholder];
-//    [self.postInputField addSubview:textViewPlaceholder];
     
     [super viewWillAppear:animated];
 }
 
 - (void)textViewDidChange:(UITextView *)textView {
+//    if (textView.text.length == 0) {
+//        [self.view addSubview:textViewPlaceholder];
+//        [textViewPlaceholder removeFromSuperview];
+//    }
+    
     [textViewPlaceholder removeFromSuperview];
 }
 

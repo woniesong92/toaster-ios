@@ -697,22 +697,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="irE-so-4Zz">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="sdf" translatesAutoresizingMaskIntoConstraints="NO" id="7AY-G6-539">
                                 <rect key="frame" x="0.0" y="64" width="600" height="300"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <connections>
-                                    <outlet property="delegate" destination="4El-qh-klo" id="dfG-kH-EX2"/>
+                                    <outlet property="delegate" destination="4El-qh-klo" id="gEl-lO-laT"/>
                                 </connections>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="irE-so-4Zz" secondAttribute="trailing" id="6o4-Ot-V3A"/>
-                            <constraint firstItem="irE-so-4Zz" firstAttribute="leading" secondItem="Ebk-ZM-k5L" secondAttribute="leading" id="7Ce-Jm-KNy"/>
-                            <constraint firstItem="irE-so-4Zz" firstAttribute="top" secondItem="dzS-oh-ilH" secondAttribute="bottom" id="mYg-xn-8cc"/>
-                            <constraint firstItem="kz8-03-GLH" firstAttribute="top" secondItem="irE-so-4Zz" secondAttribute="bottom" constant="192" id="ooe-n7-nBb"/>
+                            <constraint firstItem="7AY-G6-539" firstAttribute="leading" secondItem="Ebk-ZM-k5L" secondAttribute="leading" id="Orj-po-qbv"/>
+                            <constraint firstItem="7AY-G6-539" firstAttribute="top" secondItem="dzS-oh-ilH" secondAttribute="bottom" id="VTa-Rz-UJf"/>
+                            <constraint firstAttribute="trailing" secondItem="7AY-G6-539" secondAttribute="trailing" id="ZhP-uw-Fq6"/>
+                            <constraint firstItem="kz8-03-GLH" firstAttribute="top" secondItem="7AY-G6-539" secondAttribute="bottom" constant="192" id="lK9-X2-Tv6"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -730,7 +730,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="postInputField" destination="irE-so-4Zz" id="5wZ-47-b4W"/>
+                        <outlet property="postInputField" destination="7AY-G6-539" id="Bua-zb-S53"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gQB-bx-rLx" userLabel="First Responder" sceneMemberID="firstResponder"/>
