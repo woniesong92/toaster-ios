@@ -335,6 +335,7 @@
                                     <mask key="constraints">
                                         <exclude reference="4vo-gn-2WN"/>
                                         <exclude reference="I4R-zN-7mK"/>
+                                        <exclude reference="eFO-in-49b"/>
                                     </mask>
                                 </variation>
                                 <connections>
