@@ -42,7 +42,9 @@
     [manager GET:GET_RECENT_POSTS_URL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"RecentPosts: %@", responseObject);
         self.comments = [[NSArray alloc] initWithArray:responseObject[@"comments"]];
-        self.posts = [[NSArray alloc] initWithArray:responseObject[@"posts"]];
+        
+        // posts are fetched in the reverse order. Reverse them back
+        self.posts = [[NSArray alloc] initWithArray:[[responseObject[@"posts"] reverseObjectEnumerator] allObjects]];
         NSLog(@"posts: %@", self.posts);
         
         [self.tableView reloadData];
