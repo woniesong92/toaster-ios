@@ -7,10 +7,10 @@
 //
 
 #import "PostsShowViewController.h"
-#import "RecentViewController.h"
 #import "Constants.h"
 #import "AFNetworking.h"
 #import "CommentTableViewCell.h"
+#import "Utils.h"
 
 @implementation PostsShowViewController
 
@@ -26,8 +26,10 @@
     
     NSDictionary *tempDictionary= self.postDetail;
     NSString *postId = [tempDictionary objectForKey:@"_id"];
+    NSDate *date = [tempDictionary objectForKey:@"createdAt"];
+    
     [self.postBody setText:[tempDictionary objectForKey:@"body"]];
-    [self.postDate setText:[tempDictionary objectForKey:@"createdAt"]];
+    [self.postDate setText:[Utils stringFromDate:date]];
     [self.numVotes setText:[NSString stringWithFormat:@"%@", [tempDictionary objectForKey:@"numLikes"]]];
     
     self.commentsTable.delegate = self;

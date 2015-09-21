@@ -7,7 +7,6 @@
 //
 
 #import "SignUpViewController.h"
-#import "RecentViewController.h"
 #import "Constants.h"
 #import "AppDelegate.h"
 #import "AFNetworking.h"

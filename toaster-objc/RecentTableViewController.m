@@ -13,6 +13,9 @@
 #import "CustomTableViewCell.h"
 #import "SignUpViewController.h"
 #import "Utils.h"
+#import "Underscore.h"
+#define _ Underscore
+
 
 @interface RecentTableViewController ()
 
@@ -42,22 +45,15 @@
     
     NSDictionary *params = @{};
     [manager GET:GET_RECENT_POSTS_URL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"RecentPosts: %@", responseObject);
+
+        NSArray *posts = responseObject[@"posts"];
+        NSArray *comments = responseObject[@"comments"];
         
-        NSArray *tmpComments =[[NSArray alloc] initWithArray:responseObject[@"comments"]];
-//        
-//        NSArray *sortedComments = [responseObject[@"comments"] sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
-//            NSDate *first = [(NSDictionary *)a a[@"createdAt"]];
-//            
-////            NSDate *second = [(NSDictionary *)b b[@"createdAt"]];
-//            
-//            return [first compare:second];
-//        }];
-        
-        
-        self.comments = tmpComments;
-        self.posts = [[NSArray alloc] initWithArray:[[responseObject[@"posts"] reverseObjectEnumerator] allObjects]];
-        NSLog(@"posts: %@", self.posts);
+        NSArray *sortedPosts = [Utils sortJSONObjsByDate:posts];
+        NSArray *sortedComments = [Utils sortJSONObjsByDate:comments];
+
+        self.posts = sortedPosts;
+        self.comments = sortedComments;
         
         [self.tableView reloadData];
         
@@ -101,8 +97,10 @@
     CustomTableViewCell *cell = (CustomTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
     NSDictionary *tempDictionary= [self.posts objectAtIndex:indexPath.row];
     
+    NSString *createdAt = [Utils stringFromDate:[tempDictionary objectForKey:@"createdAt"]];
+    
     [cell.postBody setText:[tempDictionary objectForKey:@"body"]];
-    [cell.postDate setText:[tempDictionary objectForKey:@"createdAt"]];
+    [cell.postDate setText:createdAt];
     [cell.numVotes setText:[NSString stringWithFormat:@"%@", [tempDictionary objectForKey:@"numLikes"]]];
 
     return cell;

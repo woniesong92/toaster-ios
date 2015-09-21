@@ -10,4 +10,8 @@
 
 @interface Utils : NSObject
 
++ (NSDate*)dateWithJSONString: (NSString *)createdAt;
++ (NSArray *)sortJSONObjsByDate: (NSArray *)objs;
++ (NSString *)stringFromDate: (NSDate *)createdAt;
+
 @end
