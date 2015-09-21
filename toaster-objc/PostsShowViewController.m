@@ -19,6 +19,11 @@
     
     [self observeKeyboard];
     
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:tap];
+    
     _loadingManager = [LoadingManager getLoadingManager:self];
     self.automaticallyAdjustsScrollViewInsets = NO;
     
@@ -55,6 +60,10 @@
         // TODO: show user this error and clear all the textfields
         NSLog(@"Error: %@", error);
     }];
+}
+
+-(void)dismissKeyboard {
+    [self.inlineCommentField resignFirstResponder];
 }
 
 - (void)observeKeyboard {
