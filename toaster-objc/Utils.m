@@ -24,7 +24,7 @@
     return date;
 }
 
-+ (NSArray *)sortJSONObjsByDate: (NSArray *)objs {
++ (NSArray *)sortReversedJSONObjsByDate: (NSArray *)objs {
     
     NSArray *objsWithDates = _.array(objs)
     .map(^NSMutableDictionary *(NSDictionary *obj) {
@@ -40,6 +40,27 @@
         NSDate *second = [(NSDictionary *)b objectForKey:@"createdAt"];
         
         return [second compare:first];
+    }];
+    
+    return sortedObjs;
+}
+
++ (NSArray *)sortJSONObjsByDate: (NSArray *)objs {
+    
+    NSArray *objsWithDates = _.array(objs)
+    .map(^NSMutableDictionary *(NSDictionary *obj) {
+        NSMutableDictionary *objCopy = [obj mutableCopy];
+        NSString *createdAt = obj[@"createdAt"];
+        NSDate *newDate = [Utils dateWithJSONString:createdAt];
+        [objCopy setValue:newDate forKey:@"createdAt"];
+        return objCopy;
+    }).unwrap;
+    
+    NSArray *sortedObjs = [objsWithDates sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
+        NSDate *first = [(NSDictionary *)a objectForKey:@"createdAt"];
+        NSDate *second = [(NSDictionary *)b objectForKey:@"createdAt"];
+        
+        return [first compare:second];
     }];
     
     return sortedObjs;

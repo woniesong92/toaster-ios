@@ -62,14 +62,9 @@
             }
         }
         
-        NSArray *sortedPosts = [Utils sortJSONObjsByDate:posts];
-//        NSArray *sortedComments = [Utils sortJSONObjsByDate:comments];
-
+        NSArray *sortedPosts = [Utils sortReversedJSONObjsByDate:posts];
         self.posts = sortedPosts;
         self.numCommentsForPosts = numCommentsForPosts;
-        
-//        self.comments = sortedComments;
-        
         [self.tableView reloadData];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

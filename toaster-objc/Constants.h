@@ -29,6 +29,7 @@
 #define LOADING_END @"toasterapp://loadingEnd"
 
 #define ASK_TO_FETCH_POSTS @"AskToFetchPosts"
+#define ASK_TO_FETCH_COMMENTS @"AskToFetchComments"
 
 //table cell related
 #define POST_PLACEHOLDER @"You are anonymous ;)"
@@ -39,4 +40,5 @@
 #define GET_COMMENTS_FOR_POST_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/get-comments-for-post"]
 
 #define NEW_POST_API_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/api/posts/new"]
+#define NEW_COMMENT_API_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/api/comments/new"]
 

@@ -37,23 +37,37 @@
     
     self.commentsTable.delegate = self;
     
+    [self fetchComments];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(shouldFetchComments:)
+                                                 name:ASK_TO_FETCH_COMMENTS
+                                               object:nil];
+}
+
+- (void)shouldFetchComments:(NSNotification *)notification {
+    [self fetchComments];
+}
+
+- (void)fetchComments {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *token = [defaults objectForKey:@"token"];
     NSString *authorizationToken = [NSString stringWithFormat:@"Bearer %@", token];
+    NSString *postId = self.postDetail[@"_id"];
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     [manager.requestSerializer setValue:authorizationToken forHTTPHeaderField:@"Authorization"];
     
-
-    NSDictionary *params = @{};
     NSString *reqURL = [NSString stringWithFormat:@"%@/%@", GET_COMMENTS_FOR_POST_URL, postId];
-    
+    NSDictionary *params = @{};
     [manager GET:reqURL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        NSLog(@"comments for Post: %@", responseObject);
-        self.comments = (NSArray *)responseObject[@"comments"];
-        [self.numComments setText:[NSString stringWithFormat:@"%lu", (unsigned long)[self.comments count]]];
         
+        NSArray *comments = responseObject[@"comments"];
+        NSArray *sortedComments = [Utils sortJSONObjsByDate:comments];
+        self.comments = sortedComments;
+
+        [self.numComments setText:[NSString stringWithFormat:@"%lu", (unsigned long)[self.comments count]]];
         [self.commentsTable reloadData];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -115,10 +129,6 @@
     
 }
 
-- (IBAction)commentSubmitPressed:(id)sender {
-    NSLog(@"submit this comment");
-}
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -134,12 +144,13 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *cellId = @"CommentCell";
     CommentTableViewCell *cell = (CommentTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
-    NSDictionary *tempDictionary= [self.comments objectAtIndex:indexPath.row];
+    NSDictionary *commentObj= [self.comments objectAtIndex:indexPath.row];
+    NSString *createdAt = [Utils stringFromDate:[commentObj objectForKey:@"createdAt"]];
     
-    [cell.commentBody setText:[tempDictionary objectForKey:@"body"]];
-    [cell.commentDate setText:[tempDictionary objectForKey:@"createdAt"]];
-    [cell.commentNumVotes setText:[NSString stringWithFormat:@"%@", [tempDictionary objectForKey:@"numLikes"]]];
-    [cell.commentAuthor setText:[tempDictionary objectForKey:@"nameTag"]];
+    [cell.commentBody setText:[commentObj objectForKey:@"body"]];
+    [cell.commentDate setText:createdAt];
+    [cell.commentNumVotes setText:[NSString stringWithFormat:@"%@", [commentObj objectForKey:@"numLikes"]]];
+    [cell.commentAuthor setText:[commentObj objectForKey:@"nameTag"]];
     
     return cell;
 }
@@ -219,6 +230,36 @@
     // I get rid of the temporary screenshot that was overshadowing my webview
     [_webViewManager replaceImageWithWebView:self];
 }
+
+- (IBAction)onSubmitComment:(id)sender {
+    NSString *commentBody = self.inlineCommentField.text;
+    
+    NSString *postId = self.postDetail[@"_id"];
+    
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *token = [defaults objectForKey:@"token"];
+    NSString *authorizationToken = [NSString stringWithFormat:@"Bearer %@", token];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    [manager.requestSerializer setValue:authorizationToken forHTTPHeaderField:@"Authorization"];
+    
+    NSDictionary *params = @{@"commentBody": commentBody, @"postId": postId};
+    [manager POST:NEW_COMMENT_API_URL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:ASK_TO_FETCH_COMMENTS object:nil userInfo:nil];
+        [self.inlineCommentField setText:@""];
+        [self.view endEditing:YES];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        // TODO: show user this error and clear all the textfields
+        NSLog(@"Error: %@", error);
+    }];
+    
+    
+}
+
 
 - (void)willMoveToParentViewController:(UIViewController *)parent{
     if (parent == nil){

@@ -13,5 +13,6 @@
 + (NSDate*)dateWithJSONString: (NSString *)createdAt;
 + (NSArray *)sortJSONObjsByDate: (NSArray *)objs;
 + (NSString *)stringFromDate: (NSDate *)createdAt;
++ (NSArray *)sortReversedJSONObjsByDate: (NSArray *)objs;
 
 @end
