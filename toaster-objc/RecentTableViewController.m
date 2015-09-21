@@ -47,13 +47,28 @@
     [manager GET:GET_RECENT_POSTS_URL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
 
         NSArray *posts = responseObject[@"posts"];
+
         NSArray *comments = responseObject[@"comments"];
+        NSMutableDictionary *numCommentsForPosts = [[NSMutableDictionary alloc] init];
+        
+        for (NSDictionary *comment in comments) {
+            NSString *key = comment[@"postId"];
+            NSNumber *numComments = [numCommentsForPosts objectForKey:key];
+            if (numComments) {
+                NSNumber *newNumComments = [NSNumber numberWithInt: (numComments.intValue + 1)];
+                [numCommentsForPosts setValue:newNumComments forKey:key];
+            } else {
+                [numCommentsForPosts setValue:[NSNumber numberWithInt:1] forKey:key];
+            }
+        }
         
         NSArray *sortedPosts = [Utils sortJSONObjsByDate:posts];
-        NSArray *sortedComments = [Utils sortJSONObjsByDate:comments];
+//        NSArray *sortedComments = [Utils sortJSONObjsByDate:comments];
 
         self.posts = sortedPosts;
-        self.comments = sortedComments;
+        self.numCommentsForPosts = numCommentsForPosts;
+        
+//        self.comments = sortedComments;
         
         [self.tableView reloadData];
         
@@ -95,13 +110,18 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *cellId = @"Cell";
     CustomTableViewCell *cell = (CustomTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
-    NSDictionary *tempDictionary= [self.posts objectAtIndex:indexPath.row];
-    
-    NSString *createdAt = [Utils stringFromDate:[tempDictionary objectForKey:@"createdAt"]];
-    
-    [cell.postBody setText:[tempDictionary objectForKey:@"body"]];
+    NSDictionary *postObj= [self.posts objectAtIndex:indexPath.row];
+    NSString *postId = postObj[@"_id"];
+    NSString *createdAt = [Utils stringFromDate:[postObj objectForKey:@"createdAt"]];
+    NSNumber *numComments = [self.numCommentsForPosts objectForKey:postId];
+    if (!numComments) {
+        numComments = [NSNumber numberWithInt:0];
+    }
+
+    [cell.postBody setText:[postObj objectForKey:@"body"]];
     [cell.postDate setText:createdAt];
-    [cell.numVotes setText:[NSString stringWithFormat:@"%@", [tempDictionary objectForKey:@"numLikes"]]];
+    [cell.numComments setText:[NSString stringWithFormat:@"%@", numComments]];
+    [cell.numVotes setText:[NSString stringWithFormat:@"%@", [postObj objectForKey:@"numLikes"]]];
 
     return cell;
 }

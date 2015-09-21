@@ -13,4 +13,6 @@
 
 @property NSArray *comments;
 @property NSArray *posts;
+@property NSMutableDictionary *numCommentsForPosts;
+
 @end
