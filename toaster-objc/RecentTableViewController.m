@@ -58,8 +58,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-
-    self.tabBarController.navigationItem.title = @"Recent";
 }
 
 - (void)viewDidAppear:(BOOL)animated {

@@ -29,9 +29,11 @@
 #define LOADING_END @"toasterapp://loadingEnd"
 
 //table cell related
-#define POST_PLACEHOLDER @"You are anonymous..."
+#define POST_PLACEHOLDER @"You are anonymous ;)"
 
 #define LOGIN_API_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/users/login"]
 #define SIGNUP_API_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/users/register"]
 #define GET_RECENT_POSTS_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/publications/recentPostsAndComments"]
 #define GET_COMMENTS_FOR_POST_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/get-comments-for-post"]
+
+#define NEW_POST_API_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/api/posts/new"]
