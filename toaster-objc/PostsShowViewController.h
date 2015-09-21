@@ -28,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *commentsTable;
 @property (weak, nonatomic) IBOutlet UITextField *inlineCommentField;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *inputBottomConstraint;
 
 
 

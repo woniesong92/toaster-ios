@@ -136,21 +136,21 @@
 }
 
 - (void)keyboardWillShow:(NSNotification *)notification {
-//    NSDictionary *info = [notification userInfo];
-//    NSValue *kbFrame = [info objectForKey:UIKeyboardFrameEndUserInfoKey];
-//    NSTimeInterval animationDuration = [[info objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
-//    CGRect keyboardFrame = [kbFrame CGRectValue];
-//    
-//    CGFloat height = keyboardFrame.size.height;
-//    
-//    NSLog(@"Updating constraints.");
-//    // Because the "space" is actually the difference between the bottom lines of the 2 views,
-//    // we need to set a negative constant value here.
-////    self.keyboardHeight.constant = -height;
-//    
-//    [UIView animateWithDuration:animationDuration animations:^{
-//        [self.view layoutIfNeeded];
-//    }];
+    NSDictionary *info = [notification userInfo];
+    NSValue *kbFrame = [info objectForKey:UIKeyboardFrameEndUserInfoKey];
+    NSTimeInterval animationDuration = [[info objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    CGRect keyboardFrame = [kbFrame CGRectValue];
+    
+    CGFloat height = keyboardFrame.size.height;
+    
+    NSLog(@"Updating constraints.");
+    // Because the "space" is actually the difference between the bottom lines of the 2 views,
+    // we need to set a negative constant value here.
+    self.inputBottomConstraint.constant = height + 8.0;
+    
+    [UIView animateWithDuration:animationDuration animations:^{
+        [self.view layoutIfNeeded];
+    }];
 }
 
 
@@ -167,7 +167,7 @@
 //    NSString *js = [NSString stringWithFormat:@"Template.postsShow.MoveUpCommentInput(%f);", _keyboardHeight];
 //    [[_webViewManager webView] evaluateJavaScript:js completionHandler:nil];
 //}
-
+//
 //- (void)keyboardWillHide: (NSNotification *)notification {
 //    NSString *js = @"Template.postsShow.MoveDownCommentInput();";
 //    [[_webViewManager webView] evaluateJavaScript:js completionHandler:nil];
@@ -175,17 +175,13 @@
 //}
 
 - (void)keyboardWillHide:(NSNotification *)notification {
-//    NSDictionary *info = [notification userInfo];
-//    NSTimeInterval animationDuration = [[info objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
-//    
-////    self.keyboardHeight.constant = 0;
-//    [UIView animateWithDuration:animationDuration animations:^{
-//        [self.view layoutIfNeeded];
-//    }];
-}
-
-
-- (void)keyboardDidShow: (NSNotification *)notification {
+    NSDictionary *info = [notification userInfo];
+    NSTimeInterval animationDuration = [[info objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    
+    self.inputBottomConstraint.constant = 8;
+    [UIView animateWithDuration:animationDuration animations:^{
+        [self.view layoutIfNeeded];
+    }];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {

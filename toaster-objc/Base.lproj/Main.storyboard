@@ -443,6 +443,8 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="commentsTable" destination="Pyh-Yd-ne8" id="rSU-ay-ffc"/>
+                        <outlet property="inlineCommentField" destination="Jc6-5p-v5d" id="cBJ-aq-r5t"/>
+                        <outlet property="inputBottomConstraint" destination="5zL-aF-g9v" id="Gmv-Fj-47T"/>
                         <outlet property="numComments" destination="jzM-r4-0nP" id="Qvr-8N-luG"/>
                         <outlet property="numVotes" destination="eor-i0-YiB" id="7y6-x0-v5Y"/>
                         <outlet property="postBody" destination="Lgb-ut-QTU" id="CA1-qs-cpm"/>
