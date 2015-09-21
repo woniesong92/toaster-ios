@@ -22,15 +22,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    self.tableView.rowHeight = 150;
-//    self.tableView.estimatedRowHeight = 150;
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-//    self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(shouldFetchPosts:)
+                                                 name:ASK_TO_FETCH_POSTS
+                                               object:nil];
+    [self fetchPosts];
+}
+
+- (void)fetchPosts {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *token = [defaults objectForKey:@"token"];
     NSString *authorizationToken = [NSString stringWithFormat:@"Bearer %@", token];
@@ -39,21 +38,19 @@
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     [manager.requestSerializer setValue:authorizationToken forHTTPHeaderField:@"Authorization"];
     
-//    NSDictionary *params = @{@"email": email, @"password": password};
     NSDictionary *params = @{};
     [manager GET:GET_RECENT_POSTS_URL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"RecentPosts: %@", responseObject);
         self.comments = [[NSArray alloc] initWithArray:responseObject[@"comments"]];
         self.posts = [[NSArray alloc] initWithArray:responseObject[@"posts"]];
         NSLog(@"posts: %@", self.posts);
-
+        
         [self.tableView reloadData];
-
+        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         // TODO: show user this error and clear all the textfields
         NSLog(@"Error: %@", error);
     }];
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -62,7 +59,10 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+}
 
+- (void)shouldFetchPosts:(NSNotification *)notification {
+    [self fetchPosts];
 }
 
 - (void)didReceiveMemoryWarning {

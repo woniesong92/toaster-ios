@@ -28,6 +28,8 @@
 #define LOADING_START @"toasterapp://loadingStart"
 #define LOADING_END @"toasterapp://loadingEnd"
 
+#define ASK_TO_FETCH_POSTS @"AskToFetchPosts"
+
 //table cell related
 #define POST_PLACEHOLDER @"You are anonymous ;)"
 

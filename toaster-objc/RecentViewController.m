@@ -21,6 +21,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+
+    
     self.automaticallyAdjustsScrollViewInsets = NO;
     
 //    _loadingManager = [LoadingManager getLoadingManager:self];

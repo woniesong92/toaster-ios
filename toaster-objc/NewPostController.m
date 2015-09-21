@@ -63,17 +63,15 @@
     NSDictionary *params = @{@"postBody": postBody};
     [manager POST:NEW_POST_API_URL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        NSLog(@"response: %@", responseObject);
-        
-        [self dismissViewControllerAnimated:YES completion:nil];
+        [self dismissViewControllerAnimated:YES completion:^{
+            [[NSNotificationCenter defaultCenter] postNotificationName:ASK_TO_FETCH_POSTS object:nil userInfo:nil];
+        }];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         // TODO: show user this error and clear all the textfields
         NSLog(@"Error: %@", error);
     }];
     
-//    NSString *js = @"Template.newPost.submitNewPost();";
-//    [[_webViewManager webView] evaluateJavaScript:js completionHandler:nil];
 
 }
 
