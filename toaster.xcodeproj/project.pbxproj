@@ -19,6 +19,7 @@
 		701278261BA6120800A4D6FA /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 701278251BA6120800A4D6FA /* AboutViewController.m */; };
 		701278291BA6121600A4D6FA /* TermsOfServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 701278281BA6121600A4D6FA /* TermsOfServiceViewController.m */; };
 		7017D6EF1BAF03F2003EB498 /* CommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7017D6EE1BAF03F2003EB498 /* CommentTableViewCell.m */; };
+		7017D6FA1BAF8C4D003EB498 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7017D6F91BAF8C4D003EB498 /* Utils.m */; };
 		7046D1FC1BAE38EF00A5465F /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7046D1D71BAE38EF00A5465F /* AFHTTPRequestOperation.m */; };
 		7046D1FD1BAE38EF00A5465F /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7046D1D91BAE38EF00A5465F /* AFHTTPRequestOperationManager.m */; };
 		7046D1FE1BAE38EF00A5465F /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7046D1DB1BAE38EF00A5465F /* AFHTTPSessionManager.m */; };
@@ -43,7 +44,6 @@
 		708D2D111BA3B3F800CF17F9 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 708D2D101BA3B3F800CF17F9 /* libsqlite3.dylib */; };
 		70951F941B989F15006B1228 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 70951F931B989F15006B1228 /* main.m */; };
 		70951F971B989F15006B1228 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 70951F961B989F15006B1228 /* AppDelegate.m */; };
-		70951F9A1B989F15006B1228 /* RecentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70951F991B989F15006B1228 /* RecentViewController.m */; };
 		70951F9D1B989F15006B1228 /* TrendingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70951F9C1B989F15006B1228 /* TrendingViewController.m */; };
 		70951FA01B989F15006B1228 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70951F9E1B989F15006B1228 /* Main.storyboard */; };
 		70951FA21B989F15006B1228 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70951FA11B989F15006B1228 /* Images.xcassets */; };
@@ -92,6 +92,8 @@
 		701278281BA6121600A4D6FA /* TermsOfServiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TermsOfServiceViewController.m; sourceTree = "<group>"; };
 		7017D6ED1BAF03F2003EB498 /* CommentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentTableViewCell.h; sourceTree = "<group>"; };
 		7017D6EE1BAF03F2003EB498 /* CommentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentTableViewCell.m; sourceTree = "<group>"; };
+		7017D6F81BAF8C4D003EB498 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		7017D6F91BAF8C4D003EB498 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		7046D1D61BAE38EF00A5465F /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		7046D1D71BAE38EF00A5465F /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		7046D1D81BAE38EF00A5465F /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -130,8 +132,6 @@
 		70951F931B989F15006B1228 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		70951F951B989F15006B1228 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		70951F961B989F15006B1228 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		70951F981B989F15006B1228 /* RecentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecentViewController.h; sourceTree = "<group>"; };
-		70951F991B989F15006B1228 /* RecentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecentViewController.m; sourceTree = "<group>"; };
 		70951F9B1B989F15006B1228 /* TrendingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrendingViewController.h; sourceTree = "<group>"; };
 		70951F9C1B989F15006B1228 /* TrendingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrendingViewController.m; sourceTree = "<group>"; };
 		70951F9F1B989F15006B1228 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -263,6 +263,8 @@
 				70951F9E1B989F15006B1228 /* Main.storyboard */,
 				70951F951B989F15006B1228 /* AppDelegate.h */,
 				70951F961B989F15006B1228 /* AppDelegate.m */,
+				7017D6F81BAF8C4D003EB498 /* Utils.h */,
+				7017D6F91BAF8C4D003EB498 /* Utils.m */,
 				70951FBA1B98A009006B1228 /* Constants.h */,
 				7002724C1B9BD23200C292A5 /* LoadingManager.h */,
 				7002724D1B9BD23200C292A5 /* LoadingManager.m */,
@@ -272,8 +274,6 @@
 				70E341611B9CA6C200046067 /* SignUpViewController.m */,
 				70EC5ABF1BAE5F7E0019AA58 /* SignInViewController.h */,
 				70EC5AC01BAE5F7E0019AA58 /* SignInViewController.m */,
-				70951F981B989F15006B1228 /* RecentViewController.h */,
-				70951F991B989F15006B1228 /* RecentViewController.m */,
 				70EC5ABC1BAE3F9C0019AA58 /* RecentTableViewController.h */,
 				70EC5ABD1BAE3F9C0019AA58 /* RecentTableViewController.m */,
 				7004B9D11BAE902700C4210E /* CustomTableViewCell.h */,
@@ -457,12 +457,12 @@
 				701278261BA6120800A4D6FA /* AboutViewController.m in Sources */,
 				7046D2011BAE38EF00A5465F /* AFURLConnectionOperation.m in Sources */,
 				7046D2021BAE38EF00A5465F /* AFURLRequestSerialization.m in Sources */,
+				7017D6FA1BAF8C4D003EB498 /* Utils.m in Sources */,
 				7046D2041BAE38EF00A5465F /* AFURLSessionManager.m in Sources */,
 				70EC5AC11BAE5F7E0019AA58 /* SignInViewController.m in Sources */,
 				7046D2031BAE38EF00A5465F /* AFURLResponseSerialization.m in Sources */,
 				70E341651B9DE2F400046067 /* CustomTabBarViewController.m in Sources */,
 				7017D6EF1BAF03F2003EB498 /* CommentTableViewCell.m in Sources */,
-				70951F9A1B989F15006B1228 /* RecentViewController.m in Sources */,
 				70951F941B989F15006B1228 /* main.m in Sources */,
 				706B36611BA7DB6400BC2889 /* PrivacyPolicyViewController.m in Sources */,
 				70E341621B9CA6C200046067 /* SignUpViewController.m in Sources */,

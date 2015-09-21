@@ -12,6 +12,7 @@
 #import "PostsShowViewController.h"
 #import "CustomTableViewCell.h"
 #import "SignUpViewController.h"
+#import "Utils.h"
 
 @interface RecentTableViewController ()
 
@@ -22,11 +23,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self fetchPosts];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(shouldFetchPosts:)
                                                  name:ASK_TO_FETCH_POSTS
                                                object:nil];
-    [self fetchPosts];
 }
 
 - (void)fetchPosts {
@@ -41,9 +43,19 @@
     NSDictionary *params = @{};
     [manager GET:GET_RECENT_POSTS_URL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"RecentPosts: %@", responseObject);
-        self.comments = [[NSArray alloc] initWithArray:responseObject[@"comments"]];
         
-        // posts are fetched in the reverse order. Reverse them back
+        NSArray *tmpComments =[[NSArray alloc] initWithArray:responseObject[@"comments"]];
+//        
+//        NSArray *sortedComments = [responseObject[@"comments"] sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
+//            NSDate *first = [(NSDictionary *)a a[@"createdAt"]];
+//            
+////            NSDate *second = [(NSDictionary *)b b[@"createdAt"]];
+//            
+//            return [first compare:second];
+//        }];
+        
+        
+        self.comments = tmpComments;
         self.posts = [[NSArray alloc] initWithArray:[[responseObject[@"posts"] reverseObjectEnumerator] allObjects]];
         NSLog(@"posts: %@", self.posts);
         
