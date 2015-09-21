@@ -144,7 +144,7 @@
         <!--Toast-->
         <scene sceneID="v67-vp-6CQ">
             <objects>
-                <viewController id="i0U-vc-kr9" customClass="PostsShowViewController" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="i0U-vc-kr9" customClass="PostsShowViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rEr-J5-PDk"/>
                         <viewControllerLayoutGuide type="bottom" id="jvX-ch-xDq"/>
