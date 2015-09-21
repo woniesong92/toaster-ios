@@ -151,11 +151,10 @@
     CGRect keyboardFrame = [kbFrame CGRectValue];
     
     CGFloat height = keyboardFrame.size.height;
-    
-    NSLog(@"Updating constraints.");
+
     // Because the "space" is actually the difference between the bottom lines of the 2 views,
     // we need to set a negative constant value here.
-    self.inputBottomConstraint.constant = height + 8.0;
+    self.inputContainerBottomConstraint.constant = height;
     
     [UIView animateWithDuration:animationDuration animations:^{
         [self.view layoutIfNeeded];
@@ -187,7 +186,7 @@
     NSDictionary *info = [notification userInfo];
     NSTimeInterval animationDuration = [[info objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     
-    self.inputBottomConstraint.constant = 8;
+    self.inputContainerBottomConstraint.constant = 0;
     [UIView animateWithDuration:animationDuration animations:^{
         [self.view layoutIfNeeded];
     }];
