@@ -14,7 +14,6 @@
     WebViewManager *_webViewManager;
     LoadingManager *_loadingManager;
     CGPoint _scrollViewOrigin;
-    CGFloat _keyboardHeight;
     BOOL _shouldPreventScrolling;
 }
 
@@ -29,4 +28,5 @@
 @property (weak, nonatomic) IBOutlet UITableView *commentsTable;
 @property (weak, nonatomic) IBOutlet UITextField *inlineCommentField;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *keyboardHeight;
 @end

@@ -447,6 +447,8 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="commentsTable" destination="Pyh-Yd-ne8" id="rSU-ay-ffc"/>
+                        <outlet property="inlineCommentField" destination="YrB-d0-hKe" id="xkN-Tl-9bd"/>
+                        <outlet property="keyboardHeight" destination="4RS-rP-XLD" id="ggm-Lb-zVQ"/>
                         <outlet property="numComments" destination="jzM-r4-0nP" id="Qvr-8N-luG"/>
                         <outlet property="numVotes" destination="eor-i0-YiB" id="7y6-x0-v5Y"/>
                         <outlet property="postBody" destination="Lgb-ut-QTU" id="CA1-qs-cpm"/>
@@ -1038,8 +1040,8 @@
         <image name="upvote" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="2tB-YS-ZOB"/>
         <segue reference="3re-aQ-SbA"/>
-        <segue reference="ILI-o6-F0n"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.27450980390000002" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

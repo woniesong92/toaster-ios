@@ -17,9 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Why do I need to set them manually? wtf?
-//    self.commentsTable.rowHeight = 100;
-//    self.commentsTable.estimatedRowHeight = 100;
+    [self observeKeyboard];
     
     _loadingManager = [LoadingManager getLoadingManager:self];
     self.automaticallyAdjustsScrollViewInsets = NO;
@@ -47,7 +45,7 @@
     NSString *reqURL = [NSString stringWithFormat:@"%@/%@", GET_COMMENTS_FOR_POST_URL, postId];
     
     [manager GET:reqURL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"comments for Post: %@", responseObject);
+//        NSLog(@"comments for Post: %@", responseObject);
         self.comments = (NSArray *)responseObject[@"comments"];
         [self.numComments setText:[NSString stringWithFormat:@"%lu", (unsigned long)[self.comments count]]];
         
@@ -57,6 +55,11 @@
         // TODO: show user this error and clear all the textfields
         NSLog(@"Error: %@", error);
     }];
+}
+
+- (void)observeKeyboard {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillChangeFrameNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -132,26 +135,55 @@
     return cell;
 }
 
-
-- (void)keyboardWillShow: (NSNotification *)notification {
-    if (_keyboardHeight == 0) {
-        NSDictionary* keyboardInfo = [notification userInfo];
-        NSValue* keyboardFrameBegin = [keyboardInfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
-        CGRect keyboardFrameBeginRect = [keyboardFrameBegin CGRectValue];
-        _keyboardHeight = keyboardFrameBeginRect.size.height;
-        _scrollViewOrigin = _webViewManager.webView.scrollView.contentOffset;
-    }
+- (void)keyboardWillShow:(NSNotification *)notification {
+    NSDictionary *info = [notification userInfo];
+    NSValue *kbFrame = [info objectForKey:UIKeyboardFrameEndUserInfoKey];
+    NSTimeInterval animationDuration = [[info objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    CGRect keyboardFrame = [kbFrame CGRectValue];
     
-    _shouldPreventScrolling = YES;
-    NSString *js = [NSString stringWithFormat:@"Template.postsShow.MoveUpCommentInput(%f);", _keyboardHeight];
-    [[_webViewManager webView] evaluateJavaScript:js completionHandler:nil];
+    CGFloat height = keyboardFrame.size.height;
+    
+    NSLog(@"Updating constraints.");
+    // Because the "space" is actually the difference between the bottom lines of the 2 views,
+    // we need to set a negative constant value here.
+    self.keyboardHeight.constant = -height;
+    
+    [UIView animateWithDuration:animationDuration animations:^{
+        [self.view layoutIfNeeded];
+    }];
 }
 
-- (void)keyboardWillHide: (NSNotification *)notification {
-    NSString *js = @"Template.postsShow.MoveDownCommentInput();";
-    [[_webViewManager webView] evaluateJavaScript:js completionHandler:nil];
-    _shouldPreventScrolling = NO;
+
+//- (void)keyboardWillShow: (NSNotification *)notification {
+//    if (_keyboardHeight == 0) {
+//        NSDictionary* keyboardInfo = [notification userInfo];
+//        NSValue* keyboardFrameBegin = [keyboardInfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
+//        CGRect keyboardFrameBeginRect = [keyboardFrameBegin CGRectValue];
+//        _keyboardHeight = keyboardFrameBeginRect.size.height;
+//        _scrollViewOrigin = _webViewManager.webView.scrollView.contentOffset;
+//    }
+//    
+//    _shouldPreventScrolling = YES;
+//    NSString *js = [NSString stringWithFormat:@"Template.postsShow.MoveUpCommentInput(%f);", _keyboardHeight];
+//    [[_webViewManager webView] evaluateJavaScript:js completionHandler:nil];
+//}
+
+//- (void)keyboardWillHide: (NSNotification *)notification {
+//    NSString *js = @"Template.postsShow.MoveDownCommentInput();";
+//    [[_webViewManager webView] evaluateJavaScript:js completionHandler:nil];
+//    _shouldPreventScrolling = NO;
+//}
+
+- (void)keyboardWillHide:(NSNotification *)notification {
+    NSDictionary *info = [notification userInfo];
+    NSTimeInterval animationDuration = [[info objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    
+    self.keyboardHeight.constant = 0;
+    [UIView animateWithDuration:animationDuration animations:^{
+        [self.view layoutIfNeeded];
+    }];
 }
+
 
 - (void)keyboardDidShow: (NSNotification *)notification {
 }
