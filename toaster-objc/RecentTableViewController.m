@@ -32,6 +32,11 @@
                                              selector:@selector(shouldFetchPosts:)
                                                  name:ASK_TO_FETCH_POSTS
                                                object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(shouldScrollTop:)
+                                                 name:TABLE_SCROLL_TO_TOP
+                                               object:nil];
 }
 
 - (void)fetchPosts {
@@ -83,6 +88,10 @@
 
 - (void)shouldFetchPosts:(NSNotification *)notification {
     [self fetchPosts];
+}
+
+- (void)shouldScrollTop:(NSNotification *)notification {
+    [self.postsTable scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

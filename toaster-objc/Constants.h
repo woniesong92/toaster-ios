@@ -33,6 +33,8 @@
 
 //table cell related
 #define POST_PLACEHOLDER @"You are anonymous ;)"
+#define TABLE_SCROLL_TO_TOP @"tableScrollToTop"
+#define TABLE_SCROLL_TO_BOTTOM @"tableScrollToBottom"
 
 #define LOGIN_API_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/users/login"]
 #define SIGNUP_API_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/users/register"]

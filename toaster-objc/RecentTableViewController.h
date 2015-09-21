@@ -14,5 +14,6 @@
 @property NSArray *comments;
 @property NSArray *posts;
 @property NSMutableDictionary *numCommentsForPosts;
+@property (strong, nonatomic) IBOutlet UITableView *postsTable;
 
 @end

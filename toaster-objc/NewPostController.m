@@ -65,6 +65,8 @@
         
         [self dismissViewControllerAnimated:YES completion:^{
             [[NSNotificationCenter defaultCenter] postNotificationName:ASK_TO_FETCH_POSTS object:nil userInfo:nil];
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:TABLE_SCROLL_TO_TOP object:nil userInfo:nil];
         }];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

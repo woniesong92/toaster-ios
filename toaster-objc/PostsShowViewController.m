@@ -28,7 +28,6 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     NSDictionary *tempDictionary= self.postDetail;
-    NSString *postId = [tempDictionary objectForKey:@"_id"];
     NSDate *date = [tempDictionary objectForKey:@"createdAt"];
     
     [self.postBody setText:[tempDictionary objectForKey:@"body"]];
@@ -42,6 +41,11 @@
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(shouldFetchComments:)
                                                  name:ASK_TO_FETCH_COMMENTS
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(shouldScrollBottom:)
+                                                 name:TABLE_SCROLL_TO_BOTTOM
                                                object:nil];
 }
 
@@ -172,26 +176,14 @@
     }];
 }
 
-
-//- (void)keyboardWillShow: (NSNotification *)notification {
-//    if (_keyboardHeight == 0) {
-//        NSDictionary* keyboardInfo = [notification userInfo];
-//        NSValue* keyboardFrameBegin = [keyboardInfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
-//        CGRect keyboardFrameBeginRect = [keyboardFrameBegin CGRectValue];
-//        _keyboardHeight = keyboardFrameBeginRect.size.height;
-//        _scrollViewOrigin = _webViewManager.webView.scrollView.contentOffset;
-//    }
-//    
-//    _shouldPreventScrolling = YES;
-//    NSString *js = [NSString stringWithFormat:@"Template.postsShow.MoveUpCommentInput(%f);", _keyboardHeight];
-//    [[_webViewManager webView] evaluateJavaScript:js completionHandler:nil];
-//}
-//
-//- (void)keyboardWillHide: (NSNotification *)notification {
-//    NSString *js = @"Template.postsShow.MoveDownCommentInput();";
-//    [[_webViewManager webView] evaluateJavaScript:js completionHandler:nil];
-//    _shouldPreventScrolling = NO;
-//}
+- (void)shouldScrollBottom:(NSNotification *)notification {
+    NSLog(@"scrolling bottom");
+    NSInteger numberOfRows = [self.commentsTable numberOfRowsInSection:0];
+    if (numberOfRows) {
+        [self.commentsTable scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:numberOfRows-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+    }
+    
+}
 
 - (void)keyboardWillHide:(NSNotification *)notification {
     NSDictionary *info = [notification userInfo];
@@ -233,7 +225,6 @@
 
 - (IBAction)onSubmitComment:(id)sender {
     NSString *commentBody = self.inlineCommentField.text;
-    
     NSString *postId = self.postDetail[@"_id"];
     
     
@@ -249,6 +240,7 @@
     [manager POST:NEW_COMMENT_API_URL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         [[NSNotificationCenter defaultCenter] postNotificationName:ASK_TO_FETCH_COMMENTS object:nil userInfo:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:TABLE_SCROLL_TO_BOTTOM object:nil userInfo:nil];
         [self.inlineCommentField setText:@""];
         [self.view endEditing:YES];
         
