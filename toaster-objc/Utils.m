@@ -8,6 +8,7 @@
 
 #import "Utils.h"
 #import "Underscore.h"
+#import "NSDate+DateTools.h"
 #define _ Underscore
 
 @implementation Utils
@@ -38,26 +39,14 @@
         NSDate *first = [(NSDictionary *)a objectForKey:@"createdAt"];
         NSDate *second = [(NSDictionary *)b objectForKey:@"createdAt"];
         
-        return [first compare:second];
+        return [second compare:first];
     }];
     
     return sortedObjs;
 }
 
 + (NSString *)stringFromDate: (NSDate *)createdAt {
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"mm"];
-    [formatter setTimeZone:[NSTimeZone localTimeZone]];
-    
-    NSString *numMins = [formatter stringFromDate:createdAt];
-    NSString *stringFromDate;
-    if ([numMins isEqualToString:@"0"]) {
-        stringFromDate = @"Now";
-    } else {
-        stringFromDate = [NSString stringWithFormat:@"%@m", numMins];
-    }
-    
-    return stringFromDate;
+    return createdAt.shortTimeAgoSinceNow;
 }
 
 @end

@@ -27,6 +27,14 @@
 		7017D7121BAF8E3D003EB498 /* Underscore.m in Sources */ = {isa = PBXBuildFile; fileRef = 7017D7081BAF8E3C003EB498 /* Underscore.m */; };
 		7017D7131BAF8E3D003EB498 /* USArrayWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7017D70A1BAF8E3C003EB498 /* USArrayWrapper.m */; };
 		7017D7141BAF8E3D003EB498 /* USDictionaryWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7017D70D1BAF8E3C003EB498 /* USDictionaryWrapper.m */; };
+		7017D7261BAF9DBB003EB498 /* DateTools.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7017D7161BAF9DBB003EB498 /* DateTools.bundle */; };
+		7017D7271BAF9DBB003EB498 /* DTConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 7017D7191BAF9DBB003EB498 /* DTConstants.m */; };
+		7017D7281BAF9DBB003EB498 /* DTError.m in Sources */ = {isa = PBXBuildFile; fileRef = 7017D71B1BAF9DBB003EB498 /* DTError.m */; };
+		7017D7291BAF9DBB003EB498 /* DTTimePeriod.m in Sources */ = {isa = PBXBuildFile; fileRef = 7017D71D1BAF9DBB003EB498 /* DTTimePeriod.m */; };
+		7017D72A1BAF9DBB003EB498 /* DTTimePeriodChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 7017D71F1BAF9DBB003EB498 /* DTTimePeriodChain.m */; };
+		7017D72B1BAF9DBB003EB498 /* DTTimePeriodCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 7017D7211BAF9DBB003EB498 /* DTTimePeriodCollection.m */; };
+		7017D72C1BAF9DBB003EB498 /* DTTimePeriodGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 7017D7231BAF9DBB003EB498 /* DTTimePeriodGroup.m */; };
+		7017D72D1BAF9DBB003EB498 /* NSDate+DateTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 7017D7251BAF9DBB003EB498 /* NSDate+DateTools.m */; };
 		7046D1FC1BAE38EF00A5465F /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7046D1D71BAE38EF00A5465F /* AFHTTPRequestOperation.m */; };
 		7046D1FD1BAE38EF00A5465F /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7046D1D91BAE38EF00A5465F /* AFHTTPRequestOperationManager.m */; };
 		7046D1FE1BAE38EF00A5465F /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7046D1DB1BAE38EF00A5465F /* AFHTTPSessionManager.m */; };
@@ -117,6 +125,22 @@
 		7017D70B1BAF8E3C003EB498 /* USConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = USConstants.h; sourceTree = "<group>"; };
 		7017D70C1BAF8E3C003EB498 /* USDictionaryWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = USDictionaryWrapper.h; sourceTree = "<group>"; };
 		7017D70D1BAF8E3C003EB498 /* USDictionaryWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = USDictionaryWrapper.m; sourceTree = "<group>"; };
+		7017D7161BAF9DBB003EB498 /* DateTools.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DateTools.bundle; sourceTree = "<group>"; };
+		7017D7171BAF9DBB003EB498 /* DateTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateTools.h; sourceTree = "<group>"; };
+		7017D7181BAF9DBB003EB498 /* DTConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTConstants.h; sourceTree = "<group>"; };
+		7017D7191BAF9DBB003EB498 /* DTConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTConstants.m; sourceTree = "<group>"; };
+		7017D71A1BAF9DBB003EB498 /* DTError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTError.h; sourceTree = "<group>"; };
+		7017D71B1BAF9DBB003EB498 /* DTError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTError.m; sourceTree = "<group>"; };
+		7017D71C1BAF9DBB003EB498 /* DTTimePeriod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTTimePeriod.h; sourceTree = "<group>"; };
+		7017D71D1BAF9DBB003EB498 /* DTTimePeriod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTTimePeriod.m; sourceTree = "<group>"; };
+		7017D71E1BAF9DBB003EB498 /* DTTimePeriodChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTTimePeriodChain.h; sourceTree = "<group>"; };
+		7017D71F1BAF9DBB003EB498 /* DTTimePeriodChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTTimePeriodChain.m; sourceTree = "<group>"; };
+		7017D7201BAF9DBB003EB498 /* DTTimePeriodCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTTimePeriodCollection.h; sourceTree = "<group>"; };
+		7017D7211BAF9DBB003EB498 /* DTTimePeriodCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTTimePeriodCollection.m; sourceTree = "<group>"; };
+		7017D7221BAF9DBB003EB498 /* DTTimePeriodGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTTimePeriodGroup.h; sourceTree = "<group>"; };
+		7017D7231BAF9DBB003EB498 /* DTTimePeriodGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTTimePeriodGroup.m; sourceTree = "<group>"; };
+		7017D7241BAF9DBB003EB498 /* NSDate+DateTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+DateTools.h"; sourceTree = "<group>"; };
+		7017D7251BAF9DBB003EB498 /* NSDate+DateTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+DateTools.m"; sourceTree = "<group>"; };
 		7046D1D61BAE38EF00A5465F /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		7046D1D71BAE38EF00A5465F /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		7046D1D81BAE38EF00A5465F /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -261,6 +285,30 @@
 			path = Times;
 			sourceTree = "<group>";
 		};
+		7017D7151BAF9DBB003EB498 /* DateTools */ = {
+			isa = PBXGroup;
+			children = (
+				7017D7161BAF9DBB003EB498 /* DateTools.bundle */,
+				7017D7171BAF9DBB003EB498 /* DateTools.h */,
+				7017D7181BAF9DBB003EB498 /* DTConstants.h */,
+				7017D7191BAF9DBB003EB498 /* DTConstants.m */,
+				7017D71A1BAF9DBB003EB498 /* DTError.h */,
+				7017D71B1BAF9DBB003EB498 /* DTError.m */,
+				7017D71C1BAF9DBB003EB498 /* DTTimePeriod.h */,
+				7017D71D1BAF9DBB003EB498 /* DTTimePeriod.m */,
+				7017D71E1BAF9DBB003EB498 /* DTTimePeriodChain.h */,
+				7017D71F1BAF9DBB003EB498 /* DTTimePeriodChain.m */,
+				7017D7201BAF9DBB003EB498 /* DTTimePeriodCollection.h */,
+				7017D7211BAF9DBB003EB498 /* DTTimePeriodCollection.m */,
+				7017D7221BAF9DBB003EB498 /* DTTimePeriodGroup.h */,
+				7017D7231BAF9DBB003EB498 /* DTTimePeriodGroup.m */,
+				7017D7241BAF9DBB003EB498 /* NSDate+DateTools.h */,
+				7017D7251BAF9DBB003EB498 /* NSDate+DateTools.m */,
+			);
+			name = DateTools;
+			path = AFNetworking/DateTools;
+			sourceTree = "<group>";
+		};
 		7046D1D51BAE38EF00A5465F /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
@@ -321,6 +369,7 @@
 		70951F901B989F15006B1228 /* toaster-objc */ = {
 			isa = PBXGroup;
 			children = (
+				7017D7151BAF9DBB003EB498 /* DateTools */,
 				7017D6FB1BAF8E3C003EB498 /* Underscore */,
 				7046D1D51BAE38EF00A5465F /* AFNetworking */,
 				70951F9E1B989F15006B1228 /* Main.storyboard */,
@@ -483,6 +532,7 @@
 				70951FA01B989F15006B1228 /* Main.storyboard in Resources */,
 				70951FA51B989F15006B1228 /* LaunchScreen.xib in Resources */,
 				70951FA21B989F15006B1228 /* Images.xcassets in Resources */,
+				7017D7261BAF9DBB003EB498 /* DateTools.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -512,8 +562,10 @@
 				7004B9D31BAE902700C4210E /* CustomTableViewCell.m in Sources */,
 				70951F9D1B989F15006B1228 /* TrendingViewController.m in Sources */,
 				701278291BA6121600A4D6FA /* TermsOfServiceViewController.m in Sources */,
+				7017D72B1BAF9DBB003EB498 /* DTTimePeriodCollection.m in Sources */,
 				700272481B9A6A6D00C292A5 /* NotificationsViewController.m in Sources */,
 				7002724B1B9B173F00C292A5 /* NewPostController.m in Sources */,
+				7017D7291BAF9DBB003EB498 /* DTTimePeriod.m in Sources */,
 				70951F971B989F15006B1228 /* AppDelegate.m in Sources */,
 				7002724E1B9BD23200C292A5 /* LoadingManager.m in Sources */,
 				7017D7131BAF8E3D003EB498 /* USArrayWrapper.m in Sources */,
@@ -524,11 +576,15 @@
 				7046D2011BAE38EF00A5465F /* AFURLConnectionOperation.m in Sources */,
 				7046D2021BAE38EF00A5465F /* AFURLRequestSerialization.m in Sources */,
 				7017D7141BAF8E3D003EB498 /* USDictionaryWrapper.m in Sources */,
+				7017D72A1BAF9DBB003EB498 /* DTTimePeriodChain.m in Sources */,
 				7017D6FA1BAF8C4D003EB498 /* Utils.m in Sources */,
 				7046D2041BAE38EF00A5465F /* AFURLSessionManager.m in Sources */,
+				7017D72C1BAF9DBB003EB498 /* DTTimePeriodGroup.m in Sources */,
+				7017D7271BAF9DBB003EB498 /* DTConstants.m in Sources */,
 				7017D7111BAF8E3D003EB498 /* Underscore+Functional.m in Sources */,
 				70EC5AC11BAE5F7E0019AA58 /* SignInViewController.m in Sources */,
 				7046D2031BAE38EF00A5465F /* AFURLResponseSerialization.m in Sources */,
+				7017D7281BAF9DBB003EB498 /* DTError.m in Sources */,
 				70E341651B9DE2F400046067 /* CustomTabBarViewController.m in Sources */,
 				7017D6EF1BAF03F2003EB498 /* CommentTableViewCell.m in Sources */,
 				70951F941B989F15006B1228 /* main.m in Sources */,
@@ -537,6 +593,7 @@
 				7046D1FF1BAE38EF00A5465F /* AFNetworkReachabilityManager.m in Sources */,
 				7017D70F1BAF8E3D003EB498 /* USStringWrapper.m in Sources */,
 				7017D70E1BAF8E3D003EB498 /* Underscore+Strings.m in Sources */,
+				7017D72D1BAF9DBB003EB498 /* NSDate+DateTools.m in Sources */,
 				70E3415F1B9C9DB200046067 /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
