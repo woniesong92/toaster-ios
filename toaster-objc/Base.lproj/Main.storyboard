@@ -378,6 +378,7 @@
                             <constraint firstAttribute="trailing" secondItem="SCp-es-o0o" secondAttribute="trailing" constant="8" id="47M-tM-P6s"/>
                             <constraint firstItem="jzM-r4-0nP" firstAttribute="top" secondItem="Lgb-ut-QTU" secondAttribute="bottom" constant="8" id="4zw-J5-VCz"/>
                             <constraint firstItem="SCp-es-o0o" firstAttribute="leading" secondItem="Lgb-ut-QTU" secondAttribute="trailing" constant="8" id="5l4-ex-WEy"/>
+                            <constraint firstAttribute="bottom" secondItem="Jc6-5p-v5d" secondAttribute="bottom" constant="8" id="5zL-aF-g9v"/>
                             <constraint firstAttribute="bottom" secondItem="Pyh-Yd-ne8" secondAttribute="bottom" constant="56" id="8di-H5-fjZ"/>
                             <constraint firstAttribute="trailing" secondItem="Vkp-y5-kzL" secondAttribute="trailing" constant="8" id="9yW-2h-oJB"/>
                             <constraint firstItem="Lgb-ut-QTU" firstAttribute="top" secondItem="Ap0-4e-g9j" secondAttribute="top" constant="-158" id="A1z-tJ-uKa"/>
@@ -392,6 +393,7 @@
                             <constraint firstItem="Vkp-y5-kzL" firstAttribute="leading" secondItem="Lgb-ut-QTU" secondAttribute="trailing" constant="8" id="SjQ-hq-c9r"/>
                             <constraint firstItem="jvX-ch-xDq" firstAttribute="top" secondItem="Jc6-5p-v5d" secondAttribute="bottom" constant="8" id="SqL-sf-ZIC"/>
                             <constraint firstItem="Lgb-ut-QTU" firstAttribute="leading" secondItem="3J5-lL-T47" secondAttribute="leading" constant="8" id="TWa-Ty-BDh"/>
+                            <constraint firstAttribute="bottom" secondItem="r2z-lM-VF5" secondAttribute="bottom" constant="9" id="TZb-2f-bCk"/>
                             <constraint firstItem="SCp-es-o0o" firstAttribute="leading" secondItem="Lgb-ut-QTU" secondAttribute="trailing" constant="44" id="Um3-Rb-bqg"/>
                             <constraint firstItem="Pyh-Yd-ne8" firstAttribute="top" secondItem="3J5-lL-T47" secondAttribute="top" constant="247" id="Vy0-aL-r91"/>
                             <constraint firstItem="r2z-lM-VF5" firstAttribute="leading" secondItem="Jc6-5p-v5d" secondAttribute="trailing" constant="8" id="Xto-FN-db7"/>
@@ -431,7 +433,9 @@
                                 <exclude reference="aHJ-WS-7jD"/>
                                 <exclude reference="P11-aY-tGO"/>
                                 <exclude reference="DVr-yP-tLp"/>
+                                <exclude reference="SqL-sf-ZIC"/>
                                 <exclude reference="ofM-dB-zp4"/>
+                                <exclude reference="TZb-2f-bCk"/>
                             </mask>
                         </variation>
                     </view>

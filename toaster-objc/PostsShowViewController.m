@@ -136,21 +136,21 @@
 }
 
 - (void)keyboardWillShow:(NSNotification *)notification {
-    NSDictionary *info = [notification userInfo];
-    NSValue *kbFrame = [info objectForKey:UIKeyboardFrameEndUserInfoKey];
-    NSTimeInterval animationDuration = [[info objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
-    CGRect keyboardFrame = [kbFrame CGRectValue];
-    
-    CGFloat height = keyboardFrame.size.height;
-    
-    NSLog(@"Updating constraints.");
-    // Because the "space" is actually the difference between the bottom lines of the 2 views,
-    // we need to set a negative constant value here.
-//    self.keyboardHeight.constant = -height;
-    
-    [UIView animateWithDuration:animationDuration animations:^{
-        [self.view layoutIfNeeded];
-    }];
+//    NSDictionary *info = [notification userInfo];
+//    NSValue *kbFrame = [info objectForKey:UIKeyboardFrameEndUserInfoKey];
+//    NSTimeInterval animationDuration = [[info objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+//    CGRect keyboardFrame = [kbFrame CGRectValue];
+//    
+//    CGFloat height = keyboardFrame.size.height;
+//    
+//    NSLog(@"Updating constraints.");
+//    // Because the "space" is actually the difference between the bottom lines of the 2 views,
+//    // we need to set a negative constant value here.
+////    self.keyboardHeight.constant = -height;
+//    
+//    [UIView animateWithDuration:animationDuration animations:^{
+//        [self.view layoutIfNeeded];
+//    }];
 }
 
 
@@ -175,13 +175,13 @@
 //}
 
 - (void)keyboardWillHide:(NSNotification *)notification {
-    NSDictionary *info = [notification userInfo];
-    NSTimeInterval animationDuration = [[info objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
-    
-//    self.keyboardHeight.constant = 0;
-    [UIView animateWithDuration:animationDuration animations:^{
-        [self.view layoutIfNeeded];
-    }];
+//    NSDictionary *info = [notification userInfo];
+//    NSTimeInterval animationDuration = [[info objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+//    
+////    self.keyboardHeight.constant = 0;
+//    [UIView animateWithDuration:animationDuration animations:^{
+//        [self.view layoutIfNeeded];
+//    }];
 }
 
 
