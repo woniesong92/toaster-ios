@@ -42,16 +42,6 @@
         [self performSegueWithIdentifier:@"TabBarToSignUpSegue" sender:self];
     }
     
-    
-//    NSArray *navVCs = [self.navigationController viewControllers];
-//    for (UIViewController *vc in navVCs) {
-//        if ([vc isKindOfClass:[SignUpViewController class]]) {
-//            [vc removeFromParentViewController];
-//        }
-//    }
-    
-
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(myNotificationReceived:) name:@"pushNotification" object:nil];
 }
 

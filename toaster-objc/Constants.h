@@ -1,6 +1,6 @@
 //#define BASE_URL @"http://192.168.0.103:3000"
 //#define BASE_URL @"http://104.131.158.80"
-#define BASE_URL @"http://10.144.132.242:3000"
+#define BASE_URL @"http://10.145.0.215:3000"
 //#define BASE_URL @"http://192.168.1.118:3000"
 #define TRENDING_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/trending"]
 #define NEW_POST_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/newPost"]
@@ -44,4 +44,6 @@
 
 #define NEW_POST_API_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/api/posts/new"]
 #define NEW_COMMENT_API_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/api/comments/new"]
+#define UPVOTE_POST_API_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/api/posts/upvote"]
+#define DOWNVOTE_POST_API_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/api/posts/downvote"]
 

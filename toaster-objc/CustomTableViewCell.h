@@ -9,12 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface CustomTableViewCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UIImageView *upvoteButton;
-
-@property (weak, nonatomic) IBOutlet UIImageView *downvoteButton;
 @property (weak, nonatomic) IBOutlet UILabel *numVotes;
 @property (weak, nonatomic) IBOutlet UILabel *numComments;
 @property (weak, nonatomic) IBOutlet UILabel *postDate;
 @property (weak, nonatomic) IBOutlet UITextView *postBody;
+
+@property NSString *postId;
 
 @end

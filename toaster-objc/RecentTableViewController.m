@@ -122,6 +122,7 @@
         numComments = [NSNumber numberWithInt:0];
     }
 
+    cell.postId = postId;
     [cell.postBody setText:[postObj objectForKey:@"body"]];
     [cell.postDate setText:createdAt];
     [cell.numComments setText:[NSString stringWithFormat:@"%@", numComments]];
