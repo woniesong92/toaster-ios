@@ -253,6 +253,15 @@
 }
 
 
+- (IBAction)onPostUpvote:(id)sender {
+    NSLog(@"on post upvote");
+}
+
+
+- (IBAction)onPostDownvote:(id)sender {
+}
+
+
 - (void)willMoveToParentViewController:(UIViewController *)parent{
     if (parent == nil){
         [[_webViewManager webView] goBack];

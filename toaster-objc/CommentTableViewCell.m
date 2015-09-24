@@ -19,5 +19,15 @@
 
     // Configure the view for the selected state
 }
+- (IBAction)onCommentUpvote:(id)sender {
+    NSLog(@"on comment upvote");
+}
+
+- (IBAction)onCommentDownvote:(id)sender {
+    NSLog(@"on comment downvote");
+}
+
+
+
 
 @end
