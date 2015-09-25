@@ -18,15 +18,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self observeKeyboard];
-    
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    manager = appDelegate.networkManager;
     NSString *userId = appDelegate.userId;
-    
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
-                                   initWithTarget:self
-                                   action:@selector(dismissKeyboard)];
-    [self.view addGestureRecognizer:tap];
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     
@@ -35,20 +29,19 @@
     
     [self.postBody setText:[postDetail objectForKey:@"body"]];
     [self.postDate setText:[Utils stringFromDate:date]];
-    [self.numVotes setText:[NSString stringWithFormat:@"%@", [postDetail objectForKey:@"numLikes"]]];
     
-    if ([postDetail[@"upvoterIds"] containsObject:userId]) {
-        [self.upvoteBtn setSelected:YES];
-    }
-    
-    if ([postDetail[@"downvoterIds"] containsObject:userId]) {
-        
-        [self.downvoteBtn setSelected:YES];
-    }
+    [self fetchPostDetail];
     
     self.commentsTable.delegate = self;
     
     [self fetchComments];
+    
+    [self observeKeyboard];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:tap];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(shouldFetchComments:)
@@ -61,22 +54,49 @@
                                                object:nil];
 }
 
+- (void)fetchPostDetail {
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    manager = appDelegate.networkManager;
+    NSString *userId = appDelegate.userId;
+    
+    NSString *postId = self.postDetail[@"_id"];
+    NSString *reqURL = [NSString stringWithFormat:@"%@/%@", GET_POST_URL, postId];
+    NSDictionary *params = @{};
+    
+    [manager GET:reqURL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSDictionary *post = responseObject[@"posts"][0];
+        
+        NSNumber *numVotes = post[@"numLikes"];
+        NSArray *upvoters = post[@"upvoterIds"];
+        NSArray *downvoters = post[@"downvoterIds"];
+        
+        if ([upvoters containsObject:userId]) {
+            self.didUpvote = YES;
+            [self.upvoteBtn setSelected:YES];
+        } else if ([downvoters containsObject:userId]) {
+            self.didDownvote = YES;
+            [self.downvoteBtn setSelected:YES];
+        }
+        [self.numVotes setText:[NSString stringWithFormat:@"%@", numVotes]];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        // TODO: show user this error and clear all the textfields
+        NSLog(@"Error: %@", error);
+    }];
+
+}
+
 - (void)shouldFetchComments:(NSNotification *)notification {
     [self fetchComments];
 }
 
 - (void)fetchComments {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSString *token = [defaults objectForKey:@"token"];
-    NSString *authorizationToken = [NSString stringWithFormat:@"Bearer %@", token];
     NSString *postId = self.postDetail[@"_id"];
-    
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    [manager.requestSerializer setValue:authorizationToken forHTTPHeaderField:@"Authorization"];
-    
     NSString *reqURL = [NSString stringWithFormat:@"%@/%@", GET_COMMENTS_FOR_POST_URL, postId];
     NSDictionary *params = @{};
+    
     [manager GET:reqURL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSArray *comments = responseObject[@"comments"];

@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "WebViewManager.h"
 #import "LoadingManager.h"
+#import "AFNetworking.h"
 
 @interface PostsShowViewController : UIViewController <UIWebViewDelegate, WKNavigationDelegate, WKUIDelegate, UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate> {
-    
-    
+
+    AFHTTPRequestOperationManager *manager;
+
 }
 
 @property (strong, nonatomic) UIImage *parentScreenImage;
@@ -29,5 +31,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *upvoteBtn;
 
 @property (weak, nonatomic) IBOutlet UIButton *downvoteBtn;
+
+@property (strong, nonatomic) NSDictionary *postAdditionalDetail;
+@property BOOL didUpvote;
+@property BOOL didDownvote;
 
 @end
