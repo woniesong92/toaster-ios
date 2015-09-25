@@ -78,46 +78,6 @@
 }
 
 
-//
-//- (void)fetchPosts {
-//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//    NSString *token = [defaults objectForKey:@"token"];
-//    NSString *authorizationToken = [NSString stringWithFormat:@"Bearer %@", token];
-//    
-//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-//    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-//    [manager.requestSerializer setValue:authorizationToken forHTTPHeaderField:@"Authorization"];
-//    
-//    NSDictionary *params = @{};
-//    [manager GET:GET_RECENT_POSTS_URL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//
-//        NSArray *posts = responseObject[@"posts"];
-//
-//        NSArray *comments = responseObject[@"comments"];
-//        NSMutableDictionary *numCommentsForPosts = [[NSMutableDictionary alloc] init];
-//        
-//        for (NSDictionary *comment in comments) {
-//            NSString *key = comment[@"postId"];
-//            NSNumber *numComments = [numCommentsForPosts objectForKey:key];
-//            if (numComments) {
-//                NSNumber *newNumComments = [NSNumber numberWithInt: (numComments.intValue + 1)];
-//                [numCommentsForPosts setValue:newNumComments forKey:key];
-//            } else {
-//                [numCommentsForPosts setValue:[NSNumber numberWithInt:1] forKey:key];
-//            }
-//        }
-//        
-//        NSArray *sortedPosts = [Utils sortReversedJSONObjsByDate:posts];
-//        self.posts = sortedPosts;
-//        self.numCommentsForPosts = numCommentsForPosts;
-//        [self.tableView reloadData];
-//        
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        // TODO: show user this error and clear all the textfields
-//        NSLog(@"Error: %@", error);
-//    }];
-//}
-
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 }
@@ -167,6 +127,7 @@
     
     NSArray *upvoters = postObj[@"upvoterIds"];
     NSArray *downvoters = postObj[@"downvoterIds"];
+    
     
     if ([upvoters containsObject:userId]) {
         cell.didIUpvote = YES;

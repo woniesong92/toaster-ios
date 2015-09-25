@@ -17,24 +17,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    manager = appDelegate.networkManager;
-    NSString *userId = appDelegate.userId;
-    
-    self.automaticallyAdjustsScrollViewInsets = NO;
-    
-    NSDictionary *postDetail= self.postDetail;
-    NSDate *date = [postDetail objectForKey:@"createdAt"];
-    
-    [self.postBody setText:[postDetail objectForKey:@"body"]];
-    [self.postDate setText:[Utils stringFromDate:date]];
-    
-    [self fetchPostDetail];
-    
+
     self.commentsTable.delegate = self;
-    
-    [self fetchComments];
+    self.automaticallyAdjustsScrollViewInsets = NO;
     
     [self observeKeyboard];
     
@@ -52,6 +37,27 @@
                                              selector:@selector(shouldScrollBottom:)
                                                  name:TABLE_SCROLL_TO_BOTTOM
                                                object:nil];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    manager = appDelegate.networkManager;
+    
+    NSDictionary *postDetail= self.postDetail;
+    NSDate *date = [postDetail objectForKey:@"createdAt"];
+    
+    [self.postBody setText:[postDetail objectForKey:@"body"]];
+    [self.postDate setText:[Utils stringFromDate:date]];
+    
+    [self fetchPostDetail];
+    [self fetchComments];
+    
+    self.inlineCommentField.layer.cornerRadius = 6.0;
+    UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 5, 40)];
+    self.inlineCommentField.leftView = paddingView;
+    self.inlineCommentField.leftViewMode = UITextFieldViewModeAlways;
 }
 
 - (void)fetchPostDetail {
@@ -119,16 +125,6 @@
 - (void)observeKeyboard {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillChangeFrameNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-
-    self.inlineCommentField.layer.cornerRadius = 6.0;
-    UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 5, 40)];
-    self.inlineCommentField.leftView = paddingView;
-    self.inlineCommentField.leftViewMode = UITextFieldViewModeAlways;
-
 }
 
 #pragma mark - Table view data source
