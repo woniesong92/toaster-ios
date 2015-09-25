@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AFNetworking.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, UITabBarControllerDelegate> {
 }
@@ -15,6 +16,8 @@
 @property (strong, nonatomic) UITabBarController *tabBarController;
 
 @property (strong, nonatomic) NSString *pushInstallationId;
+
+@property AFHTTPRequestOperationManager *networkManager;
 
 @end
 

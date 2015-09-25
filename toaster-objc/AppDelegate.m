@@ -37,6 +37,20 @@
     [application registerUserNotificationSettings:settings];
     [application registerForRemoteNotifications];
     
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *token = [defaults objectForKey:@"token"];
+    NSString *authorizationToken = [NSString stringWithFormat:@"Bearer %@", token];
+    
+    if (token == nil) {
+        NSLog(@"user token doesnt exist!");
+    }
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    [manager.requestSerializer setValue:authorizationToken forHTTPHeaderField:@"Authorization"];
+    
+    self.networkManager = manager;
+    
     return YES;
 }
 
@@ -72,6 +86,9 @@
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
+    
+    NSLog(@"app become active");
+    
     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
 }
 
