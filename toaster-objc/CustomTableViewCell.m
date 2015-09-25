@@ -9,6 +9,7 @@
 #import "CustomTableViewCell.h"
 #import "AFNetworking.h"
 #import "Constants.h"
+#import "AppDelegate.h"
 
 @implementation CustomTableViewCell
 
@@ -23,13 +24,9 @@
 }
 - (IBAction)onUpvotePressed:(id)sender {
     NSLog(@"post upvote");
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSString *token = [defaults objectForKey:@"token"];
-    NSString *authorizationToken = [NSString stringWithFormat:@"Bearer %@", token];
     
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    [manager.requestSerializer setValue:authorizationToken forHTTPHeaderField:@"Authorization"];
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    AFHTTPRequestOperationManager *manager = appDelegate.networkManager;
     
     NSDictionary *params = @{@"postId": self.postId};
     

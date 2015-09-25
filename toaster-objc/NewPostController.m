@@ -8,7 +8,7 @@
 
 #import "NewPostController.h"
 #import "Constants.h"
-//#import "WebViewManager.h"
+#import "AppDelegate.h"
 #import "AFNetworking.h"
 
 @interface NewPostController ()
@@ -50,15 +50,10 @@
 
 - (IBAction)doneButtonPressed:(id)sender {
     
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    AFHTTPRequestOperationManager *manager = appDelegate.networkManager;
+    
     NSString *postBody = self.postInputField.text;
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSString *token = [defaults objectForKey:@"token"];
-    NSString *authorizationToken = [NSString stringWithFormat:@"Bearer %@", token];
-    
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    [manager.requestSerializer setValue:authorizationToken forHTTPHeaderField:@"Authorization"];
     
     NSDictionary *params = @{@"postBody": postBody};
     [manager POST:NEW_POST_API_URL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
