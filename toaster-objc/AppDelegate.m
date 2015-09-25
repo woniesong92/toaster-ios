@@ -42,8 +42,10 @@
     NSString *authorizationToken = [NSString stringWithFormat:@"Bearer %@", token];
     
     if (token == nil) {
-        NSLog(@"user token doesnt exist!");
+        NSLog(@"ERROR user token doesnt exist!");
     }
+    
+    self.userId = [defaults objectForKey:@"userId"];
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];

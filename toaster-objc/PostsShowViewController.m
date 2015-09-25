@@ -9,6 +9,7 @@
 #import "PostsShowViewController.h"
 #import "Constants.h"
 #import "AFNetworking.h"
+#import "AppDelegate.h"
 #import "CommentTableViewCell.h"
 #import "Utils.h"
 
@@ -19,6 +20,9 @@
     
     [self observeKeyboard];
     
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSString *userId = appDelegate.userId;
+    
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
                                    action:@selector(dismissKeyboard)];
@@ -26,12 +30,21 @@
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     
-    NSDictionary *tempDictionary= self.postDetail;
-    NSDate *date = [tempDictionary objectForKey:@"createdAt"];
+    NSDictionary *postDetail= self.postDetail;
+    NSDate *date = [postDetail objectForKey:@"createdAt"];
     
-    [self.postBody setText:[tempDictionary objectForKey:@"body"]];
+    [self.postBody setText:[postDetail objectForKey:@"body"]];
     [self.postDate setText:[Utils stringFromDate:date]];
-    [self.numVotes setText:[NSString stringWithFormat:@"%@", [tempDictionary objectForKey:@"numLikes"]]];
+    [self.numVotes setText:[NSString stringWithFormat:@"%@", [postDetail objectForKey:@"numLikes"]]];
+    
+    if ([postDetail[@"upvoterIds"] containsObject:userId]) {
+        [self.upvoteBtn setSelected:YES];
+    }
+    
+    if ([postDetail[@"downvoterIds"] containsObject:userId]) {
+        
+        [self.downvoteBtn setSelected:YES];
+    }
     
     self.commentsTable.delegate = self;
     
@@ -95,41 +108,7 @@
     UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 5, 40)];
     self.inlineCommentField.leftView = paddingView;
     self.inlineCommentField.leftViewMode = UITextFieldViewModeAlways;
-    
-//    _webViewManager = [WebViewManager getUniqueWebViewManager:self];
-//    [_webViewManager removeWebViewFromContainer];
-//    
-//    // Setting delegate for WKWebView
-//    [[_webViewManager webView] setDelegateViews: self];
-//
-//    [self.view addSubview: _webViewManager.webView];
-//    
-//    // Replace webView with a blank image
-//    UIImage *whiteImage = [_webViewManager getWhiteImage];
-//    [_webViewManager replaceWebViewWithImage:self :whiteImage];
-//    
-//    [_loadingManager startLoadingIndicator:self];
-//    
-//    UIScrollView *scrollView = _webViewManager.webView.scrollView;
-//    scrollView.delegate = self;
-//    _keyboardHeight = 0;
-//    _shouldPreventScrolling = NO;
-//    
-//    [[NSNotificationCenter defaultCenter] addObserver:self
-//                                             selector:@selector(keyboardWillShow:)
-//                                                 name:UIKeyboardWillShowNotification
-//                                               object:nil];
-//    
-//    [[NSNotificationCenter defaultCenter] addObserver:self
-//                                             selector:@selector(keyboardWillHide:)
-//                                                 name:UIKeyboardWillHideNotification
-//                                               object:nil];
-//    
-//    [[NSNotificationCenter defaultCenter] addObserver:self
-//                                             selector:@selector(keyboardDidShow:)
-//                                                 name:UIKeyboardDidShowNotification
-//                                               object:nil];
-    
+
 }
 
 #pragma mark - Table view data source
@@ -215,14 +194,8 @@
     NSString *commentBody = self.inlineCommentField.text;
     NSString *postId = self.postDetail[@"_id"];
     
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSString *token = [defaults objectForKey:@"token"];
-    NSString *authorizationToken = [NSString stringWithFormat:@"Bearer %@", token];
-    
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    [manager.requestSerializer setValue:authorizationToken forHTTPHeaderField:@"Authorization"];
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    AFHTTPRequestOperationManager *manager = appDelegate.networkManager;
     
     NSDictionary *params = @{@"commentBody": commentBody, @"postId": postId};
     [manager POST:NEW_COMMENT_API_URL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {

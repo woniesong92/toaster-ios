@@ -17,7 +17,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
-                            <tableViewCell contentMode="center" selectionStyle="none" indentationWidth="10" shouldIndentWhileEditing="NO" reuseIdentifier="Cell" rowHeight="150" id="l8h-Hu-nv3" customClass="CustomTableViewCell">
+                            <tableViewCell contentMode="center" selectionStyle="default" indentationWidth="10" shouldIndentWhileEditing="NO" reuseIdentifier="Cell" rowHeight="150" id="l8h-Hu-nv3" customClass="CustomTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="l8h-Hu-nv3" id="Ub1-N2-uIX">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -30,12 +30,6 @@
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="15" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SXc-LH-wqN">
-                                            <rect key="frame" x="567" y="52" width="10" height="22"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PYH-SA-vVY">
@@ -70,6 +64,7 @@
                                             <state key="normal" title="upvote" image="upvote">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <state key="selected" image="upvote-selected"/>
                                             <connections>
                                                 <action selector="onUpvotePressed:" destination="l8h-Hu-nv3" eventType="touchUpInside" id="8Hz-0a-KOq"/>
                                             </connections>
@@ -79,17 +74,24 @@
                                             <state key="normal" title="downvote" image="downvote">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <state key="selected" image="downvote-selected"/>
                                             <connections>
                                                 <action selector="onDownvotePressed:" destination="l8h-Hu-nv3" eventType="touchUpInside" id="UWE-jb-RNP"/>
                                             </connections>
                                         </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="15" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SXc-LH-wqN">
+                                            <rect key="frame" x="556" y="52" width="32" height="22"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="Ogs-X4-GaG" firstAttribute="top" secondItem="SXc-LH-wqN" secondAttribute="bottom" constant="12" id="0Cf-ou-wZf"/>
                                         <constraint firstAttribute="trailing" secondItem="ftI-BB-Xfx" secondAttribute="trailing" constant="12" id="27c-6q-UNO"/>
                                         <constraint firstItem="g68-KH-Nbt" firstAttribute="leading" secondItem="T1B-oJ-8b1" secondAttribute="trailing" constant="52" id="2Ba-cx-m0v"/>
                                         <constraint firstItem="WWB-vA-Upk" firstAttribute="leading" secondItem="g68-KH-Nbt" secondAttribute="trailing" constant="6" id="3Hb-Og-pzp"/>
-                                        <constraint firstItem="ftI-BB-Xfx" firstAttribute="leading" secondItem="SXc-LH-wqN" secondAttribute="leading" constant="-11" id="6H5-DQ-8yC"/>
+                                        <constraint firstItem="ftI-BB-Xfx" firstAttribute="leading" secondItem="SXc-LH-wqN" secondAttribute="leading" id="6H5-DQ-8yC"/>
                                         <constraint firstItem="ftI-BB-Xfx" firstAttribute="top" secondItem="Ub1-N2-uIX" secondAttribute="top" constant="8" id="6Ji-hC-ldh"/>
                                         <constraint firstItem="SXc-LH-wqN" firstAttribute="top" secondItem="ftI-BB-Xfx" secondAttribute="bottom" constant="12" id="6Ri-xh-zhw"/>
                                         <constraint firstItem="WWB-vA-Upk" firstAttribute="firstBaseline" secondItem="g68-KH-Nbt" secondAttribute="firstBaseline" id="71R-gn-NP1"/>
@@ -100,7 +102,7 @@
                                         <constraint firstItem="g68-KH-Nbt" firstAttribute="baseline" secondItem="WWB-vA-Upk" secondAttribute="baseline" id="Hof-Eb-cUw"/>
                                         <constraint firstItem="g68-KH-Nbt" firstAttribute="firstBaseline" secondItem="T1B-oJ-8b1" secondAttribute="firstBaseline" id="JPj-NZ-aQ7"/>
                                         <constraint firstItem="ftI-BB-Xfx" firstAttribute="leading" secondItem="PYH-SA-vVY" secondAttribute="trailing" constant="21" id="KlU-D4-rIS"/>
-                                        <constraint firstItem="ftI-BB-Xfx" firstAttribute="trailing" secondItem="SXc-LH-wqN" secondAttribute="trailing" constant="11" id="PZy-t7-QM7"/>
+                                        <constraint firstItem="ftI-BB-Xfx" firstAttribute="trailing" secondItem="SXc-LH-wqN" secondAttribute="trailing" id="PZy-t7-QM7"/>
                                         <constraint firstItem="SXc-LH-wqN" firstAttribute="leading" secondItem="PYH-SA-vVY" secondAttribute="trailing" constant="32" id="Qra-O1-n2T"/>
                                         <constraint firstItem="T1B-oJ-8b1" firstAttribute="baseline" secondItem="g68-KH-Nbt" secondAttribute="baseline" id="Rcq-Rv-DON"/>
                                         <constraint firstItem="PYH-SA-vVY" firstAttribute="leading" secondItem="Ub1-N2-uIX" secondAttribute="leading" constant="8" id="ZEl-6E-D6G"/>
@@ -116,10 +118,12 @@
                                     </variation>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="downvoteBtn" destination="Ogs-X4-GaG" id="fvb-9M-cZu"/>
                                     <outlet property="numComments" destination="g68-KH-Nbt" id="SdJ-dc-Xv3"/>
-                                    <outlet property="numVotes" destination="SXc-LH-wqN" id="4I8-8Q-5PS"/>
+                                    <outlet property="numVotes" destination="SXc-LH-wqN" id="ZVy-c1-mg1"/>
                                     <outlet property="postBody" destination="PYH-SA-vVY" id="HYF-EE-rMF"/>
                                     <outlet property="postDate" destination="T1B-oJ-8b1" id="jch-K2-3fq"/>
+                                    <outlet property="upvoteBtn" destination="ftI-BB-Xfx" id="ca9-HO-BQK"/>
                                     <segue destination="i0U-vc-kr9" kind="show" identifier="postsShowSegue1" id="2tB-YS-ZOB"/>
                                 </connections>
                             </tableViewCell>
@@ -258,6 +262,7 @@
                                 <state key="normal" image="upvote">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <state key="selected" image="upvote-selected"/>
                                 <connections>
                                     <action selector="onPostUpvote:" destination="i0U-vc-kr9" eventType="touchUpInside" id="QUA-F0-n7d"/>
                                 </connections>
@@ -267,6 +272,7 @@
                                 <state key="normal" image="downvote">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <state key="selected" image="downvote-selected"/>
                                 <connections>
                                     <action selector="onPostDownvote:" destination="i0U-vc-kr9" eventType="touchUpInside" id="I7T-YO-I0s"/>
                                 </connections>
@@ -457,12 +463,14 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="commentsTable" destination="Pyh-Yd-ne8" id="rSU-ay-ffc"/>
+                        <outlet property="downvoteBtn" destination="RJw-As-bKP" id="B1Y-EQ-s0Z"/>
                         <outlet property="inlineCommentField" destination="QMR-17-xRj" id="bkX-tV-bRk"/>
                         <outlet property="inputContainerBottomConstraint" destination="DQz-vt-bLe" id="vl5-hK-Vct"/>
                         <outlet property="numComments" destination="jzM-r4-0nP" id="Qvr-8N-luG"/>
                         <outlet property="numVotes" destination="eor-i0-YiB" id="7y6-x0-v5Y"/>
                         <outlet property="postBody" destination="Lgb-ut-QTU" id="CA1-qs-cpm"/>
                         <outlet property="postDate" destination="Ap0-4e-g9j" id="pN9-Yz-DSg"/>
+                        <outlet property="upvoteBtn" destination="XGT-cK-69a" id="d6x-Vq-ZBY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WBa-LR-aeK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1038,6 +1046,7 @@
     </scenes>
     <resources>
         <image name="downvote" width="32" height="32"/>
+        <image name="downvote-selected" width="32" height="32"/>
         <image name="notifications" width="32" height="32"/>
         <image name="notifications-selected" width="32" height="32"/>
         <image name="profile" width="32" height="32"/>
@@ -1048,6 +1057,7 @@
         <image name="trending" width="32" height="32"/>
         <image name="trending-selected" width="32" height="32"/>
         <image name="upvote" width="32" height="32"/>
+        <image name="upvote-selected" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="2tB-YS-ZOB"/>

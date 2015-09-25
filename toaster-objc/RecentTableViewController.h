@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AFNetworking.h"
 
 @interface RecentTableViewController : UITableViewController <UITableViewDataSource> {
+    AFHTTPRequestOperationManager *manager;
 }
 
 @property NSArray *comments;

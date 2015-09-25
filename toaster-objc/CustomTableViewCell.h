@@ -14,6 +14,14 @@
 @property (weak, nonatomic) IBOutlet UILabel *postDate;
 @property (weak, nonatomic) IBOutlet UITextView *postBody;
 
+@property (weak, nonatomic) IBOutlet UIButton *upvoteBtn;
+@property (weak, nonatomic) IBOutlet UIButton *downvoteBtn;
+
+//@property (weak, nonatomic) IBOutlet UIButton *didI;
+
+@property BOOL didIDownvote;
+@property BOOL didIUpvote;
+
 @property NSString *postId;
 
 @end

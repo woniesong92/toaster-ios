@@ -11,6 +11,8 @@
 #import "LoadingManager.h"
 
 @interface PostsShowViewController : UIViewController <UIWebViewDelegate, WKNavigationDelegate, WKUIDelegate, UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate> {
+    
+    
 }
 
 @property (strong, nonatomic) UIImage *parentScreenImage;
@@ -24,6 +26,8 @@
 @property (weak, nonatomic) IBOutlet UITableView *commentsTable;
 @property (weak, nonatomic) IBOutlet UITextField *inlineCommentField;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *inputContainerBottomConstraint;
+@property (weak, nonatomic) IBOutlet UIButton *upvoteBtn;
 
+@property (weak, nonatomic) IBOutlet UIButton *downvoteBtn;
 
 @end

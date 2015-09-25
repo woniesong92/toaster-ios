@@ -15,7 +15,6 @@
 #import "Utils.h"
 #import "Underscore.h"
 #import "AppDelegate.h"
-#import "AFNetworking.h"
 #define _ Underscore
 
 
@@ -27,6 +26,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    manager = appDelegate.networkManager;
     
     [self fetchPosts];
     
@@ -44,17 +46,13 @@
 
 - (void)fetchPosts {
     
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    AFHTTPRequestOperationManager *manager = appDelegate.networkManager;
-    
     NSDictionary *params = @{};
     
     [manager GET:GET_RECENT_POSTS_URL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        
         NSArray *posts = responseObject[@"posts"];
-        
         NSArray *comments = responseObject[@"comments"];
+        
         NSMutableDictionary *numCommentsForPosts = [[NSMutableDictionary alloc] init];
         
         for (NSDictionary *comment in comments) {
@@ -78,6 +76,7 @@
         NSLog(@"Error: %@", error);
     }];
 }
+
 
 //
 //- (void)fetchPosts {
@@ -153,6 +152,9 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    NSString *userId = appDelegate.userId;
     NSString *cellId = @"Cell";
     CustomTableViewCell *cell = (CustomTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
     NSDictionary *postObj= [self.posts objectAtIndex:indexPath.row];
@@ -161,6 +163,19 @@
     NSNumber *numComments = [self.numCommentsForPosts objectForKey:postId];
     if (!numComments) {
         numComments = [NSNumber numberWithInt:0];
+    }
+    
+    NSArray *upvoters = postObj[@"upvoterIds"];
+    NSArray *downvoters = postObj[@"downvoterIds"];
+    
+    if ([upvoters containsObject:userId]) {
+        cell.didIUpvote = YES;
+        [cell.upvoteBtn setSelected:YES];
+    }
+    
+    if ([downvoters containsObject:userId]) {
+        cell.didIDownvote = YES;
+        [cell.downvoteBtn setSelected:YES];
     }
 
     cell.postId = postId;

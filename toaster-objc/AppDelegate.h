@@ -16,8 +16,11 @@
 @property (strong, nonatomic) UITabBarController *tabBarController;
 
 @property (strong, nonatomic) NSString *pushInstallationId;
+@property (strong, nonatomic) NSString *userId;
 
-@property AFHTTPRequestOperationManager *networkManager;
+@property (strong, nonatomic) AFHTTPRequestOperationManager *networkManager;
+
+
 
 @end
 
