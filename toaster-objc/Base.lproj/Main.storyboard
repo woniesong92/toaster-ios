@@ -1025,9 +1025,9 @@
         <scene sceneID="1va-vi-1gd">
             <objects>
                 <navigationController title="Recent Nav" id="lJ5-gI-H5F" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Recent" image="recent" id="hLk-qc-noF">
+                    <tabBarItem key="tabBarItem" title="Toasts" image="toasts" id="hLk-qc-noF">
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="recent-selected"/>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="toasts-selected"/>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
                                 <color key="value" red="1" green="0.27450980390000002" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </userDefinedRuntimeAttribute>
@@ -1059,8 +1059,9 @@
         <image name="profile" width="32" height="32"/>
         <image name="profile-selected" width="32" height="32"/>
         <image name="recent" width="32" height="32"/>
-        <image name="recent-selected" width="32" height="32"/>
         <image name="settings" width="32" height="32"/>
+        <image name="toasts" width="32" height="32"/>
+        <image name="toasts-selected" width="32" height="32"/>
         <image name="trending" width="32" height="32"/>
         <image name="trending-selected" width="32" height="32"/>
         <image name="upvote" width="32" height="32"/>
