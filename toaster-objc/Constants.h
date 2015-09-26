@@ -40,8 +40,16 @@
 
 #define LOGIN_API_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/users/login"]
 #define SIGNUP_API_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/users/register"]
+
+
 #define GET_RECENT_POSTS_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/publications/recentPostsAndComments"]
+
+
+
+
+
 #define GET_COMMENTS_FOR_POST_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/get-comments-for-post"]
+#define GET_MY_POSTS_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/publications/PostsThatICommentedOn"]
 #define GET_POST_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/get-post"]
 
 #define NEW_POST_API_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/api/posts/new"]

@@ -187,7 +187,6 @@
     if (numberOfRows) {
         [self.commentsTable scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:numberOfRows-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
     }
-    
 }
 
 - (void)keyboardWillHide:(NSNotification *)notification {
@@ -231,18 +230,13 @@
     NSString *commentBody = self.inlineCommentField.text;
     NSString *postId = self.postDetail[@"_id"];
     
+    [self.inlineCommentField setText:@""];
+    [self.view endEditing:YES];
+    
     NSDictionary *params = @{@"commentBody": commentBody, @"postId": postId};
     [manager POST:NEW_COMMENT_API_URL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-//        [[NSNotificationCenter defaultCenter] postNotificationName:ASK_TO_FETCH_COMMENTS object:nil userInfo:nil];
-        
-        NSLog(@"resp %@", responseObject);
-        
         [self addCommentRow:responseObject];
-        
         [[NSNotificationCenter defaultCenter] postNotificationName:TABLE_SCROLL_TO_BOTTOM object:nil userInfo:nil];
-        [self.inlineCommentField setText:@""];
-        [self.view endEditing:YES];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         // TODO: show user this error and clear all the textfields
