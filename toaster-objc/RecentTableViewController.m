@@ -38,7 +38,7 @@
     CGFloat tabBarHeight = self.tabBarController.tabBar.frame.size.height;
     CGFloat filterBtnsContainerHeight = 36.0;
     CGFloat insetTopMargin = navbarHeight + statusHeight + filterBtnsContainerHeight;
-    [self.recentPostsTable setContentInset:UIEdgeInsetsMake(insetTopMargin,0,tabBarHeight,0)];
+    [self.postsTable setContentInset:UIEdgeInsetsMake(insetTopMargin,0,tabBarHeight,0)];
     
     // Add buttons
     [self addFilterBtns:filterBtnsContainerHeight];
@@ -50,28 +50,14 @@
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     manager = appDelegate.networkManager;
     
-//    // second view controller
-//    HotTableViewController *hotTableVC = [[HotTableViewController alloc] init];
-//    [hotTableVC.tableView setDataSource:hotTableVC];
-//    [hotTableVC.tableView setDelegate:hotTableVC];
-//    self.hotTableVC = hotTableVC;
-//    self.hotPostsTable = hotTableVC.tableView;
-//
-    
 //    Set up Recent Posts Table
-    [self.recentPostsTable setDelegate:self];
-    [self.recentPostsTable setDataSource:self];
-    [self.recentPostsTable setTag:0];
+    [self.postsTable setDelegate:self];
+    [self.postsTable setDataSource:self.postsTable];
+//    [self.recentPostsTable setDataSource:self];
+    [self.postsTable setTag:0];
     
-//    Set up hot Posts Table
-    UITableView *hotPostsTable = [[UITableView alloc] initWithFrame:self.recentPostsTable.frame style:self.recentPostsTable.style];
-    [hotPostsTable setDelegate:self];
-    [hotPostsTable setDataSource:self];
-    [hotPostsTable setTag:1];
-    self.hotPostsTable = hotPostsTable;
-    
-    [self fetchPosts:RECENT_POSTS_TABLE_TAG limit:[NSNumber numberWithInteger:NUM_RECENT_POSTS_IN_ONE_BATCH] skip:@0];
-    [self fetchPosts:HOT_POSTS_TABLE_TAG limit:[NSNumber numberWithInteger:NUM_HOT_POSTS_IN_ONE_BATCH] skip:@0];
+    [self fetchPosts:HOT_POSTS_TABLE_TAG limit:[NSNumber numberWithInteger:NUM_HOT_POSTS_IN_ONE_BATCH] skip:@0 doReload:NO];
+    [self fetchPosts:RECENT_POSTS_TABLE_TAG limit:[NSNumber numberWithInteger:NUM_RECENT_POSTS_IN_ONE_BATCH] skip:@0 doReload:YES];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(shouldFetchPosts:)
@@ -144,9 +130,8 @@
     NSLog(@"new btn selected");
     [self.recentBtn setSelected:YES];
     [self.hotBtn setSelected:NO];
-
-    NSLog(@"change to recentPostsTable!");
-    self.tableView = self.recentPostsTable;
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:TABLE_DATA_SOURCE_CHANGE object:RECENT_POSTS_TABLE_TAG userInfo:nil];
 }
 
 - (void)hotBtnSelected: (UIButton *)btn {
@@ -154,16 +139,15 @@
     [self.hotBtn setSelected:YES];
     [self.recentBtn setSelected:NO];
     
-    NSLog(@"change to hotPostsTable!");
-    self.tableView = self.hotPostsTable;
+    [[NSNotificationCenter defaultCenter] postNotificationName:TABLE_DATA_SOURCE_CHANGE object:HOT_POSTS_TABLE_TAG userInfo:nil];
 }
 
 
-- (void)fetchPosts: (NSInteger *)postsTableTag limit:(NSNumber *)limit skip:(NSNumber *)skip {
+- (void)fetchPosts: (NSNumber *)postsTableTag limit:(NSNumber *)limit skip:(NSNumber *)skip doReload:(BOOL)doReload {
     
     NSString *reqUrl;
     
-    if (postsTableTag == RECENT_POSTS_TABLE_TAG) {
+    if ([postsTableTag isEqual: RECENT_POSTS_TABLE_TAG]) {
         reqUrl = [NSString stringWithFormat:@"%@/%@/%@", GET_RECENT_POSTS_URL, limit, skip];
         NSLog(@"fetching recent table posts");
     } else {
@@ -177,7 +161,6 @@
         
         NSMutableArray *posts = responseObject[@"posts"];
         NSMutableArray *comments = responseObject[@"comments"];
-        
         NSMutableDictionary *numCommentsForPosts = [[NSMutableDictionary alloc] init];
         
         for (NSDictionary *comment in comments) {
@@ -190,22 +173,20 @@
                 [numCommentsForPosts setValue:[NSNumber numberWithInt:1] forKey:key];
             }
         }
-        
-        if (postsTableTag == RECENT_POSTS_TABLE_TAG) {
-            self.recentPosts = [Utils sortReversedJSONObjsByDate:posts];
-            self.numCommentsForRecentPosts = numCommentsForPosts;
-            self.currentPosts = self.recentPosts;
-            self.numCommentsForCurrentPosts = numCommentsForPosts;
+
+        if ([postsTableTag  isEqual: RECENT_POSTS_TABLE_TAG]) {
+            self.postsTable.recentPosts = [Utils sortReversedJSONObjsByDate:posts];
+            self.postsTable.numCommentsForRecentPosts = numCommentsForPosts;
         } else {
-            
-            self.hotPosts = [Utils sortReversedJSONObjsByDate:posts];
-            self.currentPosts = self.hotPosts;
-            self.numCommentsForHotPosts = numCommentsForPosts;
-            self.numCommentsForCurrentPosts = numCommentsForPosts;
+            self.postsTable.hotPosts = [Utils sortReversedJSONObjsByDate:posts];
+            self.postsTable.numCommentsForHotPosts = numCommentsForPosts;
         }
         
-        NSLog(@"gonna call reloadData");
-        [self.tableView reloadData];
+        if (doReload) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:TABLE_DATA_SOURCE_CHANGE object: [NSNumber numberWithInteger:self.postsTable.tag] userInfo:nil];
+        } else {
+            NSLog(@"dont reload");
+        }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         // TODO: show user this error and clear all the textfields
@@ -216,7 +197,7 @@
 - (void)addPostRow:(NSMutableDictionary *)newPost {
     NSString *createdAt = (NSString *)newPost[@"createdAt"];
     [newPost setValue:[Utils dateWithJSONString:createdAt] forKey:@"createdAt"];
-    [self.currentPosts insertObject:newPost atIndex:0];
+    [self.postsTable.posts insertObject:newPost atIndex:0];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.tableView beginUpdates];
     [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
@@ -249,7 +230,7 @@
 - (void)onUpdateVoteState:(NSNotification *)notification {
     NSInteger rowIdx = [(NSNumber *) notification.object[@"rowIdx"] intValue];
     NSIndexPath *idxPath = [NSIndexPath indexPathForRow:rowIdx inSection:0];
-    CustomTableViewCell *cell = (CustomTableViewCell *)[self.recentPostsTable cellForRowAtIndexPath:idxPath];
+    CustomTableViewCell *cell = (CustomTableViewCell *)[self.postsTable cellForRowAtIndexPath:idxPath];
     cell.didIDownvote = [(NSNumber *)notification.object[@"didIDownvote"] boolValue];
     cell.didIUpvote = [(NSNumber *)notification.object[@"didIUpvote"] boolValue];
     if (cell.didIUpvote) {
@@ -271,78 +252,70 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
-    if (tableView.tag == RECENT_POSTS_TABLE_TAG) {
-        NSLog(@"recent post count %lu", (unsigned long)[self.recentPosts count]);
-        return [self.recentPosts count];
-    } else {
-        NSLog(@"hot post count %lu", (unsigned long)[self.hotPosts count]);
-        return [self.hotPosts count];
-    }
-}
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    
-    NSString *userId = appDelegate.userId;
-    NSString *cellId = @"Cell";
-    CustomTableViewCell *cell = (CustomTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
-    NSDictionary *postObj;
-    
-    if (tableView.tag == RECENT_POSTS_TABLE_TAG) {
-        postObj= [self.recentPosts objectAtIndex:indexPath.row];
-    } else {
-        postObj= [self.hotPosts objectAtIndex:indexPath.row];
-    }
-    
-    NSString *postId = postObj[@"_id"];
-    NSString *createdAt = [Utils stringFromDate:[postObj objectForKey:@"createdAt"]];
-    NSNumber *numComments = [self.numCommentsForCurrentPosts objectForKey:postId];
-    if (!numComments) {
-        numComments = [NSNumber numberWithInt:0];
-    }
-    
-    if ([postObj[@"upvoterIds"] containsObject:userId]) {
-        cell.didIUpvote = YES;
-        [cell.upvoteBtn setSelected:YES];
-    } else if ([postObj[@"downvoterIds"] containsObject:userId]) {
-        cell.didIDownvote = YES;
-        [cell.downvoteBtn setSelected:YES];
-    } else {
-        cell.didIUpvote = NO;
-        cell.didIDownvote = NO;
-        [cell.upvoteBtn setSelected:NO];
-        [cell.downvoteBtn setSelected:NO];
-    }
-
-    cell.postId = postId;
-    [cell.postBody setText:[postObj objectForKey:@"body"]];
-    [cell.postDate setText:createdAt];
-    [cell.numComments setText:[NSString stringWithFormat:@"%@", numComments]];
-    [cell.numVotes setText:[NSString stringWithFormat:@"%@", [postObj objectForKey:@"numLikes"]]];
-
-    return cell;
-}
+//
+//#pragma mark - Table view data source
+//
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+//    return 1;
+//}
+//
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+//    // Return the number of rows in the section.
+//    return [self.posts count];
+//}
+//
+//
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+//    
+//    NSString *userId = appDelegate.userId;
+//    NSString *cellId = @"Cell";
+//    CustomTableViewCell *cell = (CustomTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
+//    NSDictionary *postObj = [self.posts objectAtIndex:indexPath.row];
+//    
+//    NSString *postId = postObj[@"_id"];
+//    NSString *createdAt = [Utils stringFromDate:[postObj objectForKey:@"createdAt"]];
+//    NSNumber *numComments = [self.numCommentsForPosts objectForKey:postId];
+//    if (!numComments) {
+//        numComments = [NSNumber numberWithInt:0];
+//    }
+//    
+//    if ([postObj[@"upvoterIds"] containsObject:userId]) {
+//        cell.didIUpvote = YES;
+//        [cell.upvoteBtn setSelected:YES];
+//    } else if ([postObj[@"downvoterIds"] containsObject:userId]) {
+//        cell.didIDownvote = YES;
+//        [cell.downvoteBtn setSelected:YES];
+//    } else {
+//        cell.didIUpvote = NO;
+//        cell.didIDownvote = NO;
+//        [cell.upvoteBtn setSelected:NO];
+//        [cell.downvoteBtn setSelected:NO];
+//    }
+//
+//    cell.postId = postId;
+//    [cell.postBody setText:[postObj objectForKey:@"body"]];
+//    [cell.postDate setText:createdAt];
+//    [cell.numComments setText:[NSString stringWithFormat:@"%@", numComments]];
+//    [cell.numVotes setText:[NSString stringWithFormat:@"%@", [postObj objectForKey:@"numLikes"]]];
+//
+//    return cell;
+//}
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    ToastsTableView *postsTable = (ToastsTableView *)tableView;
+    
     if (tableView.tag == RECENT_POSTS_TABLE_TAG) {
         if (indexPath.row == rowIdxToStartFetchingRecentPosts) {
-            [self fetchPosts:RECENT_POSTS_TABLE_TAG limit:[NSNumber numberWithInteger:self.recentPosts.count+NUM_RECENT_POSTS_IN_ONE_BATCH] skip:[NSNumber numberWithInteger:self.recentPosts.count]];
+            NSLog(@"fetch more recent posts");
+            [self fetchPosts:RECENT_POSTS_TABLE_TAG limit:[NSNumber numberWithInteger:postsTable.posts.count+NUM_RECENT_POSTS_IN_ONE_BATCH] skip:[NSNumber numberWithInteger:postsTable.posts.count] doReload:YES];
             rowIdxToStartFetchingRecentPosts += NUM_RECENT_POSTS_IN_ONE_BATCH;
         }
     } else {
         if (indexPath.row == rowIdxToStartFetchingHotPosts) {
-            [self fetchPosts:HOT_POSTS_TABLE_TAG limit:[NSNumber numberWithInteger:self.hotPosts.count+NUM_HOT_POSTS_IN_ONE_BATCH] skip:[NSNumber numberWithInteger:self.hotPosts.count]];
+            NSLog(@"fetch more hot posts");
+            [self fetchPosts:HOT_POSTS_TABLE_TAG limit:[NSNumber numberWithInteger:postsTable.posts.count+NUM_HOT_POSTS_IN_ONE_BATCH] skip:[NSNumber numberWithInteger:postsTable.posts.count] doReload:YES];
             rowIdxToStartFetchingHotPosts += NUM_HOT_POSTS_IN_ONE_BATCH;
         }
     }
@@ -354,7 +327,7 @@
     if ([segue.identifier isEqualToString:@"postsShowSegue1"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         PostsShowViewController *postsShowController = (PostsShowViewController *)segue.destinationViewController;
-        postsShowController.postDetail = [self.currentPosts objectAtIndex:indexPath.row];
+        postsShowController.postDetail = [self.postsTable.posts objectAtIndex:indexPath.row];
         postsShowController.cellRowIdx = [NSNumber numberWithInteger:indexPath.row];
     }
 }

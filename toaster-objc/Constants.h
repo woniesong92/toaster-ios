@@ -29,6 +29,8 @@
 #define LOADING_START @"toasterapp://loadingStart"
 #define LOADING_END @"toasterapp://loadingEnd"
 
+#define TABLE_DATA_SOURCE_CHANGE @"tableDataSourceChange"
+
 #define ASK_TO_FETCH_POSTS @"AskToFetchPosts"
 #define ASK_TO_ADD_POST_ROW @"ASkToAddPostRow"
 #define ASK_TO_FETCH_COMMENTS @"AskToFetchComments"
@@ -38,8 +40,8 @@
 #define TABLE_SCROLL_TO_TOP @"tableScrollToTop"
 #define TABLE_SCROLL_TO_BOTTOM @"tableScrollToBottom"
 
-#define RECENT_POSTS_TABLE_TAG 0
-#define HOT_POSTS_TABLE_TAG 1
+#define RECENT_POSTS_TABLE_TAG @0
+#define HOT_POSTS_TABLE_TAG @1
 
 #define LOGIN_API_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/users/login"]
 #define SIGNUP_API_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/users/register"]

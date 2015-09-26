@@ -11,7 +11,7 @@
         <scene sceneID="KER-hK-HFv">
             <objects>
                 <tableViewController title="Recent" id="0j5-Yx-alz" customClass="RecentTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="150" sectionHeaderHeight="22" sectionFooterHeight="22" id="AAD-Ug-CJt">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="150" sectionHeaderHeight="22" sectionFooterHeight="22" id="AAD-Ug-CJt" customClass="ToastsTableView">
                         <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -128,10 +128,6 @@
                                 </connections>
                             </tableViewCell>
                         </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="0j5-Yx-alz" id="TVX-TC-KbN"/>
-                            <outlet property="delegate" destination="0j5-Yx-alz" id="7GA-NH-Jr5"/>
-                        </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Recent" image="recent" id="yh3-yi-d6V"/>
                     <navigationItem key="navigationItem" title="Recent" id="jcW-mv-Q8I">
@@ -143,7 +139,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="recentPostsTable" destination="AAD-Ug-CJt" id="Gdi-w1-ZZk"/>
+                        <outlet property="postsTable" destination="AAD-Ug-CJt" id="1hH-Hy-8jM"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hn7-tO-bzQ" userLabel="First Responder" sceneMemberID="firstResponder"/>

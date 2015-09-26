@@ -59,11 +59,11 @@
 		708D2D111BA3B3F800CF17F9 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 708D2D101BA3B3F800CF17F9 /* libsqlite3.dylib */; };
 		70951F941B989F15006B1228 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 70951F931B989F15006B1228 /* main.m */; };
 		70951F971B989F15006B1228 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 70951F961B989F15006B1228 /* AppDelegate.m */; };
-		70951F9D1B989F15006B1228 /* TrendingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70951F9C1B989F15006B1228 /* TrendingViewController.m */; };
 		70951FA01B989F15006B1228 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70951F9E1B989F15006B1228 /* Main.storyboard */; };
 		70951FA21B989F15006B1228 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70951FA11B989F15006B1228 /* Images.xcassets */; };
 		70951FA51B989F15006B1228 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70951FA31B989F15006B1228 /* LaunchScreen.xib */; };
 		70951FB11B989F15006B1228 /* toaster_objcTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 70951FB01B989F15006B1228 /* toaster_objcTests.m */; };
+		70A4F03F1BB739D500E66A7E /* ToastsTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A4F03E1BB739D500E66A7E /* ToastsTableView.m */; };
 		70D005631B98A882006E746F /* PostsShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D005621B98A882006E746F /* PostsShowViewController.m */; };
 		70E3415F1B9C9DB200046067 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E3415E1B9C9DB200046067 /* SettingsViewController.m */; };
 		70E341621B9CA6C200046067 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E341611B9CA6C200046067 /* SignUpViewController.m */; };
@@ -179,8 +179,6 @@
 		70951F931B989F15006B1228 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		70951F951B989F15006B1228 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		70951F961B989F15006B1228 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		70951F9B1B989F15006B1228 /* TrendingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrendingViewController.h; sourceTree = "<group>"; };
-		70951F9C1B989F15006B1228 /* TrendingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrendingViewController.m; sourceTree = "<group>"; };
 		70951F9F1B989F15006B1228 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		70951FA11B989F15006B1228 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		70951FA41B989F15006B1228 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -188,6 +186,8 @@
 		70951FAF1B989F15006B1228 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		70951FB01B989F15006B1228 /* toaster_objcTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = toaster_objcTests.m; sourceTree = "<group>"; };
 		70951FBA1B98A009006B1228 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		70A4F03D1BB739D500E66A7E /* ToastsTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToastsTableView.h; sourceTree = "<group>"; };
+		70A4F03E1BB739D500E66A7E /* ToastsTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToastsTableView.m; sourceTree = "<group>"; };
 		70D005611B98A882006E746F /* PostsShowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostsShowViewController.h; sourceTree = "<group>"; };
 		70D005621B98A882006E746F /* PostsShowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostsShowViewController.m; sourceTree = "<group>"; };
 		70E3415D1B9C9DB200046067 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
@@ -388,6 +388,8 @@
 				70EC5AC01BAE5F7E0019AA58 /* SignInViewController.m */,
 				70EC5ABC1BAE3F9C0019AA58 /* RecentTableViewController.h */,
 				70EC5ABD1BAE3F9C0019AA58 /* RecentTableViewController.m */,
+				70A4F03D1BB739D500E66A7E /* ToastsTableView.h */,
+				70A4F03E1BB739D500E66A7E /* ToastsTableView.m */,
 				7004B9D11BAE902700C4210E /* CustomTableViewCell.h */,
 				7004B9D21BAE902700C4210E /* CustomTableViewCell.m */,
 				7017D6ED1BAF03F2003EB498 /* CommentTableViewCell.h */,
@@ -396,8 +398,6 @@
 				70D005621B98A882006E746F /* PostsShowViewController.m */,
 				700272491B9B173F00C292A5 /* NewPostController.h */,
 				7002724A1B9B173F00C292A5 /* NewPostController.m */,
-				70951F9B1B989F15006B1228 /* TrendingViewController.h */,
-				70951F9C1B989F15006B1228 /* TrendingViewController.m */,
 				700272461B9A6A6D00C292A5 /* NotificationsViewController.h */,
 				700272471B9A6A6D00C292A5 /* NotificationsViewController.m */,
 				700272431B9A69C400C292A5 /* ProfileViewController.h */,
@@ -560,7 +560,6 @@
 				700272391B9A36B900C292A5 /* UIWebView+FLUIWebView.m in Sources */,
 				70D005631B98A882006E746F /* PostsShowViewController.m in Sources */,
 				7004B9D31BAE902700C4210E /* CustomTableViewCell.m in Sources */,
-				70951F9D1B989F15006B1228 /* TrendingViewController.m in Sources */,
 				701278291BA6121600A4D6FA /* TermsOfServiceViewController.m in Sources */,
 				7017D72B1BAF9DBB003EB498 /* DTTimePeriodCollection.m in Sources */,
 				700272481B9A6A6D00C292A5 /* NotificationsViewController.m in Sources */,
@@ -590,6 +589,7 @@
 				70951F941B989F15006B1228 /* main.m in Sources */,
 				706B36611BA7DB6400BC2889 /* PrivacyPolicyViewController.m in Sources */,
 				70E341621B9CA6C200046067 /* SignUpViewController.m in Sources */,
+				70A4F03F1BB739D500E66A7E /* ToastsTableView.m in Sources */,
 				7046D1FF1BAE38EF00A5465F /* AFNetworkReachabilityManager.m in Sources */,
 				7017D70F1BAF8E3D003EB498 /* USStringWrapper.m in Sources */,
 				7017D70E1BAF8E3D003EB498 /* Underscore+Strings.m in Sources */,

@@ -8,23 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "AFNetworking.h"
+#import "ToastsTableView.h"
 
 @interface RecentTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate> {
     AFHTTPRequestOperationManager *manager;
 }
 
-@property NSMutableArray *comments;
-@property NSMutableArray *recentPosts;
-@property NSMutableArray *hotPosts;
-@property NSMutableArray *currentPosts;
-@property NSMutableDictionary *numCommentsForCurrentPosts;
-@property NSMutableDictionary *numCommentsForRecentPosts;
-@property NSMutableDictionary *numCommentsForHotPosts;
-@property (strong, nonatomic) IBOutlet UITableView *recentPostsTable;
+//@property NSMutableArray *comments;
 @property UIButton *recentBtn;
 @property UIButton *hotBtn;
-//@property (strong, nonatomic) HotTableViewController *hotTableVC;
-@property (strong, nonatomic) UITableView *hotPostsTable;
-//@property (strong, nonatomic) UITableView *currentPostsTable;
+@property (strong, nonatomic) IBOutlet ToastsTableView *postsTable;
 
 @end
