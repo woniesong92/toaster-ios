@@ -38,6 +38,11 @@
                                                object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onAddPostRow:)
+                                                 name:ASK_TO_ADD_POST_ROW
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(shouldScrollTop:)
                                                  name:TABLE_SCROLL_TO_TOP
                                                object:nil];
@@ -86,6 +91,15 @@
     }];
 }
 
+- (void)addPostRow:(NSMutableDictionary *)newPost {
+    NSString *createdAt = (NSString *)newPost[@"createdAt"];
+    [newPost setValue:[Utils dateWithJSONString:createdAt] forKey:@"createdAt"];
+    [self.posts insertObject:newPost atIndex:0];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    [self.postsTable beginUpdates];
+    [self.postsTable insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    [self.postsTable endUpdates];
+}
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -93,6 +107,10 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+}
+
+- (void)onAddPostRow:(NSNotification *)notification {
+    [self addPostRow:(NSMutableDictionary *)notification.object];
 }
 
 - (void)shouldFetchPosts:(NSNotification *)notification {

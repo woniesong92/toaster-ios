@@ -30,6 +30,7 @@
 #define LOADING_END @"toasterapp://loadingEnd"
 
 #define ASK_TO_FETCH_POSTS @"AskToFetchPosts"
+#define ASK_TO_ADD_POST_ROW @"ASkToAddPostRow"
 #define ASK_TO_FETCH_COMMENTS @"AskToFetchComments"
 
 //table cell related
