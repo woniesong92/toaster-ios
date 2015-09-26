@@ -57,7 +57,7 @@
         
         NSLog(@"%@", responseObject);
         
-//        Should validate one more time here
+//        Should validate one more time here?
 //        NSNumber *diffVotes = responseObject[@"diffVotes"];
 //        if (diffVotes.intValue == 1) {
 //            [self toggleSelected:self.upvoteBtn otherBtn:self.downvoteBtn];
@@ -89,7 +89,7 @@
     } else {
         self.didIDownvote = YES;
         [self.numVotes setText:[NSString stringWithFormat:@"%d", self.numVotes.text.intValue-1]];
-        [self toggleSelected:self.downvoteBtn];
+        [self toggleSelected:self.downvoteBtn]  ;
     }
     
     [manager POST:DOWNVOTE_POST_API_URL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {

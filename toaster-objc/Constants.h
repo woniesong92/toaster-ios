@@ -48,3 +48,6 @@
 #define UPVOTE_POST_API_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/api/posts/upvote"]
 #define DOWNVOTE_POST_API_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/api/posts/downvote"]
 
+#define UPVOTE_POST_UPDATE @"upvote_post_update"
+#define DOWNVOTE_POST_UPDATE @"downvote_post_update"
+

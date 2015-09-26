@@ -41,6 +41,16 @@
                                              selector:@selector(shouldScrollTop:)
                                                  name:TABLE_SCROLL_TO_TOP
                                                object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onUpdateVoteState:)
+                                                 name:UPVOTE_POST_UPDATE
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onUpdateVoteState:)
+                                                 name:DOWNVOTE_POST_UPDATE
+                                               object:nil];
 }
 
 
@@ -92,6 +102,27 @@
 
 - (void)shouldScrollTop:(NSNotification *)notification {
     [self.postsTable scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+}
+
+- (void)onUpdateVoteState:(NSNotification *)notification {
+    NSInteger rowIdx = [(NSNumber *) notification.object[@"rowIdx"] intValue];
+    NSIndexPath *idxPath = [NSIndexPath indexPathForRow:rowIdx inSection:0];
+    CustomTableViewCell *cell = (CustomTableViewCell *)[self.postsTable cellForRowAtIndexPath:idxPath];
+    cell.didIDownvote = [(NSNumber *)notification.object[@"didIDownvote"] boolValue];
+    cell.didIUpvote = [(NSNumber *)notification.object[@"didIUpvote"] boolValue];
+    if (cell.didIUpvote) {
+        [cell.downvoteBtn setSelected:NO];
+        [cell.upvoteBtn setSelected:YES];
+    } else if (cell.didIDownvote) {
+        [cell.upvoteBtn setSelected:NO];
+        [cell.downvoteBtn setSelected:YES];
+    } else {
+        [cell.upvoteBtn setSelected:NO];
+        [cell.downvoteBtn setSelected:NO];
+    }
+    
+    NSInteger voteDiff = [(NSNumber *) notification.object[@"voteDiff"] integerValue];
+    cell.numVotes.text = [NSString stringWithFormat:@"%ld", cell.numVotes.text.integerValue + voteDiff];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -155,6 +186,7 @@
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         PostsShowViewController *postsShowController = (PostsShowViewController *)segue.destinationViewController;
         postsShowController.postDetail = [self.posts objectAtIndex:indexPath.row];
+        postsShowController.cellRowIdx = [NSNumber numberWithInteger:indexPath.row];
     }
 }
 

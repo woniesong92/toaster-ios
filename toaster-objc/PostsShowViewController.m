@@ -17,6 +17,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // Update the initial information
+    NSDictionary *postDetail= self.postDetail;
+    NSDate *date = [postDetail objectForKey:@"createdAt"];
+    [self.postBody setText:[postDetail objectForKey:@"body"]];
+    [self.postDate setText:[Utils stringFromDate:date]];
+    self.postId = [postDetail objectForKey:@"_id"];
 
     self.commentsTable.delegate = self;
     self.automaticallyAdjustsScrollViewInsets = NO;
@@ -44,12 +51,6 @@
     
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     manager = appDelegate.networkManager;
-    
-    NSDictionary *postDetail= self.postDetail;
-    NSDate *date = [postDetail objectForKey:@"createdAt"];
-    
-    [self.postBody setText:[postDetail objectForKey:@"body"]];
-    [self.postDate setText:[Utils stringFromDate:date]];
     
     [self fetchPostDetail];
     [self fetchComments];
@@ -79,10 +80,10 @@
         NSArray *downvoters = post[@"downvoterIds"];
         
         if ([upvoters containsObject:userId]) {
-            self.didUpvote = YES;
+            self.didIUpvote = YES;
             [self.upvoteBtn setSelected:YES];
         } else if ([downvoters containsObject:userId]) {
-            self.didDownvote = YES;
+            self.didIDownvote = YES;
             [self.downvoteBtn setSelected:YES];
         }
         [self.numVotes setText:[NSString stringWithFormat:@"%@", numVotes]];
@@ -210,9 +211,6 @@
     NSString *commentBody = self.inlineCommentField.text;
     NSString *postId = self.postDetail[@"_id"];
     
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    AFHTTPRequestOperationManager *manager = appDelegate.networkManager;
-    
     NSDictionary *params = @{@"commentBody": commentBody, @"postId": postId};
     [manager POST:NEW_COMMENT_API_URL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
@@ -228,15 +226,87 @@
     
 }
 
+- (void)toggleSelected:(UIButton *)btn{
+    if (btn.selected) {
+        [btn setSelected:NO];
+    } else {
+        [btn setSelected:YES];
+    }
+}
+
 
 - (IBAction)onPostUpvote:(id)sender {
+    
+    NSDictionary *params = @{@"postId": self.postId};
+    
+    if (self.didIDownvote) {
+        [self.numVotes setText:[NSString stringWithFormat:@"%d", self.numVotes.text.intValue+2]];
+        self.didIDownvote = NO;
+        self.didIUpvote = YES;
+        [self toggleSelected:self.upvoteBtn];
+        [self toggleSelected:self.downvoteBtn];
+    } else if (self.didIUpvote) {
+        [self.numVotes setText:[NSString stringWithFormat:@"%d", self.numVotes.text.intValue-1]];
+        self.didIUpvote = NO;
+        [self toggleSelected:self.upvoteBtn];
+    } else {
+        [self.numVotes setText:[NSString stringWithFormat:@"%d", self.numVotes.text.intValue+1]];
+        self.didIUpvote = YES;
+        [self toggleSelected:self.upvoteBtn];
+    }
+    
+    [manager POST:UPVOTE_POST_API_URL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSInteger voteDiffInt = [(NSString *)responseObject[@"diffVotes"] integerValue];
+        NSNumber *voteDiff = [NSNumber numberWithInteger:voteDiffInt];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:UPVOTE_POST_UPDATE object:@{@"postId": self.postId, @"didIUpvote": [NSNumber numberWithBool:self.didIUpvote ], @"didIDownvote": [NSNumber numberWithBool:self.didIDownvote], @"rowIdx":self.cellRowIdx, @"voteDiff": voteDiff } userInfo:nil];
+        
+        NSLog(@"%@", responseObject);
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        // TODO: show user this error and clear all the textfields
+        NSLog(@"Error: %@", error);
+    }];
+    
     NSLog(@"on post upvote");
 }
 
 
 - (IBAction)onPostDownvote:(id)sender {
+    
+    if (self.didIDownvote) {
+        self.didIDownvote = NO;
+        [self.numVotes setText:[NSString stringWithFormat:@"%d", self.numVotes.text.intValue+1]];
+        [self toggleSelected:self.downvoteBtn];
+    } else if (self.didIUpvote) {
+        self.didIUpvote = NO;
+        self.didIDownvote = YES;
+        [self.numVotes setText:[NSString stringWithFormat:@"%d", self.numVotes.text.intValue-2]];
+        [self toggleSelected:self.upvoteBtn];
+        [self toggleSelected:self.downvoteBtn];
+    } else {
+        self.didIDownvote = YES;
+        [self.numVotes setText:[NSString stringWithFormat:@"%d", self.numVotes.text.intValue-1]];
+        [self toggleSelected:self.downvoteBtn];
+    }
+    
+    NSDictionary *params = @{@"postId": self.postId};
+    
+    [manager POST:DOWNVOTE_POST_API_URL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSLog(@"%@", responseObject);
+        
+        NSInteger voteDiffInt = [(NSString *)responseObject[@"diffVotes"] integerValue];
+        NSNumber *voteDiff = [NSNumber numberWithInteger:voteDiffInt];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:DOWNVOTE_POST_UPDATE object:@{@"postId": self.postId, @"didIUpvote": [NSNumber numberWithBool:self.didIUpvote ], @"didIDownvote": [NSNumber numberWithBool:self.didIDownvote], @"rowIdx":self.cellRowIdx, @"voteDiff":voteDiff} userInfo:nil];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        // TODO: show user this error and clear all the textfields
+        NSLog(@"Error: %@", error);
+    }];
 }
-
 
 - (void)willMoveToParentViewController:(UIViewController *)parent{
     if (parent == nil){

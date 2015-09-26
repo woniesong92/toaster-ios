@@ -23,5 +23,6 @@
 @property BOOL didIUpvote;
 
 @property NSString *postId;
+@property NSInteger *rowIdx;
 
 @end

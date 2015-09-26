@@ -18,4 +18,5 @@
 @property NSMutableDictionary *numCommentsForPosts;
 @property (strong, nonatomic) IBOutlet UITableView *postsTable;
 
+
 @end
