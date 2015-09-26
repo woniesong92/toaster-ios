@@ -29,6 +29,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // top margin for table
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    CGFloat navbarHeight = self.navigationController.navigationBar.frame.size.height;
+    CGFloat statusHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
+    CGFloat filterBtnsContainerHeight = 36.0;
+    CGFloat insetTopMargin = navbarHeight + statusHeight + filterBtnsContainerHeight;
+    [self.postsTable setContentInset:UIEdgeInsetsMake(insetTopMargin,0,0,0)];
+    
+    // segment control
+//    [self addSegmentedControl:-segmentControllerHeight];
+    
+    [self addFilterBtns:filterBtnsContainerHeight];
+    
     self.postsTable.delegate = self;
     
     // initialize the starting point to fetch the next batch of posts
@@ -65,21 +78,62 @@
                                                object:nil];
 }
 
-//- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-//{
-//    CGFloat actualPosition = scrollView.contentOffset.y + navBarHeight + statusBarHeight + tabBarHeight;
-//    CGFloat contentHeight = scrollView.contentSize.height;
-//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-//    cellHeight = [self.postsTable rectForRowAtIndexPath:indexPath].size.height;
-//    
-//    
-//    NSLog(@"contentHeight %f, actual %f cellHeight %f", contentHeight, actualPosition, cellHeight);
-//    if (actualPosition >= contentHeight) {
-//        NSLog(@"must reload here");
-////        [self.newsFeedData_ addObjectsFromArray:self.newsFeedData_];
-////        [self.tableView reloadData];
-//    }
-//}
+- (void)addFilterBtns: (CGFloat)height {
+    CGFloat width = self.view.frame.size.width;
+    CGFloat widthBtn = width / 2.0;
+    CGRect newRect = CGRectMake(0.0f, -height, widthBtn, height);
+    CGRect hotRect = CGRectMake(widthBtn, -height, widthBtn, height);
+    UIColor *disabledColor = [UIColor colorWithRed:255/255.0 green:70/255.0 blue:79/255.0 alpha:0.3];
+    UIColor *dividerColor = [UIColor colorWithRed:255/255.0 green:70/255.0 blue:79/255.0 alpha:1.0];
+    UIColor *selectedColor = [UIColor colorWithRed:255/255.0 green:70/255.0 blue:79/255.0 alpha:1.0];
+    
+    UIButton *recentBtn = [[UIButton alloc] initWithFrame:newRect];
+    UIButton *hotBtn = [[UIButton alloc] initWithFrame:hotRect];
+    [recentBtn setSelected:YES];
+    self.hotBtn = hotBtn;
+    self.recentBtn = recentBtn;
+    
+    [recentBtn setTitle:@"New" forState:UIControlStateNormal];
+    [hotBtn setTitle:@"Hot" forState:UIControlStateNormal];
+    
+    [recentBtn setTitleColor:disabledColor forState:UIControlStateNormal];
+    [recentBtn setTitleColor:selectedColor forState:UIControlStateSelected];
+    [hotBtn setTitleColor:disabledColor forState:UIControlStateNormal];
+    [hotBtn setTitleColor:selectedColor forState:UIControlStateSelected];
+    
+    [recentBtn addTarget:self
+               action:@selector(recentBtnSelected:)
+     forControlEvents:UIControlEventTouchUpInside];
+    
+    [hotBtn addTarget:self
+               action:@selector(hotBtnSelected:)
+     forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:recentBtn];
+    [self.view addSubview:hotBtn];
+    
+//    Add a horizontal divider
+    CGRect dividerFrame = CGRectMake(0, 0, width, 2);
+    UIView *divider = [[UIView alloc] initWithFrame:dividerFrame];
+    [divider setBackgroundColor:dividerColor];
+    [self.view addSubview:divider];
+    
+}
+
+- (void)recentBtnSelected: (UIButton *)btn {
+    NSLog(@"new btn selected");
+    [self.recentBtn setSelected:YES];
+    [self.hotBtn setSelected:NO];
+}
+
+- (void)hotBtnSelected: (UIButton *)btn {
+    NSLog(@"hot btn selected");
+    [self.hotBtn setSelected:YES];
+    [self.recentBtn setSelected:NO];
+    
+//    UIColor *selectedColor = [UIColor colorWithRed:255/255.0 green:70/255.0 blue:79/255.0 alpha:1.0];
+}
+
 
 - (void)fetchPosts: (NSNumber *)limit skip:(NSNumber *)skip {
     

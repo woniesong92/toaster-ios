@@ -17,5 +17,7 @@
 @property NSMutableArray *posts;
 @property NSMutableDictionary *numCommentsForPosts;
 @property (strong, nonatomic) IBOutlet UITableView *postsTable;
+@property UIButton *recentBtn;
+@property UIButton *hotBtn;
 
 @end
