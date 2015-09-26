@@ -18,6 +18,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self.view bringSubviewToFront:self.commenInputContainer];
+    
     // Update the initial information
     NSDictionary *postDetail= self.postDetail;
     NSDate *date = [postDetail objectForKey:@"createdAt"];
@@ -169,11 +171,7 @@
     NSValue *kbFrame = [info objectForKey:UIKeyboardFrameEndUserInfoKey];
     NSTimeInterval animationDuration = [[info objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     CGRect keyboardFrame = [kbFrame CGRectValue];
-    
     CGFloat height = keyboardFrame.size.height;
-
-    // Because the "space" is actually the difference between the bottom lines of the 2 views,
-    // we need to set a negative constant value here.
     self.inputContainerBottomConstraint.constant = height;
     
     [UIView animateWithDuration:animationDuration animations:^{

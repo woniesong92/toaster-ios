@@ -155,18 +155,17 @@
         numComments = [NSNumber numberWithInt:0];
     }
     
-    NSArray *upvoters = postObj[@"upvoterIds"];
-    NSArray *downvoters = postObj[@"downvoterIds"];
-    
-    
-    if ([upvoters containsObject:userId]) {
+    if ([postObj[@"upvoterIds"] containsObject:userId]) {
         cell.didIUpvote = YES;
         [cell.upvoteBtn setSelected:YES];
-    }
-    
-    if ([downvoters containsObject:userId]) {
+    } else if ([postObj[@"downvoterIds"] containsObject:userId]) {
         cell.didIDownvote = YES;
         [cell.downvoteBtn setSelected:YES];
+    } else {
+        cell.didIUpvote = NO;
+        cell.didIDownvote = NO;
+        [cell.upvoteBtn setSelected:NO];
+        [cell.downvoteBtn setSelected:NO];
     }
 
     cell.postId = postId;

@@ -26,7 +26,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *numVotes;
 @property (weak, nonatomic) IBOutlet UITableView *commentsTable;
 @property (weak, nonatomic) IBOutlet UITextField *inlineCommentField;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *inputContainerBottomConstraint;
 @property (weak, nonatomic) IBOutlet UIButton *upvoteBtn;
 @property (weak, nonatomic) IBOutlet UIButton *downvoteBtn;
 @property (strong, nonatomic) NSString *postId;
@@ -35,5 +34,7 @@
 @property BOOL didIUpvote;
 @property BOOL didIDownvote;
 @property NSNumber *cellRowIdx;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *inputContainerBottomConstraint;
+@property (weak, nonatomic) IBOutlet UIView *commenInputContainer;
 
 @end

@@ -11,13 +11,13 @@
         <scene sceneID="KER-hK-HFv">
             <objects>
                 <tableViewController title="Recent" id="0j5-Yx-alz" customClass="RecentTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="150" sectionHeaderHeight="22" sectionFooterHeight="22" id="AAD-Ug-CJt">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="150" sectionHeaderHeight="22" sectionFooterHeight="22" id="AAD-Ug-CJt">
                         <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
-                            <tableViewCell contentMode="center" selectionStyle="default" indentationWidth="10" shouldIndentWhileEditing="NO" reuseIdentifier="Cell" rowHeight="150" id="l8h-Hu-nv3" customClass="CustomTableViewCell">
+                            <tableViewCell contentMode="center" selectionStyle="none" indentationWidth="10" shouldIndentWhileEditing="NO" reuseIdentifier="Cell" rowHeight="150" id="l8h-Hu-nv3" customClass="CustomTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="l8h-Hu-nv3" id="Ub1-N2-uIX">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -279,13 +279,14 @@
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Pyh-Yd-ne8">
                                 <rect key="frame" x="0.0" y="247" width="600" height="297"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="256" id="4vo-gn-2WN"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="1" id="I4R-zN-7mK"/>
                                     <constraint firstAttribute="width" constant="600" id="eFO-in-49b"/>
                                 </constraints>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <color key="sectionIndexBackgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CommentCell" rowHeight="100" id="Ylb-pu-Qv1" customClass="CommentTableViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
@@ -428,6 +429,7 @@
                             <constraint firstItem="eor-i0-YiB" firstAttribute="leading" secondItem="Lgb-ut-QTU" secondAttribute="trailing" constant="44" id="P11-aY-tGO"/>
                             <constraint firstItem="XGT-cK-69a" firstAttribute="top" secondItem="3J5-lL-T47" secondAttribute="top" constant="72" id="QWT-d2-QNc"/>
                             <constraint firstItem="Lgb-ut-QTU" firstAttribute="leading" secondItem="3J5-lL-T47" secondAttribute="leading" constant="8" id="TWa-Ty-BDh"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Pyh-Yd-ne8" secondAttribute="bottom" constant="56" id="TgO-51-S9R"/>
                             <constraint firstItem="eor-i0-YiB" firstAttribute="trailing" secondItem="XGT-cK-69a" secondAttribute="trailing" id="Udf-GL-cWR"/>
                             <constraint firstItem="Pyh-Yd-ne8" firstAttribute="top" secondItem="3J5-lL-T47" secondAttribute="top" constant="247" id="Vy0-aL-r91"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Lgb-ut-QTU" secondAttribute="trailing" constant="40" id="bQc-JO-eIh"/>
@@ -466,10 +468,11 @@
                     <navigationItem key="navigationItem" title="Toast" id="GPi-bY-lSs"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="commenInputContainer" destination="zRm-RU-Ece" id="qGp-g9-5hx"/>
                         <outlet property="commentsTable" destination="Pyh-Yd-ne8" id="rSU-ay-ffc"/>
                         <outlet property="downvoteBtn" destination="RJw-As-bKP" id="B1Y-EQ-s0Z"/>
                         <outlet property="inlineCommentField" destination="QMR-17-xRj" id="bkX-tV-bRk"/>
-                        <outlet property="inputContainerBottomConstraint" destination="DQz-vt-bLe" id="vl5-hK-Vct"/>
+                        <outlet property="inputContainerBottomConstraint" destination="DQz-vt-bLe" id="OzK-X8-ce7"/>
                         <outlet property="numComments" destination="jzM-r4-0nP" id="Qvr-8N-luG"/>
                         <outlet property="numVotes" destination="eor-i0-YiB" id="7y6-x0-v5Y"/>
                         <outlet property="postBody" destination="Lgb-ut-QTU" id="CA1-qs-cpm"/>
