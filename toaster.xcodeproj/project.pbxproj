@@ -64,6 +64,8 @@
 		70951FA51B989F15006B1228 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70951FA31B989F15006B1228 /* LaunchScreen.xib */; };
 		70951FB11B989F15006B1228 /* toaster_objcTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 70951FB01B989F15006B1228 /* toaster_objcTests.m */; };
 		70A4F03F1BB739D500E66A7E /* ToastsTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A4F03E1BB739D500E66A7E /* ToastsTableView.m */; };
+		70A4F0421BB750C200E66A7E /* NotificationsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A4F0411BB750C200E66A7E /* NotificationsTableViewController.m */; };
+		70A4F0451BB7512100E66A7E /* NotificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A4F0441BB7512100E66A7E /* NotificationCell.m */; };
 		70D005631B98A882006E746F /* PostsShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D005621B98A882006E746F /* PostsShowViewController.m */; };
 		70E3415F1B9C9DB200046067 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E3415E1B9C9DB200046067 /* SettingsViewController.m */; };
 		70E341621B9CA6C200046067 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E341611B9CA6C200046067 /* SignUpViewController.m */; };
@@ -188,6 +190,10 @@
 		70951FBA1B98A009006B1228 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		70A4F03D1BB739D500E66A7E /* ToastsTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToastsTableView.h; sourceTree = "<group>"; };
 		70A4F03E1BB739D500E66A7E /* ToastsTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToastsTableView.m; sourceTree = "<group>"; };
+		70A4F0401BB750C200E66A7E /* NotificationsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationsTableViewController.h; sourceTree = "<group>"; };
+		70A4F0411BB750C200E66A7E /* NotificationsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationsTableViewController.m; sourceTree = "<group>"; };
+		70A4F0431BB7512100E66A7E /* NotificationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationCell.h; sourceTree = "<group>"; };
+		70A4F0441BB7512100E66A7E /* NotificationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationCell.m; sourceTree = "<group>"; };
 		70D005611B98A882006E746F /* PostsShowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostsShowViewController.h; sourceTree = "<group>"; };
 		70D005621B98A882006E746F /* PostsShowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostsShowViewController.m; sourceTree = "<group>"; };
 		70E3415D1B9C9DB200046067 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
@@ -400,6 +406,10 @@
 				7002724A1B9B173F00C292A5 /* NewPostController.m */,
 				700272461B9A6A6D00C292A5 /* NotificationsViewController.h */,
 				700272471B9A6A6D00C292A5 /* NotificationsViewController.m */,
+				70A4F0401BB750C200E66A7E /* NotificationsTableViewController.h */,
+				70A4F0411BB750C200E66A7E /* NotificationsTableViewController.m */,
+				70A4F0431BB7512100E66A7E /* NotificationCell.h */,
+				70A4F0441BB7512100E66A7E /* NotificationCell.m */,
 				700272431B9A69C400C292A5 /* ProfileViewController.h */,
 				700272441B9A69C400C292A5 /* ProfileViewController.m */,
 				70E3415D1B9C9DB200046067 /* SettingsViewController.h */,
@@ -556,6 +566,7 @@
 				70EC5ABE1BAE3F9C0019AA58 /* RecentTableViewController.m in Sources */,
 				7046D2001BAE38EF00A5465F /* AFSecurityPolicy.m in Sources */,
 				7046D1FD1BAE38EF00A5465F /* AFHTTPRequestOperationManager.m in Sources */,
+				70A4F0421BB750C200E66A7E /* NotificationsTableViewController.m in Sources */,
 				7046D1FC1BAE38EF00A5465F /* AFHTTPRequestOperation.m in Sources */,
 				700272391B9A36B900C292A5 /* UIWebView+FLUIWebView.m in Sources */,
 				70D005631B98A882006E746F /* PostsShowViewController.m in Sources */,
@@ -566,6 +577,7 @@
 				7002724B1B9B173F00C292A5 /* NewPostController.m in Sources */,
 				7017D7291BAF9DBB003EB498 /* DTTimePeriod.m in Sources */,
 				70951F971B989F15006B1228 /* AppDelegate.m in Sources */,
+				70A4F0451BB7512100E66A7E /* NotificationCell.m in Sources */,
 				7002724E1B9BD23200C292A5 /* LoadingManager.m in Sources */,
 				7017D7131BAF8E3D003EB498 /* USArrayWrapper.m in Sources */,
 				7046D1FE1BAE38EF00A5465F /* AFHTTPSessionManager.m in Sources */,

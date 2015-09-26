@@ -31,26 +31,6 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    [_webViewManager removeWebViewFromContainer];
-    _webViewManager = [WebViewManager getUniqueWebViewManager:self];
-    
-    // Setting delegate for WKWebView
-    [[_webViewManager webView] setDelegateViews: self];
-    
-    [self.view addSubview: _webViewManager.webView];
-   
-    // Replace webView with a blank image
-    UIImage *whiteImage = [_webViewManager getWhiteImage];
-    [_webViewManager replaceWebViewWithImage:self :whiteImage];
-    
-    if (![_webViewManager.getCurrentTab isEqualToString:NOTIFICATIONS]) {
-        [_webViewManager useRouterWithPath:NOTIFICATIONS];
-    }
-    
-    // scrollToTop
-    [_webViewManager.webView evaluateJavaScript:@"$('.overflow-scroll').scrollTop(0,0)" completionHandler:nil];
-    
-    [_loadingManager startLoadingIndicator:self];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
