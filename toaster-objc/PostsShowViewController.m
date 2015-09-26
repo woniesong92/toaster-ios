@@ -108,11 +108,12 @@
     
     [manager GET:reqURL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        NSArray *comments = responseObject[@"comments"];
-        NSArray *sortedComments = [Utils sortJSONObjsByDate:comments];
+        NSMutableArray *comments = responseObject[@"comments"];
+        NSMutableArray *sortedComments = [Utils sortJSONObjsByDate:comments];
         self.comments = sortedComments;
 
         [self.numComments setText:[NSString stringWithFormat:@"%lu", (unsigned long)[self.comments count]]];
+        
         [self.commentsTable reloadData];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -147,6 +148,7 @@
     NSString *cellId = @"CommentCell";
     CommentTableViewCell *cell = (CommentTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
     NSDictionary *commentObj= [self.comments objectAtIndex:indexPath.row];
+    
     NSString *createdAt = [Utils stringFromDate:[commentObj objectForKey:@"createdAt"]];
     
     cell.commentId = commentObj[@"_id"];
@@ -203,16 +205,26 @@
     [super didReceiveMemoryWarning];
 }
 
-- (void) viewWillDisappear:(BOOL)animated {
+- (void)viewWillDisappear:(BOOL)animated {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
     [super viewWillDisappear:animated];
 }
 
 
-- (void) viewDidDisappear:(BOOL)animated {
+- (void)viewDidDisappear:(BOOL)animated {
     // I don't want to be a tabbar delegate anymore
     [super viewDidDisappear:animated];
+}
+
+- (void)addCommentRow:(NSMutableDictionary *)newComment {
+    NSString *createdAt = (NSString *)newComment[@"createdAt"];
+    [newComment setValue:[Utils dateWithJSONString:createdAt] forKey:@"createdAt"];
+    [self.comments addObject:newComment];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.comments.count-1 inSection:0];
+    [self.commentsTable beginUpdates];
+    [self.commentsTable insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    [self.commentsTable endUpdates];
 }
 
 - (IBAction)onSubmitComment:(id)sender {
@@ -222,7 +234,12 @@
     NSDictionary *params = @{@"commentBody": commentBody, @"postId": postId};
     [manager POST:NEW_COMMENT_API_URL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:ASK_TO_FETCH_COMMENTS object:nil userInfo:nil];
+//        [[NSNotificationCenter defaultCenter] postNotificationName:ASK_TO_FETCH_COMMENTS object:nil userInfo:nil];
+        
+        NSLog(@"resp %@", responseObject);
+        
+        [self addCommentRow:responseObject];
+        
         [[NSNotificationCenter defaultCenter] postNotificationName:TABLE_SCROLL_TO_BOTTOM object:nil userInfo:nil];
         [self.inlineCommentField setText:@""];
         [self.view endEditing:YES];

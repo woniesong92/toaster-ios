@@ -30,7 +30,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *downvoteBtn;
 @property (strong, nonatomic) NSString *postId;
 @property (strong, nonatomic) NSDictionary *postAdditionalDetail;
-@property (strong, nonatomic) NSArray *comments;
+@property (strong, nonatomic) NSMutableArray *comments;
 @property BOOL didIUpvote;
 @property BOOL didIDownvote;
 @property NSNumber *cellRowIdx;

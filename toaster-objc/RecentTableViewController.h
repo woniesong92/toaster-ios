@@ -13,10 +13,9 @@
     AFHTTPRequestOperationManager *manager;
 }
 
-@property NSArray *comments;
-@property NSArray *posts;
+@property NSMutableArray *comments;
+@property NSMutableArray *posts;
 @property NSMutableDictionary *numCommentsForPosts;
 @property (strong, nonatomic) IBOutlet UITableView *postsTable;
-
 
 @end

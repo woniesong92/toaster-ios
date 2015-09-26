@@ -11,8 +11,8 @@
 @interface Utils : NSObject
 
 + (NSDate*)dateWithJSONString: (NSString *)createdAt;
-+ (NSArray *)sortJSONObjsByDate: (NSArray *)objs;
++ (NSMutableArray *)sortJSONObjsByDate: (NSArray *)objs;
 + (NSString *)stringFromDate: (NSDate *)createdAt;
-+ (NSArray *)sortReversedJSONObjsByDate: (NSArray *)objs;
++ (NSMutableArray *)sortReversedJSONObjsByDate: (NSArray *)objs;
 
 @end
