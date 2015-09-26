@@ -11,7 +11,12 @@
 @interface CommentTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *commentDate;
 @property (weak, nonatomic) IBOutlet UILabel *commentAuthor;
-@property (weak, nonatomic) IBOutlet UILabel *commentNumVotes;
+@property (weak, nonatomic) IBOutlet UILabel *numVotes;
 @property (weak, nonatomic) IBOutlet UITextView *commentBody;
+@property NSString *commentId;
+@property BOOL didIDownvote;
+@property BOOL didIUpvote;
+@property (weak, nonatomic) IBOutlet UIButton *upvoteBtn;
+@property (weak, nonatomic) IBOutlet UIButton *downvoteBtn;
 
 @end

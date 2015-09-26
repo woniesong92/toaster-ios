@@ -53,7 +53,6 @@
                                                object:nil];
 }
 
-
 - (void)fetchPosts {
     
     NSDictionary *params = @{};

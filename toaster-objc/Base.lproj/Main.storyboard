@@ -112,8 +112,8 @@
                                     </constraints>
                                     <variation key="default">
                                         <mask key="constraints">
-                                            <exclude reference="8S2-LY-C7b"/>
                                             <exclude reference="Qra-O1-n2T"/>
+                                            <exclude reference="8S2-LY-C7b"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
@@ -332,6 +332,7 @@
                                                     <state key="normal" image="downvote">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <state key="selected" image="downvote-selected"/>
                                                     <connections>
                                                         <action selector="onCommentDownvote:" destination="Ylb-pu-Qv1" eventType="touchUpInside" id="SXD-E0-cHp"/>
                                                     </connections>
@@ -341,6 +342,7 @@
                                                     <state key="normal" image="upvote">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <state key="selected" image="upvote-selected"/>
                                                     <connections>
                                                         <action selector="onCommentUpvote:" destination="Ylb-pu-Qv1" eventType="touchUpInside" id="CgA-4n-uYq"/>
                                                     </connections>
@@ -390,7 +392,9 @@
                                             <outlet property="commentAuthor" destination="NF9-SY-oBW" id="9aP-H6-Ygi"/>
                                             <outlet property="commentBody" destination="5A6-mN-ddR" id="Hzf-sT-4lo"/>
                                             <outlet property="commentDate" destination="nT5-ry-eUG" id="qwW-Ww-Ztn"/>
-                                            <outlet property="commentNumVotes" destination="ebm-nj-Uox" id="6Rw-cf-ydN"/>
+                                            <outlet property="downvoteBtn" destination="DNb-8G-ZyS" id="G7b-ij-PXe"/>
+                                            <outlet property="numVotes" destination="ebm-nj-Uox" id="qf0-Zj-E7s"/>
+                                            <outlet property="upvoteBtn" destination="Pd2-1e-nPF" id="6sc-3c-CMH"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

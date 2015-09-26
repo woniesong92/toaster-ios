@@ -139,17 +139,27 @@
     return [self.comments count];
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSString *userId = appDelegate.userId;
     NSString *cellId = @"CommentCell";
     CommentTableViewCell *cell = (CommentTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
     NSDictionary *commentObj= [self.comments objectAtIndex:indexPath.row];
     NSString *createdAt = [Utils stringFromDate:[commentObj objectForKey:@"createdAt"]];
     
+    cell.commentId = commentObj[@"_id"];
     [cell.commentBody setText:[commentObj objectForKey:@"body"]];
     [cell.commentDate setText:createdAt];
-    [cell.commentNumVotes setText:[NSString stringWithFormat:@"%@", [commentObj objectForKey:@"numLikes"]]];
+    [cell.numVotes setText:[NSString stringWithFormat:@"%@", [commentObj objectForKey:@"numLikes"]]];
     [cell.commentAuthor setText:[commentObj objectForKey:@"nameTag"]];
+    
+    if ([(NSArray *)commentObj[@"upvoterIds"] containsObject:userId]) {
+        cell.didIUpvote = YES;
+        [cell.upvoteBtn setSelected:YES];
+    } else if ([(NSArray *)commentObj[@"downvoterIds"] containsObject:userId]) {
+        cell.didIDownvote = YES;
+        [cell.downvoteBtn setSelected:YES];
+    }
     
     return cell;
 }
