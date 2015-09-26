@@ -53,7 +53,6 @@
 //    Set up Recent Posts Table
     [self.postsTable setDelegate:self];
     [self.postsTable setDataSource:self.postsTable];
-//    [self.recentPostsTable setDataSource:self];
     [self.postsTable setTag:0];
     
     [self fetchPosts:HOT_POSTS_TABLE_TAG limit:[NSNumber numberWithInteger:NUM_HOT_POSTS_IN_ONE_BATCH] skip:@0 doReload:NO];
@@ -130,24 +129,24 @@
     NSLog(@"new btn selected");
     [self.recentBtn setSelected:YES];
     [self.hotBtn setSelected:NO];
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:TABLE_DATA_SOURCE_CHANGE object:RECENT_POSTS_TABLE_TAG userInfo:nil];
+    [self.postsTable setTag:RECENT_POSTS_TABLE_TAG];
+    [self.postsTable reloadData];
 }
 
 - (void)hotBtnSelected: (UIButton *)btn {
     NSLog(@"hot btn selected");
     [self.hotBtn setSelected:YES];
     [self.recentBtn setSelected:NO];
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:TABLE_DATA_SOURCE_CHANGE object:HOT_POSTS_TABLE_TAG userInfo:nil];
+    [self.postsTable setTag:HOT_POSTS_TABLE_TAG];
+    [self.postsTable reloadData];
 }
 
 
-- (void)fetchPosts: (NSNumber *)postsTableTag limit:(NSNumber *)limit skip:(NSNumber *)skip doReload:(BOOL)doReload {
+- (void)fetchPosts: (NSInteger)postsTableTag limit:(NSNumber *)limit skip:(NSNumber *)skip doReload:(BOOL)doReload {
     
     NSString *reqUrl;
     
-    if ([postsTableTag isEqual: RECENT_POSTS_TABLE_TAG]) {
+    if (postsTableTag == RECENT_POSTS_TABLE_TAG) {
         reqUrl = [NSString stringWithFormat:@"%@/%@/%@", GET_RECENT_POSTS_URL, limit, skip];
         NSLog(@"fetching recent table posts");
     } else {
@@ -174,7 +173,7 @@
             }
         }
 
-        if ([postsTableTag  isEqual: RECENT_POSTS_TABLE_TAG]) {
+        if (postsTableTag == RECENT_POSTS_TABLE_TAG) {
             self.postsTable.recentPosts = [Utils sortReversedJSONObjsByDate:posts];
             self.postsTable.numCommentsForRecentPosts = numCommentsForPosts;
         } else {
@@ -183,7 +182,7 @@
         }
         
         if (doReload) {
-            [[NSNotificationCenter defaultCenter] postNotificationName:TABLE_DATA_SOURCE_CHANGE object: [NSNumber numberWithInteger:self.postsTable.tag] userInfo:nil];
+            [self.postsTable reloadData];
         } else {
             NSLog(@"dont reload");
         }
@@ -252,55 +251,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-//
-//#pragma mark - Table view data source
-//
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//    return 1;
-//}
-//
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//    // Return the number of rows in the section.
-//    return [self.posts count];
-//}
-//
-//
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-//    
-//    NSString *userId = appDelegate.userId;
-//    NSString *cellId = @"Cell";
-//    CustomTableViewCell *cell = (CustomTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
-//    NSDictionary *postObj = [self.posts objectAtIndex:indexPath.row];
-//    
-//    NSString *postId = postObj[@"_id"];
-//    NSString *createdAt = [Utils stringFromDate:[postObj objectForKey:@"createdAt"]];
-//    NSNumber *numComments = [self.numCommentsForPosts objectForKey:postId];
-//    if (!numComments) {
-//        numComments = [NSNumber numberWithInt:0];
-//    }
-//    
-//    if ([postObj[@"upvoterIds"] containsObject:userId]) {
-//        cell.didIUpvote = YES;
-//        [cell.upvoteBtn setSelected:YES];
-//    } else if ([postObj[@"downvoterIds"] containsObject:userId]) {
-//        cell.didIDownvote = YES;
-//        [cell.downvoteBtn setSelected:YES];
-//    } else {
-//        cell.didIUpvote = NO;
-//        cell.didIDownvote = NO;
-//        [cell.upvoteBtn setSelected:NO];
-//        [cell.downvoteBtn setSelected:NO];
-//    }
-//
-//    cell.postId = postId;
-//    [cell.postBody setText:[postObj objectForKey:@"body"]];
-//    [cell.postDate setText:createdAt];
-//    [cell.numComments setText:[NSString stringWithFormat:@"%@", numComments]];
-//    [cell.numVotes setText:[NSString stringWithFormat:@"%@", [postObj objectForKey:@"numLikes"]]];
-//
-//    return cell;
-//}
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     

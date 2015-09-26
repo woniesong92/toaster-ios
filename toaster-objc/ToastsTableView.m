@@ -17,7 +17,7 @@
 - (void)reloadData {
     NSLog(@"reloading data!!");
     
-    if (self.tag == RECENT_POSTS_TABLE_TAG.integerValue) {
+    if (self.tag == RECENT_POSTS_TABLE_TAG) {
         self.posts = self.recentPosts;
     } else {
         self.posts = self.hotPosts;
@@ -41,14 +41,8 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    NSLog(@"numPosts: %lu", (unsigned long)self.posts.count);
     return self.posts.count;
-    
-    // Return the number of rows in the section.
-    if (self.tag == RECENT_POSTS_TABLE_TAG.integerValue) {
-        return [self.recentPosts count];
-    } else {
-        return [self.hotPosts count];
-    }
 }
 
 
