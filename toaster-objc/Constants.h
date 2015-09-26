@@ -41,11 +41,13 @@
 #define LOGIN_API_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/users/login"]
 #define SIGNUP_API_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/users/register"]
 
+#define NUM_POSTS_IN_ONE_BATCH 20
 
-#define GET_RECENT_POSTS_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/publications/recentPostsAndComments"]
+//#define GET_RECENT_POSTS_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/publications/recentPostsAndComments"]
 
+#define GET_RECENT_POSTS_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/api/recentPostsComments"]
 
-
+///api/recentPostsComments?limit=:0&skip=:1
 
 
 #define GET_COMMENTS_FOR_POST_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/get-comments-for-post"]

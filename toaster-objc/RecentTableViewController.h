@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AFNetworking.h"
 
-@interface RecentTableViewController : UITableViewController <UITableViewDataSource> {
+@interface RecentTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate> {
     AFHTTPRequestOperationManager *manager;
 }
 

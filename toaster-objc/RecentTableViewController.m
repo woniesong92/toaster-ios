@@ -18,7 +18,9 @@
 #define _ Underscore
 
 
-@interface RecentTableViewController ()
+@interface RecentTableViewController () {
+    NSInteger rowIdxToStartFetchingPosts;
+}
 
 @end
 
@@ -27,10 +29,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.postsTable.delegate = self;
+    
+    // initialize the starting point to fetch the next batch of posts
+    rowIdxToStartFetchingPosts = NUM_POSTS_IN_ONE_BATCH - 5;
+    
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     manager = appDelegate.networkManager;
     
-    [self fetchPosts];
+    [self fetchPosts:[NSNumber numberWithInteger:NUM_POSTS_IN_ONE_BATCH] skip:@0];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(shouldFetchPosts:)
@@ -58,14 +65,35 @@
                                                object:nil];
 }
 
-- (void)fetchPosts {
+//- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+//{
+//    CGFloat actualPosition = scrollView.contentOffset.y + navBarHeight + statusBarHeight + tabBarHeight;
+//    CGFloat contentHeight = scrollView.contentSize.height;
+//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+//    cellHeight = [self.postsTable rectForRowAtIndexPath:indexPath].size.height;
+//    
+//    
+//    NSLog(@"contentHeight %f, actual %f cellHeight %f", contentHeight, actualPosition, cellHeight);
+//    if (actualPosition >= contentHeight) {
+//        NSLog(@"must reload here");
+////        [self.newsFeedData_ addObjectsFromArray:self.newsFeedData_];
+////        [self.tableView reloadData];
+//    }
+//}
+
+- (void)fetchPosts: (NSNumber *)limit skip:(NSNumber *)skip {
     
-    NSDictionary *params = @{};
+//    NSDictionary *params = @{@"limit":@20, @"skip":@1};
+//        NSDictionary *params = @{};
     
-    [manager GET:GET_RECENT_POSTS_URL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    NSString *reqUrl = [NSString stringWithFormat:@"%@/%@/%@", GET_RECENT_POSTS_URL, limit, skip];
+    
+    [manager GET:reqUrl parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        NSArray *posts = responseObject[@"posts"];
-        NSArray *comments = responseObject[@"comments"];
+        NSLog(@"req url: %@", operation.request.URL);
+        
+        NSMutableArray *posts = responseObject[@"posts"];
+        NSMutableArray *comments = responseObject[@"comments"];
         
         NSMutableDictionary *numCommentsForPosts = [[NSMutableDictionary alloc] init];
         
@@ -80,8 +108,7 @@
             }
         }
         
-        NSArray *sortedPosts = [Utils sortReversedJSONObjsByDate:posts];
-        self.posts = sortedPosts;
+        self.posts = [Utils sortReversedJSONObjsByDate:posts];
         self.numCommentsForPosts = numCommentsForPosts;
         [self.tableView reloadData];
         
@@ -114,7 +141,7 @@
 }
 
 - (void)shouldFetchPosts:(NSNotification *)notification {
-    [self fetchPosts];
+    [self fetchPosts:@0 skip:@0];
 }
 
 - (void)shouldScrollTop:(NSNotification *)notification {
@@ -193,6 +220,13 @@
     [cell.numVotes setText:[NSString stringWithFormat:@"%@", [postObj objectForKey:@"numLikes"]]];
 
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == rowIdxToStartFetchingPosts) {
+        [self fetchPosts:[NSNumber numberWithInteger:self.posts.count+NUM_POSTS_IN_ONE_BATCH] skip:[NSNumber numberWithInteger:self.posts.count]];
+        rowIdxToStartFetchingPosts += NUM_POSTS_IN_ONE_BATCH;
+    }
 }
 
 #pragma mark - Navigation
