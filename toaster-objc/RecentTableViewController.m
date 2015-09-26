@@ -33,13 +33,12 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     CGFloat navbarHeight = self.navigationController.navigationBar.frame.size.height;
     CGFloat statusHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
+    CGFloat tabBarHeight = self.tabBarController.tabBar.frame.size.height;
     CGFloat filterBtnsContainerHeight = 36.0;
     CGFloat insetTopMargin = navbarHeight + statusHeight + filterBtnsContainerHeight;
-    [self.postsTable setContentInset:UIEdgeInsetsMake(insetTopMargin,0,0,0)];
+    [self.postsTable setContentInset:UIEdgeInsetsMake(insetTopMargin,0,tabBarHeight,0)];
     
-    // segment control
-//    [self addSegmentedControl:-segmentControllerHeight];
-    
+    // Add buttons
     [self addFilterBtns:filterBtnsContainerHeight];
     
     self.postsTable.delegate = self;
