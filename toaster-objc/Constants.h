@@ -38,14 +38,19 @@
 #define TABLE_SCROLL_TO_TOP @"tableScrollToTop"
 #define TABLE_SCROLL_TO_BOTTOM @"tableScrollToBottom"
 
+#define RECENT_POSTS_TABLE_TAG 0
+#define HOT_POSTS_TABLE_TAG 1
+
 #define LOGIN_API_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/users/login"]
 #define SIGNUP_API_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/users/register"]
 
-#define NUM_POSTS_IN_ONE_BATCH 20
+#define NUM_RECENT_POSTS_IN_ONE_BATCH 20
+#define NUM_HOT_POSTS_IN_ONE_BATCH 100
 
 //#define GET_RECENT_POSTS_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/publications/recentPostsAndComments"]
 
 #define GET_RECENT_POSTS_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/api/recentPostsComments"]
+#define GET_HOT_POSTS_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/api/hotPostsComments"]
 
 ///api/recentPostsComments?limit=:0&skip=:1
 

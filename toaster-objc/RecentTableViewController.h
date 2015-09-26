@@ -14,10 +14,17 @@
 }
 
 @property NSMutableArray *comments;
-@property NSMutableArray *posts;
-@property NSMutableDictionary *numCommentsForPosts;
-@property (strong, nonatomic) IBOutlet UITableView *postsTable;
+@property NSMutableArray *recentPosts;
+@property NSMutableArray *hotPosts;
+@property NSMutableArray *currentPosts;
+@property NSMutableDictionary *numCommentsForCurrentPosts;
+@property NSMutableDictionary *numCommentsForRecentPosts;
+@property NSMutableDictionary *numCommentsForHotPosts;
+@property (strong, nonatomic) IBOutlet UITableView *recentPostsTable;
 @property UIButton *recentBtn;
 @property UIButton *hotBtn;
+//@property (strong, nonatomic) HotTableViewController *hotTableVC;
+@property (strong, nonatomic) UITableView *hotPostsTable;
+//@property (strong, nonatomic) UITableView *currentPostsTable;
 
 @end

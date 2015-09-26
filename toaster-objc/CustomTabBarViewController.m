@@ -42,6 +42,7 @@
         [self performSegueWithIdentifier:@"TabBarToSignUpSegue" sender:self];
     }
     
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(myNotificationReceived:) name:@"pushNotification" object:nil];
 }
 

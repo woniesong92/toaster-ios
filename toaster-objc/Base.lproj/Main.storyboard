@@ -143,7 +143,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="postsTable" destination="AAD-Ug-CJt" id="NDZ-If-Qxx"/>
+                        <outlet property="recentPostsTable" destination="AAD-Ug-CJt" id="Gdi-w1-ZZk"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hn7-tO-bzQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
