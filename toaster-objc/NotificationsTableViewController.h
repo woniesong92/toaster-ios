@@ -13,4 +13,6 @@
     AFHTTPRequestOperationManager *manager;
 }
 
+@property NSMutableArray *notifications;
+
 @end

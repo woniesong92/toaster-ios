@@ -18,4 +18,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *createdAt;
 
+@property NSString *postId;
+@property BOOL isRead;
+
 @end
