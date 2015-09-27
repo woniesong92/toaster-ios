@@ -22,7 +22,6 @@
     manager = appDelegate.networkManager;
     
     NSLog(@"NOTIFICATION LOADED");
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -103,10 +102,15 @@
     return cell;
 }
 
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"select:%@", indexPath);
+}
+
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
+    NSLog(@"prepare");
     
     if ([segue.identifier isEqualToString:@"NotisToDetailSegue"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];

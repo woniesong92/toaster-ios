@@ -497,7 +497,7 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="notifications" translatesAutoresizingMaskIntoConstraints="NO" id="sT9-ai-tBb">
                                             <rect key="frame" x="560" y="8" width="32" height="32"/>
                                         </imageView>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Notification Context" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gsh-tD-CK1">
+                                        <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Notification Context" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gsh-tD-CK1">
                                             <rect key="frame" x="48" y="49" width="504" height="33"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -506,9 +506,10 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="notifications" translatesAutoresizingMaskIntoConstraints="NO" id="T4V-rV-KOS">
                                             <rect key="frame" x="8" y="8" width="32" height="32"/>
                                         </imageView>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Notification Message" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7tw-fI-Nwd">
+                                        <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" text="Notification Message" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7tw-fI-Nwd">
                                             <rect key="frame" x="48" y="8" width="500" height="33"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="504" id="2l6-Aj-ljL"/>
                                                 <constraint firstAttribute="width" constant="500" id="2t4-JT-oGw"/>
@@ -574,7 +575,7 @@
                                     <outlet property="notiContent" destination="gsh-tD-CK1" id="1DR-Q8-COX"/>
                                     <outlet property="notiMsg" destination="7tw-fI-Nwd" id="ReQ-VK-FYV"/>
                                     <outlet property="notiTypeIcon" destination="sT9-ai-tBb" id="7Oq-nk-b2D"/>
-                                    <segue destination="i0U-vc-kr9" kind="show" identifier="NotisToDetailSegue" id="pib-R4-w1Y"/>
+                                    <segue destination="i0U-vc-kr9" kind="show" identifier="NotisToDetailSegue" id="bum-UU-cDv"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1115,7 +1116,7 @@
         <image name="upvote-selected" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pib-R4-w1Y"/>
+        <segue reference="bum-UU-cDv"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.27450980390000002" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
