@@ -8,7 +8,6 @@
 
 #import "RecentTableViewController.h"
 #import "Constants.h"
-#import "AFNetworking.h"
 #import "PostsShowViewController.h"
 #import "CustomTableViewCell.h"
 #import "SignUpViewController.h"

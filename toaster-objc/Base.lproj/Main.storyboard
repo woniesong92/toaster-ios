@@ -772,7 +772,7 @@
         <!--Profile-->
         <scene sceneID="yc6-2d-XX8">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="4Ex-eP-s5s" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="4Ex-eP-s5s" customClass="ProfileViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uIW-Ea-Cw1"/>
                         <viewControllerLayoutGuide type="bottom" id="Ehc-Jj-FyN"/>
@@ -781,8 +781,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="5X0-rd-WO1">
-                                <rect key="frame" x="0.0" y="110" width="600" height="441"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="5X0-rd-WO1" customClass="ProfilePostsTableView">
+                                <rect key="frame" x="0.0" y="117" width="600" height="434"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="600" id="0DT-2y-Brq"/>
@@ -806,7 +806,6 @@
                                                 </label>
                                                 <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" text="Hello my profile" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ykj-BI-5Tb">
                                                     <rect key="frame" x="8" y="8" width="527" height="109"/>
-                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
@@ -896,6 +895,7 @@
                                             <outlet property="postBody" destination="Ykj-BI-5Tb" id="wC1-YT-Fdk"/>
                                             <outlet property="postDate" destination="fvf-qR-wSp" id="mbB-ae-yZb"/>
                                             <outlet property="upvoteBtn" destination="ILm-n4-9Wo" id="bnE-PI-SEg"/>
+                                            <segue destination="i0U-vc-kr9" kind="show" id="zLz-ge-Hap"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -904,6 +904,9 @@
                                         <exclude reference="0DT-2y-Brq"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <outlet property="delegate" destination="4Ex-eP-s5s" id="xDS-PE-ULu"/>
+                                </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FWK-21-ipA">
                                 <rect key="frame" x="0.0" y="64" width="300" height="45"/>
@@ -912,7 +915,7 @@
                                     <constraint firstAttribute="height" constant="45" id="lPy-Xg-5tY"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="unb-sc-gXd"/>
                                 </constraints>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="Posts I wrote">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="default">
@@ -921,12 +924,18 @@
                                         <exclude reference="unb-sc-gXd"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="myPostsSelected:" destination="4Ex-eP-s5s" eventType="touchUpInside" id="DT4-0l-nZl"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8QZ-9Q-3DN">
                                 <rect key="frame" x="300" y="64" width="300" height="45"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="Posts I responded">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="myRepliesSelected:" destination="4Ex-eP-s5s" eventType="touchUpInside" id="7IH-FV-UEG"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -935,7 +944,7 @@
                             <constraint firstItem="8QZ-9Q-3DN" firstAttribute="top" secondItem="FWK-21-ipA" secondAttribute="top" id="CwK-V7-8hb"/>
                             <constraint firstItem="FWK-21-ipA" firstAttribute="width" secondItem="b6W-Wr-pi1" secondAttribute="width" multiplier="0.5" id="DV0-h6-NO8"/>
                             <constraint firstItem="FWK-21-ipA" firstAttribute="leading" secondItem="b6W-Wr-pi1" secondAttribute="leading" id="DyF-qL-qco"/>
-                            <constraint firstItem="5X0-rd-WO1" firstAttribute="top" secondItem="b6W-Wr-pi1" secondAttribute="top" constant="110" id="G47-mg-aS6"/>
+                            <constraint firstItem="5X0-rd-WO1" firstAttribute="top" secondItem="b6W-Wr-pi1" secondAttribute="top" constant="117" id="G47-mg-aS6"/>
                             <constraint firstItem="8QZ-9Q-3DN" firstAttribute="width" secondItem="FWK-21-ipA" secondAttribute="width" id="Gi8-za-0NP"/>
                             <constraint firstItem="8QZ-9Q-3DN" firstAttribute="width" secondItem="FWK-21-ipA" secondAttribute="width" id="Ls6-Sk-54t"/>
                             <constraint firstItem="5X0-rd-WO1" firstAttribute="width" secondItem="b6W-Wr-pi1" secondAttribute="width" id="TPb-vz-cLt"/>
@@ -951,6 +960,11 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="CcX-7B-NBB"/>
+                    <connections>
+                        <outlet property="myPostsBtn" destination="FWK-21-ipA" id="RP9-MU-YZV"/>
+                        <outlet property="myRepliesBtn" destination="8QZ-9Q-3DN" id="eZa-PA-UOu"/>
+                        <outlet property="postsTable" destination="5X0-rd-WO1" id="xG7-sq-HD6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2kB-id-zjk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1277,7 +1291,7 @@
         <image name="upvote-selected" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="2tB-YS-ZOB"/>
+        <segue reference="zLz-ge-Hap"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.27450980390000002" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

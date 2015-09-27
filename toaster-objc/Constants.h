@@ -42,6 +42,8 @@
 
 #define RECENT_POSTS_TABLE_TAG 0
 #define HOT_POSTS_TABLE_TAG 1
+#define POSTS_I_WROTE_TABLE_TAG 0
+#define POSTS_I_COMMENTED_ON_TABLE_TAG 1
 
 #define LOGIN_API_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/users/login"]
 #define SIGNUP_API_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/users/register"]
@@ -54,10 +56,12 @@
 #define GET_RECENT_POSTS_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/api/recentPostsComments"]
 #define GET_HOT_POSTS_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/api/hotPostsComments"]
 #define GET_NOTIFICATIONS_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/api/notifications"]
-#define GET_PROFILE_POSTS_COMMENTS_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/api/myPostsComments"]
+//#define GET_PROFILE_POSTS_COMMENTS_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/api/myPostsComments"]
+
+#define GET_POSTS_I_WROTE_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/api/postsIWrote"]
+#define GET_POSTS_I_COMMENTED_ON_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/api/postsICommentedOn"]
 
 #define GET_COMMENTS_FOR_POST_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/get-comments-for-post"]
-#define GET_MY_POSTS_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/publications/PostsThatICommentedOn"]
 #define GET_POST_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/get-post"]
 
 #define NEW_POST_API_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/api/posts/new"]

@@ -1,26 +1,26 @@
 //
-//  ToastsTableView.m
+//  ProfilePostsTableView.m
 //  Toaster
 //
-//  Created by Howon Song on 9/26/15.
+//  Created by Howon Song on 9/27/15.
 //  Copyright (c) 2015 honeyjamstudio. All rights reserved.
 //
 
-#import "ToastsTableView.h"
+#import "ProfilePostsTableView.h"
 #import "Constants.h"
 #import "AppDelegate.h"
 #import "CustomTableViewCell.h"
 #import "Utils.h"
 
-@implementation ToastsTableView
+@implementation ProfilePostsTableView
 
 - (void)reloadData {
     NSLog(@"reloading data!!");
     
-    if (self.tag == RECENT_POSTS_TABLE_TAG) {
-        self.posts = self.recentPosts;
+    if (self.tag == POSTS_I_WROTE_TABLE_TAG) {
+        self.posts = self.myPosts;
     } else {
-        self.posts = self.hotPosts;
+        self.posts = self.myReplies;
     }
     
     [super reloadData];
