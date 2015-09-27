@@ -40,6 +40,25 @@
     [manager GET:reqUrl parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
   
         NSMutableArray *notifications = responseObject[@"notifications"];
+        
+        NSMutableArray *posts = responseObject[@"posts"];
+        NSMutableArray *comments = responseObject[@"comments"];
+        
+        NSMutableDictionary *postsDict = [Utils transformArrToDict:posts keyStr:@"_id"];
+        NSMutableDictionary *commentsDict = [Utils transformArrToDict:comments keyStr:@"_id"];
+        
+        for (NSMutableDictionary *noti in notifications) {
+            NSString *postId = noti[@"postId"];
+            NSString *commentId = noti[@"commentId"];
+            if (![commentId isEqual:[NSNull null]]) {
+                NSMutableDictionary *comment = commentsDict[commentId];
+                [noti setValue:comment[@"body"] forKey: @"content"];
+            } else {
+                NSMutableDictionary *post = postsDict[postId];
+                [noti setValue:post[@"body"] forKey: @"content"];
+            }
+        }
+        
         self.notifications = [Utils sortReversedJSONObjsByDate:notifications];
         
         [self.tableView reloadData];
@@ -60,9 +79,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    
-    NSString *userId = appDelegate.userId;
+
     NSString *cellId = @"NotiCell";
     NotificationCell *cell = (NotificationCell *)[tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
     NSDictionary *notiObj = [self.notifications objectAtIndex:indexPath.row];
@@ -72,12 +89,13 @@
     NSString *createdAt = [Utils stringFromDate:[notiObj objectForKey:@"createdAt"]];
     BOOL isRead = [(NSNumber *)notiObj[@"isRead"] boolValue];
     NSString *notiType = notiObj[@"type"];
+    NSString *content = notiObj[@"content"];
     
 //    more keys: fromUserId, toUserId, commentId, icon
     
     cell.postId = postId;
     cell.isRead = isRead;
-    [cell.notiContent setText:notiBody];
+    [cell.notiContent setText:[NSString stringWithFormat:@"\"%@\"", content]];
     [cell.notiMsg setText:notiBody];
     [cell.createdAt setText:createdAt];
     return cell;

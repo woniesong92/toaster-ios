@@ -70,4 +70,17 @@
     return createdAt.shortTimeAgoSinceNow;
 }
 
++ (NSMutableDictionary *)transformArrToDict: (NSMutableArray *)objs keyStr:(NSString *)keyStr {
+    
+    NSMutableDictionary *result = [[NSMutableDictionary alloc] initWithCapacity:objs.count];
+    
+    for (NSMutableDictionary *obj in objs) {
+        // keyStr = @"_id", @"postId" or @"commentId"
+        NSString *key = obj[keyStr];
+        [result setValue:obj forKey:key];
+    }
+    
+    return result;
+}
+
 @end

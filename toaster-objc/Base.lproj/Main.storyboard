@@ -484,41 +484,88 @@
         <scene sceneID="K9R-4G-nd9">
             <objects>
                 <tableViewController id="viv-BT-c3j" customClass="NotificationsTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="aYd-K5-qxX">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" sectionHeaderHeight="22" sectionFooterHeight="22" id="aYd-K5-qxX">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NotiCell" rowHeight="120" id="16w-37-JT1" customClass="NotificationCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NotiCell" id="16w-37-JT1" customClass="NotificationCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="16w-37-JT1" id="hUr-EM-90U">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N7p-Zo-1ZO">
-                                            <rect key="frame" x="8" y="90" width="94" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="hI this is your notification. How are you doing?" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gsh-tD-CK1">
-                                            <rect key="frame" x="48" y="8" width="471" height="33"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="notifications" translatesAutoresizingMaskIntoConstraints="NO" id="sT9-ai-tBb">
+                                            <rect key="frame" x="560" y="8" width="32" height="32"/>
+                                        </imageView>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Notification Context" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gsh-tD-CK1">
+                                            <rect key="frame" x="48" y="49" width="504" height="33"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="notifications" translatesAutoresizingMaskIntoConstraints="NO" id="T4V-rV-KOS">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="notifications" translatesAutoresizingMaskIntoConstraints="NO" id="T4V-rV-KOS">
                                             <rect key="frame" x="8" y="8" width="32" height="32"/>
                                         </imageView>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Someone liked your post!" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7tw-fI-Nwd">
-                                            <rect key="frame" x="48" y="49" width="471" height="33"/>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Notification Message" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7tw-fI-Nwd">
+                                            <rect key="frame" x="48" y="8" width="500" height="33"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="504" id="2l6-Aj-ljL"/>
+                                                <constraint firstAttribute="width" constant="500" id="2t4-JT-oGw"/>
+                                                <constraint firstAttribute="height" constant="33" id="Uxs-Qe-DaT"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="2l6-Aj-ljL"/>
+                                                    <exclude reference="2t4-JT-oGw"/>
+                                                </mask>
+                                            </variation>
                                         </textView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="notifications" translatesAutoresizingMaskIntoConstraints="NO" id="sT9-ai-tBb">
-                                            <rect key="frame" x="560" y="0.0" width="32" height="32"/>
-                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N7p-Zo-1ZO">
+                                            <rect key="frame" x="8" y="96" width="100" height="15"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="dEj-nd-NL0"/>
+                                                <constraint firstAttribute="width" constant="100" id="ymc-3q-kap"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="dEj-nd-NL0"/>
+                                                </mask>
+                                            </variation>
+                                        </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="sT9-ai-tBb" firstAttribute="top" secondItem="hUr-EM-90U" secondAttribute="top" constant="8" id="3B1-Sz-9sx"/>
+                                        <constraint firstItem="7tw-fI-Nwd" firstAttribute="leading" secondItem="T4V-rV-KOS" secondAttribute="trailing" constant="8" id="6Or-2l-gtW"/>
+                                        <constraint firstItem="7tw-fI-Nwd" firstAttribute="leading" secondItem="gsh-tD-CK1" secondAttribute="leading" id="7Vy-XO-mMW"/>
+                                        <constraint firstItem="7tw-fI-Nwd" firstAttribute="top" secondItem="hUr-EM-90U" secondAttribute="top" constant="8" id="9KL-8m-JhV"/>
+                                        <constraint firstItem="sT9-ai-tBb" firstAttribute="top" secondItem="hUr-EM-90U" secondAttribute="top" constant="8" id="9c6-Vc-QeH"/>
+                                        <constraint firstAttribute="trailing" secondItem="sT9-ai-tBb" secondAttribute="trailing" constant="8" id="C6w-YC-Lp4"/>
+                                        <constraint firstItem="gsh-tD-CK1" firstAttribute="top" secondItem="7tw-fI-Nwd" secondAttribute="bottom" constant="8" id="H0T-bb-9qF"/>
+                                        <constraint firstAttribute="bottom" secondItem="sT9-ai-tBb" secondAttribute="bottom" constant="79" id="Ih7-Ya-1Nx"/>
+                                        <constraint firstItem="sT9-ai-tBb" firstAttribute="leading" secondItem="7tw-fI-Nwd" secondAttribute="trailing" constant="8" id="Ihz-rN-8FN"/>
+                                        <constraint firstItem="N7p-Zo-1ZO" firstAttribute="top" secondItem="hUr-EM-90U" secondAttribute="top" constant="96" id="KBP-xb-FXd"/>
+                                        <constraint firstItem="sT9-ai-tBb" firstAttribute="leading" secondItem="hUr-EM-90U" secondAttribute="leading" constant="560" id="LGe-AV-grV"/>
+                                        <constraint firstItem="N7p-Zo-1ZO" firstAttribute="leading" secondItem="hUr-EM-90U" secondAttribute="leadingMargin" id="PVU-4j-x0f"/>
+                                        <constraint firstItem="T4V-rV-KOS" firstAttribute="top" secondItem="hUr-EM-90U" secondAttribute="top" constant="8" id="RDF-gE-dT3"/>
+                                        <constraint firstItem="7tw-fI-Nwd" firstAttribute="leading" secondItem="T4V-rV-KOS" secondAttribute="trailing" constant="8" id="StL-ff-VtB"/>
+                                        <constraint firstItem="sT9-ai-tBb" firstAttribute="leading" secondItem="7tw-fI-Nwd" secondAttribute="trailing" constant="12" id="alE-xs-eul"/>
+                                        <constraint firstItem="T4V-rV-KOS" firstAttribute="leading" secondItem="hUr-EM-90U" secondAttribute="leading" constant="8" id="izG-pL-u25"/>
+                                        <constraint firstItem="7tw-fI-Nwd" firstAttribute="trailing" secondItem="gsh-tD-CK1" secondAttribute="trailing" constant="-4" id="zTF-34-Khh"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="6Or-2l-gtW"/>
+                                            <exclude reference="3B1-Sz-9sx"/>
+                                            <exclude reference="Ihz-rN-8FN"/>
+                                            <exclude reference="LGe-AV-grV"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="createdAt" destination="N7p-Zo-1ZO" id="zEJ-oT-JI6"/>
