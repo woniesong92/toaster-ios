@@ -54,6 +54,7 @@
 #define GET_RECENT_POSTS_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/api/recentPostsComments"]
 #define GET_HOT_POSTS_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/api/hotPostsComments"]
 #define GET_NOTIFICATIONS_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/api/notifications"]
+#define GET_PROFILE_POSTS_COMMENTS_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/api/myPostsComments"]
 
 #define GET_COMMENTS_FOR_POST_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/get-comments-for-post"]
 #define GET_MY_POSTS_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/publications/PostsThatICommentedOn"]

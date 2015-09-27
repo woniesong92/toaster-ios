@@ -567,6 +567,7 @@
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="createdAt" destination="N7p-Zo-1ZO" id="zEJ-oT-JI6"/>
                                     <outlet property="isReadIcon" destination="T4V-rV-KOS" id="z2L-Jv-C5d"/>
@@ -588,6 +589,33 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PfB-Z0-n5d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2280" y="382"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="qIq-ZP-mCd">
+            <objects>
+                <tableViewController id="Scf-Ud-bGf" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="aC4-Oi-FqS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="1Ig-Su-VzN">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1Ig-Su-VzN" id="TRr-KG-h04">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Scf-Ud-bGf" id="8p7-in-1qR"/>
+                            <outlet property="delegate" destination="Scf-Ud-bGf" id="BiS-Wg-YOq"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Profile" id="vfI-CY-Wrr"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hIN-Q1-WaE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2280" y="1102"/>
         </scene>
         <!--Sign Up-->
         <scene sceneID="aEe-ms-HUx">
@@ -759,34 +787,12 @@
                         </textAttributes>
                     </navigationBar>
                     <connections>
-                        <segue destination="Zl8-nl-qIH" kind="relationship" relationship="rootViewController" id="JKW-vu-MNf"/>
+                        <segue destination="Scf-Ud-bGf" kind="relationship" relationship="rootViewController" id="ICz-zd-eGJ"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pD7-Dl-vje" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1556" y="1102"/>
-        </scene>
-        <!--Profile-->
-        <scene sceneID="ih7-e4-v57">
-            <objects>
-                <viewController id="Zl8-nl-qIH" customClass="ProfileViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jvc-yc-3gD"/>
-                        <viewControllerLayoutGuide type="bottom" id="OcB-OY-RvZ"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="FrG-Xl-SRR">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Profile" image="profile" id="DI5-Qq-n8M"/>
-                    <navigationItem key="navigationItem" title="Profile" id="MxY-EV-Bxa">
-                        <barButtonItem key="rightBarButtonItem" image="settings" style="done" id="AlQ-7d-hD4"/>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yMB-GE-20u" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2280" y="1102"/>
         </scene>
         <!--Settings-->
         <scene sceneID="Zgo-xc-GpV">
