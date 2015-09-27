@@ -14,5 +14,8 @@
 }
 
 @property NSMutableArray *notifications;
+@property NSMutableDictionary *postsDict;
+@property NSMutableDictionary *commentsDict;
+
 
 @end

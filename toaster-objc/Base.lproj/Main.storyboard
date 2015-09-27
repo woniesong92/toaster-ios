@@ -124,7 +124,7 @@
                                     <outlet property="postBody" destination="PYH-SA-vVY" id="HYF-EE-rMF"/>
                                     <outlet property="postDate" destination="T1B-oJ-8b1" id="jch-K2-3fq"/>
                                     <outlet property="upvoteBtn" destination="ftI-BB-Xfx" id="ca9-HO-BQK"/>
-                                    <segue destination="i0U-vc-kr9" kind="show" identifier="postsShowSegue1" id="2tB-YS-ZOB"/>
+                                    <segue destination="i0U-vc-kr9" kind="show" identifier="ToastsToDetailSegue" id="2tB-YS-ZOB"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -483,13 +483,13 @@
         <!--Notifications-->
         <scene sceneID="K9R-4G-nd9">
             <objects>
-                <tableViewController id="viv-BT-c3j" customClass="NotificationsTableViewController" sceneMemberID="viewController">
+                <tableViewController title="Notifications" id="viv-BT-c3j" customClass="NotificationsTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" sectionHeaderHeight="22" sectionFooterHeight="22" id="aYd-K5-qxX">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NotiCell" id="16w-37-JT1" customClass="NotificationCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="NotiCell" id="16w-37-JT1" customClass="NotificationCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="16w-37-JT1" id="hUr-EM-90U">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -573,6 +573,7 @@
                                     <outlet property="notiContent" destination="gsh-tD-CK1" id="1DR-Q8-COX"/>
                                     <outlet property="notiMsg" destination="7tw-fI-Nwd" id="ReQ-VK-FYV"/>
                                     <outlet property="notiTypeIcon" destination="sT9-ai-tBb" id="7Oq-nk-b2D"/>
+                                    <segue destination="i0U-vc-kr9" kind="show" identifier="NotisToDetailSegue" id="pib-R4-w1Y"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1107,5 +1108,8 @@
         <image name="upvote" width="32" height="32"/>
         <image name="upvote-selected" width="32" height="32"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="pib-R4-w1Y"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.27450980390000002" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

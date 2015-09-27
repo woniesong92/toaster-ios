@@ -10,7 +10,6 @@
 		700272331B99C62D00C292A5 /* WebViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 700272321B99C62D00C292A5 /* WebViewManager.m */; };
 		700272391B9A36B900C292A5 /* UIWebView+FLUIWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 700272381B9A36B900C292A5 /* UIWebView+FLUIWebView.m */; };
 		7002723C1B9A36EE00C292A5 /* WKWebView+FLWKWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7002723B1B9A36EE00C292A5 /* WKWebView+FLWKWebView.m */; };
-		700272451B9A69C400C292A5 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 700272441B9A69C400C292A5 /* ProfileViewController.m */; };
 		7002724B1B9B173F00C292A5 /* NewPostController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7002724A1B9B173F00C292A5 /* NewPostController.m */; };
 		7002724E1B9BD23200C292A5 /* LoadingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7002724D1B9BD23200C292A5 /* LoadingManager.m */; };
 		7004B9D31BAE902700C4210E /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7004B9D21BAE902700C4210E /* CustomTableViewCell.m */; };
@@ -91,8 +90,6 @@
 		700272381B9A36B900C292A5 /* UIWebView+FLUIWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+FLUIWebView.m"; sourceTree = "<group>"; };
 		7002723A1B9A36EE00C292A5 /* WKWebView+FLWKWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WKWebView+FLWKWebView.h"; sourceTree = "<group>"; };
 		7002723B1B9A36EE00C292A5 /* WKWebView+FLWKWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WKWebView+FLWKWebView.m"; sourceTree = "<group>"; };
-		700272431B9A69C400C292A5 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileViewController.h; path = ../ProfileViewController.h; sourceTree = "<group>"; };
-		700272441B9A69C400C292A5 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileViewController.m; path = ../ProfileViewController.m; sourceTree = "<group>"; };
 		700272491B9B173F00C292A5 /* NewPostController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewPostController.h; sourceTree = "<group>"; };
 		7002724A1B9B173F00C292A5 /* NewPostController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewPostController.m; sourceTree = "<group>"; };
 		7002724C1B9BD23200C292A5 /* LoadingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingManager.h; sourceTree = "<group>"; };
@@ -405,8 +402,6 @@
 				70A4F0411BB750C200E66A7E /* NotificationsTableViewController.m */,
 				70A4F0431BB7512100E66A7E /* NotificationCell.h */,
 				70A4F0441BB7512100E66A7E /* NotificationCell.m */,
-				700272431B9A69C400C292A5 /* ProfileViewController.h */,
-				700272441B9A69C400C292A5 /* ProfileViewController.m */,
 				70E3415D1B9C9DB200046067 /* SettingsViewController.h */,
 				70E3415E1B9C9DB200046067 /* SettingsViewController.m */,
 				701278241BA6120800A4D6FA /* AboutViewController.h */,
@@ -557,7 +552,6 @@
 			files = (
 				700272331B99C62D00C292A5 /* WebViewManager.m in Sources */,
 				7017D7121BAF8E3D003EB498 /* Underscore.m in Sources */,
-				700272451B9A69C400C292A5 /* ProfileViewController.m in Sources */,
 				70EC5ABE1BAE3F9C0019AA58 /* RecentTableViewController.m in Sources */,
 				7046D2001BAE38EF00A5465F /* AFSecurityPolicy.m in Sources */,
 				7046D1FD1BAE38EF00A5465F /* AFHTTPRequestOperationManager.m in Sources */,

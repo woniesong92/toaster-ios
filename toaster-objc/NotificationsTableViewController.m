@@ -11,6 +11,7 @@
 #import "Constants.h"
 #import "Utils.h"
 #import "NotificationCell.h"
+#import "PostsShowViewController.h"
 
 @implementation NotificationsTableViewController
 
@@ -44,17 +45,17 @@
         NSMutableArray *posts = responseObject[@"posts"];
         NSMutableArray *comments = responseObject[@"comments"];
         
-        NSMutableDictionary *postsDict = [Utils transformArrToDict:posts keyStr:@"_id"];
-        NSMutableDictionary *commentsDict = [Utils transformArrToDict:comments keyStr:@"_id"];
+        self.postsDict = [Utils transformArrToDict:posts keyStr:@"_id"];
+        self.commentsDict = [Utils transformArrToDict:comments keyStr:@"_id"];
         
         for (NSMutableDictionary *noti in notifications) {
             NSString *postId = noti[@"postId"];
             NSString *commentId = noti[@"commentId"];
             if (![commentId isEqual:[NSNull null]]) {
-                NSMutableDictionary *comment = commentsDict[commentId];
+                NSMutableDictionary *comment = self.commentsDict[commentId];
                 [noti setValue:comment[@"body"] forKey: @"content"];
             } else {
-                NSMutableDictionary *post = postsDict[postId];
+                NSMutableDictionary *post = self.postsDict[postId];
                 [noti setValue:post[@"body"] forKey: @"content"];
             }
         }
@@ -81,6 +82,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
     NSString *cellId = @"NotiCell";
+    
     NotificationCell *cell = (NotificationCell *)[tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
     NSDictionary *notiObj = [self.notifications objectAtIndex:indexPath.row];
     
@@ -99,6 +101,28 @@
     [cell.notiMsg setText:notiBody];
     [cell.createdAt setText:createdAt];
     return cell;
+}
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    
+    if ([segue.identifier isEqualToString:@"NotisToDetailSegue"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        PostsShowViewController *postsShowController = (PostsShowViewController *)segue.destinationViewController;
+
+        NSMutableDictionary *noti = self.notifications[indexPath.row];
+        NSString *postId = noti[@"postId"];
+        NSMutableDictionary *post = self.postsDict[postId];
+        NSString *createdAt = post[@"createdAt"];
+        
+        [post setValue:[Utils dateWithJSONString:createdAt] forKey:@"createdAt"];
+        
+        postsShowController.postDetail = post;
+        
+//        postsShowController.cellRowIdx = [NSNumber numberWithInteger:indexPath.row];
+    }
 }
 
 

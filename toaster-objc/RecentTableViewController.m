@@ -274,7 +274,7 @@
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"postsShowSegue1"]) {
+    if ([segue.identifier isEqualToString:@"ToastsToDetailSegue"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         PostsShowViewController *postsShowController = (PostsShowViewController *)segue.destinationViewController;
         postsShowController.postDetail = [self.postsTable.posts objectAtIndex:indexPath.row];
