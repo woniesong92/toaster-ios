@@ -18,8 +18,6 @@
 
 @implementation SignUpViewController
 
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
 
