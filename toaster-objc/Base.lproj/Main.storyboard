@@ -604,55 +604,76 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="signupBg" translatesAutoresizingMaskIntoConstraints="NO" id="dxy-81-LEv">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uAr-7m-Uyr">
-                                <rect key="frame" x="24" y="217" width="552" height="335"/>
+                                <rect key="frame" x="24" y="221" width="552" height="335"/>
                                 <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password Confirmation" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zaE-SU-zkE">
+                                        <rect key="frame" x="0.0" y="122" width="552" height="40"/>
+                                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textCOlor">
+                                                <color key="value" red="1" green="1" blue="1" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aw1-nl-9cg">
                                         <rect key="frame" x="0.0" y="64" width="600" height="40"/>
                                         <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textCOlor">
+                                                <color key="value" red="1" green="1" blue="1" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="email" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Company Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZaU-Es-qrR">
                                         <rect key="frame" x="0.0" y="8" width="552" height="40"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textCOlor">
+                                                <color key="value" red="1" green="1" blue="1" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IA3-xh-Kk6">
                                         <rect key="frame" x="0.0" y="176" width="552" height="40"/>
-                                        <color key="backgroundColor" red="1" green="0.27450980390000002" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Sign Up">
+                                            <color key="titleColor" red="1" green="0.27450980390000002" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="signUpButtonClicked:" destination="wgb-Tf-AS4" eventType="touchUpInside" id="g5V-iQ-wBI"/>
                                         </connections>
                                     </button>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="Already have an account?" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mZK-yq-Iu2">
-                                        <rect key="frame" x="0.0" y="266" width="186" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8x5-DW-LEY">
-                                        <rect key="frame" x="194" y="261" width="50" height="30"/>
+                                        <rect key="frame" x="333" y="266" width="50" height="30"/>
                                         <state key="normal" title="Log in">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="0qg-MP-Vj7" kind="presentation" id="WmR-eU-GQ3"/>
+                                            <segue destination="Zab-BU-zrD" kind="presentation" id="MCs-Hc-j0d"/>
                                         </connections>
                                     </button>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password Confirmation" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zaE-SU-zkE">
-                                        <rect key="frame" x="0.0" y="122" width="552" height="40"/>
-                                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="Already have an account?" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mZK-yq-Iu2">
+                                        <rect key="frame" x="139" y="266" width="186" height="30"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -668,26 +689,6 @@
             </objects>
             <point key="canvasLocation" x="-142" y="-322"/>
         </scene>
-        <!--SignInNav-->
-        <scene sceneID="RJr-Hp-CrZ">
-            <objects>
-                <navigationController title="SignInNav" id="0qg-MP-Vj7" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="O6d-vF-mbt">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="1" green="0.27450980390000002" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="Zab-BU-zrD" kind="relationship" relationship="rootViewController" id="IdI-jS-Xg8"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="imm-Gl-4GE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-870" y="377"/>
-        </scene>
         <!--Custom Tab Bar View Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
@@ -701,11 +702,11 @@
                         <color key="selectedImageTintColor" red="1" green="0.27450980390000002" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="faC-Ap-wUx" kind="presentation" identifier="TabBarToSignUpSegue" id="NsA-xX-ODL"/>
                         <segue destination="lJ5-gI-H5F" kind="relationship" relationship="viewControllers" id="4ch-rI-smG"/>
                         <segue destination="CZJ-oL-ufF" kind="relationship" relationship="viewControllers" id="0o3-jW-p9w"/>
                         <segue destination="9tC-GH-RY5" kind="relationship" relationship="viewControllers" id="GON-nm-0hj"/>
                         <segue destination="bM4-bS-Gyq" kind="relationship" relationship="viewControllers" id="Lmq-1S-Le1"/>
+                        <segue destination="wgb-Tf-AS4" kind="presentation" identifier="TabBarToSignUpSegue" id="XeL-j4-ep8"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -1046,32 +1047,6 @@
             </objects>
             <point key="canvasLocation" x="3779" y="-382"/>
         </scene>
-        <!--SignUpNav-->
-        <scene sceneID="hC6-y3-t0Y">
-            <objects>
-                <navigationController storyboardIdentifier="SignUpNavVC" title="SignUpNav" automaticallyAdjustsScrollViewInsets="NO" id="faC-Ap-wUx" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YLe-gD-AWb">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="1" green="0.27450980390000002" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="sk1-Py-dtx">
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="1" green="0.27450980390000002" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </toolbar>
-                    <connections>
-                        <segue destination="wgb-Tf-AS4" kind="relationship" relationship="rootViewController" id="xEi-UT-CXk"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4d2-qq-NbW" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-868" y="-322"/>
-        </scene>
         <!--About-->
         <scene sceneID="ftJ-kj-rA4">
             <objects>
@@ -1233,7 +1208,7 @@
                         <viewControllerLayoutGuide type="bottom" id="6wQ-I5-wpv"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="JJx-zZ-fbK">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="email" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Company Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YvX-Vp-fXv" customClass="UITextFieldWithPadding">
@@ -1680,7 +1655,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="hGh-TZ-aTD"/>
                     <connections>
-                        <segue destination="faC-Ap-wUx" kind="presentation" identifier="SettingsToSignUpSegue" id="yji-O9-o5d"/>
+                        <segue destination="wgb-Tf-AS4" kind="presentation" identifier="SettingsToSignUpSegue" id="bkO-vW-Hil"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vxk-HD-2Lc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1703,6 +1678,7 @@
         <image name="settings" width="32" height="32"/>
         <image name="settings-selected" width="32" height="32"/>
         <image name="share" width="32" height="32"/>
+        <image name="signupBg" width="750" height="1334"/>
         <image name="terms" width="32" height="32"/>
         <image name="toasts" width="32" height="32"/>
         <image name="toasts-selected" width="32" height="32"/>
@@ -1710,7 +1686,7 @@
         <image name="upvote-selected" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="NsA-xX-ODL"/>
+        <segue reference="bkO-vW-Hil"/>
         <segue reference="zLz-ge-Hap"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.27450980390000002" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

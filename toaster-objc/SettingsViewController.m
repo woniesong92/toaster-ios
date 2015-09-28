@@ -27,10 +27,9 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults removeObjectForKey:@"token"];
     [defaults removeObjectForKey:@"userId"];
+    [defaults synchronize];
     
     [SessionManager clearSessionAndRedirect:@"SettingsToSignUpSegue" sender:self];
-    
-    NSLog(@"go to sign up");
 }
 
 @end
