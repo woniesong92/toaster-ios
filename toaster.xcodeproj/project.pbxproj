@@ -32,6 +32,7 @@
 		7017D72C1BAF9DBB003EB498 /* DTTimePeriodGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 7017D7231BAF9DBB003EB498 /* DTTimePeriodGroup.m */; };
 		7017D72D1BAF9DBB003EB498 /* NSDate+DateTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 7017D7251BAF9DBB003EB498 /* NSDate+DateTools.m */; };
 		70223C6C1BB8BDBB000FE6CB /* SessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 70223C6B1BB8BDBB000FE6CB /* SessionManager.m */; };
+		70223C6F1BB8C5E7000FE6CB /* UITextFieldWithPadding.m in Sources */ = {isa = PBXBuildFile; fileRef = 70223C6E1BB8C5E7000FE6CB /* UITextFieldWithPadding.m */; };
 		7046D1FC1BAE38EF00A5465F /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7046D1D71BAE38EF00A5465F /* AFHTTPRequestOperation.m */; };
 		7046D1FD1BAE38EF00A5465F /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7046D1D91BAE38EF00A5465F /* AFHTTPRequestOperationManager.m */; };
 		7046D1FE1BAE38EF00A5465F /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7046D1DB1BAE38EF00A5465F /* AFHTTPSessionManager.m */; };
@@ -135,6 +136,9 @@
 		7017D7251BAF9DBB003EB498 /* NSDate+DateTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+DateTools.m"; sourceTree = "<group>"; };
 		70223C6A1BB8BDBB000FE6CB /* SessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionManager.h; sourceTree = "<group>"; };
 		70223C6B1BB8BDBB000FE6CB /* SessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionManager.m; sourceTree = "<group>"; };
+		70223C6D1BB8C5E7000FE6CB /* UITextFieldWithPadding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITextFieldWithPadding.h; sourceTree = "<group>"; };
+		70223C6E1BB8C5E7000FE6CB /* UITextFieldWithPadding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITextFieldWithPadding.m; sourceTree = "<group>"; };
+		70223C711BB8CD5F000FE6CB /* Oduda.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Oduda.ttf; sourceTree = "<group>"; };
 		7046D1D61BAE38EF00A5465F /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		7046D1D71BAE38EF00A5465F /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		7046D1D81BAE38EF00A5465F /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -309,6 +313,14 @@
 			path = AFNetworking/DateTools;
 			sourceTree = "<group>";
 		};
+		70223C701BB8CD3D000FE6CB /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				70223C711BB8CD5F000FE6CB /* Oduda.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		7046D1D51BAE38EF00A5465F /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
@@ -369,6 +381,7 @@
 		70951F901B989F15006B1228 /* toaster-objc */ = {
 			isa = PBXGroup;
 			children = (
+				70223C701BB8CD3D000FE6CB /* Fonts */,
 				7017D7151BAF9DBB003EB498 /* DateTools */,
 				7017D6FB1BAF8E3C003EB498 /* Underscore */,
 				7046D1D51BAE38EF00A5465F /* AFNetworking */,
@@ -384,6 +397,8 @@
 				7002724D1B9BD23200C292A5 /* LoadingManager.m */,
 				70E341631B9DE2F400046067 /* CustomTabBarViewController.h */,
 				70E341641B9DE2F400046067 /* CustomTabBarViewController.m */,
+				70223C6D1BB8C5E7000FE6CB /* UITextFieldWithPadding.h */,
+				70223C6E1BB8C5E7000FE6CB /* UITextFieldWithPadding.m */,
 				70E341601B9CA6C200046067 /* SignUpViewController.h */,
 				70E341611B9CA6C200046067 /* SignUpViewController.m */,
 				70EC5ABF1BAE5F7E0019AA58 /* SignInViewController.h */,
@@ -579,6 +594,7 @@
 				7017D72C1BAF9DBB003EB498 /* DTTimePeriodGroup.m in Sources */,
 				7017D7271BAF9DBB003EB498 /* DTConstants.m in Sources */,
 				70A4F0481BB82D8A00E66A7E /* ProfileViewController.m in Sources */,
+				70223C6F1BB8C5E7000FE6CB /* UITextFieldWithPadding.m in Sources */,
 				7017D7111BAF8E3D003EB498 /* Underscore+Functional.m in Sources */,
 				70223C6C1BB8BDBB000FE6CB /* SessionManager.m in Sources */,
 				70EC5AC11BAE5F7E0019AA58 /* SignInViewController.m in Sources */,
