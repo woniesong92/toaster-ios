@@ -147,6 +147,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="postsTable" destination="AAD-Ug-CJt" id="1hH-Hy-8jM"/>
+                        <segue destination="wgb-Tf-AS4" kind="presentation" identifier="PostsToSignUpSegue" id="xdF-yp-z1L"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hn7-tO-bzQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -710,7 +711,7 @@
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="CZ4-Vb-pkD" kind="presentation" id="h3j-kz-DpL"/>
+                                                    <segue destination="CZ4-Vb-pkD" kind="showDetail" id="h3j-kz-DpL"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -1894,8 +1895,8 @@
         <image name="upvote-selected" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="XeL-j4-ep8"/>
-        <segue reference="zLz-ge-Hap"/>
+        <segue reference="xdF-yp-z1L"/>
+        <segue reference="2tB-YS-ZOB"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.27450980390000002" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

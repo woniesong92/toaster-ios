@@ -11,6 +11,7 @@
 #import "AppDelegate.h"
 #import "CustomTableViewCell.h"
 #import "Utils.h"
+#import "SessionManager.h"
 
 @implementation ToastsTableView
 
@@ -39,9 +40,8 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
-    NSString *userId = appDelegate.userId;
+    NSString *userId = [SessionManager currentUser];
     NSString *cellId = @"Cell";
     CustomTableViewCell *cell = (CustomTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
     NSDictionary *postObj = [self.posts objectAtIndex:indexPath.row];

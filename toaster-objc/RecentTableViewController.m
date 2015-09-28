@@ -14,6 +14,8 @@
 #import "Utils.h"
 #import "Underscore.h"
 #import "AppDelegate.h"
+#import "SessionManager.h"
+
 
 #define _ Underscore
 
@@ -46,16 +48,12 @@
     rowIdxToStartFetchingRecentPosts = NUM_RECENT_POSTS_IN_ONE_BATCH - 5;
     rowIdxToStartFetchingHotPosts = NUM_HOT_POSTS_IN_ONE_BATCH - 5;
     
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    manager = appDelegate.networkManager;
+    networkManager = [NetworkManager getNetworkManager];
     
 //    Set up Recent Posts Table
     [self.postsTable setDelegate:self];
     [self.postsTable setDataSource:self.postsTable];
     [self.postsTable setTag:0];
-    
-    [self fetchPosts:HOT_POSTS_TABLE_TAG limit:[NSNumber numberWithInteger:NUM_HOT_POSTS_IN_ONE_BATCH] skip:@0 doReload:NO];
-    [self fetchPosts:RECENT_POSTS_TABLE_TAG limit:[NSNumber numberWithInteger:NUM_RECENT_POSTS_IN_ONE_BATCH] skip:@0 doReload:YES];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(shouldFetchPosts:)
@@ -143,6 +141,15 @@
 
 - (void)fetchPosts: (NSInteger)postsTableTag limit:(NSNumber *)limit skip:(NSNumber *)skip doReload:(BOOL)doReload {
     
+    NSString *userId = [SessionManager currentUser];
+    
+    if ([userId isEqualToString: @""]) {
+        NSLog(@"not fetching becuase not loggedIn");
+        return;
+    }
+    
+    AFHTTPRequestOperationManager *manager = networkManager.manager;
+    
     NSString *reqUrl;
     
     if (postsTableTag == RECENT_POSTS_TABLE_TAG) {
@@ -203,11 +210,22 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    NSLog(@"recent posts view will appear");
+    
     [super viewWillAppear:animated];
+    
+    if (![[SessionManager currentUser] isEqualToString:@""] && self.postsTable.posts.count == 0) {
+        [self fetchPosts:HOT_POSTS_TABLE_TAG limit:[NSNumber numberWithInteger:NUM_HOT_POSTS_IN_ONE_BATCH] skip:@0 doReload:NO];
+        [self fetchPosts:RECENT_POSTS_TABLE_TAG limit:[NSNumber numberWithInteger:NUM_RECENT_POSTS_IN_ONE_BATCH] skip:@0 doReload:YES];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    
+    if ([[SessionManager currentUser] isEqualToString:@""]) {
+        [self performSegueWithIdentifier:@"PostsToSignUpSegue" sender:self];
+    }
 }
 
 - (void)onAddPostRow:(NSNotification *)notification {

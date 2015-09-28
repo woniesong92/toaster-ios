@@ -15,7 +15,6 @@
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) UITabBarController *tabBarController;
 @property (strong, nonatomic) NSString *pushInstallationId;
-@property (strong, nonatomic) NSString *userId;
 @property (strong, nonatomic) AFHTTPRequestOperationManager *networkManager;
 
 

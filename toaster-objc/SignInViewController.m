@@ -52,7 +52,7 @@
                              @"password": password};
     [manager POST:LOGIN_API_URL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         // need to close its parent's presentingViewController
-        [SessionManager loginAndRedirect:self.presentingViewController sessionObj:responseObject];
+        [SessionManager loginAndRedirect:self sessionObj:responseObject];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         

@@ -36,24 +36,26 @@
                                                                              categories:nil];
     [application registerUserNotificationSettings:settings];
     [application registerForRemoteNotifications];
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSString *token = [defaults objectForKey:@"token"];
-    NSString *authorizationToken = [NSString stringWithFormat:@"Bearer %@", token];
-    
-    if (token == nil) {
-        NSLog(@"ERROR user token doesnt exist!");
-    }
-    
-    self.userId = [defaults objectForKey:@"userId"];
-    
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    [manager.requestSerializer setValue:authorizationToken forHTTPHeaderField:@"Authorization"];
-    manager.responseSerializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingMutableContainers];
-    
-    self.networkManager = manager;
-    
+//    
+//    if (
+//    
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    NSString *token = [defaults objectForKey:@"token"];
+//    NSString *authorizationToken = [NSString stringWithFormat:@"Bearer %@", token];
+//    
+//    if (token == nil) {
+//        NSLog(@"ERROR user token doesnt exist!");
+//    }
+//    
+//    self.userId = [defaults objectForKey:@"userId"];
+//    
+//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+//    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+//    [manager.requestSerializer setValue:authorizationToken forHTTPHeaderField:@"Authorization"];
+//    manager.responseSerializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingMutableContainers];
+//
+//    self.networkManager = manager;
+//    
     return YES;
 }
 

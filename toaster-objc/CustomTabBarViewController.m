@@ -23,9 +23,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    // Check if the user is logged in
-    [SessionManager checkSessionAndRedirect:@"TabBarToSignUpSegue" sender:self];
-    
     // Register tabbar controller
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     self.delegate = appDelegate;
@@ -34,8 +31,18 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(myNotificationReceived:) name:@"pushNotification" object:nil];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    NSLog(@"view did appear");
+
+    // Check if the user is logged in
+//    [SessionManager checkSessionAndRedirect:@"TabBarToSignUpSegue" sender:self];
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
     NSLog(@"tabbarcontroller view will appear");
 }
 

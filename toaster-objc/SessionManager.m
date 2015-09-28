@@ -7,25 +7,37 @@
 //
 
 #import "SessionManager.h"
+#import "AppDelegate.h"
+#import "NetworkManager.h"
 
 @implementation SessionManager
 
-+ (void) checkSessionAndRedirect: (NSString *)segueId sender:(UIViewController *)sender {
++ (BOOL) checkSessionAndRedirect: (NSString *)segueId sender:(UIViewController *)sender {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSString *token = [defaults objectForKey:@"token"];
-    NSString *userId = [defaults objectForKey:@"userId"];
-    NSString *tokenExpires = [defaults objectForKey:@"tokenExpires"];
-    
+
     // check if user is already loggedIn
     if([defaults objectForKey:@"token"] == nil ||
        [[defaults objectForKey:@"token"] isEqualToString:@""]) {
         
-        // FIXME: check if the token has expired. Then the user has to log in again
-        NSLog(@"user not logged in! %@, %@", token, userId);
-        
-        // Redirected
-//        [self performSegueWithIdentifier:@"TabBarToSignUpSegue" sender:self];
         [sender performSegueWithIdentifier:segueId sender:sender];
+        
+        return false;
+    } else {
+        return true;
+    }
+}
+
++ (NSString *)currentUser {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    // check if user is already loggedIn
+    
+    NSString *userId = [defaults objectForKey:@"userId"];
+    
+    if(userId == nil || [userId isEqualToString:@""]) {
+        return @"";
+    } else {
+        return userId;
     }
 }
 
@@ -51,6 +63,17 @@
     [defaults setObject:userId forKey:@"userId"];
     [defaults setObject:tokenExpires forKey:@"tokenExpires"];
     [defaults synchronize];
+    
+
+    NetworkManager *networkManager = [NetworkManager getNetworkManager];
+    [networkManager updateSerializerWithNewToken:token];
+    
+//    AFHTTPRequestOperationManager *manager = [NetworkManager getNetworkManager].manager;
+    
+//    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+//    NSString *authorizationToken = [NSString stringWithFormat:@"Bearer %@", token];
+//    [manager.requestSerializer setValue:authorizationToken forHTTPHeaderField:@"Authorization"];
+//    manager.responseSerializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingMutableContainers];
     
     [modal.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }

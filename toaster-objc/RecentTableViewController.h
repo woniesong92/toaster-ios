@@ -9,9 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "AFNetworking.h"
 #import "ToastsTableView.h"
+#import "NetworkManager.h"
 
 @interface RecentTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate> {
-    AFHTTPRequestOperationManager *manager;
+//    AFHTTPRequestOperationManager *manager;
+    NetworkManager *networkManager;
 }
 
 //@property NSMutableArray *comments;

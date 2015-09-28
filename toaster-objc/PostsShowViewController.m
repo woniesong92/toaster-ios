@@ -12,6 +12,7 @@
 #import "AppDelegate.h"
 #import "CommentTableViewCell.h"
 #import "Utils.h"
+#import "SessionManager.h"
 
 @implementation PostsShowViewController
 
@@ -67,7 +68,7 @@
     
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     manager = appDelegate.networkManager;
-    NSString *userId = appDelegate.userId;
+    NSString *userId = [SessionManager currentUser];
     
     NSString *postId = self.postDetail[@"_id"];
     NSString *reqURL = [NSString stringWithFormat:@"%@/%@", GET_POST_URL, postId];
@@ -143,8 +144,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    NSString *userId = appDelegate.userId;
+    NSString *userId = [SessionManager currentUser];
     NSString *cellId = @"CommentCell";
     CommentTableViewCell *cell = (CommentTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
     NSDictionary *commentObj= [self.comments objectAtIndex:indexPath.row];
