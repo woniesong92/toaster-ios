@@ -665,7 +665,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uVI-Oy-ELz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-830" y="0.0"/>
+            <point key="canvasLocation" x="-142" y="-322"/>
         </scene>
         <!--SignInNav-->
         <scene sceneID="RJr-Hp-CrZ">
@@ -685,7 +685,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="imm-Gl-4GE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1558" y="699"/>
+            <point key="canvasLocation" x="-870" y="377"/>
         </scene>
         <!--Custom Tab Bar View Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -1069,12 +1069,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4d2-qq-NbW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1556" y="0.0"/>
+            <point key="canvasLocation" x="-868" y="-322"/>
         </scene>
         <!--About-->
         <scene sceneID="ftJ-kj-rA4">
             <objects>
-                <viewController title="About" id="ERe-NC-ADR" customClass="AboutViewController" sceneMemberID="viewController">
+                <viewController title="About" id="ERe-NC-ADR" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VK1-O5-h53"/>
                         <viewControllerLayoutGuide type="bottom" id="rOj-jd-wiN"/>
@@ -1082,6 +1082,15 @@
                     <view key="view" contentMode="scaleToFill" id="qEY-Ip-gHb">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hkw-yQ-0tc">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <mutableString key="text">Abouttt Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="About" id="9ZF-9q-SqZ"/>
@@ -1093,7 +1102,7 @@
         <!--TermsOfService-->
         <scene sceneID="fsH-yO-Yhe">
             <objects>
-                <viewController title="TermsOfService" id="ZVj-Lr-plj" customClass="TermsOfServiceViewController" sceneMemberID="viewController">
+                <viewController title="TermsOfService" id="ZVj-Lr-plj" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yn1-Kd-PCX"/>
                         <viewControllerLayoutGuide type="bottom" id="g2j-UL-tqM"/>
@@ -1101,6 +1110,111 @@
                     <view key="view" contentMode="scaleToFill" id="9za-hA-guH">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O4v-cv-PCv">
+                                <rect key="frame" x="0.0" y="64" width="600" height="2689"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">
+      Toaster: Terms of Service
+      Honeyjam Studios
+    
+      Last Updated: 9/14/2015
+  
+      These terms of service ("Terms") apply to your access and use of Toaster (the "Service"). Please read them carefully.
+    
+      Accepting these Terms
+      If you access or use the Service, it means you agree to be bound by all of the terms below. So, before you use the Service, please read all of the terms. If you don't agree to all of the terms below, please do not use the Service. Also, if a term does not make sense to you, please let us know by e-mailing howon@gettoaster.com.
+    
+      Changes to these Terms
+      We reserve the right to modify these Terms at any time. For instance, we may need to change these Terms if we come out with a new feature or for some other reason.
+
+      Whenever we make changes to these Terms, the changes are effective one week after we post such revised Terms (indicated by revising the date at the top of these Terms) or upon your acceptance if we provide a mechanism for your immediate acceptance of the revised Terms (such as a click-through confirmation or acceptance button). It is your responsibility to check Toaster for changes to these Terms.
+
+      If you continue to use the Service after the revised Terms go into effect, then you have accepted the changes to these Terms.
+    
+      Privacy Policy
+      For information about how we collect and use information about users of the Service, please check out our privacy policy available in the settings page.
+    
+      Creating Accounts
+      When you create an account or use another service to log in to the Service, you agree to maintain the security of your password and accept all risks of unauthorized access to any data or other information you provide to the Service. If you discover or suspect any Service security breaches, please let us know as soon as possible.
+    
+      Your Content &amp; Conduct
+
+      Our Service allows you and other users to post anonymously. You are responsible for the content that you make available to the Service, including its legality, reliability, and appropriateness.
+
+      When you post content to the Service, you grant us the right and license to use, reproduce, modify, publicly perform, publicly display and distribute your content on or through the Service. We may format your content for display throughout the Service, but we will not edit or revise the substance of your content itself.
+
+      Aside from our limited right to your content, you retain all of your rights to the content you post on or through the Service.
+
+      
+        You may not post, link and otherwise make available on or through the Service any of the following:
+          
+        - Content that is libelous, defamatory, bigoted, fraudulent or deceptive;
+        - Content that is illegal or unlawful, that would otherwise create liability;
+        - Content that may infringe or violate any patent, trademark, trade secret, copyright, right of privacy, right of publicity or other intellectual or other right of any party;
+        - Mass or repeated promotions, political campaigning or commercial messages directed at users who do not follow you (SPAM);
+        Private information of any third party (e.g., addresses, phone numbers, email addresses, Social Security numbers and credit card numbers); and
+        - Viruses, corrupted data or other harmful, disruptive or destructive files or code.
+        - Also, you agree that you will not do any of the following in connection with the Service or other users:
+        
+        Use the Service in any manner that could interfere with, disrupt, negatively affect or inhibit other users from fully enjoying the Service or that could damage, disable, overburden or impair the functioning of the Service;
+        Impersonate or post on behalf of any person or entity or otherwise misrepresent your affiliation with a person or entity;
+        Collect any personal information about other users, or intimidate, threaten, stalk or otherwise harass other users of the Service;
+        Create an account or post any content if you are not over 13 years of age years of age; and
+        Circumvent or attempt to circumvent any filtering, security measures, rate limits or other features designed to protect the Service, users of the Service, or third parties.
+
+      
+    
+
+    
+      Unavoidable Legal Stuff
+      THE SERVICE AND ANY OTHER SERVICE AND CONTENT INCLUDED ON OR OTHERWISE MADE AVAILABLE TO YOU THROUGH THE SERVICE ARE PROVIDED TO YOU ON AN AS IS OR AS AVAILABLE BASIS WITHOUT ANY REPRESENTATIONS OR WARRANTIES OF ANY KIND. WE DISCLAIM ANY AND ALL WARRANTIES AND REPRESENTATIONS (EXPRESS OR IMPLIED, ORAL OR WRITTEN) WITH RESPECT TO THE SERVICE AND CONTENT INCLUDED ON OR OTHERWISE MADE AVAILABLE TO YOU THROUGH THE SERVICE WHETHER ALLEGED TO ARISE BY OPERATION OF LAW, BY REASON OF CUSTOM OR USAGE IN THE TRADE, BY COURSE OF DEALING OR OTHERWISE.
+
+      IN NO EVENT WILL THE DEVELOPER OF TOASTER BE LIABLE TO YOU OR ANY THIRD PARTY FOR ANY SPECIAL, INDIRECT, INCIDENTAL, EXEMPLARY OR CONSEQUENTIAL DAMAGES OF ANY KIND ARISING OUT OF OR IN CONNECTION WITH THE SERVICE OR ANY OTHER SERVICE AND/OR CONTENT INCLUDED ON OR OTHERWISE MADE AVAILABLE TO YOU THROUGH THE SERVICE, REGARDLESS OF THE FORM OF ACTION, WHETHER IN CONTRACT, TORT, STRICT LIABILITY OR OTHERWISE, EVEN IF WE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES OR ARE AWARE OF THE POSSIBILITY OF SUCH DAMAGES. OUR TOTAL LIABILITY FOR ALL CAUSES OF ACTION AND UNDER ALL THEORIES OF LIABILITY WILL BE LIMITED TO THE AMOUNT YOU PAID TO THE DEVELOPER OF TOASTER. THIS SECTION WILL BE GIVEN FULL EFFECT EVEN IF ANY REMEDY SPECIFIED IN THIS AGREEMENT IS DEEMED TO HAVE FAILED OF ITS ESSENTIAL PURPOSE.
+
+      You agree to defend, indemnify and hold us harmless from and against any and all costs, damages, liabilities, and expenses (including attorneys' fees, costs, penalties, interest and disbursements) we incur in relation to, arising from, or for the purpose of avoiding, any claim or demand from a third party relating to your use of the Service or the use of the Service by any person using your account, including any claim that your use of the Service violates any applicable law or regulation, or the rights of any third party, and/or your violation of these Terms.
+    
+
+    
+      Governing Law
+      The validity of these Terms and the rights, obligations, and relations of the parties under these Terms will be construed and determined under and in accordance with the laws of New York, without regard to conflicts of law principles.
+    
+
+    
+      Jurisdiction
+      You expressly agree that exclusive jurisdiction for any dispute with the Service or relating to your use of it, resides in the courts of New York and you further agree and expressly consent to the exercise of personal jurisdiction in the courts of New York located in New York in connection with any such dispute including any claim involving Service. You further agree that you and Service will not commence against the other a class action, class arbitration or other representative action or proceeding.
+    
+
+    
+      Termination
+      If you breach any of these Terms, we have the right to suspend or disable your access to or use of the Service.
+    
+
+    
+      Entire Agreement
+      These Terms constitute the entire agreement between you and the developers of Toaster regarding the use of the Service, superseding any prior agreements between you and the developers of Toaster relating to your use of the Service.
+    
+
+    
+      Feedback
+      Please let us know what you think of the Service, these Terms and, in general, Toaster. When you provide us with any feedback, comments or suggestions about the Service, these Terms and, in general, Toaster, you irrevocably assign to us all of your right, title and interest in and to your feedback, comments and suggestions.
+    
+
+    
+      Questions &amp; Contact Information
+      Questions or comments about the Service may be directed to us at the email address howon@gettoaster.com.
+    </string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Terms of Service" id="tFu-K8-UlV"/>
@@ -1108,25 +1222,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j9T-ny-BrR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3135" y="1855"/>
-        </scene>
-        <!--Privacy Policy-->
-        <scene sceneID="6lN-Bp-lrj">
-            <objects>
-                <viewController title="Privacy Policy" id="i9F-1M-Z5c" customClass="PrivacyPolicyViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="DMw-0I-BPp"/>
-                        <viewControllerLayoutGuide type="bottom" id="Ncn-TP-7Yj"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="EEL-pU-IP5">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Privacy Policy" id="yfB-fj-Ibc"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bOD-d0-1rE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3955" y="2667"/>
         </scene>
         <!--Log In-->
         <scene sceneID="NAe-Mm-x0y">
@@ -1194,7 +1289,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xDh-0L-oWG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-830" y="699"/>
+            <point key="canvasLocation" x="-142" y="377"/>
         </scene>
         <!--Recent Nav-->
         <scene sceneID="1va-vi-1gd">
@@ -1231,7 +1326,7 @@
                 <navigationController id="bM4-bS-Gyq" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Settings" image="settings" id="5hm-FB-UNh">
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="settings"/>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="settings-selected"/>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
                                 <color key="value" red="1" green="0.27450980392156865" blue="0.30980392156862746" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </userDefinedRuntimeAttribute>
@@ -1240,7 +1335,11 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ass-7L-qG1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="1" green="0.27450980390000002" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="Kp5-J3-Vn4" kind="relationship" relationship="rootViewController" id="kpw-UC-qWr"/>
@@ -1253,7 +1352,7 @@
         <!--Settings-->
         <scene sceneID="D62-aa-ta1">
             <objects>
-                <viewController title="Settings" id="Kp5-J3-Vn4" sceneMemberID="viewController">
+                <viewController title="Settings" id="Kp5-J3-Vn4" customClass="SettingsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="w1A-YQ-WzU"/>
                         <viewControllerLayoutGuide type="bottom" id="zWk-NL-3gw"/>
@@ -1272,7 +1371,7 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VOH-vk-Jbo">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="network" translatesAutoresizingMaskIntoConstraints="NO" id="VOH-vk-Jbo">
                                         <rect key="frame" x="8" y="0.0" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="EG9-cO-VPb"/>
@@ -1319,13 +1418,13 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="98" id="6hX-0v-L0i"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="App Info" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iPQ-Ki-Bgz">
                                 <rect key="frame" x="5" y="362" width="66" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -1338,6 +1437,9 @@
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="ZVj-Lr-plj" kind="show" id="Gkh-Yf-4Dz"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terms of Service" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y5S-Xd-fk9">
                                 <rect key="frame" x="56" y="391" width="150" height="40"/>
@@ -1346,14 +1448,14 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="f08-TA-s80">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="terms" translatesAutoresizingMaskIntoConstraints="NO" id="f08-TA-s80">
                                 <rect key="frame" x="8" y="391" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="JmS-jh-Ddl"/>
                                     <constraint firstAttribute="width" constant="40" id="sBe-VC-F57"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wLM-ta-2Qg">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="caret-right" translatesAutoresizingMaskIntoConstraints="NO" id="wLM-ta-2Qg">
                                 <rect key="frame" x="552" y="391" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Ok3-0S-leY"/>
@@ -1366,6 +1468,9 @@
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="ERe-NC-ADR" kind="show" id="Usi-2A-ClP"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Is-FK-i6n">
                                 <rect key="frame" x="56" y="439" width="150" height="40"/>
@@ -1374,10 +1479,10 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ehc-mG-GQj">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="about" translatesAutoresizingMaskIntoConstraints="NO" id="Ehc-mG-GQj">
                                 <rect key="frame" x="8" y="439" width="40" height="40"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="F8s-Le-KX2">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="caret-right" translatesAutoresizingMaskIntoConstraints="NO" id="F8s-Le-KX2">
                                 <rect key="frame" x="552" y="439" width="40" height="40"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VrC-D1-27Q">
@@ -1397,13 +1502,13 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="k0B-0A-CC2">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="share" translatesAutoresizingMaskIntoConstraints="NO" id="k0B-0A-CC2">
                                 <rect key="frame" x="8" y="288" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="fsG-ym-YBa"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RVp-5b-xWj">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="caret-right" translatesAutoresizingMaskIntoConstraints="NO" id="RVp-5b-xWj">
                                 <rect key="frame" x="552" y="288" width="40" height="40"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6QT-Pk-lRU">
@@ -1411,7 +1516,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="64" id="KMg-KL-O9G"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                                 <color key="textColor" name="controlDarkShadowColor" catalog="System" colorSpace="catalog"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -1421,6 +1526,9 @@
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="onLogoutClicked:" destination="Kp5-J3-Vn4" eventType="touchUpInside" id="EVD-YM-bxi"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log out" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DPx-7d-xsr">
                                 <rect key="frame" x="56" y="186" width="150" height="40"/>
@@ -1429,7 +1537,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GTz-fQ-jdd">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logout" translatesAutoresizingMaskIntoConstraints="NO" id="GTz-fQ-jdd">
                                 <rect key="frame" x="8" y="186" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="AkE-kl-Gdr"/>
@@ -1441,7 +1549,7 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CnX-6t-HFx">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="caret-right" translatesAutoresizingMaskIntoConstraints="NO" id="CnX-6t-HFx">
                                 <rect key="frame" x="552" y="186" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="hbc-v5-U9p"/>
@@ -1570,6 +1678,9 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="hGh-TZ-aTD"/>
+                    <connections>
+                        <segue destination="faC-Ap-wUx" kind="presentation" identifier="SettingsToSignUpSegue" id="yji-O9-o5d"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vxk-HD-2Lc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1577,20 +1688,28 @@
         </scene>
     </scenes>
     <resources>
+        <image name="about" width="32" height="32"/>
+        <image name="caret-right" width="32" height="32"/>
         <image name="downvote" width="32" height="32"/>
         <image name="downvote-selected" width="32" height="32"/>
+        <image name="logout" width="32" height="32"/>
+        <image name="network" width="32" height="32"/>
         <image name="notifications" width="32" height="32"/>
         <image name="notifications-selected" width="32" height="32"/>
         <image name="profile" width="32" height="32"/>
         <image name="profile-selected" width="32" height="32"/>
         <image name="recent" width="32" height="32"/>
         <image name="settings" width="32" height="32"/>
+        <image name="settings-selected" width="32" height="32"/>
+        <image name="share" width="32" height="32"/>
+        <image name="terms" width="32" height="32"/>
         <image name="toasts" width="32" height="32"/>
         <image name="toasts-selected" width="32" height="32"/>
         <image name="upvote" width="32" height="32"/>
         <image name="upvote-selected" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="yji-O9-o5d"/>
         <segue reference="zLz-ge-Hap"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.27450980390000002" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

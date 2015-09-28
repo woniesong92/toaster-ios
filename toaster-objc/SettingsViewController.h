@@ -7,12 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "WebViewManager.h"
 
-@interface SettingsViewController  : UIViewController <UIWebViewDelegate, WKNavigationDelegate, WKUIDelegate> {
-    WebViewManager *_webViewManager;
-}
-
-@property (strong, nonatomic) UIImage *parentScreenImage;
+@interface SettingsViewController  : UIViewController
 
 @end

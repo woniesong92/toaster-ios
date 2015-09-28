@@ -9,6 +9,7 @@
 #import "SignInViewController.h"
 #import "AFNetworking.h"
 #import "Constants.h"
+#import "SessionManager.h"
 
 @interface SignInViewController ()
 
@@ -50,20 +51,8 @@
     NSDictionary *params = @{@"email": email,
                              @"password": password};
     [manager POST:LOGIN_API_URL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        NSString *token = responseObject[@"token"];
-        NSString *userId = responseObject[@"id"];
-        NSString *tokenExpires = responseObject[@"tokenExpires"];
-        
-        NSLog(@"JSON: %@", responseObject);
-        
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        [defaults setObject:token forKey:@"token"];
-        [defaults setObject:userId forKey:@"userId"];
-        [defaults setObject:tokenExpires forKey:@"tokenExpires"];
-        [defaults synchronize];
-        
-//        [self performSegueWithIdentifier:@"goToTabBarVC2" sender:self];
+        // need to close its parent's presentingViewController
+        [SessionManager loginAndRedirect:self.presentingViewController sessionObj:responseObject];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         

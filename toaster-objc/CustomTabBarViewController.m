@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "Constants.h"
 #import "SignUpViewController.h"
+#import "SessionManager.h"
 
 @interface CustomTabBarViewController ()
 
@@ -21,29 +22,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-
+    
+    // Check if the user is logged in
+    [SessionManager checkSessionAndRedirect:@"TabBarToSignUpSegue" sender:self];
+    
+    // Register tabbar controller
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     self.delegate = appDelegate;
     appDelegate.tabBarController = self;
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSString *token = [defaults objectForKey:@"token"];
-    NSString *userId = [defaults objectForKey:@"userId"];
-    NSString *tokenExpires = [defaults objectForKey:@"tokenExpires"];
-    
-    // check if user is already loggedIn
-    if([defaults objectForKey:@"token"] == nil ||
-       [[defaults objectForKey:@"token"] isEqualToString:@""]) {
-        
-        // FIXME: check if the token has expired. Then the user has to log in again
-        NSLog(@"user not logged in! %@, %@", token, userId);
-        
-        // Redirected
-        [self performSegueWithIdentifier:@"TabBarToSignUpSegue" sender:self];
-    }
-    
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(myNotificationReceived:) name:@"pushNotification" object:nil];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    NSLog(@"tabbarcontroller view will appear");
 }
 
 - (void) myNotificationReceived:(NSNotification *) notification

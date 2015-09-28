@@ -14,8 +14,6 @@
 		7002724E1B9BD23200C292A5 /* LoadingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7002724D1B9BD23200C292A5 /* LoadingManager.m */; };
 		7004B9D31BAE902700C4210E /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7004B9D21BAE902700C4210E /* CustomTableViewCell.m */; };
 		701278211BA537EF00A4D6FA /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 701278201BA537EF00A4D6FA /* WebKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		701278261BA6120800A4D6FA /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 701278251BA6120800A4D6FA /* AboutViewController.m */; };
-		701278291BA6121600A4D6FA /* TermsOfServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 701278281BA6121600A4D6FA /* TermsOfServiceViewController.m */; };
 		7017D6EF1BAF03F2003EB498 /* CommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7017D6EE1BAF03F2003EB498 /* CommentTableViewCell.m */; };
 		7017D6FA1BAF8C4D003EB498 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7017D6F91BAF8C4D003EB498 /* Utils.m */; };
 		7017D70E1BAF8E3D003EB498 /* Underscore+Strings.m in Sources */ = {isa = PBXBuildFile; fileRef = 7017D6FE1BAF8E3C003EB498 /* Underscore+Strings.m */; };
@@ -33,6 +31,7 @@
 		7017D72B1BAF9DBB003EB498 /* DTTimePeriodCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 7017D7211BAF9DBB003EB498 /* DTTimePeriodCollection.m */; };
 		7017D72C1BAF9DBB003EB498 /* DTTimePeriodGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 7017D7231BAF9DBB003EB498 /* DTTimePeriodGroup.m */; };
 		7017D72D1BAF9DBB003EB498 /* NSDate+DateTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 7017D7251BAF9DBB003EB498 /* NSDate+DateTools.m */; };
+		70223C6C1BB8BDBB000FE6CB /* SessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 70223C6B1BB8BDBB000FE6CB /* SessionManager.m */; };
 		7046D1FC1BAE38EF00A5465F /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7046D1D71BAE38EF00A5465F /* AFHTTPRequestOperation.m */; };
 		7046D1FD1BAE38EF00A5465F /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7046D1D91BAE38EF00A5465F /* AFHTTPRequestOperationManager.m */; };
 		7046D1FE1BAE38EF00A5465F /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7046D1DB1BAE38EF00A5465F /* AFHTTPSessionManager.m */; };
@@ -42,7 +41,6 @@
 		7046D2021BAE38EF00A5465F /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 7046D1E41BAE38EF00A5465F /* AFURLRequestSerialization.m */; };
 		7046D2031BAE38EF00A5465F /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 7046D1E61BAE38EF00A5465F /* AFURLResponseSerialization.m */; };
 		7046D2041BAE38EF00A5465F /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7046D1E81BAE38EF00A5465F /* AFURLSessionManager.m */; };
-		706B36611BA7DB6400BC2889 /* PrivacyPolicyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 706B36601BA7DB6400BC2889 /* PrivacyPolicyViewController.m */; };
 		708D2CFB1BA3B30100CF17F9 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708D2CFA1BA3B30100CF17F9 /* Parse.framework */; };
 		708D2CFD1BA3B36A00CF17F9 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708D2CFC1BA3B36A00CF17F9 /* Bolts.framework */; };
 		708D2CFF1BA3B3B200CF17F9 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708D2CFE1BA3B3B200CF17F9 /* AudioToolbox.framework */; };
@@ -99,10 +97,6 @@
 		7004B9D11BAE902700C4210E /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
 		7004B9D21BAE902700C4210E /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
 		701278201BA537EF00A4D6FA /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		701278241BA6120800A4D6FA /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
-		701278251BA6120800A4D6FA /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
-		701278271BA6121600A4D6FA /* TermsOfServiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TermsOfServiceViewController.h; sourceTree = "<group>"; };
-		701278281BA6121600A4D6FA /* TermsOfServiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TermsOfServiceViewController.m; sourceTree = "<group>"; };
 		7017D6ED1BAF03F2003EB498 /* CommentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentTableViewCell.h; sourceTree = "<group>"; };
 		7017D6EE1BAF03F2003EB498 /* CommentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentTableViewCell.m; sourceTree = "<group>"; };
 		7017D6F81BAF8C4D003EB498 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
@@ -139,6 +133,8 @@
 		7017D7231BAF9DBB003EB498 /* DTTimePeriodGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTTimePeriodGroup.m; sourceTree = "<group>"; };
 		7017D7241BAF9DBB003EB498 /* NSDate+DateTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+DateTools.h"; sourceTree = "<group>"; };
 		7017D7251BAF9DBB003EB498 /* NSDate+DateTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+DateTools.m"; sourceTree = "<group>"; };
+		70223C6A1BB8BDBB000FE6CB /* SessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionManager.h; sourceTree = "<group>"; };
+		70223C6B1BB8BDBB000FE6CB /* SessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionManager.m; sourceTree = "<group>"; };
 		7046D1D61BAE38EF00A5465F /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		7046D1D71BAE38EF00A5465F /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		7046D1D81BAE38EF00A5465F /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -158,8 +154,6 @@
 		7046D1E61BAE38EF00A5465F /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		7046D1E71BAE38EF00A5465F /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		7046D1E81BAE38EF00A5465F /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
-		706B365F1BA7DB6400BC2889 /* PrivacyPolicyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrivacyPolicyViewController.h; sourceTree = "<group>"; };
-		706B36601BA7DB6400BC2889 /* PrivacyPolicyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrivacyPolicyViewController.m; sourceTree = "<group>"; };
 		708D2CFA1BA3B30100CF17F9 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		708D2CFC1BA3B36A00CF17F9 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		708D2CFE1BA3B3B200CF17F9 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -383,6 +377,8 @@
 				70951F961B989F15006B1228 /* AppDelegate.m */,
 				7017D6F81BAF8C4D003EB498 /* Utils.h */,
 				7017D6F91BAF8C4D003EB498 /* Utils.m */,
+				70223C6A1BB8BDBB000FE6CB /* SessionManager.h */,
+				70223C6B1BB8BDBB000FE6CB /* SessionManager.m */,
 				70951FBA1B98A009006B1228 /* Constants.h */,
 				7002724C1B9BD23200C292A5 /* LoadingManager.h */,
 				7002724D1B9BD23200C292A5 /* LoadingManager.m */,
@@ -414,12 +410,6 @@
 				70A4F04A1BB82F2D00E66A7E /* ProfilePostsTableView.m */,
 				70E3415D1B9C9DB200046067 /* SettingsViewController.h */,
 				70E3415E1B9C9DB200046067 /* SettingsViewController.m */,
-				701278241BA6120800A4D6FA /* AboutViewController.h */,
-				701278251BA6120800A4D6FA /* AboutViewController.m */,
-				701278271BA6121600A4D6FA /* TermsOfServiceViewController.h */,
-				701278281BA6121600A4D6FA /* TermsOfServiceViewController.m */,
-				706B365F1BA7DB6400BC2889 /* PrivacyPolicyViewController.h */,
-				706B36601BA7DB6400BC2889 /* PrivacyPolicyViewController.m */,
 				700272311B99C62D00C292A5 /* WebViewManager.h */,
 				700272321B99C62D00C292A5 /* WebViewManager.m */,
 				70EC5ABB1BAE3D800019AA58 /* PrefixHeader.pch */,
@@ -570,7 +560,6 @@
 				700272391B9A36B900C292A5 /* UIWebView+FLUIWebView.m in Sources */,
 				70D005631B98A882006E746F /* PostsShowViewController.m in Sources */,
 				7004B9D31BAE902700C4210E /* CustomTableViewCell.m in Sources */,
-				701278291BA6121600A4D6FA /* TermsOfServiceViewController.m in Sources */,
 				7017D72B1BAF9DBB003EB498 /* DTTimePeriodCollection.m in Sources */,
 				7002724B1B9B173F00C292A5 /* NewPostController.m in Sources */,
 				7017D7291BAF9DBB003EB498 /* DTTimePeriod.m in Sources */,
@@ -581,7 +570,6 @@
 				7046D1FE1BAE38EF00A5465F /* AFHTTPSessionManager.m in Sources */,
 				7017D7101BAF8E3D003EB498 /* Underscore+Times.m in Sources */,
 				7002723C1B9A36EE00C292A5 /* WKWebView+FLWKWebView.m in Sources */,
-				701278261BA6120800A4D6FA /* AboutViewController.m in Sources */,
 				7046D2011BAE38EF00A5465F /* AFURLConnectionOperation.m in Sources */,
 				7046D2021BAE38EF00A5465F /* AFURLRequestSerialization.m in Sources */,
 				7017D7141BAF8E3D003EB498 /* USDictionaryWrapper.m in Sources */,
@@ -592,13 +580,13 @@
 				7017D7271BAF9DBB003EB498 /* DTConstants.m in Sources */,
 				70A4F0481BB82D8A00E66A7E /* ProfileViewController.m in Sources */,
 				7017D7111BAF8E3D003EB498 /* Underscore+Functional.m in Sources */,
+				70223C6C1BB8BDBB000FE6CB /* SessionManager.m in Sources */,
 				70EC5AC11BAE5F7E0019AA58 /* SignInViewController.m in Sources */,
 				7046D2031BAE38EF00A5465F /* AFURLResponseSerialization.m in Sources */,
 				7017D7281BAF9DBB003EB498 /* DTError.m in Sources */,
 				70E341651B9DE2F400046067 /* CustomTabBarViewController.m in Sources */,
 				7017D6EF1BAF03F2003EB498 /* CommentTableViewCell.m in Sources */,
 				70951F941B989F15006B1228 /* main.m in Sources */,
-				706B36611BA7DB6400BC2889 /* PrivacyPolicyViewController.m in Sources */,
 				70E341621B9CA6C200046067 /* SignUpViewController.m in Sources */,
 				70A4F03F1BB739D500E66A7E /* ToastsTableView.m in Sources */,
 				7046D1FF1BAE38EF00A5465F /* AFNetworkReachabilityManager.m in Sources */,

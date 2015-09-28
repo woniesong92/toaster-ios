@@ -10,6 +10,7 @@
 #import "Constants.h"
 #import "AppDelegate.h"
 #import "AFNetworking.h"
+#import "SessionManager.h"
 
 @interface SignUpViewController ()
 
@@ -21,23 +22,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//    NSString *token = [defaults objectForKey:@"token"];
-//    NSString *userId = [defaults objectForKey:@"userId"];
-//    NSString *tokenExpires = [defaults objectForKey:@"tokenExpires"];
-//    
-//    // check if user is already loggedIn
-//    if([defaults objectForKey:@"token"]!=nil &&
-//       ![[defaults objectForKey:@"token"] isEqualToString:@""]) {
-//
-//        // FIXME: check if the token has expired. Then the user has to log in again
-//        NSLog(@"user already logged in! %@, %@", token, userId);
-//        
-//        // Redirected
-//        [self performSegueWithIdentifier:@"goToTabBarVC" sender:self];
-//    }
-    
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(isVerified:) name:@"emailVerified" object:nil];
 }
@@ -81,21 +65,7 @@
                              @"password": password};
     [manager POST:SIGNUP_API_URL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        NSString *token = responseObject[@"token"];
-        NSString *userId = responseObject[@"id"];
-        NSString *tokenExpires = responseObject[@"tokenExpires"];
-        
-        NSLog(@"JSON: %@", responseObject);
-        
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        [defaults setObject:token forKey:@"token"];
-        [defaults setObject:userId forKey:@"userId"];
-        [defaults setObject:tokenExpires forKey:@"tokenExpires"];
-        [defaults synchronize];
-        
-//        [self performSegueWithIdentifier:@"goToTabBarVC" sender:self];
-        
-        [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+        [SessionManager loginAndRedirect:self sessionObj:responseObject];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
@@ -107,64 +77,5 @@
         NSLog(@"Error: %@", error);
     }];
 }
-
-
-//
-//- (BOOL) webView: (UIWebView *) webView shouldStartLoadWithRequest: (NSURLRequest *) request navigationType: (UIWebViewNavigationType) navigationType
-//{
-//    return [self shouldStartDecidePolicy: request];
-//}
-//
-//- (void) webView: (WKWebView *) webView decidePolicyForNavigationAction: (WKNavigationAction *) navigationAction decisionHandler: (void (^)(WKNavigationActionPolicy)) decisionHandler
-//{
-//    decisionHandler([self shouldStartDecidePolicy: [navigationAction request]]);
-//}
-//
-//- (BOOL) shouldStartDecidePolicy: (NSURLRequest *) request
-//{
-//    NSURL *URL = [request URL];
-//    NSString *urlString =[URL absoluteString];
-//    
-////    NSLog([NSString stringWithFormat:@"%@ -- %@", @"SIGNUP", urlString]);
-//    
-//    if ([urlString containsString:LOGGEDIN_SCHEME]) {
-//        
-//        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-//        
-//        NSString *installationId = appDelegate.pushInstallationId;
-//        NSString *js = [NSString stringWithFormat:@"Meteor.call(\"registerUserIdToParse\", \"%@\")", installationId];
-//        
-//        [[_webViewManager webView] evaluateJavaScript:js completionHandler:nil];
-//        
-//        
-//        [appDelegate.tabBarController setSelectedIndex:RECENT_TAB_INDEX];
-//        
-//        [_webViewManager useRouterWithPath:RECENT];
-//        
-//        // Only close the modal if the logged in user is an verified user.
-//        if ([urlString containsString:@"verified"]) {
-//            [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
-//        }
-//
-//        return false;
-//    }
-//    
-//    if ([urlString isEqualToString:SIGNIN_SCHEME]) {
-//        self.navigationItem.title = @"Login";
-//        return true;
-//    }
-//    
-//    if ([urlString isEqualToString:SIGNUP_SCHEME]) {
-//        self.navigationItem.title = @"Sign up";
-//        return true;
-//    }
-//    
-//    if ([urlString isEqualToString:NOT_VERIFIED_SCHEME]) {
-//        self.navigationItem.title = @"Verification";
-//        return true;
-//    }
-//    
-//    return true;
-//}
 
 @end
