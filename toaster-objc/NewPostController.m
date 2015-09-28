@@ -19,6 +19,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    networkManager = [NetworkManager getNetworkManager];
+    
     self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
@@ -49,9 +52,7 @@
 }
 
 - (IBAction)doneButtonPressed:(id)sender {
-    
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    AFHTTPRequestOperationManager *manager = appDelegate.networkManager;
+    AFHTTPRequestOperationManager *manager = networkManager.manager;
     
     NSString *postBody = self.postInputField.text;
     

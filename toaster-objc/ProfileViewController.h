@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "AFNetworking.h"
 #import "ProfilePostsTableView.h"
+#import "NetworkManager.h"
 
 @interface ProfileViewController : UIViewController <UITableViewDelegate, UIScrollViewDelegate> {
-    AFHTTPRequestOperationManager *manager;
+    NetworkManager *networkManager;
 }
 
 @property (weak, nonatomic) IBOutlet ProfilePostsTableView *postsTable;

@@ -41,8 +41,7 @@
     
     [self.postsTable setDataSource:self.postsTable];
     
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    manager = appDelegate.networkManager;
+    networkManager = [NetworkManager getNetworkManager];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -63,6 +62,8 @@
         reqUrl = [NSString stringWithFormat:@"%@/%@/%@", GET_POSTS_I_COMMENTED_ON_URL, limit, skip];
         NSLog(@"fetching my replies");
     }
+    
+    AFHTTPRequestOperationManager *manager = networkManager.manager;
     
     [manager GET:reqUrl parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         

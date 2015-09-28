@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "AFNetworking.h"
+#import "NetworkManager.h"
 
 @interface NotificationsTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate> {
-    AFHTTPRequestOperationManager *manager;
+    NetworkManager *networkManager;
 }
 
 @property NSMutableArray *notifications;

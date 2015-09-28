@@ -10,10 +10,11 @@
 #import "WebViewManager.h"
 #import "LoadingManager.h"
 #import "AFNetworking.h"
+#import "NetworkManager.h"
 
 @interface PostsShowViewController : UIViewController <UIWebViewDelegate, WKNavigationDelegate, WKUIDelegate, UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate> {
 
-    AFHTTPRequestOperationManager *manager;
+    NetworkManager *networkManager;
 
 }
 

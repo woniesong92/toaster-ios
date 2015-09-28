@@ -32,8 +32,7 @@
 }
 
 - (IBAction)onUpvotePressed:(id)sender {
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    AFHTTPRequestOperationManager *manager = appDelegate.networkManager;
+    AFHTTPRequestOperationManager *manager = [NetworkManager getNetworkManager].manager;
     
     NSDictionary *params = @{@"postId": self.postId};
     
@@ -71,8 +70,7 @@
 }
 
 - (IBAction)onDownvotePressed:(id)sender {
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    AFHTTPRequestOperationManager *manager = appDelegate.networkManager;
+    AFHTTPRequestOperationManager *manager = [NetworkManager getNetworkManager].manager;
     
     NSDictionary *params = @{@"postId": self.postId};
     

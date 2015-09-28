@@ -22,9 +22,7 @@
     // Configure the view for the selected state
 }
 - (IBAction)onCommentUpvote:(id)sender {
-    
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    AFHTTPRequestOperationManager *manager = appDelegate.networkManager;
+    AFHTTPRequestOperationManager *manager = [NetworkManager getNetworkManager].manager;
     
     NSDictionary *params = @{@"commentId": self.commentId};
     
@@ -59,9 +57,7 @@
 
 - (IBAction)onCommentDownvote:(id)sender {
     NSLog(@"on comment downvote");
-    
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    AFHTTPRequestOperationManager *manager = appDelegate.networkManager;
+    AFHTTPRequestOperationManager *manager = [NetworkManager getNetworkManager].manager;
     
     NSDictionary *params = @{@"commentId": self.commentId};
     

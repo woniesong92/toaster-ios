@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "WebViewManager.h"
+#import "NetworkManager.h"
 
 @interface NewPostController : UIViewController {
-    WebViewManager *_webViewManager;
     UILabel *textViewPlaceholder;
+    NetworkManager *networkManager;
 }
 
-@property (strong, nonatomic) UIImage *parentScreenImage;
 @property (weak, nonatomic) IBOutlet UITextView *postInputField;
 
 @end

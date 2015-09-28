@@ -18,8 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    manager = appDelegate.networkManager;
+    networkManager = [NetworkManager getNetworkManager];
     
     NSLog(@"NOTIFICATION LOADED");
 }
@@ -36,6 +35,8 @@
 - (void)fetchNotifications: (NSNumber *)limit skip:(NSNumber *)skip {
     
     NSString *reqUrl = [NSString stringWithFormat:@"%@/%@/%@", GET_NOTIFICATIONS_URL, limit, skip];
+    
+    AFHTTPRequestOperationManager *manager = networkManager.manager;
     
     [manager GET:reqUrl parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
   

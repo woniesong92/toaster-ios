@@ -52,8 +52,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    manager = appDelegate.networkManager;
+    networkManager = [NetworkManager getNetworkManager];
     
     [self fetchPostDetail];
     [self fetchComments];
@@ -65,16 +64,12 @@
 }
 
 - (void)fetchPostDetail {
-    
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    manager = appDelegate.networkManager;
+    AFHTTPRequestOperationManager *manager = networkManager.manager;
     NSString *userId = [SessionManager currentUser];
-    
     NSString *postId = self.postDetail[@"_id"];
     NSString *reqURL = [NSString stringWithFormat:@"%@/%@", GET_POST_URL, postId];
-    NSDictionary *params = @{};
     
-    [manager GET:reqURL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager GET:reqURL parameters:@{} success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSDictionary *post = responseObject[@"posts"][0];
         
@@ -103,11 +98,11 @@
 }
 
 - (void)fetchComments {
+    AFHTTPRequestOperationManager *manager = networkManager.manager;
     NSString *postId = self.postDetail[@"_id"];
     NSString *reqURL = [NSString stringWithFormat:@"%@/%@", GET_COMMENTS_FOR_POST_URL, postId];
-    NSDictionary *params = @{};
     
-    [manager GET:reqURL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager GET:reqURL parameters:@{} success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSMutableArray *comments = responseObject[@"comments"];
         NSMutableArray *sortedComments = [Utils sortJSONObjsByDate:comments];
@@ -227,6 +222,7 @@
 }
 
 - (IBAction)onSubmitComment:(id)sender {
+    AFHTTPRequestOperationManager *manager = networkManager.manager;
     NSString *commentBody = self.inlineCommentField.text;
     NSString *postId = self.postDetail[@"_id"];
     
@@ -255,6 +251,7 @@
 
 
 - (IBAction)onPostUpvote:(id)sender {
+    AFHTTPRequestOperationManager *manager = networkManager.manager;
     
     NSDictionary *params = @{@"postId": self.postId};
     
@@ -293,6 +290,7 @@
 
 
 - (IBAction)onPostDownvote:(id)sender {
+    AFHTTPRequestOperationManager *manager = networkManager.manager;
     
     if (self.didIDownvote) {
         self.didIDownvote = NO;

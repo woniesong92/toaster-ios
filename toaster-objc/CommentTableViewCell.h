@@ -7,8 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NetworkManager.h"
 
-@interface CommentTableViewCell : UITableViewCell
+@interface CommentTableViewCell : UITableViewCell {
+    NetworkManager *networkManager;
+}
+
+
 @property (weak, nonatomic) IBOutlet UILabel *commentDate;
 @property (weak, nonatomic) IBOutlet UILabel *commentAuthor;
 @property (weak, nonatomic) IBOutlet UILabel *numVotes;
