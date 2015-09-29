@@ -9,15 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface NotificationCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UIImageView *notiTypeIcon;
 
+@property (weak, nonatomic) IBOutlet UIImageView *notiTypeIcon;
 @property (weak, nonatomic) IBOutlet UITextView *notiContent;
 @property (weak, nonatomic) IBOutlet UITextView *notiMsg;
-
 @property (weak, nonatomic) IBOutlet UIImageView *isReadIcon;
-
 @property (weak, nonatomic) IBOutlet UILabel *createdAt;
-
 @property NSString *postId;
 @property BOOL isRead;
 

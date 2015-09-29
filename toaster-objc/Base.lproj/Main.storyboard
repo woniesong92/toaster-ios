@@ -711,7 +711,7 @@
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="CZ4-Vb-pkD" kind="showDetail" id="h3j-kz-DpL"/>
+                                                    <segue destination="CZ4-Vb-pkD" kind="presentation" id="h3j-kz-DpL"/>
                                                 </connections>
                                             </button>
                                         </subviews>

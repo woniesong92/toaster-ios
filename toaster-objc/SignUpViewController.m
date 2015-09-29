@@ -45,6 +45,9 @@
     
     if (![password isEqualToString:passwordConfirm]) {
         // TODO: show alert that passwords dont match
+        NSLog(@"password1: %@", password);
+        NSLog(@"password2: %@", passwordConfirm);
+        
         NSLog(@"passwords dont match");
         return;
     }
