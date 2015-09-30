@@ -11,14 +11,11 @@
 #import "ToastsTableView.h"
 #import "NetworkManager.h"
 
-@interface RecentTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate> {
-//    AFHTTPRequestOperationManager *manager;
+@interface RecentTableViewController : UIViewController <UITableViewDelegate, UIScrollViewDelegate> {
     NetworkManager *networkManager;
 }
 
-//@property NSMutableArray *comments;
-@property UIButton *recentBtn;
-@property UIButton *hotBtn;
-@property (strong, nonatomic) IBOutlet ToastsTableView *postsTable;
-
+@property (weak, nonatomic) IBOutlet UIButton *recentFilterBtn;
+@property (weak, nonatomic) IBOutlet UIButton *hotFilterBtn;
+@property (weak, nonatomic) IBOutlet ToastsTableView *postsTable;
 @end

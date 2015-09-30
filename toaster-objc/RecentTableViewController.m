@@ -32,26 +32,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // top margin for table
-    self.automaticallyAdjustsScrollViewInsets = NO;
-    CGFloat navbarHeight = self.navigationController.navigationBar.frame.size.height;
-    CGFloat statusHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
-    CGFloat tabBarHeight = self.tabBarController.tabBar.frame.size.height;
-    CGFloat filterBtnsContainerHeight = 36.0;
-    CGFloat insetTopMargin = navbarHeight + statusHeight + filterBtnsContainerHeight;
-    UIEdgeInsets tableInsets = UIEdgeInsetsMake(insetTopMargin,0,tabBarHeight,0);
-    [self.postsTable setContentInset:tableInsets];
-    self.postsTable.scrollIndicatorInsets = tableInsets;
-    
-    // Add buttons
-    [self addFilterBtns:filterBtnsContainerHeight];
-    
     // initialize the starting point to fetch the next batch of posts
     rowIdxToStartFetchingRecentPosts = NUM_RECENT_POSTS_IN_ONE_BATCH - 5;
     rowIdxToStartFetchingHotPosts = NUM_HOT_POSTS_IN_ONE_BATCH - 5;
     
     networkManager = [NetworkManager getNetworkManager];
-    
+
 //    Set up Recent Posts Table
     [self.postsTable setDelegate:self];
     [self.postsTable setDataSource:self.postsTable];
@@ -83,62 +69,32 @@
                                                object:nil];
 }
 
-- (void)addFilterBtns: (CGFloat)height {
-    CGFloat width = self.view.frame.size.width;
-    CGFloat widthBtn = width / 2.0;
-    CGRect newRect = CGRectMake(0.0f, -height, widthBtn, height);
-    CGRect hotRect = CGRectMake(widthBtn, -height, widthBtn, height);
-    UIColor *disabledColor = [UIColor colorWithRed:255/255.0 green:70/255.0 blue:79/255.0 alpha:0.3];
-    UIColor *dividerColor = [UIColor colorWithRed:255/255.0 green:70/255.0 blue:79/255.0 alpha:1.0];
-    UIColor *selectedColor = [UIColor colorWithRed:255/255.0 green:70/255.0 blue:79/255.0 alpha:1.0];
-    
-    UIButton *recentBtn = [[UIButton alloc] initWithFrame:newRect];
-    UIButton *hotBtn = [[UIButton alloc] initWithFrame:hotRect];
-    [recentBtn setSelected:YES];
-    self.hotBtn = hotBtn;
-    self.recentBtn = recentBtn;
-    
-    [recentBtn setTitle:@"New" forState:UIControlStateNormal];
-    [hotBtn setTitle:@"Hot" forState:UIControlStateNormal];
-    
-    [recentBtn setTitleColor:disabledColor forState:UIControlStateNormal];
-    [recentBtn setTitleColor:selectedColor forState:UIControlStateSelected];
-    [hotBtn setTitleColor:disabledColor forState:UIControlStateNormal];
-    [hotBtn setTitleColor:selectedColor forState:UIControlStateSelected];
-    
-    [recentBtn addTarget:self
-               action:@selector(recentBtnSelected:)
-     forControlEvents:UIControlEventTouchUpInside];
-    
-    [hotBtn addTarget:self
-               action:@selector(hotBtnSelected:)
-     forControlEvents:UIControlEventTouchUpInside];
-    
-    [self.view addSubview:recentBtn];
-    [self.view addSubview:hotBtn];
-    
-//    Add a horizontal divider
-    CGRect dividerFrame = CGRectMake(0, 0, width, 2);
-    UIView *divider = [[UIView alloc] initWithFrame:dividerFrame];
-    [divider setBackgroundColor:dividerColor];
-    [self.view addSubview:divider];
-}
 
-- (void)recentBtnSelected: (UIButton *)btn {
+- (IBAction)newFilterSelected:(id)sender {
     NSLog(@"new btn selected");
-    [self.recentBtn setSelected:YES];
-    [self.hotBtn setSelected:NO];
+    [self.recentFilterBtn setSelected:YES];
+    [self.hotFilterBtn setSelected:NO];
     [self.postsTable setTag:RECENT_POSTS_TABLE_TAG];
     [self.postsTable reloadData];
 }
 
-- (void)hotBtnSelected: (UIButton *)btn {
+- (IBAction)hotFilterSelected:(id)sender {
     NSLog(@"hot btn selected");
-    [self.hotBtn setSelected:YES];
-    [self.recentBtn setSelected:NO];
+    [self.hotFilterBtn setSelected:YES];
+    [self.recentFilterBtn setSelected:NO];
     [self.postsTable setTag:HOT_POSTS_TABLE_TAG];
     [self.postsTable reloadData];
 }
+
+
+
+
+////    Add a horizontal divider
+//    CGRect dividerFrame = CGRectMake(0, 0, width, 2);
+//    UIView *divider = [[UIView alloc] initWithFrame:dividerFrame];
+//    [divider setBackgroundColor:dividerColor];
+//    [self.view addSubview:divider];
+//}
 
 
 - (void)fetchPosts: (NSInteger)postsTableTag limit:(NSNumber *)limit skip:(NSNumber *)skip doReload:(BOOL)doReload {
@@ -203,9 +159,9 @@
     [newPost setValue:[Utils dateWithJSONString:createdAt] forKey:@"createdAt"];
     [self.postsTable.posts insertObject:newPost atIndex:0];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.tableView beginUpdates];
-    [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
-    [self.tableView endUpdates];
+    [self.postsTable beginUpdates];
+    [self.postsTable insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    [self.postsTable endUpdates];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -239,7 +195,7 @@
 - (void)shouldScrollTop:(NSNotification *)notification {
 //    [self.postsTable scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
     
-    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    [self.postsTable scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
 }
 
 - (void)onUpdateVoteState:(NSNotification *)notification {
@@ -291,8 +247,8 @@
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"ToastsToDetailSegue"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    if ([segue.identifier isEqualToString:@"PostsToDetailSegue"]) {
+        NSIndexPath *indexPath = [self.postsTable indexPathForSelectedRow];
         PostsShowViewController *postsShowController = (PostsShowViewController *)segue.destinationViewController;
         postsShowController.postDetail = [self.postsTable.posts objectAtIndex:indexPath.row];
         postsShowController.cellRowIdx = [NSNumber numberWithInteger:indexPath.row];
