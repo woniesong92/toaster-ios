@@ -105,7 +105,6 @@
     [manager GET:reqURL parameters:@{} success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSMutableArray *comments = responseObject[@"comments"];
-        
         NSMutableArray *sortedComments = [Utils sortByDate:comments isReversed:NO];
         self.comments = sortedComments;
 
@@ -216,9 +215,7 @@
     NSString *createdAt = (NSString *)newComment[@"createdAt"];
     [newComment setValue:[Utils dateWithJSONString:createdAt] forKey:@"createdAt"];
     [self.comments addObject:newComment];
-    
-    NSInteger rowIdx = self.comments.count - 1;
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:rowIdx inSection:0];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.comments.count-1 inSection:0];
     [self.commentsTable beginUpdates];
     [self.commentsTable insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
     [self.commentsTable endUpdates];

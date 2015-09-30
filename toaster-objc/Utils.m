@@ -44,6 +44,10 @@
         }
     }];
     
+    if (sortedObjs == nil) {
+        return [[NSMutableArray alloc] init];
+    }
+    
     return [sortedObjs mutableCopy];
 }
 
@@ -74,6 +78,10 @@
     }];
     
     NSLog(@"sortedPosts: %@", sortedPosts);
+    
+    if (sortedPosts == nil) {
+        return [[NSMutableArray alloc] init];
+    }
     
     return [sortedPosts mutableCopy];
 }
