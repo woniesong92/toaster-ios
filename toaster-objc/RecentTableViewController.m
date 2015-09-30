@@ -85,6 +85,7 @@
     [self.hotFilterBtn setSelected:NO];
     [self.postsTable setTag:RECENT_POSTS_TABLE_TAG];
     [self.postsTable reloadData];
+    [[NSNotificationCenter defaultCenter] postNotificationName:TABLE_SCROLL_TO_TOP object:nil userInfo:nil];
 }
 
 - (IBAction)hotFilterSelected:(id)sender {
@@ -93,6 +94,7 @@
     [self.recentFilterBtn setSelected:NO];
     [self.postsTable setTag:HOT_POSTS_TABLE_TAG];
     [self.postsTable reloadData];
+    [[NSNotificationCenter defaultCenter] postNotificationName:TABLE_SCROLL_TO_TOP object:nil userInfo:nil];
 }
 
 
