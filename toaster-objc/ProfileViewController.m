@@ -19,27 +19,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // top margin for table
-//    self.automaticallyAdjustsScrollViewInsets = NO;
-//    CGFloat navbarHeight = self.navigationController.navigationBar.frame.size.height;
-//    CGFloat statusHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
-//    CGFloat tabBarHeight = self.tabBarController.tabBar.frame.size.height;
-//    CGFloat filterBtnsContainerHeight = 36.0;
-//    CGFloat insetTopMargin = navbarHeight + statusHeight + filterBtnsContainerHeight;
-//    [self.postsTable setContentInset:UIEdgeInsetsMake(insetTopMargin,0,tabBarHeight,0)];
-//    
-
-    
-    
-    // Add buttons
-//    [self addFilterBtns:filterBtnsContainerHeight];
-    
-    // initialize the starting point to fetch the next batch of posts
-//    rowIdxToStartFetchingRecentPosts = NUM_RECENT_POSTS_IN_ONE_BATCH - 5;
-//    rowIdxToStartFetchingHotPosts = NUM_HOT_POSTS_IN_ONE_BATCH - 5;
-//
-    
+    // Add Loading
+    UILabel *label = [[UILabel alloc] initWithFrame: CGRectMake(0, (self.view.frame.size.height/2-25), self.view.frame.size.width, 50)];
+    label.text = @"Yolk..."; //etc...
+    label.textAlignment = NSTextAlignmentCenter;
+    label.textColor = [UIColor grayColor];
+    self.loadingText = label;
+    [self.view addSubview:label];
     [self.postsTable setDataSource:self.postsTable];
+    
+    // set Tag
+    [self.postsTable setTag:POSTS_I_WROTE_TABLE_TAG];
+    [self.myPostsBtn setSelected:YES];
     
     networkManager = [NetworkManager getNetworkManager];
 }
@@ -87,6 +78,7 @@
         if (postsTableTag == POSTS_I_WROTE_TABLE_TAG) {
             self.postsTable.myPosts = [Utils sortByDate:posts isReversed:YES];
             self.postsTable.numCommentsForMyPosts = numCommentsForPosts;
+            [self.loadingText removeFromSuperview];
         } else {
             self.postsTable.myReplies = [Utils sortByDate:posts isReversed:YES];
             self.postsTable.numCommentsForMyReplies = numCommentsForPosts;
@@ -118,17 +110,13 @@
     [self.postsTable reloadData];
 }
 
-#pragma mark - Navigation
-//
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    if ([segue.identifier isEqualToString:@"ToastsToDetailSegue"]) {
-//        NSIndexPath *indexPath = [self.postsTable indexPathForSelectedRow];
-//        PostsShowViewController *postsShowController = (PostsShowViewController *)segue.destinationViewController;
-//        postsShowController.postDetail = [self.postsTable.posts objectAtIndex:indexPath.row];
-//        postsShowController.cellRowIdx = [NSNumber numberWithInteger:indexPath.row];
-//    }
-//}
-
-
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"ProfileToDetailSegue"]) {
+        NSIndexPath *indexPath = [self.postsTable indexPathForSelectedRow];
+        PostsShowViewController *postsShowController = (PostsShowViewController *)segue.destinationViewController;
+        postsShowController.postDetail = [self.postsTable.posts objectAtIndex:indexPath.row];
+        postsShowController.cellRowIdx = [NSNumber numberWithInteger:indexPath.row];
+    }
+}
 
 @end

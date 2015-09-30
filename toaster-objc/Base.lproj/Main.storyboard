@@ -863,7 +863,7 @@
                                             <outlet property="postBody" destination="Ykj-BI-5Tb" id="wC1-YT-Fdk"/>
                                             <outlet property="postDate" destination="fvf-qR-wSp" id="mbB-ae-yZb"/>
                                             <outlet property="upvoteBtn" destination="ILm-n4-9Wo" id="bnE-PI-SEg"/>
-                                            <segue destination="i0U-vc-kr9" kind="show" id="zLz-ge-Hap"/>
+                                            <segue destination="i0U-vc-kr9" kind="show" identifier="ProfileToDetailSegue" id="zLz-ge-Hap"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -883,7 +883,7 @@
                                     <constraint firstAttribute="height" constant="45" id="lPy-Xg-5tY"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="unb-sc-gXd"/>
                                 </constraints>
-                                <state key="normal" title="Posts I wrote">
+                                <state key="normal" title="My Posts">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="default">
@@ -898,7 +898,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8QZ-9Q-3DN">
                                 <rect key="frame" x="300" y="64" width="300" height="45"/>
-                                <state key="normal" title="Posts I responded">
+                                <state key="normal" title="My Replies">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -1966,7 +1966,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="TpP-R2-FiD"/>
         <segue reference="eDJ-ya-ZuX"/>
-        <segue reference="ORH-kl-4Ue"/>
+        <segue reference="zLz-ge-Hap"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.27450980390000002" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

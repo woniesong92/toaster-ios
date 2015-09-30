@@ -44,6 +44,14 @@
     [self.postsTable setTag:0];
     [self.recentFilterBtn setSelected:YES];
     
+    // Add Loading
+    UILabel *label = [[UILabel alloc] initWithFrame: CGRectMake(0, (self.view.frame.size.height/2-25), self.view.frame.size.width, 50)];
+    label.text = @"Yolk..."; //etc...
+    label.textAlignment = NSTextAlignmentCenter;
+    label.textColor = [UIColor grayColor];
+    self.loadingText = label;
+    [self.view addSubview:label];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(shouldFetchPosts:)
                                                  name:ASK_TO_FETCH_POSTS
@@ -111,6 +119,7 @@
     if (postsTableTag == RECENT_POSTS_TABLE_TAG) {
         reqUrl = [NSString stringWithFormat:@"%@/%@/%@", GET_RECENT_POSTS_URL, limit, skip];
         NSLog(@"fetching recent table posts");
+        
     } else {
         reqUrl = [NSString stringWithFormat:@"%@/%@/%@", GET_HOT_POSTS_URL, limit, skip];
         NSLog(@"fetching hot table posts");
@@ -138,6 +147,7 @@
         if (postsTableTag == RECENT_POSTS_TABLE_TAG) {
             self.postsTable.recentPosts = [Utils sortByDate:posts isReversed:YES];
             self.postsTable.numCommentsForRecentPosts = numCommentsForPosts;
+            [self.loadingText removeFromSuperview];
         } else {
             self.postsTable.hotPosts = [Utils sortPostsByHotness:posts];
             self.postsTable.numCommentsForHotPosts = numCommentsForPosts;
@@ -145,6 +155,7 @@
         
         if (doReload) {
             [self.postsTable reloadData];
+            NSLog(@"loading ended");
         } else {
             NSLog(@"dont reload");
         }
@@ -159,12 +170,8 @@
     NSString *createdAt = (NSString *)newPost[@"createdAt"];
     [newPost setValue:[Utils dateWithJSONString:createdAt] forKey:@"createdAt"];
     
-    NSLog(@"postsTable %@", self.postsTable);
-    NSLog(@"posts %@", self.postsTable.posts);
-    
     [(NSMutableArray *)self.postsTable.posts insertObject:newPost atIndex:0];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    
     
     [self.postsTable beginUpdates];
     [self.postsTable insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];

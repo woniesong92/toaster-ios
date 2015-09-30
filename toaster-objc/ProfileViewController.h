@@ -18,5 +18,6 @@
 @property (weak, nonatomic) IBOutlet ProfilePostsTableView *postsTable;
 @property (weak, nonatomic) IBOutlet UIButton *myRepliesBtn;
 @property (weak, nonatomic) IBOutlet UIButton *myPostsBtn;
+@property UILabel *loadingText;
 
 @end

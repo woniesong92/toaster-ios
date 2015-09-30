@@ -216,7 +216,9 @@
     NSString *createdAt = (NSString *)newComment[@"createdAt"];
     [newComment setValue:[Utils dateWithJSONString:createdAt] forKey:@"createdAt"];
     [self.comments addObject:newComment];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.comments.count-1 inSection:0];
+    
+    NSInteger rowIdx = self.comments.count - 1;
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:rowIdx inSection:0];
     [self.commentsTable beginUpdates];
     [self.commentsTable insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
     [self.commentsTable endUpdates];

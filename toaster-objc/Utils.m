@@ -9,6 +9,8 @@
 #import "Utils.h"
 #import "Underscore.h"
 #import "NSDate+DateTools.h"
+#import <UIKit/UIKit.h>
+
 #define _ Underscore
 
 @implementation Utils

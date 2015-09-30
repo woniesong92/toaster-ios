@@ -18,5 +18,6 @@
 @property NSMutableDictionary *postsDict;
 @property NSMutableDictionary *commentsDict;
 
+@property UILabel *loadingText;
 
 @end

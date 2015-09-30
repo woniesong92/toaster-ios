@@ -20,6 +20,14 @@
     
     networkManager = [NetworkManager getNetworkManager];
     
+    // Add Loading
+    UILabel *label = [[UILabel alloc] initWithFrame: CGRectMake(0, (self.view.frame.size.height/2-25), self.view.frame.size.width, 50)];
+    label.text = @"Yolk..."; //etc...
+    label.textAlignment = NSTextAlignmentCenter;
+    label.textColor = [UIColor grayColor];
+    self.loadingText = label;
+    [self.view addSubview:label];
+    
     NSLog(@"NOTIFICATION LOADED");
 }
 
@@ -62,6 +70,7 @@
         
         self.notifications = [Utils sortByDate:notifications isReversed:YES];
         
+        [self.loadingText removeFromSuperview];
         [self.tableView reloadData];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         // TODO: show user this error and clear all the textfields
