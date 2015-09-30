@@ -33,6 +33,7 @@
     textViewPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(4, -16, frameWidth, 200)];
 //    textViewPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, frameWidth, 200)];
     textViewPlaceholder.text = POST_PLACEHOLDER;
+    [textViewPlaceholder setFont:[UIFont systemFontOfSize:14]];
     textViewPlaceholder.textColor = [UIColor lightGrayColor];
     [self.view addSubview:textViewPlaceholder];
     

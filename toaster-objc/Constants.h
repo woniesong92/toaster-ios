@@ -1,6 +1,6 @@
-#define BASE_URL @"http://192.168.0.103:3000"
+//#define BASE_URL @"http://192.168.0.103:3000"
 //#define BASE_URL @"http://104.131.158.80"
-//#define BASE_URL @"http://10.145.0.215:3000"
+#define BASE_URL @"http://10.145.13.202:3000"
 //#define BASE_URL @"http://192.168.1.118:3000"
 #define TRENDING_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/trending"]
 #define NEW_POST_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/newPost"]
@@ -36,7 +36,7 @@
 #define ASK_TO_FETCH_COMMENTS @"AskToFetchComments"
 
 //table cell related
-#define POST_PLACEHOLDER @"You are anonymous ;)"
+#define POST_PLACEHOLDER @"You are anonymous..."
 #define TABLE_SCROLL_TO_TOP @"tableScrollToTop"
 #define TABLE_SCROLL_TO_BOTTOM @"tableScrollToBottom"
 

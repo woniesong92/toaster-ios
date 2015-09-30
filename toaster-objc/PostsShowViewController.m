@@ -29,7 +29,7 @@
     self.postId = [postDetail objectForKey:@"_id"];
 
     self.commentsTable.delegate = self;
-    self.automaticallyAdjustsScrollViewInsets = NO;
+//    self.automaticallyAdjustsScrollViewInsets = NO;
     
     [self observeKeyboard];
     
