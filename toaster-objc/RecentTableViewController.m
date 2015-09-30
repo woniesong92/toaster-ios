@@ -141,10 +141,7 @@
 
 - (void)fetchPosts: (NSInteger)postsTableTag limit:(NSNumber *)limit skip:(NSNumber *)skip doReload:(BOOL)doReload {
     
-    NSString *userId = [SessionManager currentUser];
-    
-    if ([userId isEqualToString: @""]) {
-        NSLog(@"not fetching becuase not loggedIn");
+    if ([[SessionManager currentUser] isEqualToString:@""]) {
         return;
     }
     
@@ -183,7 +180,7 @@
             self.postsTable.recentPosts = [Utils sortReversedJSONObjsByDate:posts];
             self.postsTable.numCommentsForRecentPosts = numCommentsForPosts;
         } else {
-            self.postsTable.hotPosts = [Utils sortReversedJSONObjsByDate:posts];
+            self.postsTable.hotPosts = [Utils sortPostsByHotness:posts];
             self.postsTable.numCommentsForHotPosts = numCommentsForPosts;
         }
         
@@ -269,24 +266,25 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    ToastsTableView *postsTable = (ToastsTableView *)tableView;
-    
-    if (tableView.tag == RECENT_POSTS_TABLE_TAG) {
-        if (indexPath.row == rowIdxToStartFetchingRecentPosts) {
-            NSLog(@"fetch more recent posts");
-            [self fetchPosts:RECENT_POSTS_TABLE_TAG limit:[NSNumber numberWithInteger:postsTable.posts.count+NUM_RECENT_POSTS_IN_ONE_BATCH] skip:[NSNumber numberWithInteger:postsTable.posts.count] doReload:YES];
-            rowIdxToStartFetchingRecentPosts += NUM_RECENT_POSTS_IN_ONE_BATCH;
-        }
-    } else {
-        if (indexPath.row == rowIdxToStartFetchingHotPosts) {
-            NSLog(@"fetch more hot posts");
-            [self fetchPosts:HOT_POSTS_TABLE_TAG limit:[NSNumber numberWithInteger:postsTable.posts.count+NUM_HOT_POSTS_IN_ONE_BATCH] skip:[NSNumber numberWithInteger:postsTable.posts.count] doReload:YES];
-            rowIdxToStartFetchingHotPosts += NUM_HOT_POSTS_IN_ONE_BATCH;
-        }
-    }
-}
+// HOWON: Turn this on if we want to do dynamic loading
+//- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+//    
+//    ToastsTableView *postsTable = (ToastsTableView *)tableView;
+//    
+//    if (tableView.tag == RECENT_POSTS_TABLE_TAG) {
+//        if (indexPath.row == rowIdxToStartFetchingRecentPosts) {
+//            NSLog(@"fetch more recent posts");
+//            [self fetchPosts:RECENT_POSTS_TABLE_TAG limit:[NSNumber numberWithInteger:postsTable.posts.count+NUM_RECENT_POSTS_IN_ONE_BATCH] skip:[NSNumber numberWithInteger:postsTable.posts.count] doReload:YES];
+//            rowIdxToStartFetchingRecentPosts += NUM_RECENT_POSTS_IN_ONE_BATCH;
+//        }
+//    } else {
+//        if (indexPath.row == rowIdxToStartFetchingHotPosts) {
+//            NSLog(@"fetch more hot posts");
+//            [self fetchPosts:HOT_POSTS_TABLE_TAG limit:[NSNumber numberWithInteger:postsTable.posts.count+NUM_HOT_POSTS_IN_ONE_BATCH] skip:[NSNumber numberWithInteger:postsTable.posts.count] doReload:YES];
+//            rowIdxToStartFetchingHotPosts += NUM_HOT_POSTS_IN_ONE_BATCH;
+//        }
+//    }
+//}
 
 #pragma mark - Navigation
 

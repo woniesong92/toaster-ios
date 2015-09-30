@@ -48,7 +48,7 @@
 #define LOGIN_API_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/users/login"]
 #define SIGNUP_API_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/users/register"]
 
-#define NUM_RECENT_POSTS_IN_ONE_BATCH 20
+#define NUM_RECENT_POSTS_IN_ONE_BATCH 100
 #define NUM_HOT_POSTS_IN_ONE_BATCH 100
 
 //#define GET_RECENT_POSTS_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/publications/recentPostsAndComments"]

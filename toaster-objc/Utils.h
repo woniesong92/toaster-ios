@@ -15,6 +15,7 @@
 + (NSString *)stringFromDate: (NSDate *)createdAt;
 + (NSMutableArray *)sortReversedJSONObjsByDate: (NSArray *)objs;
 + (NSMutableDictionary *)transformArrToDict: (NSMutableArray *)objs keyStr:(NSString *)keyStr;
++ (NSMutableArray *)sortPostsByHotness: (NSMutableArray *)posts;
 
 #define UIColorFromRGB(rgbValue) \
 [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \

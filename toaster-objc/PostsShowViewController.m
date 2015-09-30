@@ -36,6 +36,7 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
                                    action:@selector(dismissKeyboard)];
+    
     [self.view addGestureRecognizer:tap];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -90,7 +91,6 @@
         // TODO: show user this error and clear all the textfields
         NSLog(@"Error: %@", error);
     }];
-
 }
 
 - (void)shouldFetchComments:(NSNotification *)notification {
@@ -323,12 +323,6 @@
         // TODO: show user this error and clear all the textfields
         NSLog(@"Error: %@", error);
     }];
-}
-
-- (void)willMoveToParentViewController:(UIViewController *)parent{
-    if (parent == nil){
-//        [[_webViewManager webView] goBack];
-    }
 }
 
 @end

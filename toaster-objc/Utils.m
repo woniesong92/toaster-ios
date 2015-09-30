@@ -66,6 +66,43 @@
     return [sortedObjs mutableCopy];
 }
 
++ (BOOL)isHotter: (NSDate *)createdAt numVotes:(NSInteger)numVotes {
+    
+    
+    return true;
+}
+
++ (NSMutableArray *)sortPostsByHotness: (NSMutableArray *)posts {
+    for (NSMutableDictionary *post in posts) {
+        NSDate *createdAt = [Utils dateWithJSONString:post[@"createdAt"]];
+        
+        // calculate hotness
+        float hoursPast = [[[NSCalendar currentCalendar] components:NSHourCalendarUnit fromDate:createdAt toDate:[NSDate date] options:0] hour];
+        float numVotes = [(NSNumber *)post[@"numLikes"] floatValue];
+        
+        float gravity = 1.8;
+        float hotness = numVotes / pow((hoursPast + 2), gravity);
+        
+        
+        NSLog(@"hotness: %f", hotness);
+        
+        [post setValue:[NSNumber numberWithFloat:hotness] forKey:@"hotness"];
+        [post setValue:createdAt forKey:@"createdAt"];
+    }
+    
+    NSMutableArray *sortedPosts = (NSMutableArray *)[posts sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
+        
+        NSDate *first = [(NSDictionary *)a objectForKey:@"hotness"];
+        NSDate *second = [(NSDictionary *)b objectForKey:@"hotness"];
+
+        return [second compare:first];
+    }];
+    
+    NSLog(@"sortedPosts: %@", sortedPosts);
+    
+    return sortedPosts;
+}
+
 + (NSString *)stringFromDate: (NSDate *)createdAt {
     return createdAt.shortTimeAgoSinceNow;
 }
