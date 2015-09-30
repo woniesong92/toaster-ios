@@ -12,20 +12,18 @@
 
 @implementation SessionManager
 
-+ (BOOL) checkSessionAndRedirect: (NSString *)segueId sender:(UIViewController *)sender {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-
-    // check if user is already loggedIn
-    if([defaults objectForKey:@"token"] == nil ||
-       [[defaults objectForKey:@"token"] isEqualToString:@""]) {
-        
-        [sender performSegueWithIdentifier:segueId sender:sender];
-        
-        return false;
-    } else {
-        return true;
-    }
-}
+//+ (BOOL) checkSessionAndRedirect: (NSString *)segueId sender:(UIViewController *)sender {
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//
+//    // check if user is already loggedIn
+//    if([defaults objectForKey:@"token"] == nil ||
+//       [[defaults objectForKey:@"token"] isEqualToString:@""]) {
+//        
+//        return false;
+//    } else {
+//        return true;
+//    }
+//}
 
 + (NSString *)currentUser {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -41,16 +39,14 @@
     }
 }
 
-+ (void) clearSessionAndRedirect: (NSString *)segueId sender:(UIViewController *)sender {
++ (void) clearSession {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults removeObjectForKey:@"token"];
     [defaults removeObjectForKey:@"userId"];
     [defaults synchronize];
-    
-    [sender performSegueWithIdentifier:segueId sender:sender];
 }
 
-+ (void) loginAndRedirect: (UIViewController *)modal sessionObj:(NSMutableDictionary *)sessionObj {
++ (void) updateSession:(NSMutableDictionary *)sessionObj {
     
     NSString *token = sessionObj[@"token"];
     NSString *userId = sessionObj[@"id"];
@@ -67,15 +63,6 @@
 
     NetworkManager *networkManager = [NetworkManager getNetworkManager];
     [networkManager updateSerializerWithNewToken:token];
-    
-//    AFHTTPRequestOperationManager *manager = [NetworkManager getNetworkManager].manager;
-    
-//    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-//    NSString *authorizationToken = [NSString stringWithFormat:@"Bearer %@", token];
-//    [manager.requestSerializer setValue:authorizationToken forHTTPHeaderField:@"Authorization"];
-//    manager.responseSerializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingMutableContainers];
-    
-    [modal.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

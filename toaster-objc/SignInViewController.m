@@ -29,6 +29,7 @@
 
 - (IBAction)signUpButtonClicked:(id)sender {
     // close the signIn modal to show signUpVC again
+    
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -53,12 +54,19 @@
                              @"password": password};
     [manager POST:LOGIN_API_URL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         // need to close its parent's presentingViewController
-        [SessionManager loginAndRedirect:self sessionObj:responseObject];
+        [SessionManager updateSession:responseObject];
+        
+        // Pop the SignUpViewController
+        NSArray *navViewControllers = [(UITabBarController *)self.presentingViewController viewControllers];
+        [(UINavigationController *)navViewControllers[0] popToRootViewControllerAnimated:NO];
+        
+        // And dismiss the login modal
+        [self dismissViewControllerAnimated:YES completion:nil];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
-        self.emailField = nil;
-        self.passwordField = nil;
+        self.emailField.text = nil;
+        self.passwordField.text = nil;
         
         // TODO: show user this error and clear all the textfields
         NSLog(@"Error: %@", error);

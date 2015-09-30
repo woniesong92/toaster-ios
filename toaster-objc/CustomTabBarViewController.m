@@ -33,11 +33,6 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    
-    NSLog(@"view did appear");
-
-    // Check if the user is logged in
-//    [SessionManager checkSessionAndRedirect:@"TabBarToSignUpSegue" sender:self];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

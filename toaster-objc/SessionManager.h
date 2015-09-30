@@ -11,9 +11,9 @@
 
 @interface SessionManager : NSObject
 
-+ (BOOL) checkSessionAndRedirect: (NSString *)segueId sender:(UIViewController *)sender;
-+ (void) clearSessionAndRedirect: (NSString *)segueId sender:(UIViewController *)sender;
-+ (void) loginAndRedirect: (UIViewController *)modal sessionObj:(NSMutableDictionary *)sessionObj;
+//+ (BOOL) checkSessionAndRedirect: (NSString *)segueId sender:(UIViewController *)sender;
++ (void) clearSession;
++ (void) updateSession:(NSMutableDictionary *)sessionObj;
 + (NSString *)currentUser;
 
 @end

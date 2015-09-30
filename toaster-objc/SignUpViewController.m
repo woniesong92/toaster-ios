@@ -66,17 +66,24 @@
                              @"password": password};
     [manager POST:SIGNUP_API_URL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        [SessionManager loginAndRedirect:self sessionObj:responseObject];
+        [SessionManager updateSession:responseObject];
+
+        
+        [self performSegueWithIdentifier:@"SignUpToMainSegue" sender:self];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
-        self.emailField = nil;
-        self.passwordField = nil;
-        self.passwordConfirmField = nil;
+        self.emailField.text = nil;
+        self.passwordField.text = nil;
+        self.passwordConfirmField.text = nil;
         
         // TODO: show user this error and clear all the textfields
         NSLog(@"Error: %@", error);
     }];
+}
+- (IBAction)loginClicked:(id)sender {
+    NSLog(@"SignUpToLoginSegue");
+    [self performSegueWithIdentifier:@"SignUpToLoginSegue" sender:self];
 }
 
 @end

@@ -29,7 +29,9 @@
     [defaults removeObjectForKey:@"userId"];
     [defaults synchronize];
     
-    [SessionManager clearSessionAndRedirect:@"SettingsToSignUpSegue" sender:self];
+    [SessionManager clearSession];
+    
+    [self performSegueWithIdentifier:@"SettingsToMainSegue" sender:self];
 }
 
 @end
