@@ -39,7 +39,9 @@
     CGFloat tabBarHeight = self.tabBarController.tabBar.frame.size.height;
     CGFloat filterBtnsContainerHeight = 36.0;
     CGFloat insetTopMargin = navbarHeight + statusHeight + filterBtnsContainerHeight;
-    [self.postsTable setContentInset:UIEdgeInsetsMake(insetTopMargin,0,tabBarHeight,0)];
+    UIEdgeInsets tableInsets = UIEdgeInsetsMake(insetTopMargin,0,tabBarHeight,0);
+    [self.postsTable setContentInset:tableInsets];
+    self.postsTable.scrollIndicatorInsets = tableInsets;
     
     // Add buttons
     [self addFilterBtns:filterBtnsContainerHeight];
