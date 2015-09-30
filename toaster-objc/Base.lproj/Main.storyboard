@@ -14,7 +14,7 @@
         </mutableArray>
     </customFonts>
     <scenes>
-        <!--Toast-->
+        <!--Post-->
         <scene sceneID="v67-vp-6CQ">
             <objects>
                 <viewController hidesBottomBarWhenPushed="YES" id="i0U-vc-kr9" customClass="PostsShowViewController" sceneMemberID="viewController">
@@ -329,7 +329,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Toast" id="GPi-bY-lSs"/>
+                    <navigationItem key="navigationItem" title="Post" id="GPi-bY-lSs"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="commenInputContainer" destination="zRm-RU-Ece" id="qGp-g9-5hx"/>
@@ -1921,7 +1921,15 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Posts" id="sLB-T5-Khh"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Posts" id="8G1-QY-Ofa">
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="6OV-T1-yzq">
+                            <connections>
+                                <segue destination="Lai-rn-CoX" kind="presentation" id="uWo-kR-iNb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="hotFilterBtn" destination="9gq-hO-kRg" id="pxJ-91-yHw"/>
                         <outlet property="postsTable" destination="3fL-QO-rOS" id="sSD-o5-771"/>

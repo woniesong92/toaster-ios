@@ -42,6 +42,7 @@
     [self.postsTable setDelegate:self];
     [self.postsTable setDataSource:self.postsTable];
     [self.postsTable setTag:0];
+    [self.recentFilterBtn setSelected:YES];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(shouldFetchPosts:)
@@ -157,8 +158,14 @@
 - (void)addPostRow:(NSMutableDictionary *)newPost {
     NSString *createdAt = (NSString *)newPost[@"createdAt"];
     [newPost setValue:[Utils dateWithJSONString:createdAt] forKey:@"createdAt"];
-    [self.postsTable.posts insertObject:newPost atIndex:0];
+    
+    NSLog(@"postsTable %@", self.postsTable);
+    NSLog(@"posts %@", self.postsTable.posts);
+    
+    [(NSMutableArray *)self.postsTable.posts insertObject:newPost atIndex:0];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    
+    
     [self.postsTable beginUpdates];
     [self.postsTable insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
     [self.postsTable endUpdates];

@@ -31,7 +31,7 @@
         [obj setValue:createdAt forKey:@"createdAt"];
     }
     
-    NSMutableArray *sortedObjs = (NSMutableArray *)[objs sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
+    NSArray *sortedObjs = (NSMutableArray *)[objs sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
         NSDate *first = [(NSDictionary *)a objectForKey:@"createdAt"];
         NSDate *second = [(NSDictionary *)b objectForKey:@"createdAt"];
         
@@ -42,7 +42,7 @@
         }
     }];
     
-    return sortedObjs;
+    return [sortedObjs mutableCopy];
 }
 
 + (NSMutableArray *)sortPostsByHotness: (NSMutableArray *)posts {
@@ -63,7 +63,7 @@
         [post setValue:createdAt forKey:@"createdAt"];
     }
     
-    NSMutableArray *sortedPosts = (NSMutableArray *)[posts sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
+    NSArray *sortedPosts = (NSMutableArray *)[posts sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
         
         NSDate *first = [(NSDictionary *)a objectForKey:@"hotness"];
         NSDate *second = [(NSDictionary *)b objectForKey:@"hotness"];
@@ -73,7 +73,7 @@
     
     NSLog(@"sortedPosts: %@", sortedPosts);
     
-    return sortedPosts;
+    return [sortedPosts mutableCopy];
 }
 
 + (NSString *)stringFromDate: (NSDate *)createdAt {

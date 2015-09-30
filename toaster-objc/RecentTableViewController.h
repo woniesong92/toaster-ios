@@ -17,5 +17,8 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *recentFilterBtn;
 @property (weak, nonatomic) IBOutlet UIButton *hotFilterBtn;
-@property (weak, nonatomic) IBOutlet ToastsTableView *postsTable;
+
+//This should be "strong"
+//http://stackoverflow.com/questions/3220120/nsmutablearray-addobject-nsarrayi-addobject-unrecognized-selector-sent-t
+@property (strong, nonatomic) IBOutlet ToastsTableView *postsTable;
 @end

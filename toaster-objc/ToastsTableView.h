@@ -11,7 +11,7 @@
 @interface ToastsTableView : UITableView <UITableViewDataSource>
 
 @property NSMutableArray *comments;
-@property NSMutableArray *posts;
+@property (strong, nonatomic) NSMutableArray *posts;
 @property NSMutableArray *hotPosts;
 @property NSMutableArray *recentPosts;
 @property NSMutableDictionary *numCommentsForPosts;
