@@ -60,7 +60,7 @@
             }
         }
         
-        self.notifications = [Utils sortReversedJSONObjsByDate:notifications];
+        self.notifications = [Utils sortByDate:notifications isReversed:YES];
         
         [self.tableView reloadData];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

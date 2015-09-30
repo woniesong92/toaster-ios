@@ -105,7 +105,8 @@
     [manager GET:reqURL parameters:@{} success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSMutableArray *comments = responseObject[@"comments"];
-        NSMutableArray *sortedComments = [Utils sortJSONObjsByDate:comments];
+        
+        NSMutableArray *sortedComments = [Utils sortByDate:comments isReversed:NO];
         self.comments = sortedComments;
 
         [self.numComments setText:[NSString stringWithFormat:@"%lu", (unsigned long)[self.comments count]]];

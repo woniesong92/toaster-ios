@@ -177,7 +177,7 @@
         }
 
         if (postsTableTag == RECENT_POSTS_TABLE_TAG) {
-            self.postsTable.recentPosts = [Utils sortReversedJSONObjsByDate:posts];
+            self.postsTable.recentPosts = [Utils sortByDate:posts isReversed:YES];
             self.postsTable.numCommentsForRecentPosts = numCommentsForPosts;
         } else {
             self.postsTable.hotPosts = [Utils sortPostsByHotness:posts];

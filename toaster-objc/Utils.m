@@ -24,52 +24,25 @@
     return date;
 }
 
-+ (NSMutableArray *)sortReversedJSONObjsByDate: (NSMutableArray *)objs {
++ (NSMutableArray *)sortByDate: (NSMutableArray *)objs isReversed:(BOOL)isReversed {
     
-    NSArray *objsWithDates = _.array(objs)
-    .map(^NSMutableDictionary *(NSDictionary *obj) {
-        NSMutableDictionary *objCopy = [obj mutableCopy];
-        NSString *createdAt = obj[@"createdAt"];
-        NSDate *newDate = [Utils dateWithJSONString:createdAt];
-        [objCopy setValue:newDate forKey:@"createdAt"];
-        return objCopy;
-    }).unwrap;
+    for (NSMutableDictionary *obj in objs) {
+        NSDate *createdAt = [Utils dateWithJSONString:obj[@"createdAt"]];
+        [obj setValue:createdAt forKey:@"createdAt"];
+    }
     
-    NSArray *sortedObjs = [objsWithDates sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
+    NSMutableArray *sortedObjs = (NSMutableArray *)[objs sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
         NSDate *first = [(NSDictionary *)a objectForKey:@"createdAt"];
         NSDate *second = [(NSDictionary *)b objectForKey:@"createdAt"];
         
-        return [second compare:first];
+        if (isReversed) {
+            return [second compare:first];
+        } else {
+            return [first compare:second];
+        }
     }];
     
-    return [sortedObjs mutableCopy];
-}
-
-+ (NSMutableArray *)sortJSONObjsByDate: (NSMutableArray *)objs {
-    
-    NSArray *objsWithDates = _.array(objs)
-    .map(^NSMutableDictionary *(NSDictionary *obj) {
-        NSMutableDictionary *objCopy = [obj mutableCopy];
-        NSString *createdAt = obj[@"createdAt"];
-        NSDate *newDate = [Utils dateWithJSONString:createdAt];
-        [objCopy setValue:newDate forKey:@"createdAt"];
-        return objCopy;
-    }).unwrap;
-    
-    NSArray *sortedObjs = [objsWithDates sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
-        NSDate *first = [(NSDictionary *)a objectForKey:@"createdAt"];
-        NSDate *second = [(NSDictionary *)b objectForKey:@"createdAt"];
-        
-        return [first compare:second];
-    }];
-    
-    return [sortedObjs mutableCopy];
-}
-
-+ (BOOL)isHotter: (NSDate *)createdAt numVotes:(NSInteger)numVotes {
-    
-    
-    return true;
+    return sortedObjs;
 }
 
 + (NSMutableArray *)sortPostsByHotness: (NSMutableArray *)posts {

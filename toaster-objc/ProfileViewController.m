@@ -85,10 +85,10 @@
         }
         
         if (postsTableTag == POSTS_I_WROTE_TABLE_TAG) {
-            self.postsTable.myPosts = [Utils sortReversedJSONObjsByDate:posts];
+            self.postsTable.myPosts = [Utils sortByDate:posts isReversed:YES];
             self.postsTable.numCommentsForMyPosts = numCommentsForPosts;
         } else {
-            self.postsTable.myReplies = [Utils sortReversedJSONObjsByDate:posts];
+            self.postsTable.myReplies = [Utils sortByDate:posts isReversed:YES];
             self.postsTable.numCommentsForMyReplies = numCommentsForPosts;
         }
         

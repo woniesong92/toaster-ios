@@ -11,10 +11,11 @@
 @interface Utils : NSObject
 
 + (NSDate*)dateWithJSONString: (NSString *)createdAt;
-+ (NSMutableArray *)sortJSONObjsByDate: (NSArray *)objs;
+//+ (NSMutableArray *)sortJSONObjsByDate: (NSArray *)objs;
 + (NSString *)stringFromDate: (NSDate *)createdAt;
-+ (NSMutableArray *)sortReversedJSONObjsByDate: (NSArray *)objs;
+//+ (NSMutableArray *)sortReversedJSONObjsByDate: (NSArray *)objs;
 + (NSMutableDictionary *)transformArrToDict: (NSMutableArray *)objs keyStr:(NSString *)keyStr;
++ (NSMutableArray *)sortByDate: (NSMutableArray *)objs isReversed:(BOOL)isReversed;
 + (NSMutableArray *)sortPostsByHotness: (NSMutableArray *)posts;
 
 #define UIColorFromRGB(rgbValue) \
