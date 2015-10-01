@@ -103,4 +103,11 @@
     return result;
 }
 
++ (void) setGradient: (UIView *)view fromColor:(UIColor *)fromColor toColor:(UIColor *)toColor {
+    CAGradientLayer *gradient = [CAGradientLayer layer];
+    gradient.frame = view.bounds;
+    gradient.colors = [NSArray arrayWithObjects:(id)[fromColor CGColor], (id)[toColor CGColor], nil];
+    [view.layer insertSublayer:gradient atIndex:0];
+}
+
 @end

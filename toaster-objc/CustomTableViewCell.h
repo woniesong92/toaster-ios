@@ -24,5 +24,6 @@
 
 @property NSString *postId;
 @property NSInteger *rowIdx;
+@property (weak, nonatomic) IBOutlet UIView *divider;
 
 @end

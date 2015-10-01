@@ -14,6 +14,8 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    
+    self.commentBody.textContainer.lineFragmentPadding = 0;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

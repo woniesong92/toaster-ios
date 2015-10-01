@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface Utils : NSObject
 
@@ -17,6 +18,7 @@
 + (NSMutableDictionary *)transformArrToDict: (NSMutableArray *)objs keyStr:(NSString *)keyStr;
 + (NSMutableArray *)sortByDate: (NSMutableArray *)objs isReversed:(BOOL)isReversed;
 + (NSMutableArray *)sortPostsByHotness: (NSMutableArray *)posts;
++ (void) setGradient: (UIView *)view fromColor:(UIColor *)fromColor toColor:(UIColor *)toColor;
 
 #define UIColorFromRGB(rgbValue) \
 [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
@@ -24,7 +26,11 @@ green:((float)((rgbValue & 0x00FF00) >>  8))/255.0 \
 blue:((float)((rgbValue & 0x0000FF) >>  0))/255.0 \
 alpha:1.0]
 
+
+
 @end
+
+
 
 
 //R: 255 G: 70 B: 79
