@@ -21,10 +21,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(isVerified:) name:@"emailVerified" object:nil];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
     [self.navigationController.navigationBar setHidden:YES];
     [self.tabBarController.tabBar setHidden:YES];
+    
+    [super viewWillAppear:animated];
+}
 
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(isVerified:) name:@"emailVerified" object:nil];
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -40,12 +49,6 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
 }
 
 - (IBAction)signUpButtonClicked:(id)sender {
