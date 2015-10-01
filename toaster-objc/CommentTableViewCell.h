@@ -23,5 +23,6 @@
 @property BOOL didIUpvote;
 @property (weak, nonatomic) IBOutlet UIButton *upvoteBtn;
 @property (weak, nonatomic) IBOutlet UIButton *downvoteBtn;
+@property (weak, nonatomic) IBOutlet UIView *commentDivider;
 
 @end

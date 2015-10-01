@@ -9,6 +9,7 @@
 #import "CommentTableViewCell.h"
 #import "AppDelegate.h"
 #import "Constants.h"
+#import "Utils.h"
 
 @implementation CommentTableViewCell
 
@@ -16,6 +17,9 @@
     // Initialization code
     
     self.commentBody.textContainer.lineFragmentPadding = 0;
+    
+    [Utils setGradient:self.commentDivider fromColor:[UIColor whiteColor] toColor:[UIColor colorWithRed:238.0/255.0 green:238.0/255.0 blue:238.0/255.0 alpha:1.0]];
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
