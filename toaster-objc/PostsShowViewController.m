@@ -33,8 +33,7 @@
     
     self.postBody.textContainer.lineFragmentPadding = 0;
     
-    [Utils setGradient:self.postDivider fromColor:[UIColor whiteColor] toColor:[UIColor colorWithRed:255.0/255.0 green:138.0/255.0 blue:0.0 alpha:1.0]];
-//    [Utils setGradient:self.commentFieldDivider fromColor:[UIColor whiteColor] toColor:[UIColor colorWithRed:255.0/255.0 green:138.0/255.0 blue:0.0 alpha:1.0]];
+    [Utils setGradient:self.postDividerTop fromColor:[UIColor whiteColor] toColor:[UIColor colorWithRed:238.0/255.0 green:238.0/255.0 blue:238.0 alpha:1.0]];
     
     [self observeKeyboard];
     

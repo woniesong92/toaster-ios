@@ -154,8 +154,15 @@
                                     <action selector="onPostDownvote:" destination="i0U-vc-kr9" eventType="touchUpInside" id="I7T-YO-I0s"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="153" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Pyh-Yd-ne8">
-                                <rect key="frame" x="0.0" y="258" width="600" height="286"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YYd-Fa-ELD" userLabel="postDividerTop">
+                                <rect key="frame" x="0.0" y="241" width="600" height="4"/>
+                                <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="4" id="alE-0r-2TN"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="150" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Pyh-Yd-ne8">
+                                <rect key="frame" x="0.0" y="253" width="600" height="292"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="256" id="4vo-gn-2WN"/>
@@ -328,19 +335,11 @@
                                     <outlet property="delegate" destination="i0U-vc-kr9" id="xfq-ay-Wmb"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Csd-gS-KN4" userLabel="horizontal_divider">
-                                <rect key="frame" x="0.0" y="247" width="600" height="3"/>
-                                <color key="backgroundColor" red="1" green="0.69411764710000001" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="3" id="pP4-EX-Njc"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="Pyh-Yd-ne8" secondAttribute="bottom" constant="56" id="3RM-nm-MDH"/>
+                            <constraint firstAttribute="bottom" secondItem="Pyh-Yd-ne8" secondAttribute="bottom" constant="55" id="3RM-nm-MDH"/>
                             <constraint firstItem="jzM-r4-0nP" firstAttribute="top" secondItem="Lgb-ut-QTU" secondAttribute="bottom" constant="8" id="4zw-J5-VCz"/>
-                            <constraint firstItem="Csd-gS-KN4" firstAttribute="leading" secondItem="3J5-lL-T47" secondAttribute="leading" id="7Bb-Ph-ret"/>
                             <constraint firstAttribute="bottom" secondItem="Pyh-Yd-ne8" secondAttribute="bottom" constant="56" id="8di-H5-fjZ"/>
                             <constraint firstAttribute="trailing" secondItem="XGT-cK-69a" secondAttribute="trailing" constant="8" id="97e-aN-Gia"/>
                             <constraint firstItem="Lgb-ut-QTU" firstAttribute="top" secondItem="Ap0-4e-g9j" secondAttribute="top" constant="-158" id="A1z-tJ-uKa"/>
@@ -348,21 +347,23 @@
                             <constraint firstAttribute="bottom" secondItem="zRm-RU-Ece" secondAttribute="bottom" id="DQz-vt-bLe"/>
                             <constraint firstItem="Lgb-ut-QTU" firstAttribute="top" secondItem="3J5-lL-T47" secondAttribute="top" constant="72" id="HN4-T7-rIr"/>
                             <constraint firstItem="mG4-CE-aWx" firstAttribute="leading" secondItem="3J5-lL-T47" secondAttribute="leading" constant="158" id="I9C-Py-RLe"/>
-                            <constraint firstItem="Csd-gS-KN4" firstAttribute="top" secondItem="rEr-J5-PDk" secondAttribute="bottom" constant="183" id="ILz-3y-SmJ"/>
+                            <constraint firstItem="Pyh-Yd-ne8" firstAttribute="top" secondItem="rEr-J5-PDk" secondAttribute="bottom" constant="189" id="KAM-Qd-OXM"/>
                             <constraint firstItem="eor-i0-YiB" firstAttribute="top" secondItem="XGT-cK-69a" secondAttribute="bottom" constant="12" id="KRM-fU-6qF"/>
                             <constraint firstItem="eor-i0-YiB" firstAttribute="trailing" secondItem="RJw-As-bKP" secondAttribute="trailing" id="L2G-PQ-zNn"/>
                             <constraint firstItem="jzM-r4-0nP" firstAttribute="leading" secondItem="3J5-lL-T47" secondAttribute="leading" constant="116" id="L9k-6x-7Cn"/>
                             <constraint firstItem="eor-i0-YiB" firstAttribute="leading" secondItem="Lgb-ut-QTU" secondAttribute="trailing" constant="44" id="P11-aY-tGO"/>
-                            <constraint firstItem="Pyh-Yd-ne8" firstAttribute="top" secondItem="Csd-gS-KN4" secondAttribute="bottom" constant="8" id="QFC-B5-vLa"/>
+                            <constraint firstAttribute="trailing" secondItem="YYd-Fa-ELD" secondAttribute="trailing" id="PQv-WX-VRy"/>
                             <constraint firstItem="XGT-cK-69a" firstAttribute="top" secondItem="3J5-lL-T47" secondAttribute="top" constant="72" id="QWT-d2-QNc"/>
                             <constraint firstItem="RJw-As-bKP" firstAttribute="top" secondItem="eor-i0-YiB" secondAttribute="bottom" constant="12" id="R5y-33-l55"/>
+                            <constraint firstItem="YYd-Fa-ELD" firstAttribute="leading" secondItem="3J5-lL-T47" secondAttribute="leading" id="Rkn-wr-fqm"/>
                             <constraint firstItem="Lgb-ut-QTU" firstAttribute="leading" secondItem="3J5-lL-T47" secondAttribute="leading" constant="8" id="TWa-Ty-BDh"/>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Pyh-Yd-ne8" secondAttribute="bottom" constant="43" id="TgO-51-S9R"/>
+                            <constraint firstItem="YYd-Fa-ELD" firstAttribute="top" secondItem="Lgb-ut-QTU" secondAttribute="bottom" constant="31" id="UIF-TE-58z"/>
                             <constraint firstItem="eor-i0-YiB" firstAttribute="trailing" secondItem="XGT-cK-69a" secondAttribute="trailing" id="Udf-GL-cWR"/>
+                            <constraint firstItem="Pyh-Yd-ne8" firstAttribute="top" secondItem="YYd-Fa-ELD" secondAttribute="bottom" constant="8" id="Zma-Fx-qyF"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Lgb-ut-QTU" secondAttribute="trailing" constant="40" id="bQc-JO-eIh"/>
                             <constraint firstAttribute="trailing" secondItem="Pyh-Yd-ne8" secondAttribute="trailing" id="cIc-bt-zqM"/>
                             <constraint firstAttribute="bottom" secondItem="Pyh-Yd-ne8" secondAttribute="bottom" constant="56" id="cVW-mT-vkQ"/>
-                            <constraint firstAttribute="trailing" secondItem="Csd-gS-KN4" secondAttribute="trailing" id="eAD-HO-j6E"/>
                             <constraint firstItem="zRm-RU-Ece" firstAttribute="leading" secondItem="3J5-lL-T47" secondAttribute="leading" id="et8-7n-GHs"/>
                             <constraint firstItem="Ap0-4e-g9j" firstAttribute="top" secondItem="Lgb-ut-QTU" secondAttribute="bottom" constant="8" id="fOt-HH-WFF"/>
                             <constraint firstItem="mG4-CE-aWx" firstAttribute="top" secondItem="Lgb-ut-QTU" secondAttribute="bottom" constant="8" id="faR-3t-jzf"/>
@@ -405,7 +406,7 @@
                         <outlet property="numVotes" destination="eor-i0-YiB" id="7y6-x0-v5Y"/>
                         <outlet property="postBody" destination="Lgb-ut-QTU" id="CA1-qs-cpm"/>
                         <outlet property="postDate" destination="Ap0-4e-g9j" id="pN9-Yz-DSg"/>
-                        <outlet property="postDivider" destination="Csd-gS-KN4" id="7eE-qc-Uhb"/>
+                        <outlet property="postDividerTop" destination="YYd-Fa-ELD" id="bZr-lh-Vd0"/>
                         <outlet property="upvoteBtn" destination="XGT-cK-69a" id="d6x-Vq-ZBY"/>
                     </connections>
                 </viewController>
@@ -2062,7 +2063,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="TpP-R2-FiD"/>
         <segue reference="eDJ-ya-ZuX"/>
-        <segue reference="ORH-kl-4Ue"/>
+        <segue reference="zLz-ge-Hap"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.27450980390000002" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

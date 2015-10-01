@@ -38,7 +38,8 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *inputContainerBottomConstraint;
 @property (weak, nonatomic) IBOutlet UIView *commenInputContainer;
 
-@property (weak, nonatomic) IBOutlet UIView *postDivider;
+@property (weak, nonatomic) IBOutlet UIView *postDividerTop;
+//@property (weak, nonatomic) IBOutlet UIView *postDividerBottom;
 @property (weak, nonatomic) IBOutlet UIView *commentFieldDivider;
 
 

@@ -17,7 +17,5 @@
 @property (strong, nonatomic) NSString *pushInstallationId;
 @property (strong, nonatomic) AFHTTPRequestOperationManager *networkManager;
 
-
-
 @end
 
