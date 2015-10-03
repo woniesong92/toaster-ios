@@ -20,8 +20,10 @@
     
     if (self.tag == RECENT_POSTS_TABLE_TAG) {
         self.posts = self.recentPosts;
+        self.numCommentsForPosts = self.numCommentsForRecentPosts;
     } else {
         self.posts = self.hotPosts;
+        self.numCommentsForPosts = self.numCommentsForHotPosts;
     }
     
     [super reloadData];
@@ -49,6 +51,8 @@
     NSString *postId = postObj[@"_id"];
     NSString *createdAt = [Utils stringFromDate:[postObj objectForKey:@"createdAt"]];
     NSNumber *numComments = [self.numCommentsForPosts objectForKey:postId];
+    
+    
     if (!numComments) {
         numComments = [NSNumber numberWithInt:0];
     }

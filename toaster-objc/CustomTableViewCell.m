@@ -22,11 +22,6 @@
     [Utils setGradient:self.profileCellDivider fromColor:[UIColor whiteColor] toColor:[UIColor colorWithRed:238.0/255.0 green:238.0/255.0 blue:238.0/255.0 alpha:1.0]];
 }
 
-//- (void)layoutSubviews {
-//    [super layoutSubviews];
-//    _gradientLayer.frame = self.bounds;
-//}
-
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
@@ -113,16 +108,6 @@
         // TODO: show user this error and clear all the textfields
         NSLog(@"Error: %@", error);
     }];
-}
-
-//gradient
-
-- (void) setGradient {
-    UIView *view = self.divider;
-    CAGradientLayer *gradient = [CAGradientLayer layer];
-    gradient.frame = view.bounds;
-    gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor whiteColor] CGColor], (id)[[UIColor lightGrayColor] CGColor], nil];
-    [view.layer insertSublayer:gradient atIndex:0];
 }
 
 @end

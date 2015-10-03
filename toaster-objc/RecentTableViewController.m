@@ -31,8 +31,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.navigationController.navigationBar setHidden:NO];
-    [self.tabBarController.tabBar setHidden:NO];
     
     [Utils setGradient:self.filterDivider fromColor:[UIColor whiteColor] toColor:[UIColor colorWithRed:255.0/255.0 green:138.0/255.0 blue:0.0 alpha:1.0]];
     

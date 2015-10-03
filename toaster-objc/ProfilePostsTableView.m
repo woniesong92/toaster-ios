@@ -20,8 +20,10 @@
     
     if (self.tag == POSTS_I_WROTE_TABLE_TAG) {
         self.posts = self.myPosts;
+        self.numCommentsForPosts = self.numCommentsForMyPosts;
     } else {
         self.posts = self.myReplies;
+        self.numCommentsForPosts = self.numCommentsForMyReplies;
     }
     
     [super reloadData];
