@@ -31,6 +31,7 @@
 		7017D72B1BAF9DBB003EB498 /* DTTimePeriodCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 7017D7211BAF9DBB003EB498 /* DTTimePeriodCollection.m */; };
 		7017D72C1BAF9DBB003EB498 /* DTTimePeriodGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 7017D7231BAF9DBB003EB498 /* DTTimePeriodGroup.m */; };
 		7017D72D1BAF9DBB003EB498 /* NSDate+DateTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 7017D7251BAF9DBB003EB498 /* NSDate+DateTools.m */; };
+		701AAC171BBF811300EE33D1 /* VerificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 701AAC161BBF811300EE33D1 /* VerificationViewController.m */; };
 		70223C6C1BB8BDBB000FE6CB /* SessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 70223C6B1BB8BDBB000FE6CB /* SessionManager.m */; };
 		70223C6F1BB8C5E7000FE6CB /* UITextFieldWithPadding.m in Sources */ = {isa = PBXBuildFile; fileRef = 70223C6E1BB8C5E7000FE6CB /* UITextFieldWithPadding.m */; };
 		70223C741BB97335000FE6CB /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 70223C731BB97335000FE6CB /* NetworkManager.m */; };
@@ -135,6 +136,8 @@
 		7017D7231BAF9DBB003EB498 /* DTTimePeriodGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTTimePeriodGroup.m; sourceTree = "<group>"; };
 		7017D7241BAF9DBB003EB498 /* NSDate+DateTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+DateTools.h"; sourceTree = "<group>"; };
 		7017D7251BAF9DBB003EB498 /* NSDate+DateTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+DateTools.m"; sourceTree = "<group>"; };
+		701AAC151BBF811300EE33D1 /* VerificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerificationViewController.h; sourceTree = "<group>"; };
+		701AAC161BBF811300EE33D1 /* VerificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerificationViewController.m; sourceTree = "<group>"; };
 		70223C6A1BB8BDBB000FE6CB /* SessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionManager.h; sourceTree = "<group>"; };
 		70223C6B1BB8BDBB000FE6CB /* SessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionManager.m; sourceTree = "<group>"; };
 		70223C6D1BB8C5E7000FE6CB /* UITextFieldWithPadding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITextFieldWithPadding.h; sourceTree = "<group>"; };
@@ -406,6 +409,8 @@
 				70E341611B9CA6C200046067 /* SignUpViewController.m */,
 				70EC5ABF1BAE5F7E0019AA58 /* SignInViewController.h */,
 				70EC5AC01BAE5F7E0019AA58 /* SignInViewController.m */,
+				701AAC151BBF811300EE33D1 /* VerificationViewController.h */,
+				701AAC161BBF811300EE33D1 /* VerificationViewController.m */,
 				70EC5ABC1BAE3F9C0019AA58 /* RecentTableViewController.h */,
 				70EC5ABD1BAE3F9C0019AA58 /* RecentTableViewController.m */,
 				70A4F03D1BB739D500E66A7E /* ToastsTableView.h */,
@@ -579,6 +584,7 @@
 				7046D1FC1BAE38EF00A5465F /* AFHTTPRequestOperation.m in Sources */,
 				700272391B9A36B900C292A5 /* UIWebView+FLUIWebView.m in Sources */,
 				70D005631B98A882006E746F /* PostsShowViewController.m in Sources */,
+				701AAC171BBF811300EE33D1 /* VerificationViewController.m in Sources */,
 				7004B9D31BAE902700C4210E /* CustomTableViewCell.m in Sources */,
 				7017D72B1BAF9DBB003EB498 /* DTTimePeriodCollection.m in Sources */,
 				7002724B1B9B173F00C292A5 /* NewPostController.m in Sources */,
