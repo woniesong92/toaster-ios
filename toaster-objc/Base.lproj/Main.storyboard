@@ -2570,6 +2570,9 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Sign Up" id="J51-ey-edq"/>
+                    <connections>
+                        <segue destination="49e-Tb-3d3" kind="showDetail" identifier="VerificationToMainSegue" id="dgh-4E-trn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wpz-eB-C8V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2599,9 +2602,9 @@
         <image name="upvote-selected" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ebP-93-MaD"/>
-        <segue reference="6Cj-pN-7xb"/>
+        <segue reference="dgh-4E-trn"/>
         <segue reference="bfa-IW-Gev"/>
+        <segue reference="6Cj-pN-7xb"/>
         <segue reference="ORH-kl-4Ue"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.27450980390000002" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

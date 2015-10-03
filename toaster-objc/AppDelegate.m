@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
 #import "Constants.h"
+#import "SessionManager.h"
 
 @interface AppDelegate ()
 
@@ -36,6 +37,7 @@
                                                                              categories:nil];
     [application registerUserNotificationSettings:settings];
     [application registerForRemoteNotifications];
+    
 //    
 //    if (
 //    
@@ -56,6 +58,32 @@
 //
 //    self.networkManager = manager;
 //    
+    return YES;
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    // Do something with the url here
+    NSLog(@"urlllrlrllr %@", url);
+
+    NSString *urlStr = [url absoluteString];
+    
+    if ([urlStr containsString:@"yolk://verified"]) {
+        
+        [SessionManager setVerified];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"emailVerified" object:nil];
+
+//        NSURLComponents *components = [NSURLComponents componentsWithString:urlStr];
+//        NSString *userId;
+//        
+//        for (NSURLQueryItem *item in components.queryItems) {
+//            if([item.name isEqualToString:@"userId"]) {
+//                userId = item.value;
+//                
+//                [[NSNotificationCenter defaultCenter] postNotificationName:@"emailVerified" object:nil];
+//            }
+//        }
+    }
+    
     return YES;
 }
 
@@ -92,14 +120,14 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     
-    NSLog(@"app become active");
-    
     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+
 
 // AppDelegate is the delegate for TabBarController for a reason. Don't move this code to elsewhere
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController{
@@ -115,15 +143,16 @@
     }
 }
 
-- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
-    NSString *verfyingString = @"com.honeyjam.toaster://verified";
-    
-    
-    if ([[url absoluteString] isEqualToString:verfyingString]) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"emailVerified" object:nil];
-    }
-    
-    return YES;
-}
+//
+//- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+//    NSString *verfyingString = @"com.honeyjam.toaster://verified";
+//    
+//    
+//    if ([[url absoluteString] isEqualToString:verfyingString]) {
+//        [[NSNotificationCenter defaultCenter] postNotificationName:@"emailVerified" object:nil];
+//    }
+//    
+//    return YES;
+//}
 
 @end

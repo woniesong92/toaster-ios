@@ -40,6 +40,16 @@
     }
 }
 
++ (BOOL)isVerified {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    return [(NSNumber *)[defaults objectForKey:@"isVerified"] boolValue];
+}
+
++ (void)setVerified {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:[NSNumber numberWithBool:YES] forKey:@"isVerifeid"];
+}
+
 + (void) clearSession {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults removeObjectForKey:@"token"];

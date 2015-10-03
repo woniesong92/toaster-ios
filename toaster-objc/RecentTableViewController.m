@@ -198,23 +198,29 @@
     
     if ([[SessionManager currentUser] isEqualToString:@""]) {
         [self performSegueWithIdentifier:@"PostsToSignUpSegue" sender:self];
+    } else if (![SessionManager isVerified]) {
+        [self performSegueWithIdentifier:@"PostsToVerificationSegue" sender:self];
     } else {
-        NSDictionary *params = @{@"userId": [SessionManager currentUser]};
-        AFHTTPRequestOperationManager *manager = networkManager.manager;
-        
-        [manager POST:VERIFICATION_API_URL parameters:params success:^(AFHTTPRequestOperation *operation, id isVerifiedObj) {
-            
-            BOOL isVerified = [(NSNumber *)isVerifiedObj[@"isVerified"] boolValue];
-            
-            if (!isVerified) {
-                [self performSegueWithIdentifier:@"PostsToVerificationSegue" sender:self];
-            }
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            // fail to verify
-            NSLog(@"Error: %@", error);
-            [self performSegueWithIdentifier:@"PostsToVerificationSegue" sender:self];
-        }];
+        NSLog(@"verified!");
     }
+    
+//    } else {
+//        NSDictionary *params = @{@"userId": [SessionManager currentUser]};
+//        AFHTTPRequestOperationManager *manager = networkManager.manager;
+//        
+//        [manager POST:VERIFICATION_API_URL parameters:params success:^(AFHTTPRequestOperation *operation, id isVerifiedObj) {
+//            
+//            BOOL isVerified = [(NSNumber *)isVerifiedObj[@"isVerified"] boolValue];
+//            
+//            if (!isVerified) {
+//                [self performSegueWithIdentifier:@"PostsToVerificationSegue" sender:self];
+//            }
+//        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//            // fail to verify
+//            NSLog(@"Error: %@", error);
+//            [self performSegueWithIdentifier:@"PostsToVerificationSegue" sender:self];
+//        }];
+//    }
 }
 
 - (void)onAddPostRow:(NSNotification *)notification {

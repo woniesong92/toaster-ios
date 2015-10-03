@@ -15,5 +15,8 @@
 + (void) clearSession;
 + (void) updateSession:(NSMutableDictionary *)sessionObj;
 + (NSString *)currentUser;
++ (BOOL)isVerified;
++ (void)setVerified;
+
 
 @end

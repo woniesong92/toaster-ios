@@ -21,7 +21,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(isVerified:) name:@"emailVerified" object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
