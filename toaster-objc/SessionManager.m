@@ -33,6 +33,8 @@
     
     NSString *userId = [defaults objectForKey:@"userId"];
     
+//    UIApplicationDidFinishLaunchingNotification
+    
     if(userId == nil || [userId isEqualToString:@""]) {
         return @"";
     } else {
@@ -42,18 +44,26 @@
 
 + (BOOL)isVerified {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    return [(NSNumber *)[defaults objectForKey:@"isVerified"] boolValue];
+    
+    NSLog(@"isVer: %@", [defaults objectForKey:@"isVerified"]);
+    
+    BOOL isVerified = [(NSNumber *)[defaults objectForKey:@"isVerified"] boolValue];
+    
+    return isVerified;
 }
 
 + (void)setVerified {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:[NSNumber numberWithBool:YES] forKey:@"isVerifeid"];
+    
+    [defaults setObject:[NSNumber numberWithBool:YES] forKey:@"isVerified"];
+    [defaults synchronize];
 }
 
 + (void) clearSession {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults removeObjectForKey:@"token"];
     [defaults removeObjectForKey:@"userId"];
+    [defaults removeObjectForKey:@"isVerified"];
     [defaults synchronize];
 }
 

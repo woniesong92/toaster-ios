@@ -54,6 +54,10 @@
     self.loadingText = label;
     [self.view addSubview:label];
     
+    [self addObservers];
+}
+
+- (void)addObservers {
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(shouldFetchPosts:)
                                                  name:ASK_TO_FETCH_POSTS
@@ -98,16 +102,6 @@
     [self.postsTable reloadData];
     [[NSNotificationCenter defaultCenter] postNotificationName:TABLE_SCROLL_TO_TOP object:nil userInfo:nil];
 }
-
-
-
-
-////    Add a horizontal divider
-//    CGRect dividerFrame = CGRectMake(0, 0, width, 2);
-//    UIView *divider = [[UIView alloc] initWithFrame:dividerFrame];
-//    [divider setBackgroundColor:dividerColor];
-//    [self.view addSubview:divider];
-//}
 
 
 - (void)fetchPosts: (NSInteger)postsTableTag limit:(NSNumber *)limit skip:(NSNumber *)skip doReload:(BOOL)doReload {
@@ -172,6 +166,7 @@
 
 - (void)addPostRow:(NSMutableDictionary *)newPost {
     NSString *createdAt = (NSString *)newPost[@"createdAt"];
+    
     [newPost setValue:[Utils dateWithJSONString:createdAt] forKey:@"createdAt"];
     
     [(NSMutableArray *)self.postsTable.posts insertObject:newPost atIndex:0];
@@ -187,9 +182,11 @@
     
     [super viewWillAppear:animated];
     
-    if (![[SessionManager currentUser] isEqualToString:@""] && self.postsTable.posts.count == 0) {
+    if (![[SessionManager currentUser] isEqualToString:@""] && [SessionManager isVerified] && self.postsTable.posts.count == 0) {
         [self fetchPosts:HOT_POSTS_TABLE_TAG limit:[NSNumber numberWithInteger:NUM_HOT_POSTS_IN_ONE_BATCH] skip:@0 doReload:NO];
         [self fetchPosts:RECENT_POSTS_TABLE_TAG limit:[NSNumber numberWithInteger:NUM_RECENT_POSTS_IN_ONE_BATCH] skip:@0 doReload:YES];
+    } else {
+        NSLog(@"LOOK: %@", self.postsTable.posts);
     }
 }
 
@@ -199,31 +196,17 @@
     if ([[SessionManager currentUser] isEqualToString:@""]) {
         [self performSegueWithIdentifier:@"PostsToSignUpSegue" sender:self];
     } else if (![SessionManager isVerified]) {
+        NSLog(@"going back to verification bcuz not verified");
+        
         [self performSegueWithIdentifier:@"PostsToVerificationSegue" sender:self];
     } else {
         NSLog(@"verified!");
     }
-    
-//    } else {
-//        NSDictionary *params = @{@"userId": [SessionManager currentUser]};
-//        AFHTTPRequestOperationManager *manager = networkManager.manager;
-//        
-//        [manager POST:VERIFICATION_API_URL parameters:params success:^(AFHTTPRequestOperation *operation, id isVerifiedObj) {
-//            
-//            BOOL isVerified = [(NSNumber *)isVerifiedObj[@"isVerified"] boolValue];
-//            
-//            if (!isVerified) {
-//                [self performSegueWithIdentifier:@"PostsToVerificationSegue" sender:self];
-//            }
-//        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//            // fail to verify
-//            NSLog(@"Error: %@", error);
-//            [self performSegueWithIdentifier:@"PostsToVerificationSegue" sender:self];
-//        }];
-//    }
 }
 
 - (void)onAddPostRow:(NSNotification *)notification {
+    
+    NSLog(@"onAddPostRow: %@", notification.object);
     [self addPostRow:(NSMutableDictionary *)notification.object];
 }
 

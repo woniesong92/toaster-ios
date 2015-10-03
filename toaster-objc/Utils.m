@@ -22,6 +22,7 @@
     //should match this format: 2015-09-21T00:40:21.976Z
     [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZ"];
     NSDate *date = [[NSDate alloc] init];
+    
     date = [dateFormatter dateFromString:createdAt];
     return date;
 }
@@ -76,8 +77,6 @@
 
         return [second compare:first];
     }];
-    
-    NSLog(@"sortedPosts: %@", sortedPosts);
     
     if (sortedPosts == nil) {
         return [[NSMutableArray alloc] init];

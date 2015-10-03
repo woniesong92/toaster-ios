@@ -17,6 +17,20 @@
 
 @implementation AppDelegate
 
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    
+    NSLog(@"url: %@, souce: %@, annot: %@", url, sourceApplication, annotation);
+    NSString *urlStr = [url absoluteString];
+    if ([urlStr containsString:@"yolk://verified"]) {
+        [self onVerified];
+    }
+    return YES;
+}
+
+- (void)onVerified {
+    [SessionManager setVerified];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"emailVerified" object:nil];
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
@@ -37,6 +51,8 @@
                                                                              categories:nil];
     [application registerUserNotificationSettings:settings];
     [application registerForRemoteNotifications];
+    
+    NSLog(@"didfinish launching with options: %@", launchOptions);
     
 //    
 //    if (
@@ -61,31 +77,31 @@
     return YES;
 }
 
-- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
-    // Do something with the url here
-    NSLog(@"urlllrlrllr %@", url);
-
-    NSString *urlStr = [url absoluteString];
-    
-    if ([urlStr containsString:@"yolk://verified"]) {
-        
-        [SessionManager setVerified];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"emailVerified" object:nil];
-
-//        NSURLComponents *components = [NSURLComponents componentsWithString:urlStr];
-//        NSString *userId;
+//- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+//    // Do something with the url here
+//    NSLog(@"urlllrlrllr %@", url);
+//
+//    NSString *urlStr = [url absoluteString];
+//    
+//    if ([urlStr containsString:@"yolk://verified"]) {
 //        
-//        for (NSURLQueryItem *item in components.queryItems) {
-//            if([item.name isEqualToString:@"userId"]) {
-//                userId = item.value;
-//                
-//                [[NSNotificationCenter defaultCenter] postNotificationName:@"emailVerified" object:nil];
-//            }
-//        }
-    }
-    
-    return YES;
-}
+//        [SessionManager setVerified];
+//        [[NSNotificationCenter defaultCenter] postNotificationName:@"emailVerified" object:nil];
+//
+////        NSURLComponents *components = [NSURLComponents componentsWithString:urlStr];
+////        NSString *userId;
+////        
+////        for (NSURLQueryItem *item in components.queryItems) {
+////            if([item.name isEqualToString:@"userId"]) {
+////                userId = item.value;
+////                
+////                [[NSNotificationCenter defaultCenter] postNotificationName:@"emailVerified" object:nil];
+////            }
+////        }
+//    }
+//    
+//    return YES;
+//}
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     // Store the deviceToken in the current installation and save it to Parse.

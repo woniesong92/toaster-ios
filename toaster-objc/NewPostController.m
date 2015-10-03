@@ -21,14 +21,12 @@
     [super viewDidLoad];
     
     networkManager = [NetworkManager getNetworkManager];
-    
     self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [self.postInputField becomeFirstResponder];
     
-//  TODO: why is this position happening?
     CGFloat frameWidth = self.postInputField.frame.size.width;
     textViewPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(7, -18, frameWidth, 200)];
     textViewPlaceholder.text = POST_PLACEHOLDER;
@@ -55,25 +53,21 @@
     AFHTTPRequestOperationManager *manager = networkManager.manager;
     
     NSString *postBody = self.postInputField.text;
-    
     NSDictionary *params = @{@"postBody": postBody};
-    
-    [self dismissViewControllerAnimated:YES completion:^{
-        
-        // Consider adding a fake post object for optimization
-        [[NSNotificationCenter defaultCenter] postNotificationName:TABLE_SCROLL_TO_TOP object:nil userInfo:nil];
-    }];
     
     [manager POST:NEW_POST_API_URL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         [[NSNotificationCenter defaultCenter] postNotificationName:ASK_TO_ADD_POST_ROW object:responseObject userInfo:nil];
-        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         // TODO: show user this error and clear all the textfields
         NSLog(@"Error: %@", error);
     }];
     
-
+    [self dismissViewControllerAnimated:YES completion:^{
+        // Consider adding a fake post object for optimization
+        [[NSNotificationCenter defaultCenter] postNotificationName:TABLE_SCROLL_TO_TOP object:nil userInfo:nil];
+    }];
+    
 }
 
 - (void) viewWillDisappear:(BOOL)animated {

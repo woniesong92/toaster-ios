@@ -29,6 +29,13 @@
     [super reloadData];
 }
 
+- (void)awakeFromNib {
+    self.posts = [[NSMutableArray alloc] init];
+    self.numCommentsForPosts = [[NSMutableDictionary alloc] init];
+    self.hotPosts = [[NSMutableArray alloc] init];
+    self.recentPosts = [[NSMutableArray alloc] init];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
