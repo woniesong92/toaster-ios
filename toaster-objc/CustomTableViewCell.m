@@ -96,13 +96,6 @@
     
     [manager POST:DOWNVOTE_POST_API_URL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        //        Should validate one more time here
-        //        NSNumber *diffVotes = responseObject[@"diffVotes"];
-        //        if (diffVotes.intValue == 1) {
-        //            [self toggleSelected:self.upvoteBtn otherBtn:self.downvoteBtn];
-        //            [self.numVotes setText:self.numVotes.text
-        //        }
-        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         // TODO: show user this error and clear all the textfields
         NSLog(@"Error: %@", error);

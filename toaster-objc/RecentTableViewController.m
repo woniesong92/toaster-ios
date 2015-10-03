@@ -185,8 +185,6 @@
     if (![[SessionManager currentUser] isEqualToString:@""] && [SessionManager isVerified] && self.postsTable.posts.count == 0) {
         [self fetchPosts:HOT_POSTS_TABLE_TAG limit:[NSNumber numberWithInteger:NUM_HOT_POSTS_IN_ONE_BATCH] skip:@0 doReload:NO];
         [self fetchPosts:RECENT_POSTS_TABLE_TAG limit:[NSNumber numberWithInteger:NUM_RECENT_POSTS_IN_ONE_BATCH] skip:@0 doReload:YES];
-    } else {
-        NSLog(@"LOOK: %@", self.postsTable.posts);
     }
 }
 

@@ -556,7 +556,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="signupBg" translatesAutoresizingMaskIntoConstraints="NO" id="dxy-81-LEv">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="toaster" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eph-Wy-f74">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="yolk" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eph-Wy-f74">
                                 <rect key="frame" x="0.0" y="28" width="600" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="Fq8-kd-ADq"/>
@@ -625,7 +625,7 @@
                                             <constraint firstAttribute="height" constant="50" id="WRh-m4-Z3b"/>
                                         </constraints>
                                         <state key="normal" title="Sign Up">
-                                            <color key="titleColor" red="1" green="0.27450980390000002" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" red="1" green="0.59607843140000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -738,7 +738,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uVI-Oy-ELz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-488" y="-82"/>
+            <point key="canvasLocation" x="-1180" y="-84"/>
         </scene>
         <!--Custom Tab Bar View Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -1709,7 +1709,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="signupBg" translatesAutoresizingMaskIntoConstraints="NO" id="Pys-4d-ARt">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="toaster" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O0P-6T-bY1">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="yolk" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O0P-6T-bY1">
                                 <rect key="frame" x="0.0" y="28" width="600" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="USg-qn-3Cg"/>
@@ -1763,7 +1763,7 @@
                                             <constraint firstAttribute="height" constant="50" id="OoO-Bh-5eC"/>
                                         </constraints>
                                         <state key="normal" title="Log in">
-                                            <color key="titleColor" red="1" green="0.27450980390000002" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" red="1" green="0.59607843140000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -2595,16 +2595,16 @@
         <image name="profile" width="32" height="32"/>
         <image name="profile-selected" width="32" height="32"/>
         <image name="share" width="32" height="32"/>
-        <image name="signupBg" width="750" height="1334"/>
+        <image name="signupBg" width="720" height="1280"/>
         <image name="small-circle" width="32" height="32"/>
         <image name="terms" width="32" height="32"/>
         <image name="upvote" width="32" height="32"/>
         <image name="upvote-selected" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dgh-4E-trn"/>
-        <segue reference="bfa-IW-Gev"/>
+        <segue reference="TpP-R2-FiD"/>
         <segue reference="6Cj-pN-7xb"/>
+        <segue reference="HEx-M4-kj3"/>
         <segue reference="zLz-ge-Hap"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.27450980390000002" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
