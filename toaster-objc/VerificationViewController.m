@@ -7,7 +7,13 @@
 //
 
 #import "VerificationViewController.h"
+#import "Constants.h"
+#import "NetworkManager.h"
 
 @implementation VerificationViewController
+
+- (void)viewDidLoad {
+    NSLog(@"did you get the email?");
+}
 
 @end
