@@ -1065,7 +1065,7 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="300"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <connections>
@@ -1558,8 +1558,8 @@
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="XES-Tk-ZFQ"/>
                                         <exclude reference="GYX-FD-f1Y"/>
+                                        <exclude reference="XES-Tk-ZFQ"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -1861,6 +1861,8 @@
                     <connections>
                         <outlet property="emailField" destination="Vj2-8F-h75" id="2mV-Ny-cDA"/>
                         <outlet property="passwordField" destination="Nb9-9N-e4g" id="ja6-N5-U5o"/>
+                        <segue destination="cxO-O5-FBn" kind="showDetail" identifier="SignInToVerificationSegue" id="bfa-IW-Gev"/>
+                        <segue destination="49e-Tb-3d3" kind="showDetail" identifier="SignInToMainSegue" id="ebP-93-MaD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xoz-9e-tFx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2101,6 +2103,7 @@
                         <outlet property="postsTable" destination="3fL-QO-rOS" id="sSD-o5-771"/>
                         <outlet property="recentFilterBtn" destination="9Hs-yQ-96j" id="hcM-0E-GZJ"/>
                         <segue destination="wgb-Tf-AS4" kind="show" identifier="PostsToSignUpSegue" id="eDJ-ya-ZuX"/>
+                        <segue destination="cxO-O5-FBn" kind="presentation" identifier="PostsToVerificationSegue" id="I8U-CX-aO4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Mv-SI-u1X" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2477,11 +2480,8 @@
                                             <color key="titleColor" red="1" green="0.27450980390000002" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <connections>
-                                            <action selector="loginButtonClicked:" destination="cxO-O5-FBn" eventType="touchUpInside" id="1eH-Ya-kvQ"/>
-                                        </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Almost there! Please verify your email to start using Yolk." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i3V-oD-VIL">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Almost there! Please verify your email to start using Yolk." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i3V-oD-VIL">
                                         <rect key="frame" x="0.0" y="8" width="552" height="70"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="7LN-mc-z5i"/>
@@ -2514,7 +2514,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="signUpButtonClicked:" destination="cxO-O5-FBn" eventType="touchUpInside" id="Dyx-ZM-QkM"/>
+                                            <segue destination="wgb-Tf-AS4" kind="presentation" identifier="VerificationToSignUpSegue" id="6Cj-pN-7xb"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -2599,9 +2599,10 @@
         <image name="upvote-selected" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="TpP-R2-FiD"/>
-        <segue reference="bkO-vW-Hil"/>
-        <segue reference="zLz-ge-Hap"/>
+        <segue reference="ebP-93-MaD"/>
+        <segue reference="6Cj-pN-7xb"/>
+        <segue reference="bfa-IW-Gev"/>
+        <segue reference="ORH-kl-4Ue"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.27450980390000002" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

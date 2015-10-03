@@ -28,6 +28,8 @@
     [self.navigationController.navigationBar setHidden:YES];
     [self.tabBarController.tabBar setHidden:YES];
     
+    [SessionManager clearSession];
+    
     [super viewWillAppear:animated];
 }
 
@@ -35,13 +37,17 @@
     [super viewWillDisappear:animated];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    if (self.showVerification) {
+        [self performSegueWithIdentifier:@"SignUpToVerificationSegue" sender:self];
+    }
+}
+
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     [self.navigationController.navigationBar setHidden:NO];
     [self.tabBarController.tabBar setHidden:NO];
-}
-
-- (void)isVerified:(NSNotification *)notification {
 }
 
 - (void)didReceiveMemoryWarning {
@@ -80,7 +86,9 @@
         [SessionManager updateSession:responseObject];
 
         
-        [self performSegueWithIdentifier:@"SignUpToMainSegue" sender:self];
+//        [self performSegueWithIdentifier:@"SignUpToMainSegue" sender:self];
+        
+        [self performSegueWithIdentifier:@"SignUpToVerificationSegue" sender:self];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         

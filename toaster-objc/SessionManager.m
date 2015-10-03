@@ -9,6 +9,7 @@
 #import "SessionManager.h"
 #import "AppDelegate.h"
 #import "NetworkManager.h"
+#import "Constants.h"
 
 @implementation SessionManager
 
@@ -66,3 +67,4 @@
 }
 
 @end
+     

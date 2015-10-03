@@ -20,4 +20,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordConfirmField;
 
+@property BOOL showVerification;
+
 @end

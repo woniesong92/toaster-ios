@@ -56,12 +56,38 @@
         // need to close its parent's presentingViewController
         [SessionManager updateSession:responseObject];
         
-        // Pop the SignUpViewController
-        NSArray *navViewControllers = [(UITabBarController *)self.presentingViewController viewControllers];
-        [(UINavigationController *)navViewControllers[0] popToRootViewControllerAnimated:NO];
+        // check verification status
+        NSDictionary *params2 = @{@"userId": responseObject[@"id"]};
         
-        // And dismiss the login modal
-        [self dismissViewControllerAnimated:YES completion:nil];
+        [manager POST:VERIFICATION_API_URL parameters:params2 success:^(AFHTTPRequestOperation *operation, id isVerifiedObj) {
+        
+            BOOL isVerified = [(NSNumber *)isVerifiedObj[@"isVerified"] boolValue];
+            
+            if (isVerified) {
+                // Pop the SignUpViewController
+                
+                [self performSegueWithIdentifier:@"SignInToMainSegue" sender:self];
+                
+                return;
+                
+                NSArray *navViewControllers = [(UITabBarController *)self.presentingViewController viewControllers];
+                [(UINavigationController *)navViewControllers[0] popToRootViewControllerAnimated:NO];
+                
+                // And dismiss the login modal
+                [self dismissViewControllerAnimated:YES completion:nil];
+            } else {
+                NSLog(@"user not verified");
+                [self performSegueWithIdentifier:@"SignInToVerificationSegue" sender:self];
+            }
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            
+            self.emailField.text = nil;
+            self.passwordField.text = nil;
+            
+            // TODO: show user this error and clear all the textfields
+            NSLog(@"Error2: %@", error);
+        }];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
