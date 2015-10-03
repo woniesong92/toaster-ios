@@ -28,6 +28,8 @@
     [self.view addSubview:label];
     [self.postsTable setDataSource:self.postsTable];
     
+    [Utils setGradient:self.filterDivider fromColor:[UIColor whiteColor] toColor:[UIColor colorWithRed:255.0/255.0 green:138.0/255.0 blue:0.0 alpha:1.0]];
+    
     // set Tag
     [self.postsTable setTag:POSTS_I_WROTE_TABLE_TAG];
     [self.myPostsBtn setSelected:YES];

@@ -1,4 +1,4 @@
-#define BASE_URL @"http://192.168.0.103:3000"
+#define BASE_URL @"http://192.168.0.102:3000"
 //#define BASE_URL @"http://104.131.158.80"
 //#define BASE_URL @"http://10.145.143.219:3000"
 //#define BASE_URL @"http://10.145.13.202:3000"
@@ -77,7 +77,6 @@
 
 #define UPVOTE_POST_UPDATE @"upvote_post_update"
 #define DOWNVOTE_POST_UPDATE @"downvote_post_update"
-
 
 #define PRIMARY_COLOR [UIColor colorWithRed:255.0/255.0 green:177.0/255.0 blue:30.0/255.0 alpha:1.0]
 #define DARK_COLOR [UIColor colorWithRed:255.0/255.0 green:138.0/255.0 blue:0.0 alpha:1.0]

@@ -19,5 +19,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *myRepliesBtn;
 @property (weak, nonatomic) IBOutlet UIButton *myPostsBtn;
 @property UILabel *loadingText;
+@property (weak, nonatomic) IBOutlet UIView *filterDivider;
 
 @end

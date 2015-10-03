@@ -17,5 +17,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *createdAt;
 @property NSString *postId;
 @property BOOL isRead;
+@property (weak, nonatomic) IBOutlet UIView *cellDivider;
 
 @end

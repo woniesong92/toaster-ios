@@ -39,7 +39,6 @@
 @property (weak, nonatomic) IBOutlet UIView *commenInputContainer;
 
 @property (weak, nonatomic) IBOutlet UIView *postDividerTop;
-//@property (weak, nonatomic) IBOutlet UIView *postDividerBottom;
 @property (weak, nonatomic) IBOutlet UIView *commentFieldDivider;
 
 
