@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="9us-Zo-C0Q">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
@@ -2318,6 +2318,37 @@
             </objects>
             <point key="canvasLocation" x="-744" y="697"/>
         </scene>
+        <!--LoadingVC-->
+        <scene sceneID="joa-65-5XM">
+            <objects>
+                <viewController title="LoadingVC" id="9us-Zo-C0Q" customClass="LoadingVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="a5q-OL-tAy"/>
+                        <viewControllerLayoutGuide type="bottom" id="6lf-oz-hWe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="D1f-AS-fPV">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Deciding destination..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bw5-TM-T5n">
+                                <rect key="frame" x="191" y="266" width="273" height="68"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="49e-Tb-3d3" kind="showDetail" identifier="LoadingToMainSegue" id="Qln-Ca-EvB"/>
+                        <segue destination="yWh-ha-dvT" kind="showDetail" identifier="LoadingToSignUpSegue" id="eXd-NC-Rmx"/>
+                        <segue destination="Gpf-i9-4qA" kind="showDetail" identifier="LoadingToVerificationSegue" id="Zxy-JZ-Rmh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ADA-7X-r6P" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-31" y="-324"/>
+        </scene>
         <!--Verification View Controller-->
         <scene sceneID="8Yl-e4-I5q">
             <objects>
@@ -2633,10 +2664,12 @@
         <image name="upvote-selected" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ClS-xL-frG"/>
+        <segue reference="Qln-Ca-EvB"/>
+        <segue reference="eXd-NC-Rmx"/>
+        <segue reference="Zxy-JZ-Rmh"/>
+        <segue reference="zLz-ge-Hap"/>
         <segue reference="BpZ-kK-lwm"/>
         <segue reference="Wr7-T2-V3n"/>
-        <segue reference="zLz-ge-Hap"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.27450980390000002" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

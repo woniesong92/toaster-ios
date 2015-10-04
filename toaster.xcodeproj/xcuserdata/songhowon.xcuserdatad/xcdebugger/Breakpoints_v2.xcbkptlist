@@ -58,12 +58,12 @@
                   moduleName = "Toaster"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/songhowon/Documents/workspace/toaster/toaster-objc/NewPostController.m"
-                  timestampString = "465619400.164038"
+                  timestampString = "465627158.96683"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "58"
                   endingLineNumber = "58"
-                  offsetFromSymbolStart = "300">
+                  offsetFromSymbolStart = "265">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -73,12 +73,12 @@
                   moduleName = "Toaster"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/songhowon/Documents/workspace/toaster/toaster-objc/NewPostController.m"
-                  timestampString = "465619400.164189"
+                  timestampString = "465627158.966986"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "58"
                   endingLineNumber = "58"
-                  offsetFromSymbolStart = "80">
+                  offsetFromSymbolStart = "61">
                </Location>
             </Locations>
          </BreakpointContent>
