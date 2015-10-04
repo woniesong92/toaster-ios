@@ -24,21 +24,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
-//    NSDictionary *params = @{@"userId": [SessionManager currentUser]};
-//    
-//    [[NetworkManager getNetworkManager].manager POST:VERIFICATION_API_URL parameters:params success:^(AFHTTPRequestOperation *operation, id isVerifiedObj) {
-//        
-//        BOOL isVerified = [(NSNumber *)isVerifiedObj[@"isVerified"] boolValue];
-//        if (isVerified) {
-//            NSLog(@"yay is verified");
-//            [self performSegueWithIdentifier:@"VerificationToMainSegue" sender:self];
-//        }
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        // fail to verify
-//        NSLog(@"Error: %@", error);
-//        [self performSegueWithIdentifier:@"VerificationToSignUpSegue" sender:self];
-//    }];
 }
 
 - (void)shouldRedirect:(NSNotification *)notification {

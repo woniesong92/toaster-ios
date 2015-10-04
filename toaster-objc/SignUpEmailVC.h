@@ -1,5 +1,5 @@
 //
-//  SignUp1VC.h
+//  SignUpEmailVC.h
 //  Toaster
 //
 //  Created by Howon Song on 10/3/15.
@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SignUp1VC : UIViewController
+@interface SignUpEmailVC : UIViewController
+
+@property (weak, nonatomic) IBOutlet UITextField *emailField;
 
 @end
