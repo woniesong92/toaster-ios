@@ -31,9 +31,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
-    NSLog(@"view will appear");
-    
     [self fetchNotifications:@100 skip:@0];
 }
 
@@ -41,13 +38,11 @@
 - (void)fetchNotifications: (NSNumber *)limit skip:(NSNumber *)skip {
     
     NSString *reqUrl = [NSString stringWithFormat:@"%@/%@/%@", GET_NOTIFICATIONS_URL, limit, skip];
-    
     NetworkManager *manager = [NetworkManager sharedNetworkManager];
     
     [manager GET:reqUrl parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
   
         NSMutableArray *notifications = responseObject[@"notifications"];
-        
         NSMutableArray *posts = responseObject[@"posts"];
         NSMutableArray *comments = responseObject[@"comments"];
         
@@ -67,6 +62,8 @@
         }
         
         self.notifications = [Utils sortByDate:notifications isReversed:YES];
+        
+        NSLog(@"fetch notifciations");
         
         [self.loadingText removeFromSuperview];
         [self.tableView reloadData];

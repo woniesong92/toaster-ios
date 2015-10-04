@@ -37,22 +37,7 @@
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
-    [Parse setApplicationId:@"nGWY63hAKCyyMHS41xmjNiL4mCIqsJ0TBGWAG4vy"
-                  clientKey:@"w1ps0nxnPNfpJvIGnw52wCl5Og5eOLgiwiuXHn6i"];
-    
-    // Track opening app
-    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
-    
-    // Register for Push Notitications
-    UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
-                                                    UIUserNotificationTypeBadge |
-                                                    UIUserNotificationTypeSound);
-    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes
-                                                                             categories:nil];
-    [application registerUserNotificationSettings:settings];
-    [application registerForRemoteNotifications];
-    
-    NSLog(@"didfinish launching with options: %@", launchOptions);
+    [self initParse:application launchOptions:launchOptions];
     
 //    
 //    if (
@@ -77,31 +62,22 @@
     return YES;
 }
 
-//- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
-//    // Do something with the url here
-//    NSLog(@"urlllrlrllr %@", url);
-//
-//    NSString *urlStr = [url absoluteString];
-//    
-//    if ([urlStr containsString:@"yolk://verified"]) {
-//        
-//        [SessionManager setVerified];
-//        [[NSNotificationCenter defaultCenter] postNotificationName:@"emailVerified" object:nil];
-//
-////        NSURLComponents *components = [NSURLComponents componentsWithString:urlStr];
-////        NSString *userId;
-////        
-////        for (NSURLQueryItem *item in components.queryItems) {
-////            if([item.name isEqualToString:@"userId"]) {
-////                userId = item.value;
-////                
-////                [[NSNotificationCenter defaultCenter] postNotificationName:@"emailVerified" object:nil];
-////            }
-////        }
-//    }
-//    
-//    return YES;
-//}
+- (void)initParse: (UIApplication *)application launchOptions:(NSDictionary *)launchOptions {
+    [Parse setApplicationId:@"nGWY63hAKCyyMHS41xmjNiL4mCIqsJ0TBGWAG4vy"
+                  clientKey:@"w1ps0nxnPNfpJvIGnw52wCl5Og5eOLgiwiuXHn6i"];
+    
+    // Track opening app
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+    // Register for Push Notitications
+    UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
+                                                    UIUserNotificationTypeBadge |
+                                                    UIUserNotificationTypeSound);
+    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes
+                                                                             categories:nil];
+    [application registerUserNotificationSettings:settings];
+    [application registerForRemoteNotifications];
+}
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     // Store the deviceToken in the current installation and save it to Parse.
@@ -110,13 +86,15 @@
     currentInstallation.channels = @[ @"Toaster" ];
     self.pushInstallationId = currentInstallation.objectId;
     
+    NSLog(@"parse setting done!");
+    
     [currentInstallation saveInBackground];
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"pushNotification" object:nil userInfo:userInfo];
     
-//    [PFPush handlePush:userInfo];
+    NSLog(@"got a push notification");
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

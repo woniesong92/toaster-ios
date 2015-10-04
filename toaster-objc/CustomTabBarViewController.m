@@ -43,7 +43,8 @@
 
 - (void) myNotificationReceived:(NSNotification *) notification
 {
-
+    NSLog(@"notification received");
+    
     NSNumber *count = [[notification.userInfo objectForKey:@"aps"] objectForKey:@"badge"];
     NSString *badgeCount = [NSString stringWithFormat:@"%@", count];
     

@@ -62,9 +62,7 @@
         
         float gravity = 1.8;
         float hotness = numVotes / pow((hoursPast + 2), gravity);
-        
-        
-        NSLog(@"hotness: %f", hotness);
+//        NSLog(@"hotness: %f", hotness);
         
         [post setValue:[NSNumber numberWithFloat:hotness] forKey:@"hotness"];
         [post setValue:createdAt forKey:@"createdAt"];

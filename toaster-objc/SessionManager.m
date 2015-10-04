@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "NetworkManager.h"
 #import "Constants.h"
+#import <Parse/Parse.h>
 
 @implementation SessionManager
 
@@ -58,8 +59,7 @@
     NSString *token = sessionObj[@"token"];
     NSString *userId = sessionObj[@"id"];
     NSString *tokenExpires = sessionObj[@"tokenExpires"];
-    
-    NSLog(@"JSON: %@", sessionObj);
+    NSLog(@"updated Session: %@", sessionObj);
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:token forKey:@"token"];
@@ -69,6 +69,12 @@
     
     NetworkManager *sharedManager = [NetworkManager sharedNetworkManager];
     [sharedManager updateSerializerWithNewToken:token];
+    
+    // Push Notification Settings
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    [currentInstallation setObject:userId forKey:@"userId"];
+    [currentInstallation saveInBackground];
+    NSLog(@"parse %@", currentInstallation);
 }
 
 @end

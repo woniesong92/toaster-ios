@@ -61,7 +61,7 @@
         // check verification status
         NSDictionary *params2 = @{@"userId": resp[@"id"]};
         
-        [manager POST:VERIFICATION_API_URL parameters:params2 constructingBodyWithBlock:nil success:^(NSURLSessionDataTask *task, id isVerifiedObj) {
+        [manager POST:VERIFICATION_API_URL parameters:params2 success:^(NSURLSessionDataTask *task, id isVerifiedObj) {
             
             BOOL isVerified = [(NSNumber *)isVerifiedObj[@"isVerified"] boolValue];
             if (isVerified) {

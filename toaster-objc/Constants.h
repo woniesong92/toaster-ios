@@ -23,7 +23,7 @@
 #define PRIVACY_POLICY_SCHEME @"toasterapp://privacypolicy"
 #define NOTIFICATIONS @"notifications"
 #define PROFILE @"profile"
-#define NOTIFICATION_TAB_INDEX 2
+#define NOTIFICATION_TAB_INDEX 1
 #define IMAGE_CONTAINER_TAG 1000
 #define RECENT_TAB_INDEX 0
 #define LOADING_START @"toasterapp://loadingStart"
