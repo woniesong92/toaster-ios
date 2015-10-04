@@ -33,8 +33,6 @@
     // set Tag
     [self.postsTable setTag:POSTS_I_WROTE_TABLE_TAG];
     [self.myPostsBtn setSelected:YES];
-    
-    networkManager = [NetworkManager getNetworkManager];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -56,11 +54,11 @@
         NSLog(@"fetching my replies");
     }
     
-    AFHTTPRequestOperationManager *manager = networkManager.manager;
+    NetworkManager *manager = [NetworkManager sharedNetworkManager];
     
-    [manager GET:reqUrl parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager GET:reqUrl parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         
-        NSLog(@"req url: %@", operation.request.URL);
+        NSLog(@"reqURL: %@", reqUrl);
         
         NSMutableArray *posts = responseObject[@"posts"];
         NSMutableArray *comments = responseObject[@"comments"];
@@ -92,7 +90,7 @@
             NSLog(@"dont reload");
         }
         
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
         // TODO: show user this error and clear all the textfields
         NSLog(@"Error: %@", error);
     }];

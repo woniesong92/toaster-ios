@@ -9,7 +9,8 @@
 #import "SignUpViewController.h"
 #import "Constants.h"
 #import "AppDelegate.h"
-#import "AFNetworking.h"
+//#import "AFNetworking.h"
+#import "NetworkManager.h"
 #import "SessionManager.h"
 
 @interface SignUpViewController ()
@@ -77,27 +78,41 @@
     }
     
     // Make a request to backend server to register id
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    NetworkManager *manager = [NetworkManager sharedNetworkManager];
+    
     NSDictionary *params = @{@"email": email,
                              @"password": password};
-    [manager POST:SIGNUP_API_URL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        [SessionManager updateSession:responseObject];
-
-        
-//        [self performSegueWithIdentifier:@"SignUpToMainSegue" sender:self];
-        
+    
+    [manager POST:SIGNUP_API_URL parameters:params constructingBodyWithBlock:nil success:^(NSURLSessionDataTask *task, id resp) {
+        [SessionManager updateSession: (NSMutableDictionary *)resp];
         [self performSegueWithIdentifier:@"SignUpToVerificationSegue" sender:self];
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
         self.emailField.text = nil;
         self.passwordField.text = nil;
         self.passwordConfirmField.text = nil;
-        
-        // TODO: show user this error and clear all the textfields
         NSLog(@"Error: %@", error);
     }];
+    
+//    
+//    [manager POST:SIGNUP_API_URL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        
+//        [SessionManager updateSession:responseObject];
+//
+//        
+////        [self performSegueWithIdentifier:@"SignUpToMainSegue" sender:self];
+//        
+//
+//        
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        
+//        self.emailField.text = nil;
+//        self.passwordField.text = nil;
+//        self.passwordConfirmField.text = nil;
+//        
+//        // TODO: show user this error and clear all the textfields
+//        NSLog(@"Error: %@", error);
+//    }];
 }
 - (IBAction)loginClicked:(id)sender {
     NSLog(@"SignUpToLoginSegue");

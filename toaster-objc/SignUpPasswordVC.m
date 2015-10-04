@@ -29,23 +29,40 @@
     
     NSLog(@"fixme: show a loading wheel: verification email sent");
     
-    AFHTTPRequestOperationManager *manager = [NetworkManager getNetworkManager].manager;
+    NetworkManager *manager = [NetworkManager sharedNetworkManager];
+    
     NSDictionary *params = @{@"email": email,
                              @"password": password};
-    [manager POST:SIGNUP_API_URL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    
+    [manager POST:SIGNUP_API_URL parameters:params success:^(NSURLSessionDataTask *task, id resp) {
         
-        [SessionManager updateSession:responseObject];
+        [SessionManager updateSession: (NSMutableDictionary *)resp];
         
         [self performSegueWithIdentifier:@"SignUpToVerificationSegue" sender:self];
         
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
-        // TODO: show user this error and clear all the textfields
-        // Go back to beginning with an error message
-        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"Error: %@", error);
-        NSLog(@"Operation: %@", operation);
     }];
+    
+//    
+//    AFHTTPRequestOperationManager *manager = [NetworkManager sharedNetworkManager].manager;
+//    NSDictionary *params = @{@"email": email,
+//                             @"password": password};
+//    [manager POST:SIGNUP_API_URL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        
+//        [SessionManager updateSession:responseObject];
+//        
+//        [self performSegueWithIdentifier:@"SignUpToVerificationSegue" sender:self];
+//        
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        
+//        // TODO: show user this error and clear all the textfields
+//        // Go back to beginning with an error message
+//        
+//        NSLog(@"Error: %@", error);
+//        NSLog(@"Operation: %@", operation);
+//    }];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

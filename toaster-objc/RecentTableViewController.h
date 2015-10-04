@@ -12,7 +12,6 @@
 #import "NetworkManager.h"
 
 @interface RecentTableViewController : UIViewController <UITableViewDelegate, UIScrollViewDelegate> {
-    NetworkManager *networkManager;
 }
 
 @property (weak, nonatomic) IBOutlet UIButton *recentFilterBtn;

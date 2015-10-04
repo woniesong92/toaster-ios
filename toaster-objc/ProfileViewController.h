@@ -12,7 +12,7 @@
 #import "NetworkManager.h"
 
 @interface ProfileViewController : UIViewController <UITableViewDelegate, UIScrollViewDelegate> {
-    NetworkManager *networkManager;
+
 }
 
 @property (weak, nonatomic) IBOutlet ProfilePostsTableView *postsTable;

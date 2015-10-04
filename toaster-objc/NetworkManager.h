@@ -9,11 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "AFNetworking.h"
 
-@interface NetworkManager : NSObject
+@interface NetworkManager : AFHTTPSessionManager
 
-@property (strong, nonatomic) AFHTTPRequestOperationManager *manager;
+//@property (strong, nonatomic) AFHTTPRequestOperationManager *manager;
 
-+ (NetworkManager *)getNetworkManager;
++ (NetworkManager *)sharedNetworkManager;
+- (instancetype)initWithBaseURL:(NSURL *)url;
 - (void)updateSerializerWithNewToken: (NSString *)token;
 
 @end

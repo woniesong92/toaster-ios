@@ -32,13 +32,23 @@
 - (IBAction)sendEmailBtnPressed:(id)sender {
     NSString *email = self.email;
     NSDictionary *params = @{@"email": email};
-    [[NetworkManager getNetworkManager].manager POST:SEND_EMAIL_API_URL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"email just sent to %@!", self.email);
+    NetworkManager *manager = [NetworkManager sharedNetworkManager];
+    
+    [manager POST:SEND_EMAIL_API_URL parameters:params constructingBodyWithBlock:nil success:^(NSURLSessionDataTask *task, id resp) {
         
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        // TODO: show user this error and clear all the textfields
-        NSLog(@"failed to send an email");
+        NSLog(@"email just sent to %@!", email);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"Error: %@", error);
     }];
+    
+    
+//    [[NetworkManager sharedNetworkManager].manager POST:SEND_EMAIL_API_URL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        NSLog(@"email just sent to %@!", self.email);
+//        
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        // TODO: show user this error and clear all the textfields
+//        NSLog(@"failed to send an email");
+//    }];
     
 
 }

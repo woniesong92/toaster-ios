@@ -57,8 +57,6 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    networkManager = [NetworkManager getNetworkManager];
-    
     [self fetchPostDetail];
     [self fetchComments];
     
@@ -69,12 +67,12 @@
 }
 
 - (void)fetchPostDetail {
-    AFHTTPRequestOperationManager *manager = networkManager.manager;
+    NetworkManager *manager = [NetworkManager sharedNetworkManager];
     NSString *userId = [SessionManager currentUser];
     NSString *postId = self.postDetail[@"_id"];
     NSString *reqURL = [NSString stringWithFormat:@"%@/%@", GET_POST_URL, postId];
     
-    [manager GET:reqURL parameters:@{} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager GET:reqURL parameters:@{} success:^(NSURLSessionDataTask *task, id responseObject) {
         
         NSDictionary *post = responseObject[@"posts"][0];
         
@@ -91,7 +89,7 @@
         }
         [self.numVotes setText:[NSString stringWithFormat:@"%@", numVotes]];
         
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
         // TODO: show user this error and clear all the textfields
         NSLog(@"Error: %@", error);
     }];
@@ -102,11 +100,12 @@
 }
 
 - (void)fetchComments {
-    AFHTTPRequestOperationManager *manager = networkManager.manager;
+    NetworkManager *manager = [NetworkManager sharedNetworkManager];
+    
     NSString *postId = self.postDetail[@"_id"];
     NSString *reqURL = [NSString stringWithFormat:@"%@/%@", GET_COMMENTS_FOR_POST_URL, postId];
     
-    [manager GET:reqURL parameters:@{} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager GET:reqURL parameters:@{} success:^(NSURLSessionDataTask *task, id responseObject) {
         
         NSMutableArray *comments = responseObject[@"comments"];
         NSMutableArray *sortedComments = [Utils sortByDate:comments isReversed:NO];
@@ -116,7 +115,7 @@
         
         [self.commentsTable reloadData];
         
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
         // TODO: show user this error and clear all the textfields
         NSLog(@"Error: %@", error);
     }];
@@ -226,7 +225,7 @@
 }
 
 - (IBAction)onSubmitComment:(id)sender {
-    AFHTTPRequestOperationManager *manager = networkManager.manager;
+    NetworkManager *manager = [NetworkManager sharedNetworkManager];
     NSString *commentBody = self.inlineCommentField.text;
     NSString *postId = self.postDetail[@"_id"];
     
@@ -234,11 +233,11 @@
     [self.view endEditing:YES];
     
     NSDictionary *params = @{@"commentBody": commentBody, @"postId": postId};
-    [manager POST:NEW_COMMENT_API_URL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager POST:NEW_COMMENT_API_URL parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
         [self addCommentRow:responseObject];
         [[NSNotificationCenter defaultCenter] postNotificationName:TABLE_SCROLL_TO_BOTTOM object:nil userInfo:nil];
         
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
         // TODO: show user this error and clear all the textfields
         NSLog(@"Error: %@", error);
     }];
@@ -255,7 +254,7 @@
 
 
 - (IBAction)onPostUpvote:(id)sender {
-    AFHTTPRequestOperationManager *manager = networkManager.manager;
+    NetworkManager *manager = [NetworkManager sharedNetworkManager];
     
     NSDictionary *params = @{@"postId": self.postId};
     
@@ -275,7 +274,7 @@
         [self toggleSelected:self.upvoteBtn];
     }
     
-    [manager POST:UPVOTE_POST_API_URL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager POST:UPVOTE_POST_API_URL parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
         
         NSInteger voteDiffInt = [(NSString *)responseObject[@"diffVotes"] integerValue];
         NSNumber *voteDiff = [NSNumber numberWithInteger:voteDiffInt];
@@ -284,7 +283,7 @@
         
         NSLog(@"%@", responseObject);
         
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
         // TODO: show user this error and clear all the textfields
         NSLog(@"Error: %@", error);
     }];
@@ -294,7 +293,7 @@
 
 
 - (IBAction)onPostDownvote:(id)sender {
-    AFHTTPRequestOperationManager *manager = networkManager.manager;
+    NetworkManager *manager = [NetworkManager sharedNetworkManager];
     
     if (self.didIDownvote) {
         self.didIDownvote = NO;
@@ -314,7 +313,7 @@
     
     NSDictionary *params = @{@"postId": self.postId};
     
-    [manager POST:DOWNVOTE_POST_API_URL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager POST:DOWNVOTE_POST_API_URL parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
         
         NSLog(@"%@", responseObject);
         
@@ -323,7 +322,7 @@
         
         [[NSNotificationCenter defaultCenter] postNotificationName:DOWNVOTE_POST_UPDATE object:@{@"postId": self.postId, @"didIUpvote": [NSNumber numberWithBool:self.didIUpvote ], @"didIDownvote": [NSNumber numberWithBool:self.didIDownvote], @"rowIdx":self.cellRowIdx, @"voteDiff":voteDiff} userInfo:nil];
         
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
         // TODO: show user this error and clear all the textfields
         NSLog(@"Error: %@", error);
     }];

@@ -12,7 +12,6 @@
 
 @interface NewPostController : UIViewController {
     UILabel *textViewPlaceholder;
-    NetworkManager *networkManager;
 }
 
 @property (weak, nonatomic) IBOutlet UITextView *postInputField;

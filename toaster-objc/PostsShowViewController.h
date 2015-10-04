@@ -13,9 +13,6 @@
 #import "NetworkManager.h"
 
 @interface PostsShowViewController : UIViewController <UIWebViewDelegate, WKNavigationDelegate, WKUIDelegate, UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate> {
-
-    NetworkManager *networkManager;
-
 }
 
 @property (strong, nonatomic) UIImage *parentScreenImage;

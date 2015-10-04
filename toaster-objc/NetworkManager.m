@@ -8,38 +8,46 @@
 
 #import "NetworkManager.h"
 #import "SessionManager.h"
+#import "Constants.h"
 
 @implementation NetworkManager
 
-+ (NetworkManager *)getNetworkManager {
-    static NetworkManager *networkManager = nil;
-    
-//    static WebViewManager *uniqueWebView = nil;
 
-    @synchronized(self) {
-        if (networkManager == nil) {
-            networkManager = [[self alloc] init];
-            networkManager.manager = [AFHTTPRequestOperationManager manager];
-            
-            if (![[SessionManager currentUser] isEqualToString:@""]) {
-                
-                NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-                NSString *token = [defaults objectForKey:@"token"];
-                [networkManager updateSerializerWithNewToken:token];
-            }
-            
-        }
++ (NetworkManager *)sharedNetworkManager {
+    static NetworkManager *_sharedNetworkManager = nil;
+    static dispatch_once_t onceToken;
+    
+    dispatch_once(&onceToken, ^{
+        _sharedNetworkManager = [[self alloc] initWithBaseURL:[NSURL URLWithString:BASE_URL]];
+    });
+    
+    return _sharedNetworkManager;
+}
+
+- (instancetype)initWithBaseURL:(NSURL *)url {
+    self = [super initWithBaseURL:url];
+    
+    if (self) {
+        self.requestSerializer = [AFJSONRequestSerializer serializer];
+        self.responseSerializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingMutableContainers];
+        
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSString *token = [defaults objectForKey:@"token"];
+//        NSString *token = defaults[@"token"];
+        NSString *authorizationToken = [NSString stringWithFormat:@"Bearer %@", token];
+        [self.requestSerializer setValue:authorizationToken forHTTPHeaderField:@"Authorization"];
+        self.responseSerializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingMutableContainers];
     }
     
-    return networkManager;
+    NSLog(@"init with base url");
+    
+    return self;
 }
 
 - (void)updateSerializerWithNewToken: (NSString *)token {
-    self.manager.requestSerializer = [AFJSONRequestSerializer serializer];
     NSString *authorizationToken = [NSString stringWithFormat:@"Bearer %@", token];
-    [self.manager.requestSerializer setValue:authorizationToken forHTTPHeaderField:@"Authorization"];
-    self.manager.responseSerializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingMutableContainers];
+    [self.requestSerializer setValue:authorizationToken forHTTPHeaderField:@"Authorization"];
+    self.responseSerializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingMutableContainers];
 }
-
 
 @end

@@ -36,7 +36,7 @@
 }
 
 - (IBAction)onUpvotePressed:(id)sender {
-    AFHTTPRequestOperationManager *manager = [NetworkManager getNetworkManager].manager;
+    NetworkManager *manager = [NetworkManager sharedNetworkManager];
     
     NSDictionary *params = @{@"postId": self.postId};
     
@@ -56,7 +56,7 @@
         [self toggleSelected:self.upvoteBtn];
     }
     
-    [manager POST:UPVOTE_POST_API_URL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager POST:UPVOTE_POST_API_URL parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
         
         NSLog(@"%@", responseObject);
         
@@ -67,14 +67,14 @@
 //            [self.numVotes setText:self.numVotes.text
 //        }
         
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
         // TODO: show user this error and clear all the textfields
         NSLog(@"Error: %@", error);
     }];
 }
 
 - (IBAction)onDownvotePressed:(id)sender {
-    AFHTTPRequestOperationManager *manager = [NetworkManager getNetworkManager].manager;
+    NetworkManager *manager = [NetworkManager sharedNetworkManager];
     
     NSDictionary *params = @{@"postId": self.postId};
     
@@ -94,9 +94,9 @@
         [self toggleSelected:self.downvoteBtn]  ;
     }
     
-    [manager POST:DOWNVOTE_POST_API_URL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager POST:DOWNVOTE_POST_API_URL parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
         
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
         // TODO: show user this error and clear all the textfields
         NSLog(@"Error: %@", error);
     }];

@@ -67,9 +67,8 @@
     [defaults setObject:tokenExpires forKey:@"tokenExpires"];
     [defaults synchronize];
     
-
-    NetworkManager *networkManager = [NetworkManager getNetworkManager];
-    [networkManager updateSerializerWithNewToken:token];
+    NetworkManager *sharedManager = [NetworkManager sharedNetworkManager];
+    [sharedManager updateSerializerWithNewToken:token];
 }
 
 @end

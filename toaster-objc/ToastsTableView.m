@@ -31,9 +31,14 @@
 
 - (void)awakeFromNib {
     self.posts = [[NSMutableArray alloc] init];
-    self.numCommentsForPosts = [[NSMutableDictionary alloc] init];
     self.hotPosts = [[NSMutableArray alloc] init];
     self.recentPosts = [[NSMutableArray alloc] init];
+    self.numCommentsForPosts = [[NSMutableDictionary alloc] init];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onAddPostRow:)
+                                                 name:ASK_TO_ADD_POST_ROW
+                                               object:nil];
 }
 
 #pragma mark - Table view data source
@@ -47,6 +52,23 @@
     return self.posts.count;
 }
 
+- (void)onAddPostRow:(NSNotification *)notification {
+    
+    NSLog(@"onAddPostRow: %@", notification.object);
+    NSLog(@"onAddPostRowself: %@", self);
+    
+    NSMutableDictionary *addedPost = (NSMutableDictionary *)notification.object;
+    
+    NSString *createdAt = (NSString *)addedPost[@"createdAt"];
+    [addedPost setValue:[Utils dateWithJSONString:createdAt] forKey:@"createdAt"];
+    
+    [self.posts insertObject:addedPost atIndex:0];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    
+    [self beginUpdates];
+    [self insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    [self endUpdates];
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     

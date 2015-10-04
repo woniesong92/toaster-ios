@@ -11,7 +11,6 @@
 #import "NetworkManager.h"
 
 @interface NotificationsTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate> {
-    NetworkManager *networkManager;
 }
 
 @property NSMutableArray *notifications;

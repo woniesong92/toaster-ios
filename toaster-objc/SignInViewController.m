@@ -7,9 +7,9 @@
 //
 
 #import "SignInViewController.h"
-#import "AFNetworking.h"
 #import "Constants.h"
 #import "SessionManager.h"
+#import "NetworkManager.h"
 
 @interface SignInViewController ()
 
@@ -49,51 +49,88 @@
         return;
     }
     
-    // Make a request to backend server to register id
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    
+    // login logic
+    NetworkManager *manager = [NetworkManager sharedNetworkManager];
     NSDictionary *params = @{@"email": email,
                              @"password": password};
-    [manager POST:LOGIN_API_URL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        // need to close its parent's presentingViewController
-        [SessionManager updateSession:responseObject];
+    
+    [manager POST:LOGIN_API_URL parameters:params success:^(NSURLSessionDataTask *task, id resp) {
+        
+        [SessionManager updateSession: (NSMutableDictionary *)resp];
         
         // check verification status
-        NSDictionary *params2 = @{@"userId": responseObject[@"id"]};
+        NSDictionary *params2 = @{@"userId": resp[@"id"]};
         
-        [manager POST:VERIFICATION_API_URL parameters:params2 success:^(AFHTTPRequestOperation *operation, id isVerifiedObj) {
-        
-            BOOL isVerified = [(NSNumber *)isVerifiedObj[@"isVerified"] boolValue];
+        [manager POST:VERIFICATION_API_URL parameters:params2 constructingBodyWithBlock:nil success:^(NSURLSessionDataTask *task, id isVerifiedObj) {
             
+            BOOL isVerified = [(NSNumber *)isVerifiedObj[@"isVerified"] boolValue];
             if (isVerified) {
-                // Pop the SignUpViewController
-                
                 [self performSegueWithIdentifier:@"LoginToMainSegue" sender:self];
-                
-//                
-//                NSArray *navViewControllers = [(UITabBarController *)self.presentingViewController viewControllers];
-//                [(UINavigationController *)navViewControllers[0] popToRootViewControllerAnimated:NO];
-//                
-//                // And dismiss the login modal
-//                [self dismissViewControllerAnimated:YES completion:nil];
             } else {
                 NSLog(@"LOGIN: user not verified. Go to verification.");
                 [self performSegueWithIdentifier:@"LoginToVerificationSegue" sender:self];
             }
             
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
             [self clearInputFields];
-            NSLog(@"Error2: %@", error);
+            NSLog(@"Verification Error: %@", error);
         }];
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
+
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
         [self clearInputFields];
-        
-        // TODO: show user this error and clear all the textfields
         NSLog(@"Error: %@", error);
     }];
+    
+    
+    
+    
+    
+    
+//    // Make a request to backend server to register id
+//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+//    
+//    NSDictionary *params = @{@"email": email,
+//                             @"password": password};
+//    [manager POST:LOGIN_API_URL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        // need to close its parent's presentingViewController
+//        [SessionManager updateSession:responseObject];
+//        
+//        // check verification status
+//        NSDictionary *params2 = @{@"userId": responseObject[@"id"]};
+//        
+//        [manager POST:VERIFICATION_API_URL parameters:params2 success:^(AFHTTPRequestOperation *operation, id isVerifiedObj) {
+//        
+//            BOOL isVerified = [(NSNumber *)isVerifiedObj[@"isVerified"] boolValue];
+//            
+//            if (isVerified) {
+//                // Pop the SignUpViewController
+//                
+//                [self performSegueWithIdentifier:@"LoginToMainSegue" sender:self];
+//                
+////                
+////                NSArray *navViewControllers = [(UITabBarController *)self.presentingViewController viewControllers];
+////                [(UINavigationController *)navViewControllers[0] popToRootViewControllerAnimated:NO];
+////                
+////                // And dismiss the login modal
+////                [self dismissViewControllerAnimated:YES completion:nil];
+//            } else {
+//                NSLog(@"LOGIN: user not verified. Go to verification.");
+//                [self performSegueWithIdentifier:@"LoginToVerificationSegue" sender:self];
+//            }
+//            
+//        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//            
+//            [self clearInputFields];
+//            NSLog(@"Error2: %@", error);
+//        }];
+//        
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        
+//        [self clearInputFields];
+//        
+//        // TODO: show user this error and clear all the textfields
+//        NSLog(@"Error: %@", error);
+//    }];
 }
 
 

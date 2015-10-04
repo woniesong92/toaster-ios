@@ -18,8 +18,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    networkManager = [NetworkManager getNetworkManager];
-    
     // Add Loading
     UILabel *label = [[UILabel alloc] initWithFrame: CGRectMake(0, (self.view.frame.size.height/2-25), self.view.frame.size.width, 50)];
     label.text = @"Yolk..."; //etc...
@@ -44,9 +42,9 @@
     
     NSString *reqUrl = [NSString stringWithFormat:@"%@/%@/%@", GET_NOTIFICATIONS_URL, limit, skip];
     
-    AFHTTPRequestOperationManager *manager = networkManager.manager;
+    NetworkManager *manager = [NetworkManager sharedNetworkManager];
     
-    [manager GET:reqUrl parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager GET:reqUrl parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
   
         NSMutableArray *notifications = responseObject[@"notifications"];
         
@@ -72,7 +70,7 @@
         
         [self.loadingText removeFromSuperview];
         [self.tableView reloadData];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
         // TODO: show user this error and clear all the textfields
         NSLog(@"Error: %@", error);
     }];

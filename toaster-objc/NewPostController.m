@@ -20,7 +20,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    networkManager = [NetworkManager getNetworkManager];
     self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
@@ -50,19 +49,20 @@
 }
 
 - (IBAction)doneButtonPressed:(id)sender {
-    AFHTTPRequestOperationManager *manager = networkManager.manager;
     
     NSLog(@"newPost doneBtn pressed");
     
     NSString *postBody = self.postInputField.text;
     NSDictionary *params = @{@"postBody": postBody};
     
-    [manager POST:NEW_POST_API_URL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"NewPostSuccess. Op: %@, resp: %@", operation, responseObject);
+    NetworkManager *manager = [NetworkManager sharedNetworkManager];
+    
+    [manager POST:NEW_POST_API_URL parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"NewPostSuccess. resp: %@", responseObject);
         [[NSNotificationCenter defaultCenter] postNotificationName:ASK_TO_ADD_POST_ROW object:responseObject userInfo:nil];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
         // TODO: show user this error and clear all the textfields
-        NSLog(@"NewPostFailed. Err: %@, Op: %@", error, operation);
+        NSLog(@"err: %@", error);
     }];
     
     [self dismissViewControllerAnimated:YES completion:^{

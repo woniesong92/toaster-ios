@@ -32,8 +32,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    networkManager = [NetworkManager getNetworkManager];
-    
     [Utils setGradient:self.filterDivider fromColor:[UIColor whiteColor] toColor:[UIColor colorWithRed:255.0/255.0 green:138.0/255.0 blue:0.0 alpha:1.0]];
     
     // initialize the starting point to fetch the next batch of posts
@@ -45,9 +43,7 @@
     [self.postsTable setDataSource:self.postsTable];
     [self.postsTable setTag:0];
     [self.recentFilterBtn setSelected:YES];
-    
     [self addLoading];
-    
     [self addObservers];
 }
 
@@ -67,11 +63,6 @@
                                                object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(onAddPostRow:)
-                                                 name:ASK_TO_ADD_POST_ROW
-                                               object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(shouldScrollTop:)
                                                  name:TABLE_SCROLL_TO_TOP
                                                object:nil];
@@ -86,7 +77,6 @@
                                                  name:DOWNVOTE_POST_UPDATE
                                                object:nil];
 }
-
 
 - (IBAction)newFilterSelected:(id)sender {
     NSLog(@"new btn selected");
@@ -113,7 +103,7 @@
         return;
     }
     
-    AFHTTPRequestOperationManager *manager = networkManager.manager;
+    NetworkManager *manager = [NetworkManager sharedNetworkManager];
     
     NSString *reqUrl;
     
@@ -126,9 +116,7 @@
         NSLog(@"fetching hot table posts");
     }
     
-    [manager GET:reqUrl parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        NSLog(@"req url: %@", operation.request.URL);
+    [manager GET:reqUrl parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         
         NSMutableArray *posts = responseObject[@"posts"];
         NSMutableArray *comments = responseObject[@"comments"];
@@ -161,31 +149,30 @@
             NSLog(@"dont reload");
         }
         
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
         // TODO: show user this error and clear all the textfields
         NSLog(@"Error: %@", error);
     }];
 }
 
-- (void)addPostRow:(NSMutableDictionary *)newPost {
-    
-    NSString *createdAt = (NSString *)newPost[@"createdAt"];
-    [newPost setValue:[Utils dateWithJSONString:createdAt] forKey:@"createdAt"];
-    
-    [(NSMutableArray *)self.postsTable.posts insertObject:newPost atIndex:0];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    
-    [self.postsTable beginUpdates];
-    [self.postsTable insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
-    [self.postsTable endUpdates];
-}
+//- (void)addPostRow:(NSMutableDictionary *)newPost {
+//    
+//    NSString *createdAt = (NSString *)newPost[@"createdAt"];
+//    [newPost setValue:[Utils dateWithJSONString:createdAt] forKey:@"createdAt"];
+//    
+//    [(NSMutableArray *)self.postsTable.posts insertObject:newPost atIndex:0];
+//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+//    
+//    [self.postsTable beginUpdates];
+//    [self.postsTable insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
+//    [self.postsTable endUpdates];
+//}
 
 - (void)viewWillAppear:(BOOL)animated {
-    NSLog(@"recent posts view will appear");
-    
     [super viewWillAppear:animated];
     
     if (![[SessionManager currentUser] isEqualToString:@""] && self.postsTable.posts.count == 0) {
+        NSLog(@"fetching both recent and hot posts");
         [self fetchPosts:HOT_POSTS_TABLE_TAG limit:[NSNumber numberWithInteger:NUM_HOT_POSTS_IN_ONE_BATCH] skip:@0 doReload:NO];
         [self fetchPosts:RECENT_POSTS_TABLE_TAG limit:[NSNumber numberWithInteger:NUM_RECENT_POSTS_IN_ONE_BATCH] skip:@0 doReload:YES];
     }
@@ -193,14 +180,6 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-}
-
-- (void)onAddPostRow:(NSNotification *)notification {
-    
-    NSLog(@"onAddPostRow: %@", notification.object);
-    NSLog(@"onAddPostRowself: %@", self);
-    
-    [self addPostRow:(NSMutableDictionary *)notification.object];
 }
 
 - (void)shouldFetchPosts:(NSNotification *)notification {

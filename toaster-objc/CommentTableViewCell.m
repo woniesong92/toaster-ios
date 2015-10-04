@@ -28,7 +28,7 @@
     // Configure the view for the selected state
 }
 - (IBAction)onCommentUpvote:(id)sender {
-    AFHTTPRequestOperationManager *manager = [NetworkManager getNetworkManager].manager;
+    NetworkManager *manager = [NetworkManager sharedNetworkManager];
     
     NSDictionary *params = @{@"commentId": self.commentId};
     
@@ -48,11 +48,11 @@
         [self.upvoteBtn setSelected:self.didIUpvote];
     }
     
-    [manager POST:UPVOTE_COMMENT_API_URL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager POST:UPVOTE_COMMENT_API_URL parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
         
         NSLog(@"%@", responseObject);
         
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
         // TODO: show user this error and clear all the textfields
         NSLog(@"Error: %@", error);
     }];
@@ -63,7 +63,7 @@
 
 - (IBAction)onCommentDownvote:(id)sender {
     NSLog(@"on comment downvote");
-    AFHTTPRequestOperationManager *manager = [NetworkManager getNetworkManager].manager;
+    NetworkManager *manager = [NetworkManager sharedNetworkManager];
     
     NSDictionary *params = @{@"commentId": self.commentId};
     
@@ -83,11 +83,12 @@
         [self.downvoteBtn setSelected:self.downvoteBtn];
     }
     
-    [manager POST:DOWNVOTE_COMMENT_API_URL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    
+    [manager POST:DOWNVOTE_COMMENT_API_URL parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
         
         NSLog(@"%@", responseObject);
         
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
         // TODO: show user this error and clear all the textfields
         NSLog(@"Error: %@", error);
     }];
