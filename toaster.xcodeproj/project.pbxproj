@@ -67,6 +67,7 @@
 		70A4F0451BB7512100E66A7E /* NotificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A4F0441BB7512100E66A7E /* NotificationCell.m */; };
 		70A4F0481BB82D8A00E66A7E /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A4F0471BB82D8A00E66A7E /* ProfileViewController.m */; };
 		70A4F04B1BB82F2D00E66A7E /* ProfilePostsTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A4F04A1BB82F2D00E66A7E /* ProfilePostsTableView.m */; };
+		70C95FAF1BC0B604006F8442 /* SignUp1VC.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C95FAE1BC0B604006F8442 /* SignUp1VC.m */; };
 		70D005631B98A882006E746F /* PostsShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D005621B98A882006E746F /* PostsShowViewController.m */; };
 		70E3415F1B9C9DB200046067 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E3415E1B9C9DB200046067 /* SettingsViewController.m */; };
 		70E341621B9CA6C200046067 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E341611B9CA6C200046067 /* SignUpViewController.m */; };
@@ -198,6 +199,8 @@
 		70A4F0471BB82D8A00E66A7E /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		70A4F0491BB82F2D00E66A7E /* ProfilePostsTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfilePostsTableView.h; sourceTree = "<group>"; };
 		70A4F04A1BB82F2D00E66A7E /* ProfilePostsTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfilePostsTableView.m; sourceTree = "<group>"; };
+		70C95FAD1BC0B604006F8442 /* SignUp1VC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUp1VC.h; sourceTree = "<group>"; };
+		70C95FAE1BC0B604006F8442 /* SignUp1VC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUp1VC.m; sourceTree = "<group>"; };
 		70D005611B98A882006E746F /* PostsShowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostsShowViewController.h; sourceTree = "<group>"; };
 		70D005621B98A882006E746F /* PostsShowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostsShowViewController.m; sourceTree = "<group>"; };
 		70E3415D1B9C9DB200046067 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
@@ -407,6 +410,8 @@
 				70223C6E1BB8C5E7000FE6CB /* UITextFieldWithPadding.m */,
 				70E341601B9CA6C200046067 /* SignUpViewController.h */,
 				70E341611B9CA6C200046067 /* SignUpViewController.m */,
+				70C95FAD1BC0B604006F8442 /* SignUp1VC.h */,
+				70C95FAE1BC0B604006F8442 /* SignUp1VC.m */,
 				70EC5ABF1BAE5F7E0019AA58 /* SignInViewController.h */,
 				70EC5AC01BAE5F7E0019AA58 /* SignInViewController.m */,
 				701AAC151BBF811300EE33D1 /* VerificationViewController.h */,
@@ -583,6 +588,7 @@
 				70A4F0421BB750C200E66A7E /* NotificationsTableViewController.m in Sources */,
 				7046D1FC1BAE38EF00A5465F /* AFHTTPRequestOperation.m in Sources */,
 				700272391B9A36B900C292A5 /* UIWebView+FLUIWebView.m in Sources */,
+				70C95FAF1BC0B604006F8442 /* SignUp1VC.m in Sources */,
 				70D005631B98A882006E746F /* PostsShowViewController.m in Sources */,
 				701AAC171BBF811300EE33D1 /* VerificationViewController.m in Sources */,
 				7004B9D31BAE902700C4210E /* CustomTableViewCell.m in Sources */,
