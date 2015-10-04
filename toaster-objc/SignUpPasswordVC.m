@@ -9,6 +9,7 @@
 #import "SignUpPasswordVC.h"
 #import "SessionManager.h"
 #import "NetworkManager.h"
+#import "VerificationViewController.h"
 #import "Constants.h"
 
 @implementation SignUpPasswordVC
@@ -17,9 +18,6 @@
 - (void)viewWillAppear:(BOOL)animated {
     [self.navigationController.navigationBar setHidden:YES];
     [self.tabBarController.tabBar setHidden:YES];
-    
-    [SessionManager clearSession];
-    
     [super viewWillAppear:animated];
 }
 
@@ -28,6 +26,9 @@
     NSString *password = [self.passwordField text];
     
     // Make a request to backend server to register id
+    
+    NSLog(@"fixme: show a loading wheel: verification email sent");
+    
     AFHTTPRequestOperationManager *manager = [NetworkManager getNetworkManager].manager;
     NSDictionary *params = @{@"email": email,
                              @"password": password};
@@ -45,6 +46,13 @@
         NSLog(@"Error: %@", error);
         NSLog(@"Operation: %@", operation);
     }];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"SignUpToVerificationSegue"]) {
+        VerificationViewController *vc = (VerificationViewController *)segue.destinationViewController;
+        vc.email = self.email;
+    }
 }
 
 @end

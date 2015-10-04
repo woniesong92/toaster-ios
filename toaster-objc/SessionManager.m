@@ -13,21 +13,9 @@
 
 @implementation SessionManager
 
-//+ (BOOL) checkSessionAndRedirect: (NSString *)segueId sender:(UIViewController *)sender {
-//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//
-//    // check if user is already loggedIn
-//    if([defaults objectForKey:@"token"] == nil ||
-//       [[defaults objectForKey:@"token"] isEqualToString:@""]) {
-//        
-//        return false;
-//    } else {
-//        return true;
-//    }
-//}
-
 + (NSString *)currentUser {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults synchronize];
     
     // check if user is already loggedIn
     
@@ -44,11 +32,9 @@
 
 + (BOOL)isVerified {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
-    NSLog(@"isVer: %@", [defaults objectForKey:@"isVerified"]);
-    
+    [defaults synchronize];
+
     BOOL isVerified = [(NSNumber *)[defaults objectForKey:@"isVerified"] boolValue];
-    
     return isVerified;
 }
 

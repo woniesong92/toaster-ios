@@ -31,7 +31,7 @@
     
     [SessionManager clearSession];
     
-    [self performSegueWithIdentifier:@"SettingsToMainSegue" sender:self];
+    [self performSegueWithIdentifier:@"SettingsToLoginSegue" sender:self];
 }
 
 @end

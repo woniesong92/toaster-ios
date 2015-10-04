@@ -1,4 +1,4 @@
-#define BASE_URL @"http://192.168.0.106:3000"
+#define BASE_URL @"http://192.168.0.102:3000"
 //#define BASE_URL @"http://104.131.158.80"
 //#define BASE_URL @"http://10.145.128.103:3000"
 //#define BASE_URL @"http://10.145.13.202:3000"
@@ -73,6 +73,7 @@
 #define UPVOTE_COMMENT_API_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/api/comments/upvote"]
 #define DOWNVOTE_COMMENT_API_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/api/comments/downvote"]
 
+#define SEND_EMAIL_API_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/api/users/sendemail"]
 
 
 #define UPVOTE_POST_UPDATE @"upvote_post_update"

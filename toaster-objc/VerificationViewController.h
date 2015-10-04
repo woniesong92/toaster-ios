@@ -10,4 +10,6 @@
 
 @interface VerificationViewController : UIViewController
 
+@property NSString *email;
+
 @end

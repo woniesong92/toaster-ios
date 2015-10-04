@@ -67,7 +67,9 @@
 		70A4F0451BB7512100E66A7E /* NotificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A4F0441BB7512100E66A7E /* NotificationCell.m */; };
 		70A4F0481BB82D8A00E66A7E /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A4F0471BB82D8A00E66A7E /* ProfileViewController.m */; };
 		70A4F04B1BB82F2D00E66A7E /* ProfilePostsTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A4F04A1BB82F2D00E66A7E /* ProfilePostsTableView.m */; };
-		70C95FAF1BC0B604006F8442 /* SignUp1VC.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C95FAE1BC0B604006F8442 /* SignUp1VC.m */; };
+		70C95FB21BC0C31C006F8442 /* SignUpEmailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C95FB11BC0C31C006F8442 /* SignUpEmailVC.m */; };
+		70C95FB51BC0C329006F8442 /* SignUpPasswordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C95FB41BC0C329006F8442 /* SignUpPasswordVC.m */; };
+		70C95FB81BC0E6B3006F8442 /* LoadingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C95FB71BC0E6B3006F8442 /* LoadingVC.m */; };
 		70D005631B98A882006E746F /* PostsShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D005621B98A882006E746F /* PostsShowViewController.m */; };
 		70E3415F1B9C9DB200046067 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E3415E1B9C9DB200046067 /* SettingsViewController.m */; };
 		70E341621B9CA6C200046067 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E341611B9CA6C200046067 /* SignUpViewController.m */; };
@@ -199,8 +201,12 @@
 		70A4F0471BB82D8A00E66A7E /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		70A4F0491BB82F2D00E66A7E /* ProfilePostsTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfilePostsTableView.h; sourceTree = "<group>"; };
 		70A4F04A1BB82F2D00E66A7E /* ProfilePostsTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfilePostsTableView.m; sourceTree = "<group>"; };
-		70C95FAD1BC0B604006F8442 /* SignUp1VC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUp1VC.h; sourceTree = "<group>"; };
-		70C95FAE1BC0B604006F8442 /* SignUp1VC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUp1VC.m; sourceTree = "<group>"; };
+		70C95FB01BC0C31C006F8442 /* SignUpEmailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpEmailVC.h; sourceTree = "<group>"; };
+		70C95FB11BC0C31C006F8442 /* SignUpEmailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpEmailVC.m; sourceTree = "<group>"; };
+		70C95FB31BC0C329006F8442 /* SignUpPasswordVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpPasswordVC.h; sourceTree = "<group>"; };
+		70C95FB41BC0C329006F8442 /* SignUpPasswordVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpPasswordVC.m; sourceTree = "<group>"; };
+		70C95FB61BC0E6B3006F8442 /* LoadingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingVC.h; sourceTree = "<group>"; };
+		70C95FB71BC0E6B3006F8442 /* LoadingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingVC.m; sourceTree = "<group>"; };
 		70D005611B98A882006E746F /* PostsShowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostsShowViewController.h; sourceTree = "<group>"; };
 		70D005621B98A882006E746F /* PostsShowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostsShowViewController.m; sourceTree = "<group>"; };
 		70E3415D1B9C9DB200046067 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
@@ -397,6 +403,8 @@
 				70951F9E1B989F15006B1228 /* Main.storyboard */,
 				70951F951B989F15006B1228 /* AppDelegate.h */,
 				70951F961B989F15006B1228 /* AppDelegate.m */,
+				70C95FB61BC0E6B3006F8442 /* LoadingVC.h */,
+				70C95FB71BC0E6B3006F8442 /* LoadingVC.m */,
 				7017D6F81BAF8C4D003EB498 /* Utils.h */,
 				7017D6F91BAF8C4D003EB498 /* Utils.m */,
 				70223C6A1BB8BDBB000FE6CB /* SessionManager.h */,
@@ -410,8 +418,10 @@
 				70223C6E1BB8C5E7000FE6CB /* UITextFieldWithPadding.m */,
 				70E341601B9CA6C200046067 /* SignUpViewController.h */,
 				70E341611B9CA6C200046067 /* SignUpViewController.m */,
-				70C95FAD1BC0B604006F8442 /* SignUp1VC.h */,
-				70C95FAE1BC0B604006F8442 /* SignUp1VC.m */,
+				70C95FB01BC0C31C006F8442 /* SignUpEmailVC.h */,
+				70C95FB11BC0C31C006F8442 /* SignUpEmailVC.m */,
+				70C95FB31BC0C329006F8442 /* SignUpPasswordVC.h */,
+				70C95FB41BC0C329006F8442 /* SignUpPasswordVC.m */,
 				70EC5ABF1BAE5F7E0019AA58 /* SignInViewController.h */,
 				70EC5AC01BAE5F7E0019AA58 /* SignInViewController.m */,
 				701AAC151BBF811300EE33D1 /* VerificationViewController.h */,
@@ -588,7 +598,6 @@
 				70A4F0421BB750C200E66A7E /* NotificationsTableViewController.m in Sources */,
 				7046D1FC1BAE38EF00A5465F /* AFHTTPRequestOperation.m in Sources */,
 				700272391B9A36B900C292A5 /* UIWebView+FLUIWebView.m in Sources */,
-				70C95FAF1BC0B604006F8442 /* SignUp1VC.m in Sources */,
 				70D005631B98A882006E746F /* PostsShowViewController.m in Sources */,
 				701AAC171BBF811300EE33D1 /* VerificationViewController.m in Sources */,
 				7004B9D31BAE902700C4210E /* CustomTableViewCell.m in Sources */,
@@ -604,6 +613,7 @@
 				7002723C1B9A36EE00C292A5 /* WKWebView+FLWKWebView.m in Sources */,
 				7046D2011BAE38EF00A5465F /* AFURLConnectionOperation.m in Sources */,
 				7046D2021BAE38EF00A5465F /* AFURLRequestSerialization.m in Sources */,
+				70C95FB51BC0C329006F8442 /* SignUpPasswordVC.m in Sources */,
 				7017D7141BAF8E3D003EB498 /* USDictionaryWrapper.m in Sources */,
 				7017D72A1BAF9DBB003EB498 /* DTTimePeriodChain.m in Sources */,
 				7017D6FA1BAF8C4D003EB498 /* Utils.m in Sources */,
@@ -624,9 +634,11 @@
 				70E341621B9CA6C200046067 /* SignUpViewController.m in Sources */,
 				70A4F03F1BB739D500E66A7E /* ToastsTableView.m in Sources */,
 				7046D1FF1BAE38EF00A5465F /* AFNetworkReachabilityManager.m in Sources */,
+				70C95FB81BC0E6B3006F8442 /* LoadingVC.m in Sources */,
 				7017D70F1BAF8E3D003EB498 /* USStringWrapper.m in Sources */,
 				7017D70E1BAF8E3D003EB498 /* Underscore+Strings.m in Sources */,
 				70A4F04B1BB82F2D00E66A7E /* ProfilePostsTableView.m in Sources */,
+				70C95FB21BC0C31C006F8442 /* SignUpEmailVC.m in Sources */,
 				7017D72D1BAF9DBB003EB498 /* NSDate+DateTools.m in Sources */,
 				70E3415F1B9C9DB200046067 /* SettingsViewController.m in Sources */,
 			);

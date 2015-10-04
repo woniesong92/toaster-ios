@@ -32,29 +32,32 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    networkManager = [NetworkManager getNetworkManager];
+    
     [Utils setGradient:self.filterDivider fromColor:[UIColor whiteColor] toColor:[UIColor colorWithRed:255.0/255.0 green:138.0/255.0 blue:0.0 alpha:1.0]];
     
     // initialize the starting point to fetch the next batch of posts
     rowIdxToStartFetchingRecentPosts = NUM_RECENT_POSTS_IN_ONE_BATCH - 5;
     rowIdxToStartFetchingHotPosts = NUM_HOT_POSTS_IN_ONE_BATCH - 5;
     
-    networkManager = [NetworkManager getNetworkManager];
-
 //    Set up Recent Posts Table
     [self.postsTable setDelegate:self];
     [self.postsTable setDataSource:self.postsTable];
     [self.postsTable setTag:0];
     [self.recentFilterBtn setSelected:YES];
     
-    // Add Loading
+    [self addLoading];
+    
+    [self addObservers];
+}
+
+- (void)addLoading {
     UILabel *label = [[UILabel alloc] initWithFrame: CGRectMake(0, (self.view.frame.size.height/2-25), self.view.frame.size.width, 50)];
     label.text = @"Yolk..."; //etc...
     label.textAlignment = NSTextAlignmentCenter;
     label.textColor = [UIColor grayColor];
     self.loadingText = label;
     [self.view addSubview:label];
-    
-    [self addObservers];
 }
 
 - (void)addObservers {
@@ -165,8 +168,8 @@
 }
 
 - (void)addPostRow:(NSMutableDictionary *)newPost {
-    NSString *createdAt = (NSString *)newPost[@"createdAt"];
     
+    NSString *createdAt = (NSString *)newPost[@"createdAt"];
     [newPost setValue:[Utils dateWithJSONString:createdAt] forKey:@"createdAt"];
     
     [(NSMutableArray *)self.postsTable.posts insertObject:newPost atIndex:0];
@@ -182,7 +185,7 @@
     
     [super viewWillAppear:animated];
     
-    if (![[SessionManager currentUser] isEqualToString:@""] && [SessionManager isVerified] && self.postsTable.posts.count == 0) {
+    if (![[SessionManager currentUser] isEqualToString:@""] && self.postsTable.posts.count == 0) {
         [self fetchPosts:HOT_POSTS_TABLE_TAG limit:[NSNumber numberWithInteger:NUM_HOT_POSTS_IN_ONE_BATCH] skip:@0 doReload:NO];
         [self fetchPosts:RECENT_POSTS_TABLE_TAG limit:[NSNumber numberWithInteger:NUM_RECENT_POSTS_IN_ONE_BATCH] skip:@0 doReload:YES];
     }
@@ -190,21 +193,13 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    
-    if ([[SessionManager currentUser] isEqualToString:@""]) {
-        [self performSegueWithIdentifier:@"PostsToSignUpSegue" sender:self];
-    } else if (![SessionManager isVerified]) {
-        NSLog(@"going back to verification bcuz not verified");
-        
-        [self performSegueWithIdentifier:@"PostsToVerificationSegue" sender:self];
-    } else {
-        NSLog(@"verified!");
-    }
 }
 
 - (void)onAddPostRow:(NSNotification *)notification {
     
     NSLog(@"onAddPostRow: %@", notification.object);
+    NSLog(@"onAddPostRowself: %@", self);
+    
     [self addPostRow:(NSMutableDictionary *)notification.object];
 }
 
@@ -214,8 +209,6 @@
 }
 
 - (void)shouldScrollTop:(NSNotification *)notification {
-//    [self.postsTable scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
-    
     [self.postsTable scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
 }
 

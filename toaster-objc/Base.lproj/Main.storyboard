@@ -31,7 +31,7 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Post body" translatesAutoresizingMaskIntoConstraints="NO" id="Lgb-ut-QTU">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lgb-ut-QTU">
                                 <rect key="frame" x="8" y="72" width="544" height="138"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -411,7 +411,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WBa-LR-aeK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3046" y="-346"/>
+            <point key="canvasLocation" x="3043" y="-364"/>
         </scene>
         <!--Notifications-->
         <scene sceneID="K9R-4G-nd9">
@@ -850,7 +850,7 @@
         <!--Make a toast-->
         <scene sceneID="PNc-se-iDT">
             <objects>
-                <viewController id="4El-qh-klo" customClass="NewPostController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="4El-qh-klo" customClass="NewPostController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dzS-oh-ilH"/>
                         <viewControllerLayoutGuide type="bottom" id="kz8-03-GLH"/>
@@ -859,7 +859,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="postBody" translatesAutoresizingMaskIntoConstraints="NO" id="7AY-G6-539">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7AY-G6-539">
                                 <rect key="frame" x="0.0" y="64" width="600" height="300"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -1484,7 +1484,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="More" id="hGh-TZ-aTD"/>
                     <connections>
-                        <segue destination="49e-Tb-3d3" kind="showDetail" identifier="SettingsToMainSegue" id="6eU-vF-kj9"/>
+                        <segue destination="j2m-Ku-zih" kind="showDetail" identifier="SettingsToLoginSegue" id="Cbv-WW-zAl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vxk-HD-2Lc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1666,7 +1666,7 @@
                                             <outlet property="postBody" destination="tbt-8d-2yO" id="aeq-fQ-zVy"/>
                                             <outlet property="postDate" destination="m5b-2p-hir" id="xVX-On-QDa"/>
                                             <outlet property="upvoteBtn" destination="eYf-ZQ-Suo" id="rsU-bd-uYx"/>
-                                            <segue destination="yWh-ha-dvT" kind="presentation" identifier="PostsToSignUpSegue" id="PEu-WN-lBX"/>
+                                            <segue destination="i0U-vc-kr9" kind="show" identifier="PostsToDetailSegue" id="SAy-my-1s8"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -2122,7 +2122,7 @@
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="hello@company.org" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="asO-rj-oiQ">
                                         <rect key="frame" x="8" y="0.0" width="552" height="40"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2229,7 +2229,7 @@
                                     <constraint firstAttribute="height" constant="40" id="woF-nh-nUb"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                <state key="normal" title="Continue">
+                                <state key="normal" title="Join">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -2240,10 +2240,11 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VOZ-aq-uXV">
                                 <rect key="frame" x="16" y="233" width="568" height="40"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="hello@company.org" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a2O-cX-L1b">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a2O-cX-L1b">
                                         <rect key="frame" x="8" y="0.0" width="552" height="40"/>
+                                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="join" secureTextEntry="YES"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2426,6 +2427,9 @@
                                         <exclude reference="msN-II-hit"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="sendEmailBtnPressed:" destination="Gpf-i9-4qA" eventType="touchUpInside" id="oT7-wI-P3r"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SyC-8M-CRY">
                                 <rect key="frame" x="197" y="562" width="206" height="30"/>
@@ -2482,7 +2486,7 @@
         <!--SignInVC-->
         <scene sceneID="ss4-0C-Csf">
             <objects>
-                <viewController title="SignInVC" id="j2m-Ku-zih" sceneMemberID="viewController">
+                <viewController title="SignInVC" id="j2m-Ku-zih" customClass="SignInViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3KX-Zs-Jc8"/>
                         <viewControllerLayoutGuide type="bottom" id="uPT-Re-ng7"/>
@@ -2512,7 +2516,7 @@
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Your company email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zfo-cn-1bZ">
                                         <rect key="frame" x="8" y="0.0" width="552" height="40"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2529,7 +2533,7 @@
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1mr-2G-40B">
                                         <rect key="frame" x="8" y="0.0" width="552" height="40"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="go" secureTextEntry="YES"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2561,6 +2565,9 @@
                                         <exclude reference="mvC-I4-nZ1"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="loginButtonClicked:" destination="j2m-Ku-zih" eventType="touchUpInside" id="Trr-UC-SDI"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nwP-zj-uOx">
                                 <rect key="frame" x="16" y="329" width="552" height="50"/>
@@ -2636,6 +2643,12 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Sign Up" id="Bf2-CQ-qlG"/>
+                    <connections>
+                        <outlet property="emailField" destination="Zfo-cn-1bZ" id="8lU-rb-h6i"/>
+                        <outlet property="passwordField" destination="1mr-2G-40B" id="Hkz-Fy-psu"/>
+                        <segue destination="Gpf-i9-4qA" kind="showDetail" identifier="LoginToVerificationSegue" id="MlP-vH-AIs"/>
+                        <segue destination="49e-Tb-3d3" kind="showDetail" identifier="LoginToMainSegue" id="64r-tf-rEd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kl4-J7-bh4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2664,12 +2677,11 @@
         <image name="upvote-selected" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Qln-Ca-EvB"/>
-        <segue reference="eXd-NC-Rmx"/>
-        <segue reference="Zxy-JZ-Rmh"/>
-        <segue reference="zLz-ge-Hap"/>
+        <segue reference="ClS-xL-frG"/>
+        <segue reference="Cft-S0-ces"/>
         <segue reference="BpZ-kK-lwm"/>
         <segue reference="Wr7-T2-V3n"/>
+        <segue reference="SAy-my-1s8"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.27450980390000002" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

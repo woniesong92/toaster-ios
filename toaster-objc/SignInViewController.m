@@ -27,10 +27,10 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)signUpButtonClicked:(id)sender {
-    // close the signIn modal to show signUpVC again
-    
-    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+- (void)clearInputFields {
+    self.emailField.text = nil;
+    self.passwordField.text = nil;
+    [self.emailField setSelected:YES];
 }
 
 - (IBAction)loginButtonClicked:(id)sender {
@@ -44,6 +44,8 @@
     if (![emailTest evaluateWithObject:email]) {
         // TODO: show alert that email is invalid
         NSLog(@"invalid email format");
+        
+        [self clearInputFields];
         return;
     }
     
@@ -66,33 +68,28 @@
             if (isVerified) {
                 // Pop the SignUpViewController
                 
-                [self performSegueWithIdentifier:@"SignInToMainSegue" sender:self];
+                [self performSegueWithIdentifier:@"LoginToMainSegue" sender:self];
                 
-                return;
-                
-                NSArray *navViewControllers = [(UITabBarController *)self.presentingViewController viewControllers];
-                [(UINavigationController *)navViewControllers[0] popToRootViewControllerAnimated:NO];
-                
-                // And dismiss the login modal
-                [self dismissViewControllerAnimated:YES completion:nil];
+//                
+//                NSArray *navViewControllers = [(UITabBarController *)self.presentingViewController viewControllers];
+//                [(UINavigationController *)navViewControllers[0] popToRootViewControllerAnimated:NO];
+//                
+//                // And dismiss the login modal
+//                [self dismissViewControllerAnimated:YES completion:nil];
             } else {
-                NSLog(@"user not verified");
-                [self performSegueWithIdentifier:@"SignInToVerificationSegue" sender:self];
+                NSLog(@"LOGIN: user not verified. Go to verification.");
+                [self performSegueWithIdentifier:@"LoginToVerificationSegue" sender:self];
             }
             
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             
-            self.emailField.text = nil;
-            self.passwordField.text = nil;
-            
-            // TODO: show user this error and clear all the textfields
+            [self clearInputFields];
             NSLog(@"Error2: %@", error);
         }];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
-        self.emailField.text = nil;
-        self.passwordField.text = nil;
+        [self clearInputFields];
         
         // TODO: show user this error and clear all the textfields
         NSLog(@"Error: %@", error);

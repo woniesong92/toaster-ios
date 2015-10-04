@@ -14,8 +14,6 @@
 @implementation VerificationViewController
 
 - (void)viewDidLoad {
-    NSLog(@"did you get the email?");
-    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(shouldRedirect:)
                                                  name:@"emailVerified"
@@ -27,8 +25,23 @@
 }
 
 - (void)shouldRedirect:(NSNotification *)notification {
-    NSLog(@"going to redirect");
+    NSLog(@"shouldRedirect: user clicked the link! Let's redirect");
     [self performSegueWithIdentifier:@"VerificationToMainSegue" sender:nil];
 }
+
+- (IBAction)sendEmailBtnPressed:(id)sender {
+    NSString *email = self.email;
+    NSDictionary *params = @{@"email": email};
+    [[NetworkManager getNetworkManager].manager POST:SEND_EMAIL_API_URL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"email just sent to %@!", self.email);
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        // TODO: show user this error and clear all the textfields
+        NSLog(@"failed to send an email");
+    }];
+    
+
+}
+
 
 @end

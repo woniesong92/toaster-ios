@@ -8,6 +8,7 @@
 
 #import "SignUpEmailVC.h"
 #import "SignUpPasswordVC.h"
+#import "SessionManager.h"
 
 @implementation SignUpEmailVC
 
@@ -28,6 +29,7 @@
     [self.navigationController.navigationBar setHidden:YES];
     [self.tabBarController.tabBar setHidden:YES];
     [self.emailField setSelected:YES];
+//    [SessionManager clearSession];
 }
 
 - (IBAction)continueClicked:(id)sender {
