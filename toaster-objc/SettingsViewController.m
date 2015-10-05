@@ -9,6 +9,7 @@
 #import "SettingsViewController.h"
 #import "Constants.h"
 #import "SessionManager.h"
+#import "NetworkManager.h"
 
 @interface SettingsViewController ()
 
@@ -18,6 +19,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    NetworkManager *manager = [NetworkManager sharedNetworkManager];
+    
+    [manager POST:GET_NETWORK_API_URL parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        NSLog(@"%@", responseObject);
+        
+        NSString *networkName = responseObject[@"network"];
+        [self.networkLabel setText:networkName];
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        // TODO: show user this error and clear all the textfields
+        NSLog(@"Error: %@", error);
+    }];
 }
 
 - (IBAction)onLogoutClicked:(id)sender {
