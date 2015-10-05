@@ -34,6 +34,13 @@
     
     self.defaultSubText = self.subTextField.text;
     self.defaultSubTextColor = self.subTextField.textColor;
+    
+    if (self.errorMsg) {
+        [self clearField];
+        [self.subTextField setText:self.errorMsg];
+        [self.subTextField setTextColor:ERROR_COLOR];
+        self.errorMsg = nil;
+    }
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -44,12 +51,6 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    if (self.errorMsg) {
-        [self clearField];
-        [self.subTextField setText:self.errorMsg];
-        [self.subTextField setTextColor:ERROR_COLOR];
-        self.errorMsg = nil;
-    }
 }
 
 - (void)clearField {

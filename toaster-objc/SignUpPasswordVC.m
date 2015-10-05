@@ -16,6 +16,20 @@
 
 @implementation SignUpPasswordVC
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:tap];
+    
+    [self.passwordField becomeFirstResponder];
+}
+
+-(void)dismissKeyboard {
+    [self.passwordField resignFirstResponder];
+}
 
 - (void)viewWillAppear:(BOOL)animated {
     [self.navigationController.navigationBar setHidden:YES];
@@ -33,7 +47,8 @@
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     [self.subTextField setText:self.defaultSubText];
-    [self.subTextField setTextColor:self.defaultSubTextColor];    
+    [self.subTextField setTextColor:self.defaultSubTextColor];
+    
 }
 
 - (IBAction)connectClicked:(id)sender {
@@ -48,9 +63,6 @@
     }
     
     // Make a request to backend server to register id
-    
-    NSLog(@"fixme: show a loading wheel: verification email sent");
-    
     NetworkManager *manager = [NetworkManager sharedNetworkManager];
     
     NSDictionary *params = @{@"email": email,
@@ -68,13 +80,11 @@
         
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"Error: %@", error);
         NSString *emailExists = @"Email already exists.";
         NSString *errMsg = [manager getErrorReason:error];
         
         if ([errMsg isEqualToString:emailExists]) {
             [self clearField];
-            
             SignUpEmailVC *vc = (SignUpEmailVC *)[self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count-2];
             vc.errorMsg = emailExists;
             [self.navigationController popViewControllerAnimated:YES];
