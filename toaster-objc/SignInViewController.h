@@ -11,5 +11,6 @@
 @interface SignInViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextField *emailField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
+@property (weak, nonatomic) IBOutlet UILabel *errorField;
 
 @end

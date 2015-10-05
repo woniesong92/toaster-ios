@@ -14,6 +14,7 @@
 //@property (strong, nonatomic) AFHTTPRequestOperationManager *manager;
 
 + (NetworkManager *)sharedNetworkManager;
+- (NSString *)getErrorReason: (NSError *)error;
 - (instancetype)init;
 - (void)updateSerializerWithNewToken: (NSString *)token;
 

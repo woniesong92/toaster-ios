@@ -11,5 +11,7 @@
 @interface SignUpEmailVC : UIViewController
 
 @property (weak, nonatomic) IBOutlet UITextField *emailField;
+@property (weak, nonatomic) IBOutlet UITextView *subTextField;
+@property NSString *errorMsg;
 
 @end

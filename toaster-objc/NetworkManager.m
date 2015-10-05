@@ -24,6 +24,18 @@
     return _sharedNetworkManager;
 }
 
+- (NSString *)getErrorReason: (NSError *)error {
+    NSData *errData = error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey];
+    NSString *errReason = @"";
+    
+    if (errData) {
+        NSMutableDictionary *errObj = [NSJSONSerialization JSONObjectWithData:errData options:0 error:nil];
+        errReason = errObj[@"reason"];
+    }
+    
+    return errReason;
+}
+
 - (instancetype)init {
     self = [super init];
     

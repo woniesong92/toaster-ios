@@ -9,6 +9,7 @@
 #import "SignUpEmailVC.h"
 #import "SignUpPasswordVC.h"
 #import "SessionManager.h"
+#import "Constants.h"
 
 @implementation SignUpEmailVC
 
@@ -26,11 +27,24 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
-    
     [self.navigationController.navigationBar setHidden:YES];
     [self.tabBarController.tabBar setHidden:YES];
     [self.emailField setSelected:YES];
     [SessionManager clearSession];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    if (self.errorMsg) {
+        [self clearField];
+        [self.subTextField setText:@"Invalid email format"];
+        [self.subTextField setTextColor:ERROR_COLOR];
+        self.errorMsg = nil;
+    }
+}
+
+- (void)clearField {
+    [self.emailField setText:@""];
 }
 
 - (IBAction)continueClicked:(id)sender {
@@ -38,8 +52,9 @@
     NSString *emailRegex = @"[A-Z0-9a-z]+([._%+-]{1}[A-Z0-9a-z]+)*@[A-Z0-9a-z]+([.-]{1}[A-Z0-9a-z]+)*(\\.[A-Za-z]{2,4}){0,1}";
     NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
     if (![emailTest evaluateWithObject:email]) {
-        // TODO: show alert that email is invalid
-        NSLog(@"invalid email format");
+        [self clearField];
+        [self.subTextField setText:@"Invalid email format"];
+        [self.subTextField setTextColor:ERROR_COLOR];
         return;
     }
     

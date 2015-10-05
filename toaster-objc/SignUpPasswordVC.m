@@ -7,6 +7,7 @@
 //
 
 #import "SignUpPasswordVC.h"
+#import "SignUpEmailVC.h"
 #import "SessionManager.h"
 #import "NetworkManager.h"
 #import "VerificationViewController.h"
@@ -21,9 +22,20 @@
     [super viewWillAppear:animated];
 }
 
+- (void)clearField {
+    [self.passwordField setText:@""];
+}
+
 - (IBAction)connectClicked:(id)sender {
     NSString *email = self.email;
     NSString *password = [self.passwordField text];
+    
+    if ([password length] < 6) {
+        [self clearField];
+        [self.subTextField setText:@"Password is too short."];
+        [self.subTextField setTextColor:ERROR_COLOR];
+        return;
+    }
     
     // Make a request to backend server to register id
     
@@ -43,26 +55,21 @@
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"Error: %@", error);
+        NSString *emailExists = @"Email already exists.";
+        NSString *errMsg = [manager getErrorReason:error];
+        
+        if ([errMsg isEqualToString:emailExists]) {
+            [self clearField];
+            
+            SignUpEmailVC *vc = (SignUpEmailVC *)[self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count-2];
+            vc.errorMsg = emailExists;
+            [self.navigationController popViewControllerAnimated:YES];
+        } else {
+            [self.subTextField setText:errMsg];
+            [self.subTextField setTextColor:ERROR_COLOR];
+            [self clearField];
+        }
     }];
-    
-//    
-//    AFHTTPRequestOperationManager *manager = [NetworkManager sharedNetworkManager].manager;
-//    NSDictionary *params = @{@"email": email,
-//                             @"password": password};
-//    [manager POST:SIGNUP_API_URL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        
-//        [SessionManager updateSession:responseObject];
-//        
-//        [self performSegueWithIdentifier:@"SignUpToVerificationSegue" sender:self];
-//        
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        
-//        // TODO: show user this error and clear all the textfields
-//        // Go back to beginning with an error message
-//        
-//        NSLog(@"Error: %@", error);
-//        NSLog(@"Operation: %@", operation);
-//    }];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

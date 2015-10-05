@@ -78,6 +78,8 @@
 #define UPVOTE_POST_UPDATE @"upvote_post_update"
 #define DOWNVOTE_POST_UPDATE @"downvote_post_update"
 
+#define ERROR_COLOR [UIColor redColor]
+
 #define PRIMARY_COLOR [UIColor colorWithRed:255.0/255.0 green:177.0/255.0 blue:30.0/255.0 alpha:1.0]
 #define DARK_COLOR [UIColor colorWithRed:255.0/255.0 green:138.0/255.0 blue:0.0 alpha:1.0]
 #define SECONDARY_COLOR [UIColor colorWithRed:255.0/255.0 green:207.0/255.0 blue:62.0/255.0 alpha:1.0]

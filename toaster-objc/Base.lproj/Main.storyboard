@@ -2878,6 +2878,7 @@ Cg
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="emailField" destination="asO-rj-oiQ" id="Fvd-ot-xdG"/>
+                        <outlet property="subTextField" destination="WER-qu-Rrz" id="Hcv-56-JdE"/>
                         <segue destination="cov-JX-pp0" kind="show" identifier="EmailToPasswordSegue" id="sl2-F1-itf"/>
                     </connections>
                 </viewController>
@@ -2996,6 +2997,7 @@ Cg
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="passwordField" destination="a2O-cX-L1b" id="fXf-2X-8Vx"/>
+                        <outlet property="subTextField" destination="dEX-Yr-gWE" id="XOE-cd-g7z"/>
                         <segue destination="Gpf-i9-4qA" kind="show" identifier="SignUpToVerificationSegue" id="Cft-S0-ces"/>
                     </connections>
                 </viewController>
@@ -3201,16 +3203,16 @@ Cg
                                 <rect key="frame" x="16" y="192" width="568" height="40"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Your company email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zfo-cn-1bZ">
-                                        <rect key="frame" x="8" y="0.0" width="552" height="40"/>
+                                        <rect key="frame" x="16" y="0.0" width="552" height="40"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="Zfo-cn-1bZ" firstAttribute="trailing" secondItem="jF8-eg-cgd" secondAttribute="trailingMargin" id="L8t-Dd-Rzl"/>
+                                    <constraint firstItem="Zfo-cn-1bZ" firstAttribute="trailing" secondItem="jF8-eg-cgd" secondAttribute="trailingMargin" constant="8" id="L8t-Dd-Rzl"/>
                                     <constraint firstItem="Zfo-cn-1bZ" firstAttribute="top" secondItem="jF8-eg-cgd" secondAttribute="top" id="TL3-OI-Pbv"/>
-                                    <constraint firstItem="Zfo-cn-1bZ" firstAttribute="leading" secondItem="jF8-eg-cgd" secondAttribute="leadingMargin" id="aUl-N3-sVa"/>
+                                    <constraint firstItem="Zfo-cn-1bZ" firstAttribute="leading" secondItem="jF8-eg-cgd" secondAttribute="leadingMargin" constant="8" id="aUl-N3-sVa"/>
                                     <constraint firstAttribute="bottom" secondItem="Zfo-cn-1bZ" secondAttribute="bottom" id="c5G-Vk-frw"/>
                                 </constraints>
                             </view>
@@ -3218,7 +3220,7 @@ Cg
                                 <rect key="frame" x="16" y="233" width="568" height="40"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1mr-2G-40B">
-                                        <rect key="frame" x="8" y="0.0" width="552" height="40"/>
+                                        <rect key="frame" x="16" y="0.0" width="552" height="40"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="go" secureTextEntry="YES"/>
                                     </textField>
@@ -3226,8 +3228,8 @@ Cg
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="1mr-2G-40B" secondAttribute="bottom" id="GGv-sh-oCf"/>
-                                    <constraint firstItem="1mr-2G-40B" firstAttribute="leading" secondItem="H4o-Ls-sAq" secondAttribute="leadingMargin" id="GfD-jb-kn1"/>
-                                    <constraint firstItem="1mr-2G-40B" firstAttribute="trailing" secondItem="H4o-Ls-sAq" secondAttribute="trailingMargin" id="Sf2-6T-hb6"/>
+                                    <constraint firstItem="1mr-2G-40B" firstAttribute="leading" secondItem="H4o-Ls-sAq" secondAttribute="leadingMargin" constant="8" id="GfD-jb-kn1"/>
+                                    <constraint firstItem="1mr-2G-40B" firstAttribute="trailing" secondItem="H4o-Ls-sAq" secondAttribute="trailingMargin" constant="8" id="Sf2-6T-hb6"/>
                                     <constraint firstItem="1mr-2G-40B" firstAttribute="top" secondItem="H4o-Ls-sAq" secondAttribute="top" id="k6w-W1-xpI"/>
                                 </constraints>
                             </view>
@@ -3237,7 +3239,7 @@ Cg
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V0q-3V-cWI">
                                 <rect key="frame" x="16" y="281" width="568" height="40"/>
-                                <color key="backgroundColor" red="0.95294117649999999" green="0.70980392160000005" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.84718973735526326" green="0.71205389815416131" blue="0.35561211979956731" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="KUM-zG-X5q"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="mvC-I4-nZ1"/>
@@ -3297,20 +3299,31 @@ Cg
                                     </mask>
                                 </variation>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kbk-iE-fCS">
+                                <rect key="frame" x="16" y="141" width="568" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="ofg-JI-nm3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="1" green="0.27450980390000002" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.59698333898684219" blue="0.01666374407105262" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.96470588235294119" green="0.71372549019607845" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="jF8-eg-cgd" firstAttribute="top" secondItem="cB1-AO-wju" secondAttribute="bottom" constant="64" id="6VO-hw-wMb"/>
                             <constraint firstItem="LBv-7P-rO8" firstAttribute="top" secondItem="jF8-eg-cgd" secondAttribute="bottom" id="73X-WS-NXW"/>
                             <constraint firstItem="cB1-AO-wju" firstAttribute="top" secondItem="3KX-Zs-Jc8" secondAttribute="bottom" constant="8" symbolic="YES" id="ATh-hv-OBH"/>
                             <constraint firstItem="H4o-Ls-sAq" firstAttribute="leading" secondItem="LBv-7P-rO8" secondAttribute="leading" id="F3s-Mk-Y9q"/>
                             <constraint firstItem="V0q-3V-cWI" firstAttribute="leading" secondItem="ODV-mg-xiF" secondAttribute="leadingMargin" id="Fy7-Pl-SZS"/>
+                            <constraint firstAttribute="trailing" secondItem="Kbk-iE-fCS" secondAttribute="trailing" constant="16" id="Jfz-ey-3VD"/>
                             <constraint firstItem="V0q-3V-cWI" firstAttribute="leading" secondItem="nwP-zj-uOx" secondAttribute="leading" id="MFF-Fz-uBv"/>
                             <constraint firstItem="jF8-eg-cgd" firstAttribute="leading" secondItem="LBv-7P-rO8" secondAttribute="leading" id="PLI-XC-nAU"/>
                             <constraint firstAttribute="trailingMargin" secondItem="nwP-zj-uOx" secondAttribute="trailing" constant="16" id="QWe-VG-aQ1"/>
                             <constraint firstItem="LBv-7P-rO8" firstAttribute="trailing" secondItem="H4o-Ls-sAq" secondAttribute="trailing" id="Thl-tJ-7VX"/>
                             <constraint firstItem="LBv-7P-rO8" firstAttribute="top" secondItem="ODV-mg-xiF" secondAttribute="top" constant="232" id="a0b-oJ-EVk"/>
                             <constraint firstItem="V0q-3V-cWI" firstAttribute="top" secondItem="ODV-mg-xiF" secondAttribute="top" constant="281" id="bUg-Oy-NKz"/>
+                            <constraint firstItem="Kbk-iE-fCS" firstAttribute="leading" secondItem="ODV-mg-xiF" secondAttribute="leading" constant="16" id="cps-Vu-EAb"/>
                             <constraint firstItem="jF8-eg-cgd" firstAttribute="centerX" secondItem="cB1-AO-wju" secondAttribute="centerX" id="eby-c4-i9F"/>
                             <constraint firstItem="V0q-3V-cWI" firstAttribute="leading" secondItem="H4o-Ls-sAq" secondAttribute="leading" id="fnh-E3-8Oe"/>
                             <constraint firstItem="cB1-AO-wju" firstAttribute="leading" secondItem="ODV-mg-xiF" secondAttribute="leading" id="kCO-xy-DwP"/>
@@ -3321,6 +3334,7 @@ Cg
                             <constraint firstItem="H4o-Ls-sAq" firstAttribute="trailing" secondItem="V0q-3V-cWI" secondAttribute="trailing" id="qRk-KP-N1s"/>
                             <constraint firstAttribute="trailing" secondItem="cB1-AO-wju" secondAttribute="trailing" id="tBy-RD-1nz"/>
                             <constraint firstItem="H4o-Ls-sAq" firstAttribute="top" secondItem="LBv-7P-rO8" secondAttribute="bottom" id="w5w-rg-43z"/>
+                            <constraint firstItem="Kbk-iE-fCS" firstAttribute="top" secondItem="cB1-AO-wju" secondAttribute="bottom" constant="13" id="xsp-qi-rGs"/>
                             <constraint firstItem="H4o-Ls-sAq" firstAttribute="top" secondItem="ODV-mg-xiF" secondAttribute="top" constant="233" id="yPd-5n-5JL"/>
                         </constraints>
                         <variation key="default">
@@ -3332,6 +3346,7 @@ Cg
                     <navigationItem key="navigationItem" title="Sign Up" id="Bf2-CQ-qlG"/>
                     <connections>
                         <outlet property="emailField" destination="Zfo-cn-1bZ" id="8lU-rb-h6i"/>
+                        <outlet property="errorField" destination="Kbk-iE-fCS" id="UzE-vb-f6t"/>
                         <outlet property="passwordField" destination="1mr-2G-40B" id="Hkz-Fy-psu"/>
                         <segue destination="Gpf-i9-4qA" kind="showDetail" identifier="LoginToVerificationSegue" id="MlP-vH-AIs"/>
                         <segue destination="49e-Tb-3d3" kind="showDetail" identifier="LoginToMainSegue" id="64r-tf-rEd"/>
@@ -3364,10 +3379,10 @@ Cg
         <image name="upvote-selected" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ClS-xL-frG"/>
+        <segue reference="64r-tf-rEd"/>
+        <segue reference="Wr7-T2-V3n"/>
+        <segue reference="BpZ-kK-lwm"/>
         <segue reference="MlP-vH-AIs"/>
-        <segue reference="Cbv-WW-zAl"/>
-        <segue reference="kLf-fs-wlQ"/>
         <segue reference="bum-UU-cDv"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.596983339" blue="0.01666374407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

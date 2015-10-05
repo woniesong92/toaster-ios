@@ -42,9 +42,7 @@
     NSString *emailRegex = @"[A-Z0-9a-z]+([._%+-]{1}[A-Z0-9a-z]+)*@[A-Z0-9a-z]+([.-]{1}[A-Z0-9a-z]+)*(\\.[A-Za-z]{2,4}){0,1}";
     NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
     if (![emailTest evaluateWithObject:email]) {
-        // TODO: show alert that email is invalid
-        NSLog(@"invalid email format");
-        
+        [self.errorField setText:@"Invalid email format"];
         [self clearInputFields];
         return;
     }
@@ -75,11 +73,31 @@
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
             [self clearInputFields];
             NSLog(@"Verification Error: %@", error);
+            NSString* errResp = [[NSString alloc] initWithData:(NSData *)error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] encoding:NSUTF8StringEncoding];
+            NSLog(@"respErr: %@", errResp);
+            
         }];
 
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         [self clearInputFields];
-        NSLog(@"Error: %@", error);
+        [self.emailField setSelected:YES];
+        
+        NSData *errData = error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey];
+        NSString *errReason = @"";
+        NSString *errType = @"";
+        
+        if (errData) {
+            NSMutableDictionary *errObj = [NSJSONSerialization JSONObjectWithData:errData options:0 error:nil];
+            errType = errObj[@"error"];
+            errReason = errObj[@"reason"];
+        }
+        
+        if ([errType isEqualToString:@"not-found"]) {
+            [self.errorField setText:@"The email address is not registered."];
+        } else {
+            [self.errorField setText:errReason];
+        }
+
     }];
 
 }
