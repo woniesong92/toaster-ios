@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
 @property (weak, nonatomic) IBOutlet UILabel *errorField;
 @property (weak, nonatomic) IBOutlet UIView *spinner;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintY;
 
 @end

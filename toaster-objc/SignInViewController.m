@@ -51,13 +51,14 @@
     NSDictionary *info = [notification userInfo];
     NSTimeInterval animationDuration = [[info objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     
-    self.constraintY.constant = 90.0;
+    self.constraintY.constant = 146.0;
     [UIView animateWithDuration:animationDuration animations:^{
         [self.view layoutIfNeeded];
     }];
 }
 
 -(void)dismissKeyboard {
+    [self.emailField resignFirstResponder];
     [self.passwordField resignFirstResponder];
 }
 
