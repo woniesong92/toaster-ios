@@ -3273,7 +3273,7 @@ Cg
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V0q-3V-cWI">
                                 <rect key="frame" x="16" y="352" width="568" height="40"/>
-                                <color key="backgroundColor" red="0.84718973735526326" green="0.71205389815416131" blue="0.35561211979956731" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.8795704939342105" green="0.76473972356910347" blue="0.53434837675774749" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="8IC-gw-A3J"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="mvC-I4-nZ1"/>
