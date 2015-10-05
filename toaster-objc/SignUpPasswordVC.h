@@ -16,5 +16,6 @@
 @property (weak, nonatomic) IBOutlet UIView *spinner;
 @property NSString *defaultSubText;
 @property UIColor *defaultSubTextColor;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintY;
 
 @end

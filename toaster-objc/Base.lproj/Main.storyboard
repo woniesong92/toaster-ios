@@ -2848,6 +2848,7 @@ Cg
                         <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Gep-J6-alK" firstAttribute="trailing" secondItem="uhM-Dc-VSu" secondAttribute="trailing" id="0bS-63-gC9"/>
+                            <constraint firstAttribute="centerY" secondItem="uhM-Dc-VSu" secondAttribute="centerY" constant="90" id="2oh-K9-6dP"/>
                             <constraint firstAttribute="bottom" secondItem="3oj-T8-BIT" secondAttribute="bottom" id="53N-0q-e4a"/>
                             <constraint firstAttribute="trailing" secondItem="aSw-iQ-5Sx" secondAttribute="trailing" id="7sb-vP-go3"/>
                             <constraint firstItem="3oj-T8-BIT" firstAttribute="top" secondItem="aSw-iQ-5Sx" secondAttribute="bottom" constant="8" id="FqK-tz-8fV"/>
@@ -2857,7 +2858,6 @@ Cg
                             <constraint firstAttribute="bottom" secondItem="3oj-T8-BIT" secondAttribute="bottom" constant="8" id="Oc8-IM-wJI"/>
                             <constraint firstAttribute="centerX" secondItem="3oj-T8-BIT" secondAttribute="centerX" id="bHJ-Ys-hfp"/>
                             <constraint firstItem="aSw-iQ-5Sx" firstAttribute="leading" secondItem="Sn2-Ag-ZTQ" secondAttribute="leading" id="eOL-Za-r6G"/>
-                            <constraint firstItem="uhM-Dc-VSu" firstAttribute="top" secondItem="Sn2-Ag-ZTQ" secondAttribute="top" constant="195" id="fbi-V5-99v"/>
                             <constraint firstItem="v19-nv-Ikl" firstAttribute="leading" secondItem="Gep-J6-alK" secondAttribute="leading" id="gbW-Ko-DqN"/>
                             <constraint firstItem="v19-nv-Ikl" firstAttribute="trailing" secondItem="Gep-J6-alK" secondAttribute="trailing" id="ibr-7D-H7a"/>
                             <constraint firstItem="uhM-Dc-VSu" firstAttribute="leading" secondItem="Sn2-Ag-ZTQ" secondAttribute="leading" constant="16" id="mYp-L8-SSM"/>
@@ -2877,6 +2877,7 @@ Cg
                     <navigationItem key="navigationItem" id="iuz-Af-2Di"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="constraintY" destination="2oh-K9-6dP" id="M1R-9b-ns8"/>
                         <outlet property="emailField" destination="asO-rj-oiQ" id="Fvd-ot-xdG"/>
                         <outlet property="subTextField" destination="WER-qu-Rrz" id="Hcv-56-JdE"/>
                         <segue destination="cov-JX-pp0" kind="show" identifier="EmailToPasswordSegue" id="sl2-F1-itf"/>
@@ -2986,8 +2987,8 @@ Cg
                             <constraint firstItem="dEX-Yr-gWE" firstAttribute="top" secondItem="VOZ-aq-uXV" secondAttribute="bottom" constant="8" id="7my-EO-Jkh"/>
                             <constraint firstItem="4HI-ux-l9e" firstAttribute="top" secondItem="l23-8Z-A67" secondAttribute="bottom" constant="8" id="Bet-om-wYi"/>
                             <constraint firstItem="l23-8Z-A67" firstAttribute="leading" secondItem="wwQ-RW-8qq" secondAttribute="leading" id="DPF-jL-1pn"/>
-                            <constraint firstItem="NW1-76-WN5" firstAttribute="top" secondItem="wwQ-RW-8qq" secondAttribute="top" constant="195" id="FTD-ea-W4U"/>
                             <constraint firstItem="VOZ-aq-uXV" firstAttribute="top" secondItem="NW1-76-WN5" secondAttribute="bottom" constant="8" id="GsM-oU-uDS"/>
+                            <constraint firstAttribute="centerY" secondItem="NW1-76-WN5" secondAttribute="centerY" constant="90" id="KcC-iq-6N9"/>
                             <constraint firstItem="xh9-RQ-tDi" firstAttribute="bottom" secondItem="XRL-4g-PYA" secondAttribute="bottom" constant="5" id="S3q-M4-oHs"/>
                             <constraint firstItem="VOZ-aq-uXV" firstAttribute="leading" secondItem="dEX-Yr-gWE" secondAttribute="leading" id="Uam-Mp-gdH"/>
                             <constraint firstAttribute="centerX" secondItem="4HI-ux-l9e" secondAttribute="centerX" id="dNh-Ie-aVx"/>
@@ -3006,6 +3007,7 @@ Cg
                     <navigationItem key="navigationItem" id="I9J-cy-eyq"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="constraintY" destination="KcC-iq-6N9" id="4ut-zc-Kfz"/>
                         <outlet property="passwordField" destination="a2O-cX-L1b" id="fXf-2X-8Vx"/>
                         <outlet property="spinner" destination="XRL-4g-PYA" id="tjA-h7-b1H"/>
                         <outlet property="subTextField" destination="dEX-Yr-gWE" id="XOE-cd-g7z"/>
@@ -3443,9 +3445,9 @@ Cg
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="64r-tf-rEd"/>
-        <segue reference="Nsf-Ux-Xge"/>
+        <segue reference="Wr7-T2-V3n"/>
         <segue reference="BpZ-kK-lwm"/>
-        <segue reference="MlP-vH-AIs"/>
+        <segue reference="Cft-S0-ces"/>
         <segue reference="bum-UU-cDv"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.596983339" blue="0.01666374407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

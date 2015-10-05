@@ -12,6 +12,8 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *emailField;
 @property (weak, nonatomic) IBOutlet UITextView *subTextField;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintY;
+
 @property NSString *errorMsg;
 @property NSString *defaultSubText;
 @property UIColor *defaultSubTextColor;
