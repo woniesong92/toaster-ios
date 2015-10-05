@@ -59,6 +59,7 @@
 //    NSLog(@"manager: %@", manager);
     
     [manager POST:NEW_POST_API_URL parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"task: %@", task);
         NSLog(@"NewPostSuccess. resp: %@", responseObject);
         [[NSNotificationCenter defaultCenter] postNotificationName:ASK_TO_ADD_POST_ROW object:responseObject userInfo:nil];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {

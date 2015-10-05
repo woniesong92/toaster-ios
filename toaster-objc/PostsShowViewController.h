@@ -7,12 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "WebViewManager.h"
-#import "LoadingManager.h"
-#import "AFNetworking.h"
 #import "NetworkManager.h"
 
-@interface PostsShowViewController : UIViewController <UIWebViewDelegate, WKNavigationDelegate, WKUIDelegate, UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate> {
+@interface PostsShowViewController : UIViewController <UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate> {
 }
 
 @property (strong, nonatomic) UIImage *parentScreenImage;
@@ -34,7 +31,6 @@
 @property NSNumber *cellRowIdx;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *inputContainerBottomConstraint;
 @property (weak, nonatomic) IBOutlet UIView *commenInputContainer;
-
 @property (weak, nonatomic) IBOutlet UIView *postDividerTop;
 @property (weak, nonatomic) IBOutlet UIView *commentFieldDivider;
 

@@ -25,13 +25,29 @@
     label.textColor = [UIColor grayColor];
     self.loadingText = label;
     [self.view addSubview:label];
-    
-    NSLog(@"NOTIFICATION LOADED");
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self fetchNotifications:@100 skip:@0];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+}
+
+- (void)markAllNotificationsRead {
+    NetworkManager *manager = [NetworkManager sharedNetworkManager];
+    [manager POST:READ_NOTIFICATION_API_URL parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"Read notifications %@", responseObject);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        // TODO: show user this error and clear all the textfields
+        NSLog(@"Error: %@", error);
+    }];
 }
 
 
@@ -52,7 +68,7 @@
         for (NSMutableDictionary *noti in notifications) {
             NSString *postId = noti[@"postId"];
             NSString *commentId = noti[@"commentId"];
-            if (![commentId isEqual:[NSNull null]]) {
+            if (!(commentId == nil) && ![commentId isEqual:[NSNull null]]) {
                 NSMutableDictionary *comment = self.commentsDict[commentId];
                 [noti setValue:comment[@"body"] forKey: @"content"];
             } else {
@@ -67,6 +83,8 @@
         
         [self.loadingText removeFromSuperview];
         [self.tableView reloadData];
+        
+        [self markAllNotificationsRead];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         // TODO: show user this error and clear all the textfields
         NSLog(@"Error: %@", error);
@@ -101,6 +119,8 @@
     
     cell.postId = postId;
     cell.isRead = isRead;
+    cell.notiType = notiType;
+    
     [cell.notiContent setText:[NSString stringWithFormat:@"\"%@\"", content]];
     [cell.notiMsg setText:notiBody];
     [cell.createdAt setText:createdAt];
@@ -127,10 +147,7 @@
         NSString *createdAt = post[@"createdAt"];
         
         [post setValue:[Utils dateWithJSONString:createdAt] forKey:@"createdAt"];
-        
         postsShowController.postDetail = post;
-        
-//        postsShowController.cellRowIdx = [NSNumber numberWithInteger:indexPath.row];
     }
 }
 

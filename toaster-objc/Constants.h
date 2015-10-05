@@ -72,8 +72,10 @@
 
 #define UPVOTE_COMMENT_API_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/api/comments/upvote"]
 #define DOWNVOTE_COMMENT_API_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/api/comments/downvote"]
-
+#define READ_NOTIFICATION_API_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/api/notifications/readall"]
 #define SEND_EMAIL_API_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/api/users/sendemail"]
+
+
 
 
 #define UPVOTE_POST_UPDATE @"upvote_post_update"

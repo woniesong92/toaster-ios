@@ -25,7 +25,6 @@
 }
 
 - (instancetype)init {
-//    self = [super initWithBaseURL:url];
     self = [super init];
     
     if (self) {
@@ -35,8 +34,8 @@
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         NSString *token = [defaults objectForKey:@"token"];
         NSString *authorizationToken = [NSString stringWithFormat:@"Bearer %@", token];
+        self.requestSerializer = [AFJSONRequestSerializer serializer];
         [self.requestSerializer setValue:authorizationToken forHTTPHeaderField:@"Authorization"];
-        
         self.responseSerializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingMutableContainers];
     }
     

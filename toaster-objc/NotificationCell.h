@@ -15,8 +15,10 @@
 @property (weak, nonatomic) IBOutlet UITextView *notiMsg;
 @property (weak, nonatomic) IBOutlet UIImageView *isReadIcon;
 @property (weak, nonatomic) IBOutlet UILabel *createdAt;
-@property NSString *postId;
-@property BOOL isRead;
 @property (weak, nonatomic) IBOutlet UIView *cellDivider;
+
+@property NSString *postId;
+@property (strong, nonatomic) NSString *notiType; //upvote, downvote, comment
+@property BOOL isRead;
 
 @end

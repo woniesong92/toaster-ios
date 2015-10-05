@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "WebViewManager.h"
 #import "NetworkManager.h"
 
 @interface NewPostController : UIViewController {

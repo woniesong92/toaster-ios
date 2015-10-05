@@ -427,16 +427,16 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="16w-37-JT1" id="hUr-EM-90U">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="notifications" translatesAutoresizingMaskIntoConstraints="NO" id="sT9-ai-tBb">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sT9-ai-tBb">
                                             <rect key="frame" x="560" y="8" width="32" height="32"/>
                                         </imageView>
-                                        <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Notification Context" translatesAutoresizingMaskIntoConstraints="NO" id="gsh-tD-CK1">
+                                        <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" editable="NO" text="Notification Context" translatesAutoresizingMaskIntoConstraints="NO" id="gsh-tD-CK1">
                                             <rect key="frame" x="48" y="45" width="504" height="33"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
-                                        <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" text="Notification Message" translatesAutoresizingMaskIntoConstraints="NO" id="7tw-fI-Nwd">
+                                        <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" editable="NO" text="Notification Message" translatesAutoresizingMaskIntoConstraints="NO" id="7tw-fI-Nwd">
                                             <rect key="frame" x="48" y="8" width="500" height="33"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -477,7 +477,7 @@
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="3" id="FyC-nd-9un"/>
                                             </constraints>
                                         </view>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="small-circle" translatesAutoresizingMaskIntoConstraints="NO" id="MHs-6g-KW3">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="small-circle-selected" translatesAutoresizingMaskIntoConstraints="NO" id="MHs-6g-KW3">
                                             <rect key="frame" x="8" y="8" width="32" height="32"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="32" id="mJq-I7-0kz"/>
@@ -518,7 +518,7 @@
                                 <connections>
                                     <outlet property="cellDivider" destination="ZNb-cH-3jK" id="Fva-I8-E2b"/>
                                     <outlet property="createdAt" destination="N7p-Zo-1ZO" id="zEJ-oT-JI6"/>
-                                    <outlet property="isReadIcon" destination="sT9-ai-tBb" id="OMV-4T-lSV"/>
+                                    <outlet property="isReadIcon" destination="MHs-6g-KW3" id="DBE-U8-0W7"/>
                                     <outlet property="notiContent" destination="gsh-tD-CK1" id="1DR-Q8-COX"/>
                                     <outlet property="notiMsg" destination="7tw-fI-Nwd" id="ReQ-VK-FYV"/>
                                     <outlet property="notiTypeIcon" destination="sT9-ai-tBb" id="7Oq-nk-b2D"/>
@@ -2674,7 +2674,7 @@
         <image name="profile" width="32" height="32"/>
         <image name="profile-selected" width="32" height="32"/>
         <image name="share" width="32" height="32"/>
-        <image name="small-circle" width="32" height="32"/>
+        <image name="small-circle-selected" width="32" height="32"/>
         <image name="terms" width="32" height="32"/>
         <image name="upvote" width="32" height="32"/>
         <image name="upvote-selected" width="32" height="32"/>

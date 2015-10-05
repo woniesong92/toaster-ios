@@ -53,10 +53,6 @@
 }
 
 - (void)onAddPostRow:(NSNotification *)notification {
-    
-    NSLog(@"onAddPostRow: %@", notification.object);
-    NSLog(@"onAddPostRowself: %@", self);
-    
     NSMutableDictionary *addedPost = (NSMutableDictionary *)notification.object;
     
     NSString *createdAt = (NSString *)addedPost[@"createdAt"];
