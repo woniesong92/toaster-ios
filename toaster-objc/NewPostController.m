@@ -54,8 +54,9 @@
     
     NSString *postBody = self.postInputField.text;
     NSDictionary *params = @{@"postBody": postBody};
-    
     NetworkManager *manager = [NetworkManager sharedNetworkManager];
+    
+//    NSLog(@"manager: %@", manager);
     
     [manager POST:NEW_POST_API_URL parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"NewPostSuccess. resp: %@", responseObject);
@@ -63,6 +64,9 @@
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         // TODO: show user this error and clear all the textfields
         NSLog(@"err: %@", error);
+        NSLog(@"task: %@", task);
+        NSString* ErrorResponse = [[NSString alloc] initWithData:(NSData *)error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] encoding:NSUTF8StringEncoding];
+        NSLog(@"%@", ErrorResponse);
     }];
     
     [self dismissViewControllerAnimated:YES completion:^{

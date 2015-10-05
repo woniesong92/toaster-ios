@@ -21,6 +21,10 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSNumber *isVerified = [defaults objectForKey:@"isVerified"];
+    NSLog(@"isVerified: %@", isVerified);
+    
     [super viewWillAppear:animated];
 }
 
@@ -30,27 +34,16 @@
 }
 
 - (IBAction)sendEmailBtnPressed:(id)sender {
-    NSString *email = self.email;
-    NSDictionary *params = @{@"email": email};
-    NetworkManager *manager = [NetworkManager sharedNetworkManager];
+    NSString *userId = [SessionManager currentUser];
+    NSDictionary *params = @{@"userId": userId};
     
-    [manager POST:SEND_EMAIL_API_URL parameters:params constructingBodyWithBlock:nil success:^(NSURLSessionDataTask *task, id resp) {
-        
-        NSLog(@"email just sent to %@!", email);
+    
+    NetworkManager *manager = [NetworkManager sharedNetworkManager];
+    [manager POST:SEND_EMAIL_API_URL parameters:params success:^(NSURLSessionDataTask *task, id resp) {
+        NSLog(@"email just sent to %@!", userId);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
-    
-    
-//    [[NetworkManager sharedNetworkManager].manager POST:SEND_EMAIL_API_URL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        NSLog(@"email just sent to %@!", self.email);
-//        
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        // TODO: show user this error and clear all the textfields
-//        NSLog(@"failed to send an email");
-//    }];
-    
-
 }
 
 

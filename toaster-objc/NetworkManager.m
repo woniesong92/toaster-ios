@@ -18,14 +18,15 @@
     static dispatch_once_t onceToken;
     
     dispatch_once(&onceToken, ^{
-        _sharedNetworkManager = [[self alloc] initWithBaseURL:[NSURL URLWithString:BASE_URL]];
+        _sharedNetworkManager = [[self alloc] init];
     });
     
     return _sharedNetworkManager;
 }
 
-- (instancetype)initWithBaseURL:(NSURL *)url {
-    self = [super initWithBaseURL:url];
+- (instancetype)init {
+//    self = [super initWithBaseURL:url];
+    self = [super init];
     
     if (self) {
         self.requestSerializer = [AFJSONRequestSerializer serializer];
@@ -33,13 +34,11 @@
         
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         NSString *token = [defaults objectForKey:@"token"];
-//        NSString *token = defaults[@"token"];
         NSString *authorizationToken = [NSString stringWithFormat:@"Bearer %@", token];
         [self.requestSerializer setValue:authorizationToken forHTTPHeaderField:@"Authorization"];
+        
         self.responseSerializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingMutableContainers];
     }
-    
-    NSLog(@"init with base url");
     
     return self;
 }
@@ -47,7 +46,7 @@
 - (void)updateSerializerWithNewToken: (NSString *)token {
     NSString *authorizationToken = [NSString stringWithFormat:@"Bearer %@", token];
     [self.requestSerializer setValue:authorizationToken forHTTPHeaderField:@"Authorization"];
-    self.responseSerializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingMutableContainers];
+    
 }
 
 @end

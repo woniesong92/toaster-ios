@@ -16,15 +16,8 @@
 
 + (NSString *)currentUser {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults synchronize];
-    
-    // check if user is already loggedIn
-    
     NSString *userId = [defaults objectForKey:@"userId"];
-    
-//    UIApplicationDidFinishLaunchingNotification
-    
-    if(userId == nil || [userId isEqualToString:@""]) {
+    if (userId == nil || [userId isEqualToString:@""]) {
         return @"";
     } else {
         return userId;
@@ -33,15 +26,11 @@
 
 + (BOOL)isVerified {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults synchronize];
-
-    BOOL isVerified = [(NSNumber *)[defaults objectForKey:@"isVerified"] boolValue];
-    return isVerified;
+    return [(NSNumber *)[defaults objectForKey:@"isVerified"] boolValue];
 }
 
 + (void)setVerified {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
     [defaults setObject:[NSNumber numberWithBool:YES] forKey:@"isVerified"];
     [defaults synchronize];
 }
@@ -55,7 +44,6 @@
 }
 
 + (void) updateSession:(NSMutableDictionary *)sessionObj {
-    
     NSString *token = sessionObj[@"token"];
     NSString *userId = sessionObj[@"id"];
     NSString *tokenExpires = sessionObj[@"tokenExpires"];

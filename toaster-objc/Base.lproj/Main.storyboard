@@ -2680,10 +2680,10 @@
         <image name="upvote-selected" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="64r-tf-rEd"/>
-        <segue reference="Wr7-T2-V3n"/>
-        <segue reference="BpZ-kK-lwm"/>
+        <segue reference="ClS-xL-frG"/>
         <segue reference="MlP-vH-AIs"/>
+        <segue reference="Wr7-T2-V3n"/>
+        <segue reference="kLf-fs-wlQ"/>
         <segue reference="bum-UU-cDv"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.596983339" blue="0.01666374407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

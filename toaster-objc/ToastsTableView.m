@@ -81,7 +81,6 @@
     NSString *createdAt = [Utils stringFromDate:[postObj objectForKey:@"createdAt"]];
     NSNumber *numComments = [self.numCommentsForPosts objectForKey:postId];
     
-    
     if (!numComments) {
         numComments = [NSNumber numberWithInt:0];
     }

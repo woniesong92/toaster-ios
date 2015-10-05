@@ -39,26 +39,6 @@
     
     [self initParse:application launchOptions:launchOptions];
     
-//    
-//    if (
-//    
-//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//    NSString *token = [defaults objectForKey:@"token"];
-//    NSString *authorizationToken = [NSString stringWithFormat:@"Bearer %@", token];
-//    
-//    if (token == nil) {
-//        NSLog(@"ERROR user token doesnt exist!");
-//    }
-//    
-//    self.userId = [defaults objectForKey:@"userId"];
-//    
-//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-//    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-//    [manager.requestSerializer setValue:authorizationToken forHTTPHeaderField:@"Authorization"];
-//    manager.responseSerializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingMutableContainers];
-//
-//    self.networkManager = manager;
-//    
     return YES;
 }
 
@@ -137,16 +117,5 @@
     }
 }
 
-//
-//- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
-//    NSString *verfyingString = @"com.honeyjam.toaster://verified";
-//    
-//    
-//    if ([[url absoluteString] isEqualToString:verfyingString]) {
-//        [[NSNotificationCenter defaultCenter] postNotificationName:@"emailVerified" object:nil];
-//    }
-//    
-//    return YES;
-//}
 
 @end
