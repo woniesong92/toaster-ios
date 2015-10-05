@@ -44,6 +44,7 @@
 #define HOT_POSTS_TABLE_TAG 1
 #define POSTS_I_WROTE_TABLE_TAG 0
 #define POSTS_I_COMMENTED_ON_TABLE_TAG 1
+#define LOADING_WHEEL_TAG 99
 
 #define LOGIN_API_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/users/login"]
 #define SIGNUP_API_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/users/register"]
@@ -79,6 +80,7 @@
 #define DOWNVOTE_POST_UPDATE @"downvote_post_update"
 
 #define ERROR_COLOR [UIColor redColor]
+#define SUCCESS_COLOR [UIColor greenColor]
 
 #define PRIMARY_COLOR [UIColor colorWithRed:255.0/255.0 green:177.0/255.0 blue:30.0/255.0 alpha:1.0]
 #define DARK_COLOR [UIColor colorWithRed:255.0/255.0 green:138.0/255.0 blue:0.0 alpha:1.0]

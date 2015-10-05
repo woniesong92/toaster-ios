@@ -10,6 +10,7 @@
 #import "Constants.h"
 #import "SessionManager.h"
 #import "NetworkManager.h"
+#import "Utils.h"
 
 @interface SignInViewController ()
 
@@ -52,6 +53,9 @@
     NSDictionary *params = @{@"email": email,
                              @"password": password};
     
+    
+    [Utils showLoadingWheel:self.view frame:self.spinner.frame isWhite:YES];
+    
     [manager POST:LOGIN_API_URL parameters:params success:^(NSURLSessionDataTask *task, id resp) {
         
         [SessionManager updateSession: (NSMutableDictionary *)resp];
@@ -70,11 +74,15 @@
                 [self performSegueWithIdentifier:@"LoginToVerificationSegue" sender:self];
             }
             
+            [Utils hideLoadingWheel:self.view];
+            
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
             [self clearInputFields];
             NSLog(@"Verification Error: %@", error);
             NSString* errResp = [[NSString alloc] initWithData:(NSData *)error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] encoding:NSUTF8StringEncoding];
             NSLog(@"respErr: %@", errResp);
+            
+            [Utils hideLoadingWheel:self.view];
             
         }];
 
@@ -92,11 +100,13 @@
             errReason = errObj[@"reason"];
         }
         
-        if ([errType isEqualToString:@"not-found"]) {
+        if ([errType isEqual:@"not-found"]) {
             [self.errorField setText:@"The email address is not registered."];
         } else {
             [self.errorField setText:errReason];
         }
+        
+        [Utils hideLoadingWheel:self.view];
 
     }];
 

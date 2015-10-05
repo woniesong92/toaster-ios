@@ -31,13 +31,22 @@
     [self.tabBarController.tabBar setHidden:YES];
     [self.emailField setSelected:YES];
     [SessionManager clearSession];
+    
+    self.defaultSubText = self.subTextField.text;
+    self.defaultSubTextColor = self.subTextField.textColor;
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [self.subTextField setText:self.defaultSubText];
+    [self.subTextField setTextColor:self.defaultSubTextColor];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     if (self.errorMsg) {
         [self clearField];
-        [self.subTextField setText:@"Invalid email format"];
+        [self.subTextField setText:self.errorMsg];
         [self.subTextField setTextColor:ERROR_COLOR];
         self.errorMsg = nil;
     }

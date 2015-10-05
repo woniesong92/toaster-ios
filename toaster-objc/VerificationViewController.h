@@ -11,5 +11,11 @@
 @interface VerificationViewController : UIViewController
 
 @property NSString *email;
+@property (weak, nonatomic) IBOutlet UIView *topSpinner;
+@property (weak, nonatomic) IBOutlet UIView *bottomSpinner;
+@property (weak, nonatomic) IBOutlet UITextView *subTextView;
+@property NSString *defaultSubText;
+@property UIColor *defaultSubTextColor;
+
 
 @end

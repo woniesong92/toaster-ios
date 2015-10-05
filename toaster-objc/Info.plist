@@ -51,7 +51,7 @@
 	</array>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Oduda</string>
+		<string>Maxwell_Bold.ttf</string>
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>

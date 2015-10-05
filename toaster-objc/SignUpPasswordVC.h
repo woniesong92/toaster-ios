@@ -13,5 +13,8 @@
 @property NSString *email;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
 @property (weak, nonatomic) IBOutlet UITextView *subTextField;
+@property (weak, nonatomic) IBOutlet UIView *spinner;
+@property NSString *defaultSubText;
+@property UIColor *defaultSubTextColor;
 
 @end

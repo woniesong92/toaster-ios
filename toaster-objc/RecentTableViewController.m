@@ -154,19 +154,6 @@
     }];
 }
 
-//- (void)addPostRow:(NSMutableDictionary *)newPost {
-//    
-//    NSString *createdAt = (NSString *)newPost[@"createdAt"];
-//    [newPost setValue:[Utils dateWithJSONString:createdAt] forKey:@"createdAt"];
-//    
-//    [(NSMutableArray *)self.postsTable.posts insertObject:newPost atIndex:0];
-//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-//    
-//    [self.postsTable beginUpdates];
-//    [self.postsTable insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
-//    [self.postsTable endUpdates];
-//}
-
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     

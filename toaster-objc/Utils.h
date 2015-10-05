@@ -20,6 +20,9 @@
 + (NSMutableArray *)sortPostsByHotness: (NSMutableArray *)posts;
 + (void) setGradient: (UIView *)view fromColor:(UIColor *)fromColor toColor:(UIColor *)toColor;
 
++ (void)showLoadingWheel: (UIView *)view frame:(CGRect)frame isWhite:(BOOL)isWhite;
++ (void)hideLoadingWheel: (UIView *)view;
+
 #define UIColorFromRGB(rgbValue) \
 [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
 green:((float)((rgbValue & 0x00FF00) >>  8))/255.0 \

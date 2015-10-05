@@ -10,6 +10,7 @@
 #import "Underscore.h"
 #import "NSDate+DateTools.h"
 #import <UIKit/UIKit.h>
+#import "Constants.h"
 
 #define _ Underscore
 
@@ -124,6 +125,24 @@
     UIGraphicsEndImageContext();
     
     return image;
+}
+
++ (void)showLoadingWheel: (UIView *)view frame:(CGRect)frame isWhite:(BOOL)isWhite {
+    UIActivityIndicatorView *spinner;
+    if (isWhite) {
+        spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    } else {
+        spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    }
+    
+    spinner.frame = frame;
+    spinner.tag = LOADING_WHEEL_TAG;
+    [view addSubview:spinner];
+    [spinner startAnimating];
+}
+
++ (void)hideLoadingWheel: (UIView *)view {
+    [[view viewWithTag:LOADING_WHEEL_TAG] removeFromSuperview];
 }
 
 @end

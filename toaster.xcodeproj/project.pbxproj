@@ -71,6 +71,7 @@
 		70C95FB81BC0E6B3006F8442 /* LoadingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C95FB71BC0E6B3006F8442 /* LoadingVC.m */; };
 		70C95FBB1BC24205006F8442 /* TermsOfServiceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C95FBA1BC24205006F8442 /* TermsOfServiceVC.m */; };
 		70C95FBE1BC245C8006F8442 /* AboutVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C95FBD1BC245C8006F8442 /* AboutVC.m */; };
+		70C95FC01BC2D11F006F8442 /* Maxwell_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 70C95FBF1BC2D039006F8442 /* Maxwell_Bold.ttf */; };
 		70D005631B98A882006E746F /* PostsShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D005621B98A882006E746F /* PostsShowViewController.m */; };
 		70E3415F1B9C9DB200046067 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E3415E1B9C9DB200046067 /* SettingsViewController.m */; };
 		70E341651B9DE2F400046067 /* CustomTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E341641B9DE2F400046067 /* CustomTabBarViewController.m */; };
@@ -143,7 +144,6 @@
 		70223C6B1BB8BDBB000FE6CB /* SessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionManager.m; sourceTree = "<group>"; };
 		70223C6D1BB8C5E7000FE6CB /* UITextFieldWithPadding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITextFieldWithPadding.h; sourceTree = "<group>"; };
 		70223C6E1BB8C5E7000FE6CB /* UITextFieldWithPadding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITextFieldWithPadding.m; sourceTree = "<group>"; };
-		70223C711BB8CD5F000FE6CB /* Oduda.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Oduda.ttf; sourceTree = "<group>"; };
 		70223C721BB97335000FE6CB /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
 		70223C731BB97335000FE6CB /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
 		7046D1D61BAE38EF00A5465F /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -209,6 +209,7 @@
 		70C95FBA1BC24205006F8442 /* TermsOfServiceVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TermsOfServiceVC.m; sourceTree = "<group>"; };
 		70C95FBC1BC245C8006F8442 /* AboutVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutVC.h; sourceTree = "<group>"; };
 		70C95FBD1BC245C8006F8442 /* AboutVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutVC.m; sourceTree = "<group>"; };
+		70C95FBF1BC2D039006F8442 /* Maxwell_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Maxwell_Bold.ttf; sourceTree = "<group>"; };
 		70D005611B98A882006E746F /* PostsShowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostsShowViewController.h; sourceTree = "<group>"; };
 		70D005621B98A882006E746F /* PostsShowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostsShowViewController.m; sourceTree = "<group>"; };
 		70E3415D1B9C9DB200046067 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
@@ -331,7 +332,7 @@
 		70223C701BB8CD3D000FE6CB /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				70223C711BB8CD5F000FE6CB /* Oduda.ttf */,
+				70C95FBF1BC2D039006F8442 /* Maxwell_Bold.ttf */,
 			);
 			name = Fonts;
 			sourceTree = "<group>";
@@ -569,6 +570,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70C95FC01BC2D11F006F8442 /* Maxwell_Bold.ttf in Resources */,
 				70951FA01B989F15006B1228 /* Main.storyboard in Resources */,
 				70951FA51B989F15006B1228 /* LaunchScreen.xib in Resources */,
 				70951FA21B989F15006B1228 /* Images.xcassets in Resources */,

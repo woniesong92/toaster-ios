@@ -12,6 +12,7 @@
 #import "NetworkManager.h"
 #import "VerificationViewController.h"
 #import "Constants.h"
+#import "Utils.h"
 
 @implementation SignUpPasswordVC
 
@@ -20,10 +21,19 @@
     [self.navigationController.navigationBar setHidden:YES];
     [self.tabBarController.tabBar setHidden:YES];
     [super viewWillAppear:animated];
+    
+    self.defaultSubText = self.subTextField.text;
+    self.defaultSubTextColor = self.subTextField.textColor;
 }
 
 - (void)clearField {
     [self.passwordField setText:@""];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [self.subTextField setText:self.defaultSubText];
+    [self.subTextField setTextColor:self.defaultSubTextColor];    
 }
 
 - (IBAction)connectClicked:(id)sender {
@@ -46,11 +56,15 @@
     NSDictionary *params = @{@"email": email,
                              @"password": password};
     
+    [Utils showLoadingWheel:self.view frame:self.spinner.frame isWhite:YES];
+    
     [manager POST:SIGNUP_API_URL parameters:params success:^(NSURLSessionDataTask *task, id resp) {
         
         [SessionManager updateSession: (NSMutableDictionary *)resp];
         
         [self performSegueWithIdentifier:@"SignUpToVerificationSegue" sender:self];
+        
+        [Utils hideLoadingWheel:self.view];
         
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -69,6 +83,8 @@
             [self.subTextField setTextColor:ERROR_COLOR];
             [self clearField];
         }
+        
+        [Utils hideLoadingWheel:self.view];
     }];
 }
 

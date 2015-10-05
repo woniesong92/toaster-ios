@@ -67,12 +67,10 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     NSString *userId = [SessionManager currentUser];
     NSString *cellId = @"Cell";
     CustomTableViewCell *cell = (CustomTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
     NSDictionary *postObj = [self.posts objectAtIndex:indexPath.row];
-    
     NSString *postId = postObj[@"_id"];
     NSString *createdAt = [Utils stringFromDate:[postObj objectForKey:@"createdAt"]];
     NSNumber *numComments = [self.numCommentsForPosts objectForKey:postId];
