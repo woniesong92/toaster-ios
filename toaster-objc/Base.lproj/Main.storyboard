@@ -3229,10 +3229,10 @@ Cg
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jF8-eg-cgd" userLabel="emailcontainer">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jF8-eg-cgd" userLabel="emailcontainer">
                                 <rect key="frame" x="16" y="263" width="568" height="40"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Your company email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zfo-cn-1bZ">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Your company email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zfo-cn-1bZ">
                                         <rect key="frame" x="8" y="0.0" width="552" height="40"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
@@ -3329,7 +3329,7 @@ Cg
                                     </mask>
                                 </variation>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kbk-iE-fCS">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kbk-iE-fCS">
                                 <rect key="frame" x="16" y="212" width="568" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="ofg-JI-nm3"/>
@@ -3345,7 +3345,7 @@ Cg
                                     <constraint firstAttribute="height" constant="30" id="rHm-o9-7sg"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="yolk" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cB1-AO-wju">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="yolk" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cB1-AO-wju">
                                 <rect key="frame" x="0.0" y="104" width="600" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="a8k-VZ-Gqs"/>
@@ -3367,7 +3367,6 @@ Cg
                             <constraint firstItem="jF8-eg-cgd" firstAttribute="top" secondItem="cB1-AO-wju" secondAttribute="bottom" constant="59" id="6VO-hw-wMb"/>
                             <constraint firstItem="LBv-7P-rO8" firstAttribute="top" secondItem="jF8-eg-cgd" secondAttribute="bottom" id="73X-WS-NXW"/>
                             <constraint firstItem="IL9-s3-Udm" firstAttribute="leading" secondItem="ODV-mg-xiF" secondAttribute="leading" constant="534" id="7LA-7s-wd6"/>
-                            <constraint firstItem="cB1-AO-wju" firstAttribute="top" secondItem="3KX-Zs-Jc8" secondAttribute="bottom" constant="84" id="ATh-hv-OBH"/>
                             <constraint firstItem="H4o-Ls-sAq" firstAttribute="leading" secondItem="LBv-7P-rO8" secondAttribute="leading" id="F3s-Mk-Y9q"/>
                             <constraint firstItem="V0q-3V-cWI" firstAttribute="leading" secondItem="ODV-mg-xiF" secondAttribute="leadingMargin" id="Fy7-Pl-SZS"/>
                             <constraint firstItem="IL9-s3-Udm" firstAttribute="top" secondItem="H4o-Ls-sAq" secondAttribute="bottom" constant="10" id="GvB-Mj-WH6"/>
@@ -3447,7 +3446,7 @@ Cg
         <segue reference="64r-tf-rEd"/>
         <segue reference="Wr7-T2-V3n"/>
         <segue reference="BpZ-kK-lwm"/>
-        <segue reference="Cft-S0-ces"/>
+        <segue reference="MlP-vH-AIs"/>
         <segue reference="bum-UU-cDv"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.596983339" blue="0.01666374407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
