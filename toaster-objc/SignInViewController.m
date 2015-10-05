@@ -80,57 +80,7 @@
         [self clearInputFields];
         NSLog(@"Error: %@", error);
     }];
-    
-    
-    
-    
-    
-    
-//    // Make a request to backend server to register id
-//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-//    
-//    NSDictionary *params = @{@"email": email,
-//                             @"password": password};
-//    [manager POST:LOGIN_API_URL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        // need to close its parent's presentingViewController
-//        [SessionManager updateSession:responseObject];
-//        
-//        // check verification status
-//        NSDictionary *params2 = @{@"userId": responseObject[@"id"]};
-//        
-//        [manager POST:VERIFICATION_API_URL parameters:params2 success:^(AFHTTPRequestOperation *operation, id isVerifiedObj) {
-//        
-//            BOOL isVerified = [(NSNumber *)isVerifiedObj[@"isVerified"] boolValue];
-//            
-//            if (isVerified) {
-//                // Pop the SignUpViewController
-//                
-//                [self performSegueWithIdentifier:@"LoginToMainSegue" sender:self];
-//                
-////                
-////                NSArray *navViewControllers = [(UITabBarController *)self.presentingViewController viewControllers];
-////                [(UINavigationController *)navViewControllers[0] popToRootViewControllerAnimated:NO];
-////                
-////                // And dismiss the login modal
-////                [self dismissViewControllerAnimated:YES completion:nil];
-//            } else {
-//                NSLog(@"LOGIN: user not verified. Go to verification.");
-//                [self performSegueWithIdentifier:@"LoginToVerificationSegue" sender:self];
-//            }
-//            
-//        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//            
-//            [self clearInputFields];
-//            NSLog(@"Error2: %@", error);
-//        }];
-//        
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        
-//        [self clearInputFields];
-//        
-//        // TODO: show user this error and clear all the textfields
-//        NSLog(@"Error: %@", error);
-//    }];
+
 }
 
 
