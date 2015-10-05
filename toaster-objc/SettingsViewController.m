@@ -8,7 +8,6 @@
 
 #import "SettingsViewController.h"
 #import "Constants.h"
-#import "SignUpViewController.h"
 #import "SessionManager.h"
 
 @interface SettingsViewController ()

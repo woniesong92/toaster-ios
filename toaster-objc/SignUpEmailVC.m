@@ -25,11 +25,12 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     
     [self.navigationController.navigationBar setHidden:YES];
     [self.tabBarController.tabBar setHidden:YES];
     [self.emailField setSelected:YES];
-//    [SessionManager clearSession];
+    [SessionManager clearSession];
 }
 
 - (IBAction)continueClicked:(id)sender {

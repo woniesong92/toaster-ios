@@ -17,16 +17,6 @@
 
 @implementation AppDelegate
 
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    
-    NSLog(@"url: %@, souce: %@, annot: %@", url, sourceApplication, annotation);
-    NSString *urlStr = [url absoluteString];
-    if ([urlStr containsString:@"yolk://verified"]) {
-        [self onVerified];
-    }
-    return YES;
-}
-
 - (void)onVerified {
     [SessionManager setVerified];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"emailVerified" object:nil];
@@ -65,16 +55,22 @@
     [currentInstallation setDeviceTokenFromData:deviceToken];
     currentInstallation.channels = @[ @"Toaster" ];
     self.pushInstallationId = currentInstallation.objectId;
-    
-    NSLog(@"parse setting done!");
-    
+
     [currentInstallation saveInBackground];
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    
+    NSLog(@"url: %@, souce: %@, annot: %@", url, sourceApplication, annotation);
+    NSString *urlStr = [url absoluteString];
+    if ([urlStr containsString:@"yolk://verified"]) {
+        [self onVerified];
+    }
+    return YES;
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"pushNotification" object:nil userInfo:userInfo];
-    
-    NSLog(@"got a push notification");
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

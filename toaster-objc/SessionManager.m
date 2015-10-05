@@ -33,6 +33,8 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:[NSNumber numberWithBool:YES] forKey:@"isVerified"];
     [defaults synchronize];
+    
+    NSLog(@"setVerified");
 }
 
 + (void) clearSession {
@@ -40,6 +42,7 @@
     [defaults removeObjectForKey:@"token"];
     [defaults removeObjectForKey:@"userId"];
     [defaults removeObjectForKey:@"isVerified"];
+    NSLog(@"clear Session");
     [defaults synchronize];
 }
 

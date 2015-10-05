@@ -69,9 +69,10 @@
 		70C95FB21BC0C31C006F8442 /* SignUpEmailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C95FB11BC0C31C006F8442 /* SignUpEmailVC.m */; };
 		70C95FB51BC0C329006F8442 /* SignUpPasswordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C95FB41BC0C329006F8442 /* SignUpPasswordVC.m */; };
 		70C95FB81BC0E6B3006F8442 /* LoadingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C95FB71BC0E6B3006F8442 /* LoadingVC.m */; };
+		70C95FBB1BC24205006F8442 /* TermsOfServiceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C95FBA1BC24205006F8442 /* TermsOfServiceVC.m */; };
+		70C95FBE1BC245C8006F8442 /* AboutVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 70C95FBD1BC245C8006F8442 /* AboutVC.m */; };
 		70D005631B98A882006E746F /* PostsShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D005621B98A882006E746F /* PostsShowViewController.m */; };
 		70E3415F1B9C9DB200046067 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E3415E1B9C9DB200046067 /* SettingsViewController.m */; };
-		70E341621B9CA6C200046067 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E341611B9CA6C200046067 /* SignUpViewController.m */; };
 		70E341651B9DE2F400046067 /* CustomTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E341641B9DE2F400046067 /* CustomTabBarViewController.m */; };
 		70EC5ABE1BAE3F9C0019AA58 /* RecentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70EC5ABD1BAE3F9C0019AA58 /* RecentTableViewController.m */; };
 		70EC5AC11BAE5F7E0019AA58 /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70EC5AC01BAE5F7E0019AA58 /* SignInViewController.m */; };
@@ -204,12 +205,14 @@
 		70C95FB41BC0C329006F8442 /* SignUpPasswordVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpPasswordVC.m; sourceTree = "<group>"; };
 		70C95FB61BC0E6B3006F8442 /* LoadingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingVC.h; sourceTree = "<group>"; };
 		70C95FB71BC0E6B3006F8442 /* LoadingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingVC.m; sourceTree = "<group>"; };
+		70C95FB91BC24205006F8442 /* TermsOfServiceVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TermsOfServiceVC.h; sourceTree = "<group>"; };
+		70C95FBA1BC24205006F8442 /* TermsOfServiceVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TermsOfServiceVC.m; sourceTree = "<group>"; };
+		70C95FBC1BC245C8006F8442 /* AboutVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutVC.h; sourceTree = "<group>"; };
+		70C95FBD1BC245C8006F8442 /* AboutVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutVC.m; sourceTree = "<group>"; };
 		70D005611B98A882006E746F /* PostsShowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostsShowViewController.h; sourceTree = "<group>"; };
 		70D005621B98A882006E746F /* PostsShowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostsShowViewController.m; sourceTree = "<group>"; };
 		70E3415D1B9C9DB200046067 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		70E3415E1B9C9DB200046067 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
-		70E341601B9CA6C200046067 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
-		70E341611B9CA6C200046067 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		70E341631B9DE2F400046067 /* CustomTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTabBarViewController.h; sourceTree = "<group>"; };
 		70E341641B9DE2F400046067 /* CustomTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTabBarViewController.m; sourceTree = "<group>"; };
 		70EC5ABB1BAE3D800019AA58 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -413,8 +416,6 @@
 				70E341641B9DE2F400046067 /* CustomTabBarViewController.m */,
 				70223C6D1BB8C5E7000FE6CB /* UITextFieldWithPadding.h */,
 				70223C6E1BB8C5E7000FE6CB /* UITextFieldWithPadding.m */,
-				70E341601B9CA6C200046067 /* SignUpViewController.h */,
-				70E341611B9CA6C200046067 /* SignUpViewController.m */,
 				70C95FB01BC0C31C006F8442 /* SignUpEmailVC.h */,
 				70C95FB11BC0C31C006F8442 /* SignUpEmailVC.m */,
 				70C95FB31BC0C329006F8442 /* SignUpPasswordVC.h */,
@@ -445,6 +446,10 @@
 				70A4F04A1BB82F2D00E66A7E /* ProfilePostsTableView.m */,
 				70E3415D1B9C9DB200046067 /* SettingsViewController.h */,
 				70E3415E1B9C9DB200046067 /* SettingsViewController.m */,
+				70C95FB91BC24205006F8442 /* TermsOfServiceVC.h */,
+				70C95FBA1BC24205006F8442 /* TermsOfServiceVC.m */,
+				70C95FBC1BC245C8006F8442 /* AboutVC.h */,
+				70C95FBD1BC245C8006F8442 /* AboutVC.m */,
 				70EC5ABB1BAE3D800019AA58 /* PrefixHeader.pch */,
 				7002724C1B9BD23200C292A5 /* LoadingManager.h */,
 				7002724D1B9BD23200C292A5 /* LoadingManager.m */,
@@ -588,6 +593,7 @@
 				7017D7121BAF8E3D003EB498 /* Underscore.m in Sources */,
 				70EC5ABE1BAE3F9C0019AA58 /* RecentTableViewController.m in Sources */,
 				7046D2001BAE38EF00A5465F /* AFSecurityPolicy.m in Sources */,
+				70C95FBB1BC24205006F8442 /* TermsOfServiceVC.m in Sources */,
 				7046D1FD1BAE38EF00A5465F /* AFHTTPRequestOperationManager.m in Sources */,
 				70A4F0421BB750C200E66A7E /* NotificationsTableViewController.m in Sources */,
 				7046D1FC1BAE38EF00A5465F /* AFHTTPRequestOperation.m in Sources */,
@@ -625,11 +631,11 @@
 				70E341651B9DE2F400046067 /* CustomTabBarViewController.m in Sources */,
 				7017D6EF1BAF03F2003EB498 /* CommentTableViewCell.m in Sources */,
 				70951F941B989F15006B1228 /* main.m in Sources */,
-				70E341621B9CA6C200046067 /* SignUpViewController.m in Sources */,
 				70A4F03F1BB739D500E66A7E /* ToastsTableView.m in Sources */,
 				7046D1FF1BAE38EF00A5465F /* AFNetworkReachabilityManager.m in Sources */,
 				70C95FB81BC0E6B3006F8442 /* LoadingVC.m in Sources */,
 				7017D70F1BAF8E3D003EB498 /* USStringWrapper.m in Sources */,
+				70C95FBE1BC245C8006F8442 /* AboutVC.m in Sources */,
 				7017D70E1BAF8E3D003EB498 /* Underscore+Strings.m in Sources */,
 				70A4F04B1BB82F2D00E66A7E /* ProfilePostsTableView.m in Sources */,
 				70C95FB21BC0C31C006F8442 /* SignUpEmailVC.m in Sources */,

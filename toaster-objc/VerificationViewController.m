@@ -20,14 +20,6 @@
                                                object:nil];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSNumber *isVerified = [defaults objectForKey:@"isVerified"];
-    NSLog(@"isVerified: %@", isVerified);
-    
-    [super viewWillAppear:animated];
-}
-
 - (void)shouldRedirect:(NSNotification *)notification {
     NSLog(@"shouldRedirect: user clicked the link! Let's redirect");
     [self performSegueWithIdentifier:@"VerificationToMainSegue" sender:nil];

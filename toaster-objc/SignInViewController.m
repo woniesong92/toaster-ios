@@ -65,6 +65,7 @@
             
             BOOL isVerified = [(NSNumber *)isVerifiedObj[@"isVerified"] boolValue];
             if (isVerified) {
+                [SessionManager setVerified];
                 [self performSegueWithIdentifier:@"LoginToMainSegue" sender:self];
             } else {
                 NSLog(@"LOGIN: user not verified. Go to verification.");

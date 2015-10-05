@@ -9,7 +9,6 @@
 #import "CustomTabBarViewController.h"
 #import "AppDelegate.h"
 #import "Constants.h"
-#import "SignUpViewController.h"
 #import "SessionManager.h"
 
 @interface CustomTabBarViewController ()

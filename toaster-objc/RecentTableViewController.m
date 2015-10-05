@@ -10,7 +10,6 @@
 #import "Constants.h"
 #import "PostsShowViewController.h"
 #import "CustomTableViewCell.h"
-#import "SignUpViewController.h"
 #import "Utils.h"
 #import "Underscore.h"
 #import "AppDelegate.h"
@@ -170,6 +169,8 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
     if (![[SessionManager currentUser] isEqualToString:@""] && self.postsTable.posts.count == 0) {
         NSLog(@"fetching both recent and hot posts");
