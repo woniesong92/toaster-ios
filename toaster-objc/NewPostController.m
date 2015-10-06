@@ -19,7 +19,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self.postInputField setDelegate:self];
     self.automaticallyAdjustsScrollViewInsets = NO;
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+//    NSUInteger length = range.length;
+    
+    NSUInteger textLength = [[textView text] length] + [text length] - range.length;
+    
+    if (textLength <= 140) {
+        [self.numCharsField setText:[NSString stringWithFormat:@"%lu", (unsigned long)textLength]];
+    }
+    
+    return (textLength <= 140);
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -33,6 +47,20 @@
     [self.view addSubview:textViewPlaceholder];
     
     [super viewWillAppear:animated];
+    
+    [self observeKeyboard];
+}
+
+- (void) viewWillDisappear:(BOOL)animated {
+    [self.view endEditing:YES];
+    
+    [super viewWillDisappear:animated];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void) viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
 }
 
 - (void)textViewDidChange:(UITextView *)textView {
@@ -69,14 +97,32 @@
     }];
 }
 
-- (void) viewWillDisappear:(BOOL)animated {
-    [self.view endEditing:YES];
-    
-    [super viewWillDisappear:animated];
+- (void)observeKeyboard {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
 }
 
-- (void) viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
+
+- (void)keyboardWillShow:(NSNotification *)notification {
+    NSDictionary *info = [notification userInfo];
+    NSValue *kbFrame = [info objectForKey:UIKeyboardFrameEndUserInfoKey];
+    NSTimeInterval animationDuration = [[info objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    CGRect keyboardFrame = [kbFrame CGRectValue];
+    CGFloat height = keyboardFrame.size.height;
+    self.bottomFieldConstraint.constant = height;
+    
+    [UIView animateWithDuration:animationDuration animations:^{
+        [self.view layoutIfNeeded];
+    }];
+}
+
+- (void)keyboardWillHide:(NSNotification *)notification {
+    NSDictionary *info = [notification userInfo];
+    NSTimeInterval animationDuration = [[info objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    self.bottomFieldConstraint.constant = 0.0;
+    [UIView animateWithDuration:animationDuration animations:^{
+        [self.view layoutIfNeeded];
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

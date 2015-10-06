@@ -96,14 +96,12 @@
         return;
     }
     
-    // login logic
+    [Utils showLoadingWheel:self.view frame:self.spinner.frame isWhite:YES];
+    
+    
     NetworkManager *manager = [NetworkManager sharedNetworkManager];
     NSDictionary *params = @{@"email": email,
                              @"password": password};
-    
-    
-    [Utils showLoadingWheel:self.view frame:self.spinner.frame isWhite:YES];
-    
     [manager POST:LOGIN_API_URL parameters:params success:^(NSURLSessionDataTask *task, id resp) {
         
         [SessionManager updateSession: (NSMutableDictionary *)resp];

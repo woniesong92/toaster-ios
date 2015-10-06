@@ -9,10 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "NetworkManager.h"
 
-@interface NewPostController : UIViewController {
+@interface NewPostController : UIViewController <UITextViewDelegate> {
     UILabel *textViewPlaceholder;
 }
 
 @property (weak, nonatomic) IBOutlet UITextView *postInputField;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomFieldConstraint;
+@property (weak, nonatomic) IBOutlet UILabel *numCharsField;
 
 @end
