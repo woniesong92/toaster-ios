@@ -33,6 +33,12 @@
         [self.numCharsField setText:[NSString stringWithFormat:@"%lu", (unsigned long)textLength]];
     }
     
+    if([text isEqualToString:@"\n"]) {
+        [textView resignFirstResponder];
+        [self doneButtonPressed:self];
+        return NO;
+    }
+    
     return (textLength <= 140);
 }
 

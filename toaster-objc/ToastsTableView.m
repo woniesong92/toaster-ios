@@ -41,32 +41,8 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSLog(@"numPosts: %lu", (unsigned long)self.posts.count);
     return self.posts.count;
 }
-
-//- (void)onAddPostRow:(NSNotification *)notification {
-//    NSMutableDictionary *addedPost = (NSMutableDictionary *)notification.object;
-//    id createdAtObj = addedPost[@"createdAt"];
-//    NSString *createdAt = (NSString *)addedPost[@"createdAt"];
-//    
-//    NSLog(@"SELF: %@", self);
-//    
-//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-//    NSLog(@"body: %@", addedPost[@"body"]);
-//    NSLog(@"obj: %@ date: %@", [createdAtObj class], createdAt);
-//    
-//    [addedPost setValue:[Utils dateWithJSONString:createdAt] forKey:@"createdAt"];
-////    [self.posts insertObject:addedPost atIndex:0];
-//    
-//    // Howon
-//    [self.recentPosts insertObject:addedPost atIndex:0];
-//    self.posts = self.recentPosts;
-//
-//    [self beginUpdates];
-//    [self insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
-//    [self endUpdates];
-//}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *userId = [SessionManager currentUser];
