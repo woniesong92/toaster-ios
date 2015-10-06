@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SignUpPasswordVC : UIViewController
+@interface SignUpPasswordVC : UIViewController <UITextFieldDelegate>
 
 @property NSString *email;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;

@@ -55,9 +55,6 @@
     NetworkManager *manager = [NetworkManager sharedNetworkManager];
     
     [manager GET:reqUrl parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-        
-        NSLog(@"reqURL: %@", reqUrl);
-        
         NSMutableArray *posts = responseObject[@"posts"];
         NSMutableArray *comments = responseObject[@"comments"];
         NSMutableDictionary *numCommentsForPosts = [[NSMutableDictionary alloc] init];

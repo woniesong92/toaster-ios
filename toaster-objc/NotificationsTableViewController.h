@@ -18,5 +18,6 @@
 @property NSMutableDictionary *commentsDict;
 
 @property UILabel *loadingText;
+@property UILabel *zeroNotificationText;
 
 @end

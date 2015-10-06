@@ -853,7 +853,7 @@
             </objects>
             <point key="canvasLocation" x="2280" y="1102"/>
         </scene>
-        <!--Make a toast-->
+        <!--Write-->
         <scene sceneID="PNc-se-iDT">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="4El-qh-klo" customClass="NewPostController" sceneMemberID="viewController">
@@ -928,7 +928,7 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Make a toast" id="3A1-CJ-kCv">
+                    <navigationItem key="navigationItem" title="Write" id="3A1-CJ-kCv">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="yba-lM-Kb2">
                             <connections>
                                 <action selector="cancelButtonPressed:" destination="4El-qh-klo" id="yu1-Mn-Hhv"/>
@@ -2528,7 +2528,7 @@ Cg
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="hello@company.org" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="asO-rj-oiQ">
                                         <rect key="frame" x="8" y="0.0" width="552" height="40"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="go"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -3179,11 +3179,11 @@ Cg
         <image name="upvote-selected" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="64r-tf-rEd"/>
-        <segue reference="Wr7-T2-V3n"/>
+        <segue reference="Nsf-Ux-Xge"/>
         <segue reference="BpZ-kK-lwm"/>
+        <segue reference="64r-tf-rEd"/>
         <segue reference="MlP-vH-AIs"/>
-        <segue reference="SAy-my-1s8"/>
+        <segue reference="bum-UU-cDv"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.596983339" blue="0.01666374407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

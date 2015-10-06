@@ -142,11 +142,12 @@
         if (postsTableTag == RECENT_POSTS_TABLE_TAG) {
             self.postsTable.recentPosts = [Utils sortByDate:posts isReversed:YES];
             self.postsTable.numCommentsForRecentPosts = numCommentsForPosts;
-            [self.loadingText removeFromSuperview];
         } else {
             self.postsTable.hotPosts = [Utils sortPostsByHotness:posts];
             self.postsTable.numCommentsForHotPosts = numCommentsForPosts;
         }
+        
+        [self.loadingText removeFromSuperview];
         
         if (doReload) {
             [self.postsTable reloadData];
@@ -179,7 +180,10 @@
 }
 
 - (void)shouldScrollTop:(NSNotification *)notification {
-    [self.postsTable scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    if (self.postsTable.posts.count > 0) {
+        [self.postsTable scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    }
+    
 }
 
 - (void)onUpdateVoteState:(NSNotification *)notification {
@@ -200,7 +204,7 @@
     }
     
     NSInteger voteDiff = [(NSNumber *) notification.object[@"voteDiff"] integerValue];
-    cell.numVotes.text = [NSString stringWithFormat:@"%ld", cell.numVotes.text.integerValue + voteDiff];
+    cell.numVotes.text = [NSString stringWithFormat:@"%d", cell.numVotes.text.integerValue + voteDiff];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -24,6 +24,7 @@
                                    action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tap];
 
+    self.passwordField.delegate = self;
 }
 
 -(void)dismissKeyboard {
@@ -34,16 +35,20 @@
     [self.navigationController.navigationBar setHidden:YES];
     [self.tabBarController.tabBar setHidden:YES];
     [super viewWillAppear:animated];
-    self.defaultSubText = self.subTextField.text;
-    self.defaultSubTextColor = self.subTextField.textColor;
     
     [self observeKeyboard];
+    self.defaultSubText = self.subTextField.text;
+    self.defaultSubTextColor = self.subTextField.textColor;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [self connectClicked:self];
+    return YES;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];    
-    [self.passwordField becomeFirstResponder];
     [self.passwordField setSelected:YES];
+    [super viewDidAppear:animated];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -88,12 +93,18 @@
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSString *emailExists = @"Email already exists.";
+        NSString *blacklist = @"use your organization";
         NSString *errMsg = [manager getErrorReason:error];
         
         if ([errMsg isEqualToString:emailExists]) {
             [self clearField];
             SignUpEmailVC *vc = (SignUpEmailVC *)[self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count-2];
             vc.errorMsg = emailExists;
+            [self.navigationController popViewControllerAnimated:YES];
+        } else if ([errMsg containsString:blacklist]) {
+            [self clearField];
+            SignUpEmailVC *vc = (SignUpEmailVC *)[self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count-2];
+            vc.errorMsg = errMsg;
             [self.navigationController popViewControllerAnimated:YES];
         } else {
             [self.subTextField setText:errMsg];

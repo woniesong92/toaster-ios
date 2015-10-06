@@ -18,10 +18,17 @@
                                    initWithTarget:self
                                    action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tap];
+    
+    self.emailField.delegate = self;
 }
 
 -(void)dismissKeyboard {
     [self.emailField resignFirstResponder];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [self continueClicked:self];
+    return YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated {

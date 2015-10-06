@@ -33,20 +33,42 @@
 }
 
 - (void)initParse: (UIApplication *)application launchOptions:(NSDictionary *)launchOptions {
-    [Parse setApplicationId:@"nGWY63hAKCyyMHS41xmjNiL4mCIqsJ0TBGWAG4vy"
-                  clientKey:@"w1ps0nxnPNfpJvIGnw52wCl5Og5eOLgiwiuXHn6i"];
+    [Parse setApplicationId:@"b3yOuKbcnPoKl8AOMqAl2NHDfgZ3RnelIvvThPrU"
+                  clientKey:@"oOls1F47v3ObxfdnPEyhlOPdwSdtqEuSUStf3jJT"];
     
     // Track opening app
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
+    // Selectively choose between iOS7 and iOS8
+    if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
+        UIUserNotificationSettings* notificationSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
+        [[UIApplication sharedApplication] registerUserNotificationSettings:notificationSettings];
+        [[UIApplication sharedApplication] registerForRemoteNotifications];
+    } else {
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes: (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+    }
+    
+    
     // Register for Push Notitications
-    UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
-                                                    UIUserNotificationTypeBadge |
-                                                    UIUserNotificationTypeSound);
-    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes
-                                                                             categories:nil];
-    [application registerUserNotificationSettings:settings];
-    [application registerForRemoteNotifications];
+//    UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
+//                                                    UIUserNotificationTypeBadge |
+//                                                    UIUserNotificationTypeSound);
+//    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes
+//                                                                             categories:nil];
+//
+//    [application registerUserNotificationSettings:settings];
+//    [application registerForRemoteNotifications];
+
+    
+}
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+    if (error.code == 3010) {
+        NSLog(@"Push notifications are not supported in the iOS Simulator.");
+    } else {
+        // show some alert or otherwise handle the failure to register.
+        NSLog(@"application:didFailToRegisterForRemoteNotificationsWithError: %@", error);
+    }
 }
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
@@ -61,7 +83,6 @@
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     
-    NSLog(@"url: %@, souce: %@, annot: %@", url, sourceApplication, annotation);
     NSString *urlStr = [url absoluteString];
     if ([urlStr containsString:@"yolk://verified"]) {
         [self onVerified];

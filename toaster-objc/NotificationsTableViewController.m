@@ -17,9 +17,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Add Loading
-    UILabel *label = [[UILabel alloc] initWithFrame: CGRectMake(0, (self.view.frame.size.height/2-25), self.view.frame.size.width, 50)];
+}
+
+- (void)showLoading {
+    CGFloat statusHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
+    CGFloat topBarHeight = self.navigationController.navigationBar.frame.size.height;
+    CGFloat centerHeight = [UIScreen mainScreen].bounds.size.height / 2.0 - (statusHeight + topBarHeight);
+    UILabel *label = [[UILabel alloc] initWithFrame: CGRectMake(0, (centerHeight-25), self.view.frame.size.width, 50)];
     label.text = @"Yolk..."; //etc...
     label.textAlignment = NSTextAlignmentCenter;
     label.textColor = [UIColor grayColor];
@@ -29,6 +33,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self showLoading];
     [self fetchNotifications:@100 skip:@0];
 }
 
@@ -43,11 +48,21 @@
 - (void)markAllNotificationsRead {
     NetworkManager *manager = [NetworkManager sharedNetworkManager];
     [manager POST:READ_NOTIFICATION_API_URL parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-        NSLog(@"Read notifications %@", responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         // TODO: show user this error and clear all the textfields
-        NSLog(@"Error: %@", error);
     }];
+}
+
+- (void)showZeroNotification {
+    CGFloat statusHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
+    CGFloat topBarHeight = self.navigationController.navigationBar.frame.size.height;
+    CGFloat centerHeight = [UIScreen mainScreen].bounds.size.height / 2.0 - (statusHeight + topBarHeight);
+    UILabel *label = [[UILabel alloc] initWithFrame: CGRectMake(0, centerHeight-25, self.view.frame.size.width, 50.0)];
+    label.text = @"You don't have any notification yet."; //etc...
+    label.textAlignment = NSTextAlignmentCenter;
+    label.textColor = [UIColor grayColor];
+    self.zeroNotificationText = label;
+    [self.view addSubview:label];
 }
 
 
@@ -78,13 +93,18 @@
         }
         
         self.notifications = [Utils sortByDate:notifications isReversed:YES];
-        
-        NSLog(@"fetch notifciations");
+        if (self.notifications.count == 0) {
+            [self showZeroNotification];
+        } else {
+            [self.zeroNotificationText removeFromSuperview];
+        }
         
         [self.loadingText removeFromSuperview];
         [self.tableView reloadData];
-        
         [self markAllNotificationsRead];
+
+        
+        
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         // TODO: show user this error and clear all the textfields
         NSLog(@"Error: %@", error);
@@ -134,9 +154,7 @@
 
 #pragma mark - Navigation
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    NSLog(@"prepare");
-    
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {    
     if ([segue.identifier isEqualToString:@"NotisToDetailSegue"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         PostsShowViewController *postsShowController = (PostsShowViewController *)segue.destinationViewController;

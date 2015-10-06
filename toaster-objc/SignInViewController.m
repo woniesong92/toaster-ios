@@ -26,9 +26,19 @@
                                    initWithTarget:self
                                    action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tap];
+    
+    self.passwordField.delegate = self;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [self loginButtonClicked:self];
+    return YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [self.navigationController.navigationBar setHidden:YES];
+    [self.tabBarController.tabBar setHidden:YES];
+    
     [super viewWillAppear:animated];
     [self observeKeyboard];
 }
@@ -116,7 +126,6 @@
                 [SessionManager setVerified];
                 [self performSegueWithIdentifier:@"LoginToMainSegue" sender:self];
             } else {
-                NSLog(@"LOGIN: user not verified. Go to verification.");
                 [self performSegueWithIdentifier:@"LoginToVerificationSegue" sender:self];
             }
             
@@ -124,9 +133,6 @@
             
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
             [self clearInputFields];
-            NSLog(@"Verification Error: %@", error);
-            NSString* errResp = [[NSString alloc] initWithData:(NSData *)error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] encoding:NSUTF8StringEncoding];
-            NSLog(@"respErr: %@", errResp);
             
             [Utils hideLoadingWheel:self.view];
             
