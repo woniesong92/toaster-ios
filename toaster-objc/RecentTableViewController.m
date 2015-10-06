@@ -35,10 +35,6 @@
         [self fetchPosts:HOT_POSTS_TABLE_TAG limit:[NSNumber numberWithInteger:NUM_HOT_POSTS_IN_ONE_BATCH] skip:@0 doReload:NO];
         [self fetchPosts:RECENT_POSTS_TABLE_TAG limit:[NSNumber numberWithInteger:NUM_RECENT_POSTS_IN_ONE_BATCH] skip:@0 doReload:YES];
     }
-    
-    // initialize the starting point to fetch the next batch of posts
-    //    rowIdxToStartFetchingRecentPosts = NUM_RECENT_POSTS_IN_ONE_BATCH;
-    //    rowIdxToStartFetchingHotPosts = NUM_HOT_POSTS_IN_ONE_BATCH;
 }
 
 - (void)addLoading {
@@ -110,7 +106,6 @@
     [self.postsTable insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
     [self.postsTable endUpdates];
 }
-
 
 - (void)fetchPosts: (NSInteger)postsTableTag limit:(NSNumber *)limit skip:(NSNumber *)skip doReload:(BOOL)doReload {
     if ([[SessionManager currentUser] isEqualToString:@""]) {

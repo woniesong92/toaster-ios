@@ -116,8 +116,6 @@
         [self.commentsTable reloadData];
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        // TODO: show user this error and clear all the textfields
-        NSLog(@"Error: %@", error);
     }];
 }
 
@@ -222,18 +220,27 @@
 }
 
 - (IBAction)onSubmitComment:(id)sender {
-    NetworkManager *manager = [NetworkManager sharedNetworkManager];
     NSString *commentBody = self.inlineCommentField.text;
+    
+    if (commentBody.length < 1) {
+        return;
+    }
+    
+    NetworkManager *manager = [NetworkManager sharedNetworkManager];
+    
     NSString *postId = self.postDetail[@"_id"];
+    
+    int numComments = [self.numComments.text intValue] + 1;
+    [self.numComments setText:[NSString stringWithFormat:@"%@", [NSNumber numberWithInt:numComments]]];
     
     [self.inlineCommentField setText:@""];
     [self.view endEditing:YES];
     
     NSDictionary *params = @{@"commentBody": commentBody, @"postId": postId};
+    
     [manager POST:NEW_COMMENT_API_URL parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
         [self addCommentRow:responseObject];
         [[NSNotificationCenter defaultCenter] postNotificationName:TABLE_SCROLL_TO_BOTTOM object:nil userInfo:nil];
-        
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         // TODO: show user this error and clear all the textfields
         NSLog(@"Error: %@", error);
@@ -284,8 +291,6 @@
         // TODO: show user this error and clear all the textfields
         NSLog(@"Error: %@", error);
     }];
-    
-    NSLog(@"on post upvote");
 }
 
 
@@ -311,9 +316,6 @@
     NSDictionary *params = @{@"postId": self.postId};
     
     [manager POST:DOWNVOTE_POST_API_URL parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
-        
-        NSLog(@"%@", responseObject);
-        
         NSInteger voteDiffInt = [(NSString *)responseObject[@"diffVotes"] integerValue];
         NSNumber *voteDiff = [NSNumber numberWithInteger:voteDiffInt];
         

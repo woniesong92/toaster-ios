@@ -54,11 +54,8 @@
     
     [manager POST:UPVOTE_POST_API_URL parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
         
-        NSLog(@"%@", responseObject);
-        
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         // TODO: show user this error and clear all the textfields
-        NSLog(@"Error: %@", error);
     }];
 }
 

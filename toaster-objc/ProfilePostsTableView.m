@@ -16,8 +16,6 @@
 @implementation ProfilePostsTableView
 
 - (void)reloadData {
-    NSLog(@"reloading data!!");
-    
     if (self.tag == POSTS_I_WROTE_TABLE_TAG) {
         self.posts = self.myPosts;
         self.numCommentsForPosts = self.numCommentsForMyPosts;
@@ -36,7 +34,6 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSLog(@"numPosts: %lu", (unsigned long)self.posts.count);
     return self.posts.count;
 }
 

@@ -26,13 +26,13 @@
 @property (strong, nonatomic) NSString *postId;
 @property (strong, nonatomic) NSDictionary *postAdditionalDetail;
 @property (strong, nonatomic) NSMutableArray *comments;
-@property BOOL didIUpvote;
-@property BOOL didIDownvote;
-@property NSNumber *cellRowIdx;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *inputContainerBottomConstraint;
 @property (weak, nonatomic) IBOutlet UIView *commenInputContainer;
 @property (weak, nonatomic) IBOutlet UIView *postDividerTop;
 @property (weak, nonatomic) IBOutlet UIView *commentFieldDivider;
 
+@property BOOL didIUpvote;
+@property BOOL didIDownvote;
+@property NSNumber *cellRowIdx;
 
 @end

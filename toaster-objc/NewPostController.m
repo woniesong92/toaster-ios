@@ -49,15 +49,18 @@
 
 - (IBAction)doneButtonPressed:(id)sender {
     NSString *postBody = self.postInputField.text;
+    
+    if ((postBody.length < 2) || (postBody.length > 500)) {
+        NSLog(@"too long or too short");
+        return;
+    }
+    
     NSDictionary *params = @{@"postBody": postBody};
     NetworkManager *manager = [NetworkManager sharedNetworkManager];
     
     [manager POST:NEW_POST_API_URL parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
         [[NSNotificationCenter defaultCenter] postNotificationName:ASK_TO_ADD_POST_ROW object:responseObject userInfo:nil];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        // TODO: show user this error and clear all the textfields
-        NSString* ErrorResponse = [[NSString alloc] initWithData:(NSData *)error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] encoding:NSUTF8StringEncoding];
-        NSLog(@"%@", ErrorResponse);
     }];
     
     [self dismissViewControllerAnimated:YES completion:^{
