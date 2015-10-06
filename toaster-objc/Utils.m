@@ -26,6 +26,11 @@
     
     [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZ"];
     
+    NSDate *newDateVal = [dateFormatter dateFromString:createdAt];
+    if (!newDateVal) {
+        [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZ"];
+    }
+    
     
     NSDate *date = [[NSDate alloc] init];
     

@@ -20,8 +20,8 @@
 
 
 @interface RecentTableViewController () {
-    NSInteger rowIdxToStartFetchingRecentPosts;
-    NSInteger rowIdxToStartFetchingHotPosts;
+//    NSInteger rowIdxToStartFetchingRecentPosts;
+//    NSInteger rowIdxToStartFetchingHotPosts;
 }
 
 @end
@@ -34,8 +34,8 @@
     [Utils setGradient:self.filterDivider fromColor:[UIColor whiteColor] toColor:[UIColor colorWithRed:255.0/255.0 green:138.0/255.0 blue:0.0 alpha:1.0]];
     
     // initialize the starting point to fetch the next batch of posts
-    rowIdxToStartFetchingRecentPosts = NUM_RECENT_POSTS_IN_ONE_BATCH - 5;
-    rowIdxToStartFetchingHotPosts = NUM_HOT_POSTS_IN_ONE_BATCH - 5;
+//    rowIdxToStartFetchingRecentPosts = NUM_RECENT_POSTS_IN_ONE_BATCH;
+//    rowIdxToStartFetchingHotPosts = NUM_HOT_POSTS_IN_ONE_BATCH;
     
 //    Set up Recent Posts Table
     [self.postsTable setDelegate:self];
@@ -44,6 +44,12 @@
     [self.recentFilterBtn setSelected:YES];
     [self addLoading];
     [self addObservers];
+    
+    // add posts
+    if (![[SessionManager currentUser] isEqualToString:@""]) {
+        [self fetchPosts:HOT_POSTS_TABLE_TAG limit:[NSNumber numberWithInteger:NUM_HOT_POSTS_IN_ONE_BATCH] skip:@0 doReload:NO];
+        [self fetchPosts:RECENT_POSTS_TABLE_TAG limit:[NSNumber numberWithInteger:NUM_RECENT_POSTS_IN_ONE_BATCH] skip:@0 doReload:YES];
+    }
 }
 
 - (void)addLoading {
@@ -75,10 +81,14 @@
                                              selector:@selector(onUpdateVoteState:)
                                                  name:DOWNVOTE_POST_UPDATE
                                                object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onSelectRecentFilter:)
+                                                 name:SELECT_RECENT_FILTER
+                                               object:nil];
 }
 
 - (IBAction)newFilterSelected:(id)sender {
-    NSLog(@"new btn selected");
     [self.recentFilterBtn setSelected:YES];
     [self.hotFilterBtn setSelected:NO];
     [self.postsTable setTag:RECENT_POSTS_TABLE_TAG];
@@ -87,7 +97,6 @@
 }
 
 - (IBAction)hotFilterSelected:(id)sender {
-    NSLog(@"hot btn selected");
     [self.hotFilterBtn setSelected:YES];
     [self.recentFilterBtn setSelected:NO];
     [self.postsTable setTag:HOT_POSTS_TABLE_TAG];
@@ -158,12 +167,6 @@
     [super viewWillAppear:animated];
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    
-    if (![[SessionManager currentUser] isEqualToString:@""] && self.postsTable.posts.count == 0) {
-        NSLog(@"fetching both recent and hot posts");
-        [self fetchPosts:HOT_POSTS_TABLE_TAG limit:[NSNumber numberWithInteger:NUM_HOT_POSTS_IN_ONE_BATCH] skip:@0 doReload:NO];
-        [self fetchPosts:RECENT_POSTS_TABLE_TAG limit:[NSNumber numberWithInteger:NUM_RECENT_POSTS_IN_ONE_BATCH] skip:@0 doReload:YES];
-    }
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -171,12 +174,16 @@
 }
 
 - (void)shouldFetchPosts:(NSNotification *)notification {
-    NSLog(@"should fetch more posts called");
-//    [self fetchPosts:@0 skip:@0];
+    [self fetchPosts:HOT_POSTS_TABLE_TAG limit:[NSNumber numberWithInteger:NUM_HOT_POSTS_IN_ONE_BATCH] skip:@0 doReload:NO];
+    [self fetchPosts:RECENT_POSTS_TABLE_TAG limit:[NSNumber numberWithInteger:NUM_RECENT_POSTS_IN_ONE_BATCH] skip:@0 doReload:YES];
 }
 
 - (void)shouldScrollTop:(NSNotification *)notification {
     [self.postsTable scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+}
+
+- (void)onSelectRecentFilter:(NSNotification *)notification {
+    [self newFilterSelected:self];
 }
 
 - (void)onUpdateVoteState:(NSNotification *)notification {

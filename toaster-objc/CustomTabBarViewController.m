@@ -37,14 +37,10 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
-    NSLog(@"tabbarcontroller view will appear");
 }
 
 - (void) myNotificationReceived:(NSNotification *) notification
 {
-    NSLog(@"notification received");
-    
     NSNumber *count = [[notification.userInfo objectForKey:@"aps"] objectForKey:@"badge"];
     NSString *badgeCount = [NSString stringWithFormat:@"%@", count];
     

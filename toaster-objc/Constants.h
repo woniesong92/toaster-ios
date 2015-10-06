@@ -1,7 +1,9 @@
-#define BASE_URL @"http://192.168.0.102:3000"
+//#define BASE_URL @"http://192.168.0.102:3000"
 //#define BASE_URL @"http://104.131.158.80"
 //#define BASE_URL @"http://10.145.128.103:3000"
 //#define BASE_URL @"http://10.145.13.202:3000"
+#define BASE_URL @"http://yolknow.com"
+
 #define TRENDING_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/trending"]
 #define NEW_POST_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/newPost"]
 #define SETTINGS_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/settings"]
@@ -60,6 +62,7 @@
 #define GET_NOTIFICATIONS_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/api/notifications"]
 //#define GET_PROFILE_POSTS_COMMENTS_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/api/myPostsComments"]
 
+#define SELECT_RECENT_FILTER @"selectRecentFilter"
 #define GET_POSTS_I_WROTE_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/api/postsIWrote"]
 #define GET_POSTS_I_COMMENTED_ON_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/api/postsICommentedOn"]
 

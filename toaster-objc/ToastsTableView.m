@@ -54,13 +54,19 @@
 
 - (void)onAddPostRow:(NSNotification *)notification {
     NSMutableDictionary *addedPost = (NSMutableDictionary *)notification.object;
-    
     NSString *createdAt = (NSString *)addedPost[@"createdAt"];
-    [addedPost setValue:[Utils dateWithJSONString:createdAt] forKey:@"createdAt"];
     
-    [self.posts insertObject:addedPost atIndex:0];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     
+    NSLog(@"date?? %@", createdAt);
+    
+    [addedPost setValue:[Utils dateWithJSONString:createdAt] forKey:@"createdAt"];
+//    [self.posts insertObject:addedPost atIndex:0];
+    
+    // Howon
+    [self.recentPosts insertObject:addedPost atIndex:0];
+    self.posts = self.recentPosts;
+
     [self beginUpdates];
     [self insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
     [self endUpdates];

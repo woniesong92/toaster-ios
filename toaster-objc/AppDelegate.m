@@ -106,11 +106,16 @@
     if (tabIndex == NOTIFICATION_TAB_INDEX) {
         [[tabBarController.tabBar.items objectAtIndex:NOTIFICATION_TAB_INDEX] setBadgeValue:0];
     }
+    
+    if (tabIndex == 0) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:ASK_TO_FETCH_POSTS object:nil userInfo:nil];
+    }
 
     if ([viewController isKindOfClass:[UINavigationController class]]) {
         UINavigationController *navigation = (UINavigationController*) viewController;
         [navigation popToRootViewControllerAnimated:NO];
     }
+    
 }
 
 

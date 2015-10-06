@@ -55,16 +55,10 @@
     NSDictionary *params = @{@"postBody": postBody};
     NetworkManager *manager = [NetworkManager sharedNetworkManager];
     
-//    NSLog(@"manager: %@", manager);
-    
     [manager POST:NEW_POST_API_URL parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
-        NSLog(@"task: %@", task);
-        NSLog(@"NewPostSuccess. resp: %@", responseObject);
         [[NSNotificationCenter defaultCenter] postNotificationName:ASK_TO_ADD_POST_ROW object:responseObject userInfo:nil];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         // TODO: show user this error and clear all the textfields
-        NSLog(@"err: %@", error);
-        NSLog(@"task: %@", task);
         NSString* ErrorResponse = [[NSString alloc] initWithData:(NSData *)error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] encoding:NSUTF8StringEncoding];
         NSLog(@"%@", ErrorResponse);
     }];
@@ -80,7 +74,9 @@
 //    Dismiss the keyboard when modal is closed
     [self.view endEditing:YES];
     
-    [super viewWillDisappear:NO];
+    [super viewWillDisappear:animated];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:SELECT_RECENT_FILTER object:nil userInfo:nil];
 }
 
 - (void) viewDidDisappear:(BOOL)animated {
