@@ -43,6 +43,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <variation key="default">
                                     <mask key="constraints">
+                                        <exclude reference="EQa-mR-27F"/>
                                         <exclude reference="PyJ-Dj-fW7"/>
                                         <exclude reference="vf2-k3-cih"/>
                                     </mask>
@@ -427,16 +428,19 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="16w-37-JT1" id="hUr-EM-90U">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sT9-ai-tBb">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sT9-ai-tBb">
                                             <rect key="frame" x="560" y="8" width="32" height="32"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="32" id="fca-du-0cq"/>
+                                            </constraints>
                                         </imageView>
-                                        <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" editable="NO" text="Notification Context" translatesAutoresizingMaskIntoConstraints="NO" id="gsh-tD-CK1">
+                                        <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Notification Context" translatesAutoresizingMaskIntoConstraints="NO" id="gsh-tD-CK1">
                                             <rect key="frame" x="48" y="45" width="504" height="33"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
-                                        <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" editable="NO" text="Notification Message" translatesAutoresizingMaskIntoConstraints="NO" id="7tw-fI-Nwd">
+                                        <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" text="Notification Message" translatesAutoresizingMaskIntoConstraints="NO" id="7tw-fI-Nwd">
                                             <rect key="frame" x="48" y="8" width="500" height="33"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -444,6 +448,7 @@
                                                 <constraint firstAttribute="width" constant="504" id="2l6-Aj-ljL"/>
                                                 <constraint firstAttribute="width" constant="500" id="2t4-JT-oGw"/>
                                                 <constraint firstAttribute="height" constant="33" id="Uxs-Qe-DaT"/>
+                                                <constraint firstAttribute="width" constant="500" id="uoa-yF-YUt"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -451,6 +456,7 @@
                                                 <mask key="constraints">
                                                     <exclude reference="2l6-Aj-ljL"/>
                                                     <exclude reference="2t4-JT-oGw"/>
+                                                    <exclude reference="uoa-yF-YUt"/>
                                                 </mask>
                                             </variation>
                                         </textView>
@@ -632,7 +638,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="153" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="5X0-rd-WO1" customClass="ProfilePostsTableView">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="153" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="5X0-rd-WO1" customClass="ProfilePostsTableView">
                                 <rect key="frame" x="0.0" y="113" width="600" height="431"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -826,7 +832,7 @@
                             <constraint firstItem="8QZ-9Q-3DN" firstAttribute="bottom" secondItem="FWK-21-ipA" secondAttribute="bottom" id="bD2-ZL-AnX"/>
                             <constraint firstAttribute="trailing" secondItem="8QZ-9Q-3DN" secondAttribute="trailing" id="bFM-BJ-rBb"/>
                             <constraint firstItem="FWK-21-ipA" firstAttribute="top" secondItem="b6W-Wr-pi1" secondAttribute="top" constant="64" id="jMy-Vj-QhL"/>
-                            <constraint firstAttribute="bottom" secondItem="5X0-rd-WO1" secondAttribute="bottom" constant="49" id="rue-gf-iAT"/>
+                            <constraint firstAttribute="bottom" secondItem="5X0-rd-WO1" secondAttribute="bottom" constant="56" id="rue-gf-iAT"/>
                             <constraint firstItem="fth-SM-X3z" firstAttribute="leading" secondItem="b6W-Wr-pi1" secondAttribute="leading" id="uzd-wn-QcV"/>
                         </constraints>
                         <variation key="default">
@@ -2289,8 +2295,8 @@ Cg
                                                         <action selector="onUpvotePressed:" destination="8ss-xR-2wN" eventType="touchUpInside" id="RgJ-2k-pHa"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oel-x0-fSB">
-                                                    <rect key="frame" x="556" y="86" width="32" height="32"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oel-x0-fSB">
+                                                    <rect key="frame" x="556" y="84" width="32" height="32"/>
                                                     <state key="normal" title="downvote" image="downvote">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
@@ -2299,8 +2305,8 @@ Cg
                                                         <action selector="onDownvotePressed:" destination="8ss-xR-2wN" eventType="touchUpInside" id="itB-Dr-M42"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="15" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aE5-gC-Agb">
-                                                    <rect key="frame" x="556" y="52" width="32" height="22"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="15" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aE5-gC-Agb">
+                                                    <rect key="frame" x="556" y="52" width="32" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -3072,11 +3078,13 @@ Cg
                             <constraint firstItem="IL9-s3-Udm" firstAttribute="centerY" secondItem="V0q-3V-cWI" secondAttribute="centerY" id="njB-Mo-k3o"/>
                             <constraint firstItem="IL9-s3-Udm" firstAttribute="leading" secondItem="V0q-3V-cWI" secondAttribute="trailing" constant="-38" id="s8u-xk-45K"/>
                             <constraint firstAttribute="centerX" secondItem="cB1-AO-wju" secondAttribute="centerX" id="sWn-ld-DJ0"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Kbk-iE-fCS" secondAttribute="trailing" constant="16" id="svu-Yz-XQp"/>
                             <constraint firstItem="H4o-Ls-sAq" firstAttribute="height" secondItem="Zfo-cn-1bZ" secondAttribute="height" id="tuE-fo-dft"/>
                             <constraint firstItem="IL9-s3-Udm" firstAttribute="top" secondItem="V0q-3V-cWI" secondAttribute="top" constant="5" id="uEl-97-J6f"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="svu-Yz-XQp"/>
                                 <exclude reference="lSu-Fs-Vjr"/>
                                 <exclude reference="7LA-7s-wd6"/>
                                 <exclude reference="GvB-Mj-WH6"/>
@@ -3126,10 +3134,10 @@ Cg
         <image name="upvote-selected" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="64r-tf-rEd"/>
+        <segue reference="Qln-Ca-EvB"/>
+        <segue reference="Zxy-JZ-Rmh"/>
+        <segue reference="kLf-fs-wlQ"/>
         <segue reference="Wr7-T2-V3n"/>
-        <segue reference="BpZ-kK-lwm"/>
-        <segue reference="MlP-vH-AIs"/>
         <segue reference="SAy-my-1s8"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.596983339" blue="0.01666374407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

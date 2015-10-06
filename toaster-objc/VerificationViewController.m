@@ -75,11 +75,8 @@
         
         [Utils hideLoadingWheel:self.view];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSString* errResp = [[NSString alloc] initWithData:(NSData *)error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] encoding:NSUTF8StringEncoding];
-        
         [self.subTextView setText:@"Unknown error occurred."];
         [self.subTextView setTextColor: ERROR_COLOR];
-        
         [Utils hideLoadingWheel:self.view];
         
     }];
