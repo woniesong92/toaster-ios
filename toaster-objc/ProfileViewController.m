@@ -48,10 +48,8 @@
     
     if (postsTableTag == POSTS_I_WROTE_TABLE_TAG) {
         reqUrl = [NSString stringWithFormat:@"%@/%@/%@", GET_POSTS_I_WROTE_URL, limit, skip];
-        NSLog(@"fetching the posts I wrote");
     } else {
         reqUrl = [NSString stringWithFormat:@"%@/%@/%@", GET_POSTS_I_COMMENTED_ON_URL, limit, skip];
-        NSLog(@"fetching my replies");
     }
     
     NetworkManager *manager = [NetworkManager sharedNetworkManager];
@@ -86,8 +84,6 @@
         
         if (doReload) {
             [self.postsTable reloadData];
-        } else {
-            NSLog(@"dont reload");
         }
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {

@@ -18,8 +18,6 @@
                                    initWithTarget:self
                                    action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tap];
-    
-    [self observeKeyboard];
 }
 
 -(void)dismissKeyboard {
@@ -43,12 +41,16 @@
         [self.subTextField setTextColor:ERROR_COLOR];
         self.errorMsg = nil;
     }
+    
+    [self observeKeyboard];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     [self.subTextField setText:self.defaultSubText];
     [self.subTextField setTextColor:self.defaultSubTextColor];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

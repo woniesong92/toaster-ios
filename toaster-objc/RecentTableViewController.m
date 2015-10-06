@@ -16,9 +16,6 @@
 #import "SessionManager.h"
 
 
-#define _ Underscore
-
-
 @interface RecentTableViewController () {
 //    NSInteger rowIdxToStartFetchingRecentPosts;
 //    NSInteger rowIdxToStartFetchingHotPosts;
@@ -30,26 +27,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [Utils setGradient:self.filterDivider fromColor:[UIColor whiteColor] toColor:[UIColor colorWithRed:255.0/255.0 green:138.0/255.0 blue:0.0 alpha:1.0]];
-    
-    // initialize the starting point to fetch the next batch of posts
-//    rowIdxToStartFetchingRecentPosts = NUM_RECENT_POSTS_IN_ONE_BATCH;
-//    rowIdxToStartFetchingHotPosts = NUM_HOT_POSTS_IN_ONE_BATCH;
-    
-//    Set up Recent Posts Table
-    [self.postsTable setDelegate:self];
-    [self.postsTable setDataSource:self.postsTable];
-    [self.postsTable setTag:0];
-    [self.recentFilterBtn setSelected:YES];
     [self addLoading];
-    [self addObservers];
+    [Utils setGradient:self.filterDivider fromColor:[UIColor whiteColor] toColor:[UIColor colorWithRed:255.0/255.0 green:138.0/255.0 blue:0.0 alpha:1.0]];
     
     // add posts
     if (![[SessionManager currentUser] isEqualToString:@""]) {
         [self fetchPosts:HOT_POSTS_TABLE_TAG limit:[NSNumber numberWithInteger:NUM_HOT_POSTS_IN_ONE_BATCH] skip:@0 doReload:NO];
         [self fetchPosts:RECENT_POSTS_TABLE_TAG limit:[NSNumber numberWithInteger:NUM_RECENT_POSTS_IN_ONE_BATCH] skip:@0 doReload:YES];
     }
+    
+    // initialize the starting point to fetch the next batch of posts
+    //    rowIdxToStartFetchingRecentPosts = NUM_RECENT_POSTS_IN_ONE_BATCH;
+    //    rowIdxToStartFetchingHotPosts = NUM_HOT_POSTS_IN_ONE_BATCH;
 }
 
 - (void)addLoading {
@@ -83,9 +72,14 @@
                                                object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(onSelectRecentFilter:)
-                                                 name:SELECT_RECENT_FILTER
+                                             selector:@selector(onAddPostRow:)
+                                                 name:ASK_TO_ADD_POST_ROW
                                                object:nil];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (IBAction)newFilterSelected:(id)sender {
@@ -104,9 +98,21 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:TABLE_SCROLL_TO_TOP object:nil userInfo:nil];
 }
 
+- (void)onAddPostRow:(NSNotification *)notification {
+    NSMutableDictionary *addedPost = (NSMutableDictionary *)notification.object;
+    NSString *createdAt = (NSString *)addedPost[@"createdAt"];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    [addedPost setValue:[Utils dateWithJSONString:createdAt] forKey:@"createdAt"];
+    [self newFilterSelected:self];
+
+    [self.postsTable.posts insertObject:addedPost atIndex:0];
+    [self.postsTable beginUpdates];
+    [self.postsTable insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    [self.postsTable endUpdates];
+}
+
 
 - (void)fetchPosts: (NSInteger)postsTableTag limit:(NSNumber *)limit skip:(NSNumber *)skip doReload:(BOOL)doReload {
-    
     if ([[SessionManager currentUser] isEqualToString:@""]) {
         return;
     }
@@ -125,7 +131,6 @@
     }
     
     [manager GET:reqUrl parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-        
         NSMutableArray *posts = responseObject[@"posts"];
         NSMutableArray *comments = responseObject[@"comments"];
         NSMutableDictionary *numCommentsForPosts = [[NSMutableDictionary alloc] init];
@@ -152,9 +157,6 @@
         
         if (doReload) {
             [self.postsTable reloadData];
-            NSLog(@"loading ended");
-        } else {
-            NSLog(@"dont reload");
         }
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -165,8 +167,13 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+
+    [self.postsTable setDelegate:self];
+    [self.postsTable setDataSource:self.postsTable];
+    [self.postsTable setTag:0];
+    [self.recentFilterBtn setSelected:YES];
+    [self addObservers];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -180,10 +187,6 @@
 
 - (void)shouldScrollTop:(NSNotification *)notification {
     [self.postsTable scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
-}
-
-- (void)onSelectRecentFilter:(NSNotification *)notification {
-    [self newFilterSelected:self];
 }
 
 - (void)onUpdateVoteState:(NSNotification *)notification {

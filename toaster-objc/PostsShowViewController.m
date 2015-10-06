@@ -190,7 +190,6 @@
 }
 
 - (void)shouldScrollBottom:(NSNotification *)notification {
-    NSLog(@"scrolling bottom");
     NSInteger numberOfRows = [self.commentsTable numberOfRowsInSection:0];
     if (numberOfRows) {
         [self.commentsTable scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:numberOfRows-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
@@ -201,16 +200,15 @@
     [super didReceiveMemoryWarning];
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-    
+- (void)viewWillDisappear:(BOOL)animated {    
     [super viewWillDisappear:animated];
 }
 
 
 - (void)viewDidDisappear:(BOOL)animated {
-    // I don't want to be a tabbar delegate anymore
     [super viewDidDisappear:animated];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)addCommentRow:(NSMutableDictionary *)newComment {

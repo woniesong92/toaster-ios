@@ -23,7 +23,7 @@
                                    initWithTarget:self
                                    action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tap];
-    [self observeKeyboard];
+
 }
 
 -(void)dismissKeyboard {
@@ -36,23 +36,26 @@
     [super viewWillAppear:animated];
     self.defaultSubText = self.subTextField.text;
     self.defaultSubTextColor = self.subTextField.textColor;
+    
+    [self observeKeyboard];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];    
     [self.passwordField becomeFirstResponder];
     [self.passwordField setSelected:YES];
-
-}
-
-- (void)clearField {
-    [self.passwordField setText:@""];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     [self.subTextField setText:self.defaultSubText];
     [self.subTextField setTextColor:self.defaultSubTextColor];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)clearField {
+    [self.passwordField setText:@""];
 }
 
 - (IBAction)connectClicked:(id)sender {

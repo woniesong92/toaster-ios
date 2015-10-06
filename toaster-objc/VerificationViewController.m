@@ -35,7 +35,6 @@
 }
 
 - (void)shouldRedirect:(NSNotification *)notification {
-    NSLog(@"shouldRedirect: user clicked the link! Let's redirect");
     [self performSegueWithIdentifier:@"VerificationToMainSegue" sender:nil];
 }
 
@@ -76,9 +75,7 @@
         
         [Utils hideLoadingWheel:self.view];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"Verification Error: %@", error);
         NSString* errResp = [[NSString alloc] initWithData:(NSData *)error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] encoding:NSUTF8StringEncoding];
-        NSLog(@"respErr: %@", errResp);
         
         [self.subTextView setText:@"Unknown error occurred."];
         [self.subTextView setTextColor: ERROR_COLOR];

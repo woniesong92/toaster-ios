@@ -48,9 +48,6 @@
 }
 
 - (IBAction)doneButtonPressed:(id)sender {
-    
-    NSLog(@"newPost doneBtn pressed");
-    
     NSString *postBody = self.postInputField.text;
     NSDictionary *params = @{@"postBody": postBody};
     NetworkManager *manager = [NetworkManager sharedNetworkManager];
@@ -67,16 +64,12 @@
         // Consider adding a fake post object for optimization
         [[NSNotificationCenter defaultCenter] postNotificationName:TABLE_SCROLL_TO_TOP object:nil userInfo:nil];
     }];
-    
 }
 
 - (void) viewWillDisappear:(BOOL)animated {
-//    Dismiss the keyboard when modal is closed
     [self.view endEditing:YES];
     
     [super viewWillDisappear:animated];
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:SELECT_RECENT_FILTER object:nil userInfo:nil];
 }
 
 - (void) viewDidDisappear:(BOOL)animated {

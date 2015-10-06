@@ -10,7 +10,6 @@
 		700272391B9A36B900C292A5 /* UIWebView+FLUIWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 700272381B9A36B900C292A5 /* UIWebView+FLUIWebView.m */; };
 		7002723C1B9A36EE00C292A5 /* WKWebView+FLWKWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7002723B1B9A36EE00C292A5 /* WKWebView+FLWKWebView.m */; };
 		7002724B1B9B173F00C292A5 /* NewPostController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7002724A1B9B173F00C292A5 /* NewPostController.m */; };
-		7002724E1B9BD23200C292A5 /* LoadingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7002724D1B9BD23200C292A5 /* LoadingManager.m */; };
 		7004B9D31BAE902700C4210E /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7004B9D21BAE902700C4210E /* CustomTableViewCell.m */; };
 		701278211BA537EF00A4D6FA /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 701278201BA537EF00A4D6FA /* WebKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		7017D6EF1BAF03F2003EB498 /* CommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7017D6EE1BAF03F2003EB498 /* CommentTableViewCell.m */; };
@@ -97,8 +96,6 @@
 		7002723B1B9A36EE00C292A5 /* WKWebView+FLWKWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WKWebView+FLWKWebView.m"; sourceTree = "<group>"; };
 		700272491B9B173F00C292A5 /* NewPostController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewPostController.h; sourceTree = "<group>"; };
 		7002724A1B9B173F00C292A5 /* NewPostController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewPostController.m; sourceTree = "<group>"; };
-		7002724C1B9BD23200C292A5 /* LoadingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingManager.h; sourceTree = "<group>"; };
-		7002724D1B9BD23200C292A5 /* LoadingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingManager.m; sourceTree = "<group>"; };
 		7004B9D11BAE902700C4210E /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
 		7004B9D21BAE902700C4210E /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
 		701278201BA537EF00A4D6FA /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -452,8 +449,6 @@
 				70C95FBC1BC245C8006F8442 /* AboutVC.h */,
 				70C95FBD1BC245C8006F8442 /* AboutVC.m */,
 				70EC5ABB1BAE3D800019AA58 /* PrefixHeader.pch */,
-				7002724C1B9BD23200C292A5 /* LoadingManager.h */,
-				7002724D1B9BD23200C292A5 /* LoadingManager.m */,
 				70951FA11B989F15006B1228 /* Images.xcassets */,
 				70951FA31B989F15006B1228 /* LaunchScreen.xib */,
 				7002723D1B9A372B00C292A5 /* FLWebView */,
@@ -608,7 +603,6 @@
 				7017D7291BAF9DBB003EB498 /* DTTimePeriod.m in Sources */,
 				70951F971B989F15006B1228 /* AppDelegate.m in Sources */,
 				70A4F0451BB7512100E66A7E /* NotificationCell.m in Sources */,
-				7002724E1B9BD23200C292A5 /* LoadingManager.m in Sources */,
 				7017D7131BAF8E3D003EB498 /* USArrayWrapper.m in Sources */,
 				7046D1FE1BAE38EF00A5465F /* AFHTTPSessionManager.m in Sources */,
 				7017D7101BAF8E3D003EB498 /* Underscore+Times.m in Sources */,

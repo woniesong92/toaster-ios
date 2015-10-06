@@ -23,9 +23,6 @@
     NetworkManager *manager = [NetworkManager sharedNetworkManager];
     
     [manager POST:GET_NETWORK_API_URL parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-        
-        NSLog(@"%@", responseObject);
-        
         NSString *networkName = responseObject[@"network"];
         [self.networkLabel setText:networkName];
         
@@ -36,8 +33,6 @@
 }
 
 - (IBAction)onLogoutClicked:(id)sender {
-    NSLog(@"logging out this kid");
-    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults removeObjectForKey:@"token"];
     [defaults removeObjectForKey:@"userId"];

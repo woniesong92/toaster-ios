@@ -19,21 +19,9 @@
 + (NSDate *)dateWithJSONString: (NSString *)createdAt {
     // FIXME: initializing a dateformatter everytime is inefficient
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-
     //should match this format: 2015-09-21T00:40:21.976Z
-    
-    //have no idea why date comes in two forms sometimes.
-    
     [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZ"];
-    
-    NSDate *newDateVal = [dateFormatter dateFromString:createdAt];
-    if (!newDateVal) {
-        [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZ"];
-    }
-    
-    
     NSDate *date = [[NSDate alloc] init];
-    
     date = [dateFormatter dateFromString:createdAt];
     return date;
 }

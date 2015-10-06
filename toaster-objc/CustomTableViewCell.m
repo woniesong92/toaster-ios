@@ -15,16 +15,12 @@
 @implementation CustomTableViewCell
 
 - (void)awakeFromNib {
-    // Initialization code
-    
     [Utils setGradient:self.divider fromColor:[UIColor whiteColor] toColor:[UIColor colorWithRed:238.0/255.0 green:238.0/255.0 blue:238.0/255.0 alpha:1.0]];
     [Utils setGradient:self.profileCellDivider fromColor:[UIColor whiteColor] toColor:[UIColor colorWithRed:238.0/255.0 green:238.0/255.0 blue:238.0/255.0 alpha:1.0]];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 - (void)toggleSelected:(UIButton *)btn{

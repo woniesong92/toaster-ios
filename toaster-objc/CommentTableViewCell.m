@@ -14,19 +14,14 @@
 @implementation CommentTableViewCell
 
 - (void)awakeFromNib {
-    // Initialization code
-    
     self.commentBody.textContainer.lineFragmentPadding = 0;
-    
     [Utils setGradient:self.commentDivider fromColor:[UIColor whiteColor] toColor:[UIColor colorWithRed:238.0/255.0 green:238.0/255.0 blue:238.0/255.0 alpha:1.0]];
-    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
+
 - (IBAction)onCommentUpvote:(id)sender {
     NetworkManager *manager = [NetworkManager sharedNetworkManager];
     
@@ -62,9 +57,7 @@
 }
 
 - (IBAction)onCommentDownvote:(id)sender {
-    NSLog(@"on comment downvote");
     NetworkManager *manager = [NetworkManager sharedNetworkManager];
-    
     NSDictionary *params = @{@"commentId": self.commentId};
     
     if (self.didIDownvote) {
@@ -82,7 +75,6 @@
         [self.numVotes setText:[NSString stringWithFormat:@"%d", self.numVotes.text.intValue-1]];
         [self.downvoteBtn setSelected:self.downvoteBtn];
     }
-    
     
     [manager POST:DOWNVOTE_COMMENT_API_URL parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
         

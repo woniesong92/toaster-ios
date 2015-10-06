@@ -62,7 +62,6 @@
 #define GET_NOTIFICATIONS_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/api/notifications"]
 //#define GET_PROFILE_POSTS_COMMENTS_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/api/myPostsComments"]
 
-#define SELECT_RECENT_FILTER @"selectRecentFilter"
 #define GET_POSTS_I_WROTE_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/api/postsIWrote"]
 #define GET_POSTS_I_COMMENTED_ON_URL [NSString stringWithFormat:@"%@%@", BASE_URL, @"/api/postsICommentedOn"]
 
