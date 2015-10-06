@@ -118,11 +118,9 @@
     
     if (postsTableTag == RECENT_POSTS_TABLE_TAG) {
         reqUrl = [NSString stringWithFormat:@"%@/%@/%@", GET_RECENT_POSTS_URL, limit, skip];
-        NSLog(@"fetching recent table posts");
         
     } else {
         reqUrl = [NSString stringWithFormat:@"%@/%@/%@", GET_HOT_POSTS_URL, limit, skip];
-        NSLog(@"fetching hot table posts");
     }
     
     [manager GET:reqUrl parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {

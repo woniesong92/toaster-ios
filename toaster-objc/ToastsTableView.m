@@ -15,9 +15,7 @@
 
 @implementation ToastsTableView
 
-- (void)reloadData {
-    NSLog(@"reloading data!!");
-    
+- (void)reloadData {    
     if (self.tag == RECENT_POSTS_TABLE_TAG) {
         self.posts = self.recentPosts;
         self.numCommentsForPosts = self.numCommentsForRecentPosts;

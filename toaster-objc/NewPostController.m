@@ -28,7 +28,7 @@
     CGFloat frameWidth = self.postInputField.frame.size.width;
     textViewPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(7, -18, frameWidth, 200)];
     textViewPlaceholder.text = POST_PLACEHOLDER;
-    [textViewPlaceholder setFont:[UIFont systemFontOfSize:14]];
+    [textViewPlaceholder setFont:[UIFont systemFontOfSize:16]];
     textViewPlaceholder.textColor = [UIColor lightGrayColor];
     [self.view addSubview:textViewPlaceholder];
     

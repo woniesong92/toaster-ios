@@ -103,19 +103,20 @@
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController{
     
     NSUInteger tabIndex = [tabBarController.viewControllers indexOfObject:viewController];
-    if (tabIndex == NOTIFICATION_TAB_INDEX) {
-        [[tabBarController.tabBar.items objectAtIndex:NOTIFICATION_TAB_INDEX] setBadgeValue:0];
-    }
     
     if (tabIndex == 0) {
         [[NSNotificationCenter defaultCenter] postNotificationName:ASK_TO_FETCH_POSTS object:nil userInfo:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:TABLE_SCROLL_TO_TOP object:nil userInfo:nil];
+    }
+    
+    if (tabIndex == NOTIFICATION_TAB_INDEX) {
+        [[tabBarController.tabBar.items objectAtIndex:NOTIFICATION_TAB_INDEX] setBadgeValue:0];
     }
 
     if ([viewController isKindOfClass:[UINavigationController class]]) {
         UINavigationController *navigation = (UINavigationController*) viewController;
         [navigation popToRootViewControllerAnimated:NO];
     }
-    
 }
 
 
